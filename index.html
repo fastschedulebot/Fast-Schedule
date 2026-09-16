@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1faa59">
+  <meta name="description" content="Fast Scheduler — schedule and manage Telegram channel posts.">
+  <title>Fast Scheduler</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    :root {
+      --home-glass: color-mix(in srgb, var(--surface) 62%, transparent);
+      --home-glass-strong: color-mix(in srgb, var(--surface) 78%, transparent);
+    }
+
+    html, body { min-height: 100%; }
+
+    body.home {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(38rem 28rem at -8% -10%, color-mix(in srgb, var(--green) 28%, transparent), transparent 68%),
+        radial-gradient(32rem 26rem at 108% 104%, color-mix(in srgb, var(--green) 24%, transparent), transparent 70%),
+        var(--bg);
+    }
+
+    .home::before,
+    .home::after {
+      position: fixed;
+      z-index: -1;
+      width: min(42vw, 28rem);
+      height: min(42vw, 28rem);
+      border-radius: 50%;
+      content: "";
+      filter: blur(16px);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .home::before {
+      top: 11%;
+      left: -15rem;
+      background: color-mix(in srgb, var(--green) 42%, transparent);
+    }
+
+    .home::after {
+      right: -13rem;
+      bottom: 8%;
+      background: color-mix(in srgb, #83e6ae 32%, transparent);
+    }
+
+    .home-shell {
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      padding: clamp(24px, 7vw, 80px) 16px;
+    }
+
+    .home-card {
+      position: relative;
+      width: min(100%, 620px);
+      padding: clamp(28px, 7vw, 64px) clamp(20px, 7vw, 60px);
+      overflow: hidden;
+      text-align: center;
+      background: var(--home-glass);
+      border: 1px solid color-mix(in srgb, var(--green) 26%, var(--border));
+      border-radius: clamp(24px, 5vw, 38px);
+      box-shadow:
+        0 28px 90px color-mix(in srgb, var(--green-strong) 16%, transparent),
+        inset 0 1px 0 rgba(255,255,255,.58),
+        inset 0 -1px 0 rgba(15,60,40,.08);
+      -webkit-backdrop-filter: blur(28px) saturate(1.25);
+      backdrop-filter: blur(28px) saturate(1.25);
+      transition: background-color .55s ease, border-color .55s ease, box-shadow .55s ease;
+    }
+
+    .home-card::after {
+      position: absolute;
+      inset: -35%;
+      z-index: 0;
+      background: conic-gradient(from 90deg, transparent, color-mix(in srgb, var(--green) 24%, transparent), transparent 28%);
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      transform: rotate(-12deg);
+    }
+
+    .home.theme-changing .home-card::after {
+      animation: themeSweep .7s ease-out;
+    }
+
+    @keyframes themeSweep {
+      0% { opacity: 0; transform: translateX(-35%) rotate(-12deg); }
+      35% { opacity: .7; }
+      100% { opacity: 0; transform: translateX(35%) rotate(-12deg); }
+    }
+
+    .home-card::before {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.24), transparent 36%, color-mix(in srgb, var(--green) 10%, transparent));
+      content: "";
+      pointer-events: none;
+    }
+
+    .home-content { position: relative; z-index: 1; }
+
+    .home h1,
+    .tagline,
+    .legal-links,
+    .legal-links a,
+    .theme-toggle-home {
+      transition: color .55s ease, background-color .55s ease, border-color .55s ease;
+    }
+
+    .theme-toggle-home.is-changing {
+      animation: themeButtonSpin .7s ease;
+    }
+
+    @keyframes themeButtonSpin {
+      0% { transform: rotate(0) scale(1); }
+      50% { transform: rotate(180deg) scale(1.12); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 20px;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(145deg, var(--green), var(--green-strong));
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px color-mix(in srgb, var(--green) 32%, transparent), inset 0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .logo-mark svg { width: 38px; height: 38px; }
+
+    .home h1 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(2.25rem, 10vw, 4.6rem);
+      font-weight: 850;
+      letter-spacing: -.065em;
+      line-height: 1;
+    }
+
+    .tagline {
+      max-width: 430px;
+      margin: 18px auto 30px;
+      color: var(--text-dim);
+      font-size: clamp(.98rem, 2.5vw, 1.12rem);
+    }
+
+    .home-cta {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      width: min(100%, 340px);
+      padding: 13px 22px;
+      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--green), var(--green-strong));
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 15px;
+      box-shadow: 0 12px 28px color-mix(in srgb, var(--green) 28%, transparent), inset 0 1px 0 rgba(255,255,255,.3);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .home-cta:hover,
+    .home-cta:focus-visible {
+      color: #fff;
+      text-decoration: none;
+      filter: brightness(1.06);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px color-mix(in srgb, var(--green) 36%, transparent), inset 0 1px 0 rgba(255,255,255,.3);
+    }
+
+    .home-cta:active { transform: translateY(-1px); }
+
+    .legal-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    }
+
+    .legal-links a {
+      padding: 12px 8px;
+      color: var(--text-dim);
+      font-size: .88rem;
+      font-weight: 650;
+      background: color-mix(in srgb, var(--home-glass-strong) 48%, transparent);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      transition: color .2s, border-color .2s, background .2s, transform .2s;
+    }
+
+    .legal-links a:hover,
+    .legal-links a:focus-visible {
+      color: var(--green-strong);
+      text-decoration: none;
+      background: var(--home-glass-strong);
+      border-color: color-mix(in srgb, var(--green) 38%, var(--border));
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle-home {
+      position: absolute;
+      z-index: 2;
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      color: var(--text);
+      cursor: pointer;
+      background: var(--home-glass-strong);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .theme-toggle-home:hover,
+    .theme-toggle-home:focus-visible { border-color: var(--green); transform: scale(1.06); }
+    .theme-toggle-home {
+      display: grid;
+      place-items: center;
+    }
+
+    .theme-toggle-home svg {
+      grid-area: 1 / 1;
+      width: 18px;
+      height: 18px;
+      transition: opacity .35s ease, transform .45s cubic-bezier(.32,.72,.35,1);
+    }
+
+    .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+    .icon-moon { opacity: 0; transform: rotate(-90deg) scale(.55); }
+    [data-theme="dark"] .icon-sun { opacity: 0; transform: rotate(90deg) scale(.55); }
+    [data-theme="dark"] .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
+
+    @media (max-width: 520px) {
+      .home-shell { padding: 16px 12px; }
+      .home-card { padding: 58px 16px 22px; border-radius: 27px; }
+      .logo-mark { width: 58px; height: 58px; border-radius: 18px; font-size: 1.6rem; }
+      .legal-links { grid-template-columns: 1fr; gap: 8px; margin-top: 28px; padding-top: 20px; }
+      .legal-links a { padding: 11px; }
+      .theme-toggle-home { top: 14px; right: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body class="home">
+  <main class="home-shell">
+    <section class="home-card" aria-labelledby="page-title">
+      <button class="theme-toggle-home" id="themeToggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3.5"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 14.7A8.5 8.5 0 0 1 9.3 3.5 8.5 8.5 0 1 0 20.5 14.7Z"></path>
+        </svg>
+      </button>
+
+      <div class="home-content">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="10" width="34" height="31" rx="5"></rect>
+            <path d="M14 6v8M34 6v8M7 19h34M15 27h6M27 27h6M15 34h6"></path>
+          </svg>
+        </div>
+        <h1 id="page-title">Fast Scheduler</h1>
+        <p class="tagline">Schedule, manage, and publish your Telegram channel messages with ease.</p>
+
+        <a class="home-cta" href="https://t.me/FastSchedulerBot" target="_blank" rel="noopener noreferrer">
+          Open in Telegram
+        </a>
+
+        <nav class="legal-links" aria-label="Legal documents">
+          <a href="legal/privacy.html">Privacy Policy</a>
+          <a href="legal/terms.html">Terms of Service</a>
+          <a href="legal/refundpolicy.html">Refund Policy</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var stored = '';
+      try { stored = localStorage.getItem('fs-theme') || ''; } catch (e) {}
+      if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+      var button = document.getElementById('themeToggle');
+      if (!button) return;
+      button.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.body.classList.add('theme-changing');
+        button.classList.remove('is-changing');
+        void button.offsetWidth;
+        button.classList.add('is-changing');
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('fs-theme', next); } catch (e) {}
+        window.setTimeout(function () {
+          document.body.classList.remove('theme-changing');
+          button.classList.remove('is-changing');
+        }, 720);
+      });
+    }());
+  </script>
+</body>
+</html>
