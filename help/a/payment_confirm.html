@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t && window.matchMedia) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    if (localStorage.getItem('fs-motion') === 'off') document.documentElement.setAttribute('data-motion', 'off');
+    if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
+    if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
+    if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+  } catch (e) {}
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1faa59">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests">
+<title>Confirmation — Fast Scheduler Help</title>
+<meta name="description" content="After paying, your account should upgrade within seconds. If Premium doesn&#x27;t activate after 5 minutes: • Check the payment status with /premium • Some providers">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://fastschedulebot.github.io/Fast-Schedule/help/a/payment_confirm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Fast Scheduler">
+<meta property="og:title" content="Confirmation — Fast Scheduler Help">
+<meta property="og:description" content="After paying, your account should upgrade within seconds. If Premium doesn&#x27;t activate after 5 minutes: • Check the payment status with /premium • Some providers">
+<meta property="og:url" content="https://fastschedulebot.github.io/Fast-Schedule/help/a/payment_confirm.html">
+<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Confirmation — Fast Scheduler Help">
+<meta name="twitter:description" content="After paying, your account should upgrade within seconds. If Premium doesn&#x27;t activate after 5 minutes: • Check the payment status with /premium • Some providers">
+<meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Confirmation", "description": "After paying, your account should upgrade within seconds. If Premium doesn't activate after 5 minutes: • Check the payment status with /premium • Some providers", "articleBody": "After paying, your account should upgrade within seconds. If Premium doesn't activate after 5 minutes: • Check the payment status with /premium • Some providers take up to a few minutes to confirm • If it stays inactive, contact support with your user ID and the payment receipt Do not pay twice — duplicate payments are handled manually via support.", "articleSection": "Premium", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/help/a/payment_confirm.html", "datePublished": "2026-09-29", "dateModified": "2026-09-29", "isPartOf": {"@type": "WebSite", "name": "Fast Scheduler Help", "url": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Premium", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/premium.html"}, {"@type": "ListItem", "position": 4, "name": "Confirmation", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/payment_confirm.html"}]}</script>
+<link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
+<style>.hc-card {
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--hc-r);
+  box-shadow: var(--shadow-sm);
+}
+
+.hc-chiprow { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 13px; }
+
+.hc-chip {
+  display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; font-weight: 650;
+  color: var(--text); background: var(--surface); border: 1px solid var(--border);
+  padding: 9px 16px; border-radius: 999px; cursor: pointer; font-family: inherit; line-height: 1.3;
+  transition: border-color .18s, color .18s, transform .18s, box-shadow .18s;
+}
+
+.hc-chip svg { width: 15px; height: 15px; flex: none; color: var(--green-strong); }
+
+.hc-chip:hover { border-color: color-mix(in srgb, var(--green) 50%, transparent); color: var(--green-strong); transform: translateY(-1px); box-shadow: var(--shadow-sm); text-decoration: none; }
+
+.hc-crumbs { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; padding: 26px 0 0; font-size: .87rem; color: var(--text-dim); }
+
+.hc-crumbs a { color: var(--text-dim); font-weight: 650; }
+
+.hc-crumbs a:hover { color: var(--green-strong); text-decoration: none; }
+
+.hc-crumbs svg { width: 13px; height: 13px; opacity: .6; }
+
+.hc-crumbs [aria-current] { color: var(--text); font-weight: 650; }
+
+.hc-body { margin-top: 16px; }
+
+.hc-body p { margin: 0 0 13px; font-size: .98rem; line-height: 1.72; color: var(--text); }
+
+.hc-body ul { margin: 0 0 13px; padding-left: 22px; color: var(--text); font-size: .95rem; line-height: 1.7; }
+
+.hc-body li { margin: 3px 0; }
+
+.hc-body h3 { font-size: 1.2rem; letter-spacing: -.015em; margin: 30px 0 10px; scroll-margin-top: 86px; }
+
+.hc-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em;
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  border: 1px solid var(--border); padding: 1px 6px; border-radius: 6px;
+}
+
+.hc-faq { margin-top: 26px; border-top: 1px solid var(--border); padding-top: 6px; }
+
+.hc-faq h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 14px 0 4px; }
+
+.hc-faq details { border-bottom: 1px dashed var(--border); }
+
+.hc-faq details:last-child { border-bottom: 0; }
+
+.hc-faq summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 14px 0; font-weight: 700; font-size: .95rem;
+}
+
+.hc-faq summary::-webkit-details-marker { display: none; }
+
+.hc-faq summary::after {
+  content: "+"; flex: none; font-size: 1.35rem; font-weight: 500; line-height: 1;
+  color: var(--green-strong); transition: transform .25s;
+}
+
+.hc-faq details[open] summary::after { transform: rotate(45deg); }
+
+.hc-fa { padding: 0 0 16px; }
+
+.hc-fa p { margin: 0 0 8px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+
+.hc-fa ul { margin: 0 0 8px; padding-left: 20px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+
+.hc-faq summary code, .blog-faq summary code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--surface-2); padding: 1px 5px; border-radius: 6px; }
+.hc-fa code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--surface-2); padding: 1px 5px; border-radius: 6px; }
+
+.hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.hc-chips .hc-chip { max-width: 300px; padding: 7px 14px; font-size: .85rem; }
+
+.hc-chips .hc-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.hc-chips .hc-chip svg { width: 13px; height: 13px; }
+
+.hc-related { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); }
+
+.hc-related h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 0 0 12px; }
+
+.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text); }
+
+.hc-pager a:hover { text-decoration: none; transform: translateY(-2px); border-color: color-mix(in srgb, var(--green) 45%, var(--border)); }
+
+.hc-pager a.next { justify-content: flex-end; text-align: right; }
+
+.hc-pager a.next svg { order: 2; }
+
+.hc-pager svg { flex: none; width: 17px; height: 17px; color: var(--text-dim); }
+
+.hc-pager small { display: block; font-size: .78rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); }
+
+.hc-pager a span { min-width: 0; flex: 1 1 auto; }
+.hc-pager b { display: block; font-size: .9rem; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+
+.hc-cta {
+  max-width: 860px; margin: 16px auto 20px; padding: 22px 26px; border-radius: var(--hc-r);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--green-strong); color: #fff;
+}
+
+.hc-cta b { font-size: 1.02rem; }
+
+.hc-cta p { margin: 3px 0 0; font-size: .88rem; opacity: .92; }
+
+.hc-cta .btn { flex: none; background: #fff; color: var(--green-strong); border: 0; }
+
+.hc-cta .btn:hover { background: #f0fff7; transform: translateY(-1px); }
+
+.hc-cta svg { width: 16px; height: 16px; }
+
+.view.anim .hc-side-title, .view.anim .hc-nav-item, .view.anim .hc-card,
+    .view.anim .hc-cat, .view.anim .hc-art > *, .view.anim .hc-fa, .view.anim details { animation: hcRise .6s var(--ease-apple) both; }
+
+.hc-chiprow .hc-chip { animation: hcRise .55s var(--ease-apple) both; }
+
+.hc-chiprow .hc-chip:nth-child(1) { animation-delay: .05s; }
+
+.hc-chiprow .hc-chip:nth-child(2) { animation-delay: .1s; }
+
+.hc-chiprow .hc-chip:nth-child(3) { animation-delay: .15s; }
+
+.hc-chiprow .hc-chip:nth-child(4) { animation-delay: .2s; }
+
+.hc-chiprow .hc-chip:nth-child(5) { animation-delay: .25s; }
+
+.hc-chiprow .hc-chip:nth-child(6) { animation-delay: .3s; }
+
+.hc-chiprow .hc-chip:nth-child(n+7) { animation-delay: .35s; }
+
+.hc-chip { transition: border-color .18s, color .18s, transform .5s var(--ease-spring), box-shadow .2s; }
+
+.hc-chip:active { transform: scale(.95); }
+
+.hc-card { transition: border-color .25s, box-shadow .3s; -webkit-tap-highlight-color: transparent; }
+
+.hc-card:hover { box-shadow: var(--shadow); }
+
+.hc-card:hover .hc-ic { transform: rotate(-6deg) scale(1.08); }
+
+.hc-faq details { transition: transform .3s var(--ease-apple); }
+
+.hc-faq details[open] { transform: none; }
+
+.hc-faq summary { transition: color .18s; }
+
+.hc-faq summary:hover { color: var(--green-strong); }
+
+@media (max-width: 760px) {
+  .hc-try { margin-top: 20px; }
+
+  .hc-card { border-radius: 16px; }
+
+  .hc-pager { margin-bottom: 60px; }
+}
+
+@media (max-width: 640px) {
+  .hc-body, .hc-body * { overflow-wrap: anywhere; }
+
+  .hc-body code { word-break: break-all; }
+
+}
+
+@media (max-width: 640px) {
+  .hc-pager { gap: 9px; }
+
+  .hc-pager a { padding: 12px 13px; gap: 9px; }
+
+  .hc-pager b { font-size: .84rem; }
+
+  .hc-pager svg { width: 15px; height: 15px; }
+}
+
+@media (hover: none) {
+  .hc-card:active { transform: scale(.985); transition: transform .12s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view.anim .hc-side-title, .view.anim .hc-nav-item, .view.anim .hc-card,
+   .view.anim .hc-cat, .view.anim .hc-art > *, .view.anim .hc-fa, .view.anim details,
+   .hc-chiprow .hc-chip, .hc-sbtn { animation: none; }
+
+  .hc-results, .hc-res, .hc-nav-item, .hc-card, .hc-chip, .hc-fab { transition: none; animation: none; }
+}
+
+@media print {
+  header.site, footer.site, .hc-cta, .hc-pager, .hc-search, .hc-crumbs, .hc-side, .hc-fab, .hc-progress, .hc-hsearch { display: none !important; }
+
+  .hc-card { border: 0; box-shadow: none; background: none; }
+}
+    .hc-body .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; }
+    .hc-body table { width: 100%; border-collapse: collapse; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow-sm); font-size: .9rem; }
+    .hc-body th, .hc-body td { padding: 10px 14px; text-align: left;
+      border-bottom: 1px solid var(--border); }
+    .hc-body thead th { background: color-mix(in srgb, var(--green) 14%, transparent);
+      font-weight: 700; }
+    .hc-body tbody tr:last-child td { border-bottom: none; }
+    .hc-body tbody tr:nth-child(even) { background: color-mix(in srgb, var(--green) 5%, transparent); }
+    .hc-body td:not(:first-child), .hc-body th:not(:first-child) { text-align: center; }
+
+  </style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a>
+    <a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Blog</a>
+    <a class="nav-link" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Help Center</a>
+    <a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerSupport_bot?start=_t" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span></a>
+    <span class="settings-wrap">
+      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
+        <div class="gp-head">Settings</div>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="gp-sep" role="separator"></div>
+        <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
+            <form class="help-search" id="helpSearchForm" role="search">
+              <svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
+            </form>
+            <div class="help-recent">
+              <div class="help-recent-title" id="helpRecentTitle">Popular articles</div>
+              <div class="help-recent-list" id="helpRecentList"></div>
+            </div>
+            <a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+        </span>
+        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </span>
+  </div>
+</header>
+<main class="legal">
+<div class="wrap legal-layout" style="display:block;max-width:860px;margin:0 auto">
+  <nav class="hc-crumbs" aria-label="Breadcrumb"><a href="../../help.html">Help Center</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg><a href="../c/premium.html">Premium</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg><span aria-current="page">Confirmation</span></nav>
+  <article class="doc">
+    <h1>Confirmation</h1>
+    <div class="hc-body"><p>After paying, your account should upgrade within seconds.</p>
+<p>If Premium doesn't activate after 5 minutes:<br>• Check the payment status with <code>/premium</code><br>• Some providers take up to a few minutes to confirm<br>• If it stays inactive, contact support with your user ID and the payment receipt</p>
+<p>Do not pay twice — duplicate payments are handled manually via support.</p></div>
+    
+    
+  </article>
+  <nav class="hc-pager" aria-label="More articles"><a class="hc-card prev" href="payment_invoice_pay.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span><small>Previous</small><b>Pay Invoice</b></span></a><a class="hc-card next" href="payment_status.html"><span><small>Next</small><b>Payment Status</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></nav>
+  <div class="hc-cta"><div><b>Still stuck?</b><p>The in-bot assistant answers the same questions &mdash; and a human reads every ticket.</p></div><a class="btn" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Ask in Telegram</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap foot">
+    <span class="copy">© 2026 Fast Scheduler — free Telegram scheduling bot</span>
+    <nav class="links" aria-label="Legal">
+      <a href="../../legal/terms.html">Terms</a>
+      <a href="../../legal/privacy.html">Privacy</a>
+      <a href="../../legal/refundpolicy.html">Refunds</a>
+      <a href="../../blog/index.html">Blog</a>
+      <a href="../../help.html">Help</a>
+    </nav>
+  </div>
+</footer>
+<script src="../../scripts/theme.js?v=20260930a1"></script>
+<script src="../../scripts/nav-hide.js?v=20260930a2"></script>
+<script src="../../scripts/settings.js?v=20260930a1"></script>
+<script src="../../scripts/help-search.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="../../scripts/help-ai.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+</body>
+</html>
