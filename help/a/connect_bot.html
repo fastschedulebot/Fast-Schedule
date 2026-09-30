@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t && window.matchMedia) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    if (localStorage.getItem('fs-motion') === 'off') document.documentElement.setAttribute('data-motion', 'off');
+    if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
+    if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
+    if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+  } catch (e) {}
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1faa59">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests">
+<title>Connecting a Bot — Fast Scheduler Help</title>
+<meta name="description" content="Every channel needs its own sender bot - a Telegram bot you own that posts messages to your channel under the bot&#x27;s name. Why Connect Your Own Bot? • Messages a">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_bot.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Fast Scheduler">
+<meta property="og:title" content="Connecting a Bot — Fast Scheduler Help">
+<meta property="og:description" content="Every channel needs its own sender bot - a Telegram bot you own that posts messages to your channel under the bot&#x27;s name. Why Connect Your Own Bot? • Messages a">
+<meta property="og:url" content="https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_bot.html">
+<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Connecting a Bot — Fast Scheduler Help">
+<meta name="twitter:description" content="Every channel needs its own sender bot - a Telegram bot you own that posts messages to your channel under the bot&#x27;s name. Why Connect Your Own Bot? • Messages a">
+<meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Connecting a Bot", "description": "Every channel needs its own sender bot - a Telegram bot you own that posts messages to your channel under the bot's name. Why Connect Your Own Bot? • Messages a", "articleBody": "Every channel needs its own sender bot - a Telegram bot you own that posts messages to your channel under the bot's name. Why Connect Your Own Bot? • Messages are sent from YOUR bot, not the main bot • Your bot's name and photo appear as the author • Professional appearance for your channel • Low sending delays — your messages go out through your bot, not the shared main bot queue • Detailed channel leaderboards — see most viewed, most reacted, and most commented posts for each channel How to Get a Bot Token 1. Open @BotFather on Telegram 2. Send /newbot and follow the instructions 3. Choose a name and username for your bot 4. Copy the token (format: 1234567890:ABCdef..._XYZ ) 5. Never share your token with anyone you don't trust How to Connect 1. In Fast Scheduler, click Bots or use /bots 2. Click 🔑 I Have a Token 3. Send the bot token you copied from @BotFather 4. Select which channel this bot should send to 5. Make sure your bot is an Administrator in the target channel Limits • Free plan: 1 bot • Premium: up to 3 bots Managing Bots • Click Bots on the main menu to see all connected bots • You can replace a bot's token or disconnect it • Disconnecting a bot puts its channel back into \"connect a sender bot\" state — reconnect a bot to schedule again Inside Your Sender Bot • Management moves to the sender bot automatically when it is connected • Management → Hide Channel — strangers who start your bot won't see your channel name (Public Mode) • Management → Admins — give other people limited access to your channel • Statistics — open per-channel stats and leaderboards Troubleshooting • \"Invalid token\" — make sure you copied the FULL token from @BotFather • \"Bot is not admin\" — add your bot as an administrator in the channel • \"Bot limit reached\" — remove an existing bot or upgrade to Premium How do I replace a bot token? If you reset the token in @BotFather (or it was compromised), replace it here: 1. Click Bots on the main menu (or use /bots ) 2. Tap 🔁 Replace Token under the bot 3. Paste the new token from @BotFather and send 4. The bot reconnects with the new token — scheduled messages resume automatically How do I disconnect a bot? Step by step: 1. Click Bots on the main menu (or use /bots / /removebot ) 2. Find the bot in the list → tap 🗑 under it 3. Confirm Note: the channel is not deleted — it returns to the \"connect a sender bot\" state, and its scheduled messages wait. When you connect a new bot to the channel, everything works again. Can I use the same bot for multiple channels? No, each sender bot can only be assigned to one channel. Each channel needs its own bot. This is a system limitation — if you have 3 channels, you need 3 sender bots (Premium). To see your bot-channel assignments: click Connected Channel on the main menu. Where do I manage my channel — main bot or sender bot? In the sender bot . Management moves to your sender bot automatically when you connect it — no extra setup. Inside the sender bot you get the Management menu: Hide Channel (Public Mode) and Admins. The main bot stays as your hub for scheduling, settings, language, and Premium. If the sender bot's token ever breaks, Fast Scheduler falls back to the main bot so posts are not lost. What is Hide Channel and how do I use it? Hide Channel is a privacy feature (Premium). When enabled, people who start your sender bot won't see your channel name. To toggle it: open the sender bot → Management → Hide Channel . Now when users start your bot, they see a generic welcome with an Open Main Bot button — not your channel name. Useful for keeping the channel private while the bot stays public. Why does it say my bot token is invalid? The token format is: 1234567890:ABCdef...XYZ . Common issues: • Not the full token: Copy the ENTIRE token from @BotFather, including the colon and all characters after it — no extra spaces • Token was reset: If you used /revoke in @BotFather, you must use the new token, not the old one • Bot was deleted: If the bot was deleted in @BotFather, create a new one with /newbot To fix: click Bots → 🔁 Replace Token under the bot → enter the correct token. How do I see statistics for my sender bot? Per-channel stats and leaderboards are a Premium feature. Open Statistics in the main bot (or /stats) and pick the channel — the full view opens with average views, comments and reactions, plus leaderboards (views / comments / reactions) with period filters. Each channel row can also deep-link straight into the sender bot that posts there.", "articleSection": "Getting Started", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_bot.html", "datePublished": "2026-09-29", "dateModified": "2026-09-29", "isPartOf": {"@type": "WebSite", "name": "Fast Scheduler Help", "url": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Getting Started", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/start.html"}, {"@type": "ListItem", "position": 4, "name": "Connecting a Bot", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_bot.html"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I replace a bot token?", "acceptedAnswer": {"@type": "Answer", "text": "If you reset the token in @BotFather (or it was compromised), replace it here: 1. Click Bots on the main menu (or use /bots ) 2. Tap 🔁 Replace Token under the bot 3. Paste the new token from @BotFather and send 4. The bot reconnects with the new token — scheduled messages resume automatically"}}, {"@type": "Question", "name": "How do I disconnect a bot?", "acceptedAnswer": {"@type": "Answer", "text": "Step by step: 1. Click Bots on the main menu (or use /bots / /removebot ) 2. Find the bot in the list → tap 🗑 under it 3. Confirm Note: the channel is not deleted — it returns to the \"connect a sender bot\" state, and its scheduled messages wait. When you connect a new bot to the channel, everything works again."}}, {"@type": "Question", "name": "Can I use the same bot for multiple channels?", "acceptedAnswer": {"@type": "Answer", "text": "No, each sender bot can only be assigned to one channel. Each channel needs its own bot. This is a system limitation — if you have 3 channels, you need 3 sender bots (Premium). To see your bot-channel assignments: click Connected Channel on the main menu."}}, {"@type": "Question", "name": "Where do I manage my channel — main bot or sender bot?", "acceptedAnswer": {"@type": "Answer", "text": "In the sender bot . Management moves to your sender bot automatically when you connect it — no extra setup. Inside the sender bot you get the Management menu: Hide Channel (Public Mode) and Admins. The main bot stays as your hub for scheduling, settings, language, and Premium. If the sender bot's token ever breaks, Fast Scheduler falls back to the main bot so posts are not lost."}}, {"@type": "Question", "name": "What is Hide Channel and how do I use it?", "acceptedAnswer": {"@type": "Answer", "text": "Hide Channel is a privacy feature (Premium). When enabled, people who start your sender bot won't see your channel name. To toggle it: open the sender bot → Management → Hide Channel . Now when users start your bot, they see a generic welcome with an Open Main Bot button — not your channel name. Useful for keeping the channel private while the bot stays public."}}, {"@type": "Question", "name": "Why does it say my bot token is invalid?", "acceptedAnswer": {"@type": "Answer", "text": "The token format is: 1234567890:ABCdef...XYZ . Common issues: • Not the full token: Copy the ENTIRE token from @BotFather, including the colon and all characters after it — no extra spaces • Token was reset: If you used /revoke in @BotFather, you must use the new token, not the old one • Bot was deleted: If the bot was deleted in @BotFather, create a new one with /newbot To fix: click Bots → 🔁 Replace Token under the bot → enter the correct token."}}, {"@type": "Question", "name": "How do I see statistics for my sender bot?", "acceptedAnswer": {"@type": "Answer", "text": "Per-channel stats and leaderboards are a Premium feature. Open Statistics in the main bot (or /stats) and pick the channel — the full view opens with average views, comments and reactions, plus leaderboards (views / comments / reactions) with period filters. Each channel row can also deep-link straight into the sender bot that posts there."}}]}</script>
+<link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
+<style>.hc-card {
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--hc-r);
+  box-shadow: var(--shadow-sm);
+}
+
+.hc-chiprow { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 13px; }
+
+.hc-chip {
+  display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; font-weight: 650;
+  color: var(--text); background: var(--surface); border: 1px solid var(--border);
+  padding: 9px 16px; border-radius: 999px; cursor: pointer; font-family: inherit; line-height: 1.3;
+  transition: border-color .18s, color .18s, transform .18s, box-shadow .18s;
+}
+
+.hc-chip svg { width: 15px; height: 15px; flex: none; color: var(--green-strong); }
+
+.hc-chip:hover { border-color: color-mix(in srgb, var(--green) 50%, transparent); color: var(--green-strong); transform: translateY(-1px); box-shadow: var(--shadow-sm); text-decoration: none; }
+
+.hc-crumbs { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; padding: 26px 0 0; font-size: .87rem; color: var(--text-dim); }
+
+.hc-crumbs a { color: var(--text-dim); font-weight: 650; }
+
+.hc-crumbs a:hover { color: var(--green-strong); text-decoration: none; }
+
+.hc-crumbs svg { width: 13px; height: 13px; opacity: .6; }
+
+.hc-crumbs [aria-current] { color: var(--text); font-weight: 650; }
+
+.hc-body { margin-top: 16px; }
+
+.hc-body p { margin: 0 0 13px; font-size: .98rem; line-height: 1.72; color: var(--text); }
+
+.hc-body ul { margin: 0 0 13px; padding-left: 22px; color: var(--text); font-size: .95rem; line-height: 1.7; }
+
+.hc-body li { margin: 3px 0; }
+
+.hc-body h3 { font-size: 1.2rem; letter-spacing: -.015em; margin: 30px 0 10px; scroll-margin-top: 86px; }
+
+.hc-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em;
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  border: 1px solid var(--border); padding: 1px 6px; border-radius: 6px;
+}
+
+.hc-faq { margin-top: 26px; border-top: 1px solid var(--border); padding-top: 6px; }
+
+.hc-faq h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 14px 0 4px; }
+
+.hc-faq details { border-bottom: 1px dashed var(--border); }
+
+.hc-faq details:last-child { border-bottom: 0; }
+
+.hc-faq summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 14px 0; font-weight: 700; font-size: .95rem;
+}
+
+.hc-faq summary::-webkit-details-marker { display: none; }
+
+.hc-faq summary::after {
+  content: "+"; flex: none; font-size: 1.35rem; font-weight: 500; line-height: 1;
+  color: var(--green-strong); transition: transform .25s;
+}
+
+.hc-faq details[open] summary::after { transform: rotate(45deg); }
+
+.hc-fa { padding: 0 0 16px; }
+
+.hc-fa p { margin: 0 0 8px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+
+.hc-fa ul { margin: 0 0 8px; padding-left: 20px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+
+.hc-faq summary code, .blog-faq summary code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--surface-2); padding: 1px 5px; border-radius: 6px; }
+.hc-fa code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em; background: var(--surface-2); padding: 1px 5px; border-radius: 6px; }
+
+.hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.hc-chips .hc-chip { max-width: 300px; padding: 7px 14px; font-size: .85rem; }
+
+.hc-chips .hc-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.hc-chips .hc-chip svg { width: 13px; height: 13px; }
+
+.hc-related { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); }
+
+.hc-related h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 0 0 12px; }
+
+.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text); }
+
+.hc-pager a:hover { text-decoration: none; transform: translateY(-2px); border-color: color-mix(in srgb, var(--green) 45%, var(--border)); }
+
+.hc-pager a.next { justify-content: flex-end; text-align: right; }
+
+.hc-pager a.next svg { order: 2; }
+
+.hc-pager svg { flex: none; width: 17px; height: 17px; color: var(--text-dim); }
+
+.hc-pager small { display: block; font-size: .78rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); }
+
+.hc-pager a span { min-width: 0; flex: 1 1 auto; }
+.hc-pager b { display: block; font-size: .9rem; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+
+.hc-cta {
+  max-width: 860px; margin: 16px auto 20px; padding: 22px 26px; border-radius: var(--hc-r);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--green-strong); color: #fff;
+}
+
+.hc-cta b { font-size: 1.02rem; }
+
+.hc-cta p { margin: 3px 0 0; font-size: .88rem; opacity: .92; }
+
+.hc-cta .btn { flex: none; background: #fff; color: var(--green-strong); border: 0; }
+
+.hc-cta .btn:hover { background: #f0fff7; transform: translateY(-1px); }
+
+.hc-cta svg { width: 16px; height: 16px; }
+
+.view.anim .hc-side-title, .view.anim .hc-nav-item, .view.anim .hc-card,
+    .view.anim .hc-cat, .view.anim .hc-art > *, .view.anim .hc-fa, .view.anim details { animation: hcRise .6s var(--ease-apple) both; }
+
+.hc-chiprow .hc-chip { animation: hcRise .55s var(--ease-apple) both; }
+
+.hc-chiprow .hc-chip:nth-child(1) { animation-delay: .05s; }
+
+.hc-chiprow .hc-chip:nth-child(2) { animation-delay: .1s; }
+
+.hc-chiprow .hc-chip:nth-child(3) { animation-delay: .15s; }
+
+.hc-chiprow .hc-chip:nth-child(4) { animation-delay: .2s; }
+
+.hc-chiprow .hc-chip:nth-child(5) { animation-delay: .25s; }
+
+.hc-chiprow .hc-chip:nth-child(6) { animation-delay: .3s; }
+
+.hc-chiprow .hc-chip:nth-child(n+7) { animation-delay: .35s; }
+
+.hc-chip { transition: border-color .18s, color .18s, transform .5s var(--ease-spring), box-shadow .2s; }
+
+.hc-chip:active { transform: scale(.95); }
+
+.hc-card { transition: border-color .25s, box-shadow .3s; -webkit-tap-highlight-color: transparent; }
+
+.hc-card:hover { box-shadow: var(--shadow); }
+
+.hc-card:hover .hc-ic { transform: rotate(-6deg) scale(1.08); }
+
+.hc-faq details { transition: transform .3s var(--ease-apple); }
+
+.hc-faq details[open] { transform: none; }
+
+.hc-faq summary { transition: color .18s; }
+
+.hc-faq summary:hover { color: var(--green-strong); }
+
+@media (max-width: 760px) {
+  .hc-try { margin-top: 20px; }
+
+  .hc-card { border-radius: 16px; }
+
+  .hc-pager { margin-bottom: 60px; }
+}
+
+@media (max-width: 640px) {
+  .hc-body, .hc-body * { overflow-wrap: anywhere; }
+
+  .hc-body code { word-break: break-all; }
+
+}
+
+@media (max-width: 640px) {
+  .hc-pager { gap: 9px; }
+
+  .hc-pager a { padding: 12px 13px; gap: 9px; }
+
+  .hc-pager b { font-size: .84rem; }
+
+  .hc-pager svg { width: 15px; height: 15px; }
+}
+
+@media (hover: none) {
+  .hc-card:active { transform: scale(.985); transition: transform .12s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view.anim .hc-side-title, .view.anim .hc-nav-item, .view.anim .hc-card,
+   .view.anim .hc-cat, .view.anim .hc-art > *, .view.anim .hc-fa, .view.anim details,
+   .hc-chiprow .hc-chip, .hc-sbtn { animation: none; }
+
+  .hc-results, .hc-res, .hc-nav-item, .hc-card, .hc-chip, .hc-fab { transition: none; animation: none; }
+}
+
+@media print {
+  header.site, footer.site, .hc-cta, .hc-pager, .hc-search, .hc-crumbs, .hc-side, .hc-fab, .hc-progress, .hc-hsearch { display: none !important; }
+
+  .hc-card { border: 0; box-shadow: none; background: none; }
+}
+    .hc-body .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; }
+    .hc-body table { width: 100%; border-collapse: collapse; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow-sm); font-size: .9rem; }
+    .hc-body th, .hc-body td { padding: 10px 14px; text-align: left;
+      border-bottom: 1px solid var(--border); }
+    .hc-body thead th { background: color-mix(in srgb, var(--green) 14%, transparent);
+      font-weight: 700; }
+    .hc-body tbody tr:last-child td { border-bottom: none; }
+    .hc-body tbody tr:nth-child(even) { background: color-mix(in srgb, var(--green) 5%, transparent); }
+    .hc-body td:not(:first-child), .hc-body th:not(:first-child) { text-align: center; }
+
+  </style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a>
+    <a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Blog</a>
+    <a class="nav-link" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Help Center</a>
+    <a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerSupport_bot?start=_t" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span></a>
+    <span class="settings-wrap">
+      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
+        <div class="gp-head">Settings</div>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="gp-sep" role="separator"></div>
+        <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
+            <form class="help-search" id="helpSearchForm" role="search">
+              <svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
+            </form>
+            <div class="help-recent">
+              <div class="help-recent-title" id="helpRecentTitle">Popular articles</div>
+              <div class="help-recent-list" id="helpRecentList"></div>
+            </div>
+            <a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+        </span>
+        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </span>
+  </div>
+</header>
+<main class="legal">
+<div class="wrap legal-layout" style="display:block;max-width:860px;margin:0 auto">
+  <nav class="hc-crumbs" aria-label="Breadcrumb"><a href="../../help.html">Help Center</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg><a href="../c/start.html">Getting Started</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg><span aria-current="page">Connecting a Bot</span></nav>
+  <article class="doc">
+    <h1>Connecting a Bot</h1>
+    <div class="hc-body"><p>Every channel needs its own sender bot - a Telegram bot <b>you</b> own that posts messages to your channel under the bot's name.</p>
+<p><b>Why Connect Your Own Bot?</b><br>• Messages are sent from YOUR bot, not the main bot<br>• Your bot's name and photo appear as the author<br>• Professional appearance for your channel<br>• Low sending delays — your messages go out through your bot, not the shared main bot queue<br>• Detailed channel leaderboards — see most viewed, most reacted, and most commented posts for each channel</p>
+<p><b>How to Get a Bot Token</b><br>1. Open <b>@BotFather</b> on Telegram<br>2. Send <code>/newbot</code> and follow the instructions<br>3. Choose a name and username for your bot<br>4. Copy the token (format: <code>1234567890:ABCdef..._XYZ</code>)<br>5. <b>Never share your token</b> with anyone you don't trust</p>
+<p><b>How to Connect</b><br>1. In Fast Scheduler, click <b>Bots</b> or use <code>/bots</code><br>2. Click <b>🔑 I Have a Token</b><br>3. Send the bot token you copied from @BotFather<br>4. Select which channel this bot should send to<br>5. Make sure your bot is an <b>Administrator</b> in the target channel</p>
+<p><b>Limits</b><br>• Free plan: 1 bot<br>• Premium: up to 3 bots</p>
+<p><b>Managing Bots</b><br>• Click <b>Bots</b> on the main menu to see all connected bots<br>• You can replace a bot's token or disconnect it<br>• Disconnecting a bot puts its channel back into "connect a sender bot" state — reconnect a bot to schedule again</p>
+<p><b>Inside Your Sender Bot</b><br>• Management moves to the sender bot automatically when it is connected<br>• <b>Management → Hide Channel</b> — strangers who start your bot won't see your channel name (Public Mode)<br>• <b>Management → Admins</b> — give other people limited access to your channel<br>• <b>Statistics</b> — open per-channel stats and leaderboards</p>
+<p><b>Troubleshooting</b><br>• "Invalid token" — make sure you copied the FULL token from @BotFather<br>• "Bot is not admin" — add your bot as an administrator in the channel<br>• "Bot limit reached" — remove an existing bot or upgrade to Premium</p></div>
+    <div class="hc-faq"><h2>Common questions</h2>
+<details><summary>How do I replace a bot token?</summary><div class="hc-fa"><p>If you reset the token in @BotFather (or it was compromised), replace it here:<br>1. Click <b>Bots</b> on the main menu (or use <code>/bots</code>)<br>2. Tap <b>🔁 Replace Token</b> under the bot<br>3. Paste the <b>new</b> token from @BotFather and send<br>4. The bot reconnects with the new token — scheduled messages resume automatically</p></div></details>
+<details><summary>How do I disconnect a bot?</summary><div class="hc-fa"><p>Step by step:<br>1. Click <b>Bots</b> on the main menu (or use <code>/bots</code> / <code>/removebot</code>)<br>2. Find the bot in the list → tap 🗑 under it<br>3. Confirm</p>
+<p><b>Note:</b> the channel is not deleted — it returns to the "connect a sender bot" state, and its scheduled messages wait. When you connect a new bot to the channel, everything works again.</p></div></details>
+<details><summary>Can I use the same bot for multiple channels?</summary><div class="hc-fa"><p>No, each sender bot can only be assigned to <b>one</b> channel. Each channel needs its own bot. This is a system limitation — if you have 3 channels, you need 3 sender bots (Premium). To see your bot-channel assignments: click <b>Connected Channel</b> on the main menu.</p></div></details>
+<details><summary>Where do I manage my channel — main bot or sender bot?</summary><div class="hc-fa"><p>In the <b>sender bot</b>. Management moves to your sender bot automatically when you connect it — no extra setup. Inside the sender bot you get the Management menu: Hide Channel (Public Mode) and Admins. The main bot stays as your hub for scheduling, settings, language, and Premium. If the sender bot's token ever breaks, Fast Scheduler falls back to the main bot so posts are not lost.</p></div></details>
+<details><summary>What is Hide Channel and how do I use it?</summary><div class="hc-fa"><p>Hide Channel is a privacy feature (Premium). When enabled, people who start your sender bot won't see your channel name. To toggle it: open the <b>sender bot</b> → <b>Management</b> → <b>Hide Channel</b>. Now when users start your bot, they see a generic welcome with an Open Main Bot button — not your channel name. Useful for keeping the channel private while the bot stays public.</p></div></details>
+<details><summary>Why does it say my bot token is invalid?</summary><div class="hc-fa"><p>The token format is: <code>1234567890:ABCdef...XYZ</code>. Common issues:<br>• <b>Not the full token:</b> Copy the ENTIRE token from @BotFather, including the colon and all characters after it — no extra spaces<br>• <b>Token was reset:</b> If you used <code>/revoke</code> in @BotFather, you must use the <b>new</b> token, not the old one<br>• <b>Bot was deleted:</b> If the bot was deleted in @BotFather, create a new one with <code>/newbot</code></p>
+<p>To fix: click <b>Bots</b> → <b>🔁 Replace Token</b> under the bot → enter the correct token.</p></div></details>
+<details><summary>How do I see statistics for my sender bot?</summary><div class="hc-fa"><p>Per-channel stats and leaderboards are a Premium feature. Open <b>Statistics</b> in the main bot (or /stats) and pick the channel — the full view opens with average views, comments and reactions, plus leaderboards (views / comments / reactions) with period filters. Each channel row can also deep-link straight into the sender bot that posts there.</p></div></details>
+</div>
+    
+  </article>
+  <nav class="hc-pager" aria-label="More articles"><a class="hc-card prev" href="connect_channel.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span><small>Previous</small><b>Connecting a Channel</b></span></a><a class="hc-card next" href="onboarding_step1.html"><span><small>Next</small><b>Step 1: Link</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></nav>
+  <div class="hc-cta"><div><b>Still stuck?</b><p>The in-bot assistant answers the same questions &mdash; and a human reads every ticket.</p></div><a class="btn" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Ask in Telegram</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap foot">
+    <span class="copy">© 2026 Fast Scheduler — free Telegram scheduling bot</span>
+    <nav class="links" aria-label="Legal">
+      <a href="../../legal/terms.html">Terms</a>
+      <a href="../../legal/privacy.html">Privacy</a>
+      <a href="../../legal/refundpolicy.html">Refunds</a>
+      <a href="../../blog/index.html">Blog</a>
+      <a href="../../help.html">Help</a>
+    </nav>
+  </div>
+</footer>
+<script src="../../scripts/theme.js?v=20260930a1"></script>
+<script src="../../scripts/nav-hide.js?v=20260930a2"></script>
+<script src="../../scripts/settings.js?v=20260930a1"></script>
+<script src="../../scripts/help-search.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="../../scripts/help-ai.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+</body>
+</html>
