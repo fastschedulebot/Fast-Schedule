@@ -1,0 +1,86 @@
+bot.btn ||| bot
+bots.btn ||| 🤖 Bots ({limit}, {type})
+bots.label ||| 🤖 Bots ({count})
+build.info ||| Build: {build}
+calendar.header ||| 📅 <b>{month} {year}</b>
+calendar.month_nav ||| {month} {year}
+calendar.day_with_msgs ||| {day} ({count})
+calendar.messages_for ||| 📅 <b>{date}</b>
+
+{count} message(s)
+calendar.message_line ||| • #{id} — {time} — {channel}
+cancel.premium_reason_optional_prompt ||| Reason: {reason}
+cancel.premium_additional_reason ||| 📝 Additional details: {details}
+cancel.premium_request_error ||| ❌ Error submitting cancellation: {error}
+cannot.block_admin ||| ❌ Cannot block an admin.
+cannot.toggle_admin_premium ||| Cannot modify another admin's premium status.
+replace_token_btn ||| 🔁 Replace Token
+change.channel_btn ||| 🔄 Change Channel
+change.channel_fallback ||| ❌ Could not change channel.
+change.log_btn ||| 📝 Changelog
+change.bot ||| 🔄 Change Bot
+change.channel ||| 🔄 Change Channel
+changelog.text ||| 📝 <b>Changelog</b>
+
+{text}
+changelog.not_found ||| ❌ Changelog not found.
+channel.info_unknown_time ||| unknown
+channel.visibility_visible ||| 👁 Visible ({channel})
+channel.visibility_state ||| Visibility: {state}
+channel.bot_not_admin_simple ||| ❌ The bot must be an admin in this channel.
+channel.stats_title ||| 📊 <b>Channel: {name}</b>
+channel.user_not_admin_simple ||| ❌ You must be an admin in this channel.
+channel.no_message ||| ❌ No message received. Please send a channel link or ID.
+channel.locked_sender ||| 🔴 <b>Channel managed via sender bot</b>
+channel.action_stats ||| 📊 Stats
+channel.action_recurring ||| 🔄 Recurring
+channel.hidden_popup ||| ✅ Channel hidden from strangers
+channel.visible_popup ||| ✅ Channel visible to strangers again
+channel.hidden_done ||| ✅ Channel hidden from strangers.
+channel.visible_done ||| ✅ Channel is now visible to strangers.
+channels.connected_line ||| 📢 {count} channel(s) connected.
+chat.with_me ||| 💬 Chat with Admin
+check.again ||| 🔄 Check Again
+check.add_as_admin ||| ➕ Add Bot as Admin
+check.admin_status ||| ✅ Check Admin Status
+check.subscription ||| ✅ Check Subscription
+checklist.default_title ||| 📋 Checklist
+checklist.enter_title ||| 📋 <b>Create a Checklist</b>
+
+Enter the checklist title:
+choose.timezone ||| 🌍 Timezone
+choose.btn ||| 📝 Choose
+choose.bulk_filter ||| 📂 Filter:
+clear.default_ch_btn ||| ❌ Clear Default
+command.not_found ||| ❌ Command not found.
+complaint.category ||| 📂 Category
+complaint.text_label ||| 📝 Description
+complaint.status ||| 📌 Status
+complaint.status_open ||| 📂 Open
+complaint.status_replied ||| 💬 Replied
+complaint.status_spam ||| 🚫 Spam
+complaint.created_at ||| 📅 Created
+complaint.user ||| 👤 User
+complaint.error ||| ❌ Error submitting feedback: {error}
+complaint.not_found ||| ❌ Not found.
+complaint.no_text ||| ❌ Please describe your issue.
+complaint.no_attachments ||| No attachments
+complaint.attached_files ||| 📎 Attachments
+complaint.attached_files_present ||| 📎 View attached files
+complaint.attachments_sent ||| 📎 Attachments sent.
+complaint.marked_spam ||| ✅ Marked as spam.
+complaint.rate_limit ||| ⚠️ You can submit feedback once every 30 seconds.
+complaint.file_too_large ||| ❌ File exceeds the {size}MB size limit.
+complaint.total_too_large ||| ❌ Total attachments exceed the {size}MB limit.
+complaint.max_media ||| ❌ You can attach up to {count} files per feedback.
+complaint.submit_now ||| ✅ Submit Feedback
+complaint.submitted_title ||| ✅ Feedback Submitted
+complaint.media_removed ||| 📎 Media removed by admin
+complaint.no_media ||| No media files to submit.
+complaint.reply_sent ||| ✅ Reply submitted.
+compression.help_btn ||| 🖼️ Compression Details
+compression.progress ||| ⏳ Compressing {label}…
+confirm.photos ||| 📷 {count} photo(s) confirmed.
+connect.channel ||| 📢 Connect Channel
+connect.channel_sender_bot ||| 📢 Or connect via sender bot
+connect.channel_for_bot ||| Connect channel

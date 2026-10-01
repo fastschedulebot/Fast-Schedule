@@ -1,0 +1,326 @@
+premium.status ||| ⭐ Premium: {status}
+premium.unsupported_title ||| ⚠️ <b>This content can't be sent yet:</b>
+premium.sticker_warning ||| ⚠️ Premium stickers can't be sent — they can only be sent by Telegram Premium accounts, and a bot is never Premium.
+premium.rich_warning ||| ⚠️ Rich formatted articles can't be sent for now — this feature requires the bot owner to have Telegram Premium. The message will be sent as plain text.
+premium.status_frozen ||| 🧊 Frozen
+premium.status_text ||| ⭐ Premium
+premium.menu_text ||| <b>Premium Subscription</b>
+
+<b>Your Plan:</b> {plan}
+
+📦 <b>FREE PLAN</b>
+
+• Recurring: {recurring_free} (expires after 1 year)
+
+• Channels: {channels_free}
+
+• Bots: {bots_free}
+
+• Statistics: Averages only (Premium for full)
+
+• Videos in scheduled messages: {videos_msg_free}
+
+
+premium.value_intro ||| Spend less time managing your channel. Prepare weeks of content in advance, keep your media ready, and let Fast Scheduler handle reliable delivery while you focus on growing your audience.
+premium.menu_stats_premium |||  📊 Statistics:  Unlimited reports, leaderboard, full per-post data
+premium.menu_stats_free |||  📊 Statistics:  Averages only (Premium for full)
+premium.menu_leaderboard_premium |||  🏆 Leaderboard:  Sort by reactions, time ranges, top 100, custom filters
+premium.menu_leaderboard_free |||  🏆 Leaderboard:  Premium only
+premium.menu_senderbot_premium |||  🤖 Sender Bot Management:  Full features in sender bot
+premium.menu_senderbot_free |||  🤖 Sender Bot Management:  Limited (Premium for full)
+premium.menu_autoreports_premium |||  📊 Auto-Reports:  Unlimited
+premium.menu_autoreports_free |||  📊 Auto-Reports: Premium only
+premium.activated_lifetime ||| ✅ <b>Premium Activated!</b>
+
+Your Premium is now active with <b>Lifetime</b> duration.
+premium.activated_date ||| ✅ <b>Premium Activated!</b>
+
+Your Premium ({plan}) is now active until {date}.
+premium.status_line_paid ||| ✅ <b>Premium Active</b>
+
+{expires}
+Auto-renew: {autorenew}
+premium.status_line_paid_cancelled ||| ✅ <b>Premium Active</b>
+
+Expires: {expires} (auto-renew cancelled)
+premium.next_renewal ||| Next renewal
+premium.status_details ||| ⭐ <b>Premium Status</b>
+
+Plan: {plan}
+Status: {status}
+Started: {started}
+Expires: {expires}
+Auto-renew: {autorenew}
+premium.not_active ||| ❌ Premium is not active on your account.
+premium.expiration_unknown ||| Unknown
+premium.start_unknown ||| Unknown
+premium.required ||| ⭐ <b>Premium Feature</b>
+
+This feature requires an active Premium subscription.
+
+Upgrade to unlock:
+• Higher limits on messages, channels, and bots
+• Video uploads
+• Full statistics and leaderboards
+• Backup & export
+premium.comparison_rich ||| 📊 <b>Plan Comparison</b>
+
+| Feature | Free | Premium |
+|---------|:----:|:-------:|
+| Recurring messages | {recurring_free} | {recurring_prem} |
+| Scheduled messages | {scheduled_free} | {scheduled_prem} |
+| Monthly sends | {monthly_sent_free} | {monthly_sent_prem} |
+| Vi
+premium.comparison_free ||| 📊 <b>Free Plan</b>
+
+• {monthly_sent_free} sent messages per channel / month
+• Up to {scheduled_free} scheduled messages pending
+• Up to {recurring_free} recurring messages
+• Up to {channels_free} channel
+• Up to {bots_free} sender bot
+• Media up to {max_media_free}
+@@STOR
+premium.comparison_paid ||| 📊 <b>Premium Plan</b>
+
+• Unlimited sent messages per channel / month
+• Unlimited scheduled messages pending
+• Up to {recurring_prem} recurring messages
+• Up to {channels_prem} channels
+• Up to {bots_prem} sender bots
+• Media up to {max_media_prem}
+@@STORAGE@@• Media stora
+premium.comparison_text ||| 📊 <b>Compare Plans</b>
+
+See what you get with Premium:
+premium.payment_choice_text ||| ⭐ <b>Choose your Premium term</b>
+
+All Premium payments are made with Telegram Stars:
+premium.plan_monthly_3 ||| 3-month prepaid
+premium.plan_monthly_6 ||| 6-month prepaid
+premium.monthly_subscription_explainer ||| ✅ <b>Standard monthly subscription:</b> pay once with Telegram Stars, then Telegram renews it every 30 days until you cancel. Cancellation keeps Premium active until the paid period ends.
+premium.multi_month_payment_explainer ||| ✅ <b>Now you're paying for all {months} months.</b> This prepaid term does not renew automatically. After that period ends, Premium will not renew; the monthly reference price is {monthly_price}. Choose a new plan when you want to continue.
+premium.yearly_one_time_explainer ||| ℹ️ <b>Yearly is a one-time Stars purchase.</b> After 1 year Premium ends unless you choose and pay for another plan.
+premium.monthly_standard_option ||| ⭐ Standard monthly subscription — {price}/month
+premium.monthly_three_option ||| 3️⃣ 3 months — {price} (save {full_price})
+premium.monthly_six_option ||| 6️⃣ 6 months — {price} (save {full_price})
+premium.monthly_pay_monthly_note ||| 💡 Paying month-by-month: 3 months = {three_month_total}, 6 months = {six_month_total}
+premium.multi_month_discount_note ||| 🏷️ <b>Prepaid discount: {percent}% off</b> — you pay {discounted} instead of {price}.
+premium.payment_options_text ||| 💳 Available payment options:
+premium.price_line ||| 💰 {price}
+premium.stars_only_payment_notice ||| ⭐ Premium payments are available only through Telegram Stars.
+premium.cancel_provider_failed ||| ❌ Telegram could not confirm cancellation. Premium remains active; please try again before the next renewal.
+premium.premium_cancel_provider_failed ||| ❌ Telegram could not confirm cancellation. Premium remains active; please try again before the next renewal.
+premium.purchase_blocked_notice ||| ❌ Premium purchases are currently disabled. Please try again later or contact support.
+premium.payment_success ||| ✅ <b>Payment Successful!</b>
+
+Your Premium access is now active. The Premium menu shows whether this plan renews automatically. Standard monthly renews every 30 days; prepaid 3/6-month and yearly plans are one-time purchases.
+
+Welcome to Premium!
+premium.cancel ||| ❌ Cancel Premium
+premium.cancel_requested_button ||| ❌ Cancellation Requested
+premium.already_cancelled_info ||| ❌ Cancellation already in progress.
+
+Started: {started}
+Expires: {expires}
+Cancel by: {cancel_by}
+premium.cancel_request_error ||| ❌ Could not process cancellation.
+premium.cancel_request_sent ||| ✅ Cancellation request sent!
+
+Your Premium will remain active until <b>{expires}</b>.
+premium.cancel_requested ||| ❌ Cancellation requested. Premium ends on {expires}.
+premium.cancel_confirm_button ||| ✅ Yes, Cancel Premium
+premium.cancel_confirm_text ||| ⚠️ Are you sure you want to cancel Premium?
+
+You will lose access to premium features after the current period ends.
+premium.invoice_description ||| Fast Scheduler Bot Premium Subscription
+premium.auto_renew_on ||| Auto-renewal is ON
+premium.auto_renew_off ||| Auto-renewal is OFF
+premium.reenable_auto_renew_btn ||| ✅ Re-enable Auto-renew
+premium.turn_off_auto_renew_btn ||| ❌ Turn Off Auto-renew
+premium.auto_renew_benefits ||| ✅ Auto-renew keeps your Premium active without interruption.
+premium.keep_premium_text ||| Keep Premium and manage your excess assets below.
+premium.excess_summary_header ||| ⚠️ <b>Excess Assets Detected</b>
+
+When your Premium expires, you'll have more assets than the Free plan allows.
+premium.excess_channels_detail ||| 📢 Channels: {current} (limit: {limit}, scheduled: {scheduled})
+premium.excess_bots_detail ||| 🤖 Bots: {current} (limit: {limit})
+premium.excess_recurring_detail ||| 🔄 Recurring: {current}
+premium.excess_consequences ||| ⚠️ Excess assets will be frozen (not deleted). You can restore them if you reactivate Premium.
+premium.backup_recommendation ||| 📤 <b>Recommendation:</b> Export your data before your Premium expires.
+premium.step_header ||| ⭐ <b>Manage Assets Before Downgrade</b>
+
+Started: {started}
+Expires: {expires}
+premium.manage_channels_btn ||| 📢 Manage Channels
+premium.manage_bots_btn ||| 🤖 Manage Bots
+premium.manage_recurring_btn ||| 🔄 Manage Recurring
+premium.manage_complete_text ||| ✅ All excess assets managed. You're all set!
+premium.select_keep_channel ||| 📢 Keep {channel}
+premium.select_keep_bot ||| 🤖 Keep @{bot}
+premium.select_keep_recurring ||| 🔄 Keep message #{id}
+premium.save_selection ||| ✅ Save Selection
+premium.select_max_limit ||| ⚠️ You can select up to {limit} items.
+premium.select_at_least_one ||| ❌ Select at least one item to keep.
+premium.selection_saved ||| ✅ Selection saved.
+premium.give_up_btn ||| ❌ Give Up & Downgrade
+premium.give_up_title ||| ❌ <b>Give Up Premium Assets</b>
+premium.give_up_warning ||| ⚠️ You're about to give up assets that exceed Free plan limits.
+premium.give_up_assets_header ||| Assets to give up:
+premium.give_up_consequences ||| ❌ These assets will be permanently deleted. This cannot be undone!
+premium.give_up_irreversible ||| 🚫 This action is irreversible.
+premium.give_up_confirm_btn ||| ✅ Yes, Give Up
+premium.give_up_done_title ||| ✅ Downgrade Complete
+premium.give_up_done_info ||| Your account has been downgraded to the Free plan.
+premium.give_up_done_channels ||| 🗑 Channels given up: {count}
+premium.give_up_done_bots ||| 🗑 Bots given up: {count}
+premium.not_frozen ||| ❌ No frozen assets found.
+premium.unfreeze_info_title ||| 🧊 <b>Frozen Assets</b>
+premium.unfreeze_info_grace ||| Grace period ends: {date}
+premium.unfreeze_info_assets ||| Frozen assets:
+premium.unfreeze_info_restore ||| Reactivate Premium to restore these assets.
+premium.unfreeze_celebration_title ||| ✅ <b>Welcome Back to Premium!</b>
+premium.unfreeze_celebration_footer ||| All your assets have been restored.
+premium.unfreeze_asset_channels ||| 📢 {count} frozen channel(s) restored
+premium.unfreeze_asset_bots ||| 🤖 {count} frozen bot(s) restored
+premium.unfreeze_asset_recurring ||| 🔄 {count} frozen recurring message(s) restored
+premium.frozen_notification_title ||| 🧊 <b>Premium Expired — Assets Frozen</b>
+premium.frozen_grace_info ||| Your Premium expired. You have until {date} to renew before frozen assets are deleted.
+premium.frozen_next_steps ||| Reactivate Premium to restore everything instantly.
+premium.grace_expired_title ||| ❌ <b>Grace Period Expired</b>
+premium.grace_expired_info ||| Your frozen assets have been deleted because the grace period ended.
+premium.grace_expired_label ||| Expired
+premium.change_payment_method_btn ||| 💳 Change Payment Method
+premium.change_payment_title ||| 💳 Change Payment Method
+premium.change_payment_info ||| Choose a different payment method for future renewals.
+premium.change_payment_instructions ||| Select a new payment method below:
+premium.retry_payment_btn ||| 🔄 Retry Payment
+premium.retry_exhausted_title ||| ❌ Payment Retries Exhausted
+premium.retry_exhausted_info ||| All automatic payment retry attempts have been used.
+premium.retry_alternatives ||| Consider changing your payment method or purchasing a new subscription.
+premium.retry_initiated_title ||| 🔄 Retry Initiated
+premium.retry_initiated_info ||| Payment retry attempt {attempt}/{total}. You have {remaining} more retries.
+premium.retry_what_happens ||| Telegram will try to charge your saved payment method again.
+premium.retry_status_title ||| 🔄 Payment Retry Status
+premium.retry_attempts_used ||| Retries: {used}/{total}
+premium.retry_exhausted_short ||| ❌ No retries left.
+premium.retry_remaining_info ||| {remaining} retry attempt(s) remaining.
+premium.retry_history_header ||| Retry history:
+premium.retry_attempt_line ||| Attempt {attempt}: {date}
+premium.retry_check_status_btn ||| 🔄 Check Status
+premium.retry_retry_now_btn ||| 🔄 Retry Now
+premium.upsell_free_limit ||| ⭐ <b>{feature}</b>
+
+Your current plan allows {limit}. Upgrade to Premium to increase your limits.
+
+<b>Premium benefits:</b>
+• Higher or unlimited limits for all features
+• Video uploads for Premium users
+• Full statistics and leaderboard
+• Backup & export
+• Priority sup
+premium.cancel_additional_reason ||| Additional comments (optional):
+premium.activation_error_user ||| ❌ Could not activate Premium. Please contact support.
+premium.activation_failed_title ||| ❌ Activation Failed
+premium.activation_failed_footer ||| If the payment was deducted, contact support with your payment details.
+premium.auto_activate_text ||| ⏳ After successful payment, your Premium will be activated automatically. You’ll get a confirmation here.
+premium.cancel_by_date ||| Cancel by {date}
+premium.30days ||| {days} days
+premium.lifetime ||| Lifetime
+premium.custom_date ||| Custom date
+premium.manage_excess_prompt ||| Manage your assets before the plan change takes effect.
+premium.manage_excess_btn ||| Manage Excess
+premium.no_excess_info ||| No excess assets detected.
+premium.purchase_blocked_status ||| Purchases: {status}
+premium.promo_prompt ||| 🎟 <b>Enter your promo code:</b>
+
+Send the promo code as a text message.
+
+Send /cancel to abort.
+premium.activated_notification ||| ✅ <b>Premium Activated!</b>
+
+Your Premium subscription is now active.
+premium.payment_return_success ||| ✅ <b>Premium ({plan}) Activated!</b>
+
+Congratulations, and thank you for choosing Fast Scheduler!
+
+Your Premium ({plan}) is now active until <b>{date}</b>.
+
+<b>What's unlocked:</b>
+• More scheduled messages, channels, and sender bots
+• Unlimited recurring messages 
+premium.payment_return_pending ||| ⏳ <b>Premium Is Not Active Yet</b>
+
+Your Premium subscription is either still pending confirmation or has not been activated. Please wait a few minutes, then open this link again or check <code>/premium</code>.
+
+This link only checks your account status; it cannot 
+premium.canceled ||| ❌ Premium cancelled.
+premium.cancelled_info ||| Premium has been cancelled. You will retain access until the end of the current period.
+premium.expires ||| Expires
+premium.expiring_soon ||| Your Premium is expiring soon.
+premium.grace_24h_title ||| ⏳ <b>Grace Period</b>
+
+Your Premium expired less than 24 hours ago. Renew to keep your assets.
+premium.granted ||| ✅ Premium granted to {user}.
+premium.limit_reached ||| ⚠️ Premium limit reached for {type}.
+premium.manual_renew_label ||| Manual renewal
+premium.refund_notification ||| 💰 Refund processed for {user}: {amount}
+premium.started ||| Started
+premium.unavailable ||| ❌ Premium is not available right now.
+premium.flow_unavailable ||| ❌ Premium flow temporarily unavailable.
+premium.payment_processing ||| ⏳ Processing payment... Expires: {expires}
+premium.auto_renew_failed_title ||| ⚠️ <b>Automatic renewal failed</b>
+premium.auto_renew_failed_info ||| We couldn't charge your subscription automatically (e.g. insufficient balance or an expired payment method).
+
+Your Premium stays active until <b>{expires}</b>.
+premium.auto_renew_failed_warning ||| You have about {days} days left to fix the payment before your excess channels and sender bots are frozen.
+premium.auto_renew_failed_final ||| This was your last automatic grace extension. If Premium is not renewed by then, your excess channels and bots will be frozen and eventually disconnected.
+premium.cancel_already_requested ||| ❌ Cancellation already requested. Premium ends on {expires}.
+premium.ends_in ||| ⏳ Premium ends in {days} day(s)
+premium.renew_manual_text ||| 🔄 Manual renew. Expires: {expires}
+premium.comparison_free_limit ||| You have reached a Free-plan limit. Upgrade to Premium to schedule more and unlock extra channels, sender bots and media storage.
+premium.grace_24h_info ||| ⏳ Grace period ends: {date}
+premium.menu ||| 💎 Upgrade to Premium
+premium.payment_unavailable_text ||| ❌ Payment is currently unavailable. Please try again later or contact support.
+premium.cancel_prompt ||| ❓ <b>Cancel Premium</b>
+
+We're sorry to see you go! Could you tell us why you're cancelling?
+premium.cancel_reason_no_longer_needed ||| No longer needed
+premium.cancel_reason_issues ||| Technical issues
+premium.cancel_reason_other ||| Other reason
+premium.cancel_reason_optional_prompt ||| 📝 Tell us more (optional):
+premium.cancel_skip_reason_button ||| ⏭ Skip
+premium.excess_channels ||| ⚠️ <b>Channels:</b> You have {current} connected. After premium ends, only {limit} will remain active. The rest will be disconnected unless you upgrade.
+premium.excess_bots ||| 🤖 <b>Bots:</b> You have {current} connected. After premium ends, only {limit} will remain active. The rest will be disconnected unless you upgrade.
+premium.excess_recurring ||| 🔄 <b>Recurring messages:</b> You have {current}. Free plan allows only 1. Additional recurring messages will be paused until you upgrade again.
+premium.channel_selected ||| ✅ {name}
+premium.channel_unselected ||| ⬜ {name}
+premium.bot_selected ||| ✅ @{username}
+premium.bot_unselected ||| ⬜ @{username}
+premium.recurring_selected ||| ✅ {name}
+premium.recurring_unselected ||| ⬜ {name}
+premium.activated_until ||| 🎉 <b>Premium Activated!</b>
+
+Your Premium is now active until {date}.
+premium.video_schedule_limit ||| ❌ Video exceeds {limit} MB limit. Free plan allows videos up to {limit} MB. Please use a smaller video or compress it.
+premium.priority_boot ||| ⭐ Your sender bot gets priority boot because you are a Premium subscriber!
+premium.required_stats ||| ⭐ <b>Premium Required</b>
+
+Statistics for this channel require a Premium subscription.
+premium.emoji_warning ||| ⚠️ <b>Premium emoji detected</b>
+
+Premium emoji require Telegram Premium to send. The bot does not support them in scheduled messages — they will appear as plain text.
+
+If you subscribe to <b>FastSchedule Premium</b>, you support the bot owner and help cover the cost of upg
+premium.emoji_btn_subscribe ||| ⭐️ Subscribe to Premium
+premium.emoji_btn_anyway ||| ✅ Schedule anyway
+premium.emoji_btn_cancel ||| ❌ Cancel
+premium.help_btn ||| ℹ️ About
+premium.renew_manual_title ||| 🔄 <b>Your Premium subscription has ended.</b>
+
+Payment method: {method} · Plan: {plan}
+premium.renew_manual_info ||| This payment method doesn't support auto-renewal, so you need to renew manually every time your subscription ends. Premium stays active until <b>{expires}</b> — renew before then to keep everything running without interruption.
+premium.renew_manual_info_stars ||| This was a one-time Telegram Stars payment. It does not renew automatically, so choose and pay for a new plan before <b>{expires}</b> to keep everything running without interruption. Yearly lasts one year; prepaid 3/6-month terms last their stated period.
+premium.renew_manual_tip ||| 💡 <b>Recommended:</b> choose the <b>yearly plan</b> — you only renew once a year instead of every month. Renewal is boring, so make it rare! You also get the yearly discount and save money. (Want to switch? Pick the {other_plan} plan instead.)
+premium.renew_manual_reminder ||| ⏰ <b>Reminder:</b> your grace period is almost over. Renew now to avoid your Premium features being paused.
+premium.renew_pay_again_btn ||| 💳 Pay again for {plan} plan
+premium.renew_choose_plan_btn ||| 📋 Choose another plan

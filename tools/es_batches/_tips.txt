@@ -1,0 +1,40 @@
+tips.cmd.addbot ||| /addbot — Connect your own Telegram bot
+tips.cmd.backup ||| /backup — Create a full backup
+tips.cmd.bots ||| /bots — Manage your sender bots
+tips.cmd.calendar ||| /calendar — Calendar view of scheduled messages
+tips.cmd.channel ||| /channel — Manage your connected channel
+tips.cmd.delete ||| /delete — Delete messages
+tips.cmd.export ||| /export — Export your data
+tips.cmd.feedback ||| /feedback — Contact support
+tips.cmd.help ||| /help — Show help information
+tips.cmd.import ||| /import — Import messages from file
+tips.cmd.lang ||| /lang — Change bot language
+tips.cmd.language ||| /language — Change bot language
+tips.cmd.list ||| /list — List all your scheduled messages
+tips.cmd.listbots ||| /listbots — List all your connected bots
+tips.cmd.premium ||| /premium — Premium plans and subscription
+tips.cmd.recurring ||| /recurring — Create a recurring message
+tips.cmd.referral ||| /referral — Referral program — earn free Premium
+tips.cmd.removebot ||| /removebot — Disconnect a connected bot
+tips.cmd.schedule ||| /schedule — Schedule a new message
+tips.cmd.search ||| /search — Search in your scheduled messages
+tips.cmd.setchannel ||| /setchannel — Change the default channel
+tips.cmd.start ||| /start — Restart the bot and see the main menu
+tips.cmd.stats ||| /stats — View your statistics
+tips.cmd.storage ||| @@STORAGE@@/storage — Open media storage
+tips.facts.0 ||| 📌 <b>Did you know?</b> This bot can send messages to multiple channels at once with Premium!
+tips.facts.1 ||| 📌 <b>Did you know?</b> Your scheduled messages are stored safely even if the bot restarts.
+tips.facts.10 ||| 📌 <b>Did you know?</b> Referral program gives you 3 free Premium days for each friend who joins!
+tips.facts.11 ||| 📌 <b>Did you know?</b> You can connect up to 3 sender bots and 3 channels as a Premium user.
+tips.facts.12 ||| 📌 <b>Did you know?</b> Recurring messages can be set to repeat daily, weekly, monthly, or yearly.
+tips.facts.13 ||| 📌 <b>Did you know?</b> The calendar view shows all your scheduled messages at a glance.
+tips.facts.14 ||| 📌 <b>Did you know?</b> You can schedule <b>polls with images</b> — just add a photo during creation.
+tips.facts.15 ||| 📌 <b>Did you know?</b> Checklists let you track task completion right inside the message.
+tips.facts.16 ||| 📌 <b>Did you know?</b> Inline buttons can open URLs — use them to link to your other content!
+tips.facts.17 ||| 📌 <b>Did you know?</b> The bot handles <b>spoiler formatting</b> with <code>||text||</code> syntax.
+tips.facts.18 ||| 📌 <b>Did you know?</b> Free users can schedule up to <b>100 messages</b> at once, with no daily cap.
+tips.facts.19 ||| 📌 <b>Did you know?</b> Yearly Premium is the best value per day — check <code>/premium</code> for current prices.
+tips.facts.2 ||| 📌 <b>Did you know?</b> You can use European (DD.MM.YYYY), American (MM/DD/YYYY), and ISO (YYYY-MM-DD) date formats.
+tips.facts.20 ||| 📌 <b>Did you know?</b> You can use both a <b>main bot and your own sender bot</b> together.
+tips.facts.21 ||| 📌 <b>Did you know?</b> You can export your data and import it to another bot instance.
+tips.facts.22 ||| 📌 <b>Did you know?</b> Recurring messages expire after 1 year for free users with a notification.

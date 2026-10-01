@@ -1,0 +1,76 @@
+activate.premium_referral ||| ⭐ Activate Days
+attachment.name ||| 📎 {name}
+backup.no ||| No
+backup.eye_toggle ||| 👁
+blocked.alert ||| 🚫 {reason}
+blocked.users ||| 🚫 {count} user(s)
+bot.btn ||| bot
+bot.assigned_check ||| ✅
+bot.unassigned_check ||| ⬜
+bot.blocked ||| ❌ Bot was blocked by the user.
+bot.kicked ||| ❌ Bot was removed from the group/channel.
+bot.list_item ||| 🤖 {username}
+bot.hide_channel_btn_hide ||| 🔒 Hide channel from strangers
+bot.hide_channel_btn_show ||| 🔓 Show channel to strangers
+bot.not_admin ||| ❌ Bot must be an administrator in the channel.
+bot.no_channel ||| ❌ No channel
+bot.channel_connected_user ||| ✅ <b>Bot connected</b>
+
+@{bot} → <code>{channel}</code>.
+bot.change_icon ||| 🔄
+bot.remove_icon ||| 🗑
+bots.btn ||| 🤖 Bots ({limit}, {type})
+bots.label ||| 🤖 Bots ({count})
+bots.connected_list ||| 🤖 <b>Your bots ({count}/{limit})</b>
+
+{list}
+broadcast.add_callback_btn ||| ➕ Add callback button
+broadcasting.to_all ||| 📢 Broadcasting to all users...
+build.info ||| Build: {build}
+bulk.check_on ||| @@STORAGE@@✅
+bulk.check_off ||| @@STORAGE@@⬜
+buy.premium_yearly ||| 💵 Yearly — {price}/yr ({savings})
+buy.premium_yearly_tg ||| ⭐ Yearly — {price}/year
+cache.cleared ||| ✅ Cache cleared.
+cache.cleared_admin ||| ✅ Admin cache cleared.
+calendar.btn ||| 📅 Calendar
+calendar.title ||| 📅 Calendar
+calendar.header ||| 📅 <b>{month} {year}</b>
+calendar.month_nav ||| {month} {year}
+calendar.day_with_msgs ||| {day} ({count})
+calendar.day_empty ||| {day}
+calendar.view_day ||| 📅 View Day
+calendar.today_btn ||| 📅 Today
+calendar.select_day ||| 📅 Select a day to see scheduled messages.
+calendar.messages_for ||| 📅 <b>{date}</b>
+
+{count} message(s)
+calendar.message_line ||| • #{id} — {time} — {channel}
+calendar.prev_month ||| ◀
+calendar.next_month ||| ▶
+calendar.prev_week ||| ◀ Week
+calendar.next_week ||| Week ▶
+calendar.week_view ||| Week
+calendar.month_view ||| Month
+calendar.legend_sent ||| ✅ Sent
+calendar.legend_failed ||| ❌ Failed
+calendar.empty ||| 🗭 No messages on this day.
+calendar.no_other_channels ||| ❌ No other channels available.
+calendar.select_channel ||| 📢 Select a channel to view:
+calendar.channel ||| 📢 {channel}
+calendar.day ||| 📅 {day}
+calendar.view ||| 📅 Calendar
+callback.button_added ||| 🔘 Callback button: {label} → {value}
+cancel.premium_reason_no_longer_needed ||| No longer needed
+cancel.premium_reason_issues ||| Technical issues
+cancel.premium_reason_other ||| Other reason
+cancel.premium_enter_other_reason ||| 📝 Please describe why you're cancelling:
+cancel.premium_reason_optional_prompt ||| Reason: {reason}
+cancel.premium_additional_reason ||| 📝 Additional details: {details}
+cancel.premium_request_error ||| ❌ Error submitting cancellation: {error}
+cannot.block_admin ||| ❌ Cannot block an admin.
+cannot.toggle_admin_premium ||| Cannot modify another admin's premium status.
+cat.check_off ||| ❌
+cat.check_on ||| ✅
+replace_token_btn ||| 🔁 Replace Token
+replace_token_icon ||| 🔁

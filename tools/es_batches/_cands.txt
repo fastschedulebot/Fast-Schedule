@@ -1,0 +1,269 @@
+channel.tz_line ||| 🕐 {tz}
+channel.bot_tag ||| 🤖 @{bot}
+channel.connected ||| ✅ Channel <b>{channel}</b> connected!
+channel.connected_basic ||| ✅ Channel connected! You can now schedule messages for it.
+channel.connected_success ||| ✅ Channel <b>{channel}</b> connected successfully!
+
+The main bot can now access your channel.
+
+<b>Next step: connect a sender bot.</b>
+A sender bot is required to manage the channe
+channel.connected_success_user ||| ✅ Channel <b>{channel}</b> connected! The full confirmation was sent to you via the main bot.
+channel.connected_all_set ||| ✅ All set! Channel <b>{channel}</b> is ready.
+
+{count} pending message(s) have been linked to this channel.
+channel.disconnected ||| ❌ Channel <b>{channel}</b> disconnected.
+
+{redirected} scheduled messages were removed or reassigned.
+channel.channel_hidden_done ||| ✅ The channel is now hidden from strangers.
+channel.channel_visible_done ||| ✅ The channel is now visible to strangers.
+channel.invalid_message ||| ❌ Please forward a message <b>from your channel</b>, not from a private chat or group.
+channel.connect_error ||| ❌ Could not connect channel. Make sure:
+• The bot (@FastSchedulerBot) is admin in the channel
+• The link or forwarded message is from the channel itself
+• You are the channel owner
+channel.max_reached ||| ⚠️ You've reached the channel limit ({limit}).
+
+Disconnect a channel or upgrade to Premium to connect more.
+channel.verify_failed_simple ||| ❌ Verification failed. I couldn't confirm you're an admin of that channel.
+
+Make sure:
+1. The bot is an admin in your channel
+2. You forwarded a real channel post
+channel.invalid_channel_format ||| ❌ Invalid channel format.
+channel.invite_hash_help ||| 🔗 <b>That's a private invite link</b>
+
+I can't open <code>t.me/+...</code> invite links — Telegram doesn't let bots resolve them.
+
+Connect this channel another way:
+• <b>Forward</b
+channel.redirect_count ||| 📦 {count} scheduled message(s) redirected to this channel.
+channel.redirect_recurring_count ||| 🔄 {count} recurring message(s) keep their old channel. Update them separately.
+channel.info_text ||| 📢 <b>Channel Info</b>
+
+<b>{channel}</b>
+
+Role: {role}
+Bot admin: {bot_admin}
+Sender bot: @{bot}
+Hidden: {hidden}
+Time zone: {tz}
+
+<b>Stats:</b>
+Scheduled: {scheduled}
+Recurring: {r
+channel.info_unknown_time ||| unknown
+channel.pick_free ||| 🆓 Free: {channel}
+channel.pick_managed ||| 🤖 Managed: {channel}
+channel.locked_desc ||| 🔒 <b>Channel Locked</b>
+
+This channel is managed by a sender bot. Please use @{bot} to manage it.
+channel.has_bot ||| ✅ Channel has bot: @{bot}
+channel.no_bot ||| ❌ No bot connected to this channel.
+channel.visibility_hidden ||| 👻 Hidden (shows as "a private channel")
+channel.visibility_visible ||| 👁 Visible ({channel})
+channel.visibility_state ||| Visibility: {state}
+channel.bot_not_admin_simple ||| ❌ The bot must be an admin in this channel.
+channel.limit_premium_reached ||| ⚠️ Channel limit reached. Upgrade to Premium for more channels.
+channel.stats_title ||| 📊 <b>Channel: {name}</b>
+channel.user_not_admin_simple ||| ❌ You must be an admin in this channel.
+channel.check_off ||| ❌
+channel.check_on ||| ✅
+channel.changed_notice ||| ✅ Old channel <code>{old_channel}</code> will be disconnected.
+channel.sender_bot_not_admin ||| ❌ Sender bot {bot} is not an admin in this channel.
+
+Please add {bot} as an admin first and try again.
+channel.limit_premium ||| ⚠️ Free users can only connect 1 channel.
+
+💎 Upgrade to Premium for up to 3 channels!
+channel.premium_notice ||| ⭐ Premium feature: schedule to multiple channels at once!
+channel.has_bot_replace ||| ⚠️ <b>Channel already has a bot</b>
+
+Channel <code>{channel}</code> already has bot @{old_bot} connected.
+
+Replace it with @{new_bot}? The old bot will be disconnected.
+channel.owned_by_other ||| ⚠️ <b>This channel already has a sender bot</b>
+
+{channel} is already managed by {bot} connected by the channel owner. You do not need to connect a new bot.
+
+If you are an admin of
+channel.no_message ||| ❌ No message received. Please send a channel link or ID.
+channel.locked_sender ||| 🔴 <b>Channel managed via sender bot</b>
+channel.action_schedule ||| 📅 Schedule
+channel.action_stats ||| 📊 Stats
+channel.action_recurring ||| 🔄 Recurring
+channel.action_calendar ||| 📅 Calendar
+channel.action_messages ||| 📋 Messages
+channel.hidden_popup ||| ✅ Channel hidden from strangers
+channel.visible_popup ||| ✅ Channel visible to strangers again
+channel.hidden_done ||| ✅ Channel hidden from strangers.
+channel.visible_done ||| ✅ Channel is now visible to strangers.
+channel.pending_verify ||| ✅ Channel {channel} found, but I can't verify that I'm an admin there. Please add {bot} as an admin with <b>Post Messages</b> permission and click <b>Recheck</b>.
+channel.pending_verify_simple ||| Channel {channel} found, but can't verify bot admin. Please add bot and click Recheck.
+channels.btn ||| 📢 Channels ({limit}, {max}, {type})
+channels.connected_line ||| 📢 {count} channel(s) connected.
+channels.connected ||| Channels connected
+help.btn ||| ❓ Help
+help.open_in_web ||| 🌐 Open in Web
+help.command ||| Help Center
+help.me_btn ||| Help
+help.me_text ||| Need help? Check the Help section.
+help.text ||| <b>Help Center</b>
+
+Select a topic below to learn more about Fast Scheduler Bot.
+help.root_children ||| start,scheduling,channels,bots,premium,referral,limits,timezone,language,export,import,backup,media_storage,tools,tips,feedback,faq,commands,errors,privacy,legal,contact,help,confi
+help.no_results ||| No help topics found for "{query}".
+help.search_results ||| Help results for "{query}":
+help.search_hint ||| Search help topics...
+help.center_intro ||| Welcome to the Help Center. Browse topics or search for answers.
+help.topic_not_found ||| Help topic not found: {topic}
+help.title ||| <b>Help & Commands</b>
+help.commands.content ||| Fast Scheduler Bot can be controlled with text commands — handy on desktop or when you open the bot from a search.
+
+Pick a command below for details, or use the main-menu buttons f
+help.commands.title ||| Text Commands
+help.commands.children ||| ['commands_list', 'commands_schedule', 'commands_search', 'commands_premium', 'commands_referral', 'commands_settings', 'commands_language', 'commands_help']
+help.commands.faq ||| [{'a': 'Search finds messages by keyword. Statistics shows your usage. Calendar gives a monthly overview.', 'links': ['search', 'statistics', 'calendar'], 'q': 'What other features
+help.start.children ||| ['getting_started', 'start_account', 'start_schedule', 'start_tips', 'glossary', 'setdate', 'advertising']
+help.start.content ||| New here? This section takes you from an empty chat to a published post: connect your channel, connect a sender bot, schedule the first message — then explore the tools that keep a
+help.start.title ||| Getting Started
+help.channel ||| /channel — Connect or manage your channel
+help.schedule ||| /schedule — Schedule a message
+help.recurring.children ||| ['recurring_uses', 'recurring_pause_resume']
+help.recurring.content ||| Recurring messages repeat automatically - daily, on chosen weekdays, or monthly.
+
+<b>How to create:</b>
+1. Tap <b>Recurring Message</b>.
+2. Pick the channel and the interval (daily
+help.recurring.title ||| Recurring Messages
+help.recurring.faq ||| [{'a': 'Yes. Step by step:\n1. Click <b>Message List</b> on the main menu (or use <code>/list</code>)\n2. Find your recurring message (look for the icon)\n3. Click on it → then cli
+help.delete.content ||| Remove scheduled or recurring messages you no longer need.
+
+<b>How to delete:</b>
+• From <b>Message List</b>: tap the 🗑 trash icon next to a message → confirm.
+• Use <b>🗑 Delete Al
+help.delete.title ||| Delete Messages
+help.bot ||| /bots — Manage connected bots
+help.premium.children ||| ['premium_features', 'premium_compare', 'premium_buy', 'payment', 'premium_trial', 'premium_welcome', 'promocode', 'premium_cancel', 'premium_status', 'premium_freeze', 'premium_ex
+help.premium.content ||| 
+help.premium.title ||| Premium
+help.premium.faq ||| [{'a': "Step by step:\n1. Click <b>Premium</b> on the main menu (or use <code>/premium</code>)\n2. Choose a plan: <b>Monthly</b> (auto-renewing), <b>3-month</b>, <b>6-month</b>, or
+help.storage ||| @@STORAGE@@/storage — Manage media storage
+help.language.children ||| ['language_change', 'language_list', 'language_sync', 'language_add', 'language_help']
+help.language.content ||| 
+help.language.title ||| Language
+help.language.faq ||| [{'a': 'Go to <b>Language</b> on the main menu → tap <b>Disable Language Sync</b>. This stops cross-bot sync offers between Fast Scheduler and @SetDate_bot, and turns off Telegram 
+help.feedback.content ||| Every ticket goes to a human. Open <b>Feedback</b> in the bot (or <code>/feedback</code>), pick a category, and describe the issue — attach a file or screenshot if it helps.
+
+<b>Wh
+help.feedback.title ||| Feedback & Support
+help.feedback.children ||| ['feedback_new', 'feedback_view', 'feedback_file']
+help.stats ||| /stats — View your statistics
+help.search.content ||| The search tool finds any scheduled or recurring message by its text — no scrolling through the calendar needed.
+
+<b>How to search</b>
+1. Tap <b>Search</b> on the main menu (second
+help.search.title ||| Searching Messages
+help.search.children ||| ['search_messages', 'search_filter', 'search_delete']
+help.search.faq ||| [{'q': 'What if I want to browse all messages?', 'a': 'Use Message List to browse messages by channel instead of searching.', 'links': ['message_list'], '0': 'message_list,calendar
+help.backup.children ||| ['backup_create', 'backup_include', 'backup_exclude', 'backup_password', 'backup_size', 'backup_schedule', 'backup_restore', 'backup_verify', 'backup_cloud', 'backup_download']
+help.backup.content ||| 
+help.backup.title ||| Backup
+help.backup.faq ||| [{'a': 'Step by step:\n1. Click <b>Export</b> on the main menu (page 2) or use <code>/export</code>\n@@STORAGE@@2. Choose what to export: <b>Scheduled Messages</b>, <b>Recurring Me
+help.calendar.content ||| See all your scheduled messages on a monthly calendar.
+
+<b>How to Access:</b>
+1. Click <b>Calendar</b> on the main menu (page 2) or use <code>/calendar</code>
+2. Select a channel (
+help.calendar.title ||| Calendar View
+help.calendar.faq ||| [{'a': 'Use Message List for a full list view instead of the calendar.', 'links': ['message_list', 'timezone', 'scheduling'], 'q': 'How do I see all my messages in a list?'}]
+help.list ||| /list — List your messages
+help.export.children ||| ['export_data', 'export_chat', 'export_formats', 'export_text', 'export_csv', 'export_json', 'export_rtf', 'export_odt']
+help.export.content ||| Export your data as a downloadable file.
+
+Choose what to export (scheduled, recurring, all) and a format:
+• <b>.txt</b> - plain text, human-readable.
+• <b>.csv</b> - spreadsheet, o
+help.export.title ||| Export
+help.import.children ||| ['import_data', 'import_chat', 'import_from_storage', 'import_csv', 'import_json', 'import_formats']
+help.import.content ||| 
+help.import.title ||| Import
+help.import.faq ||| [{'a': 'Yes! Send a .txt file where each message is separated by a blank line. All messages will be imported with the same date/time. You can then edit each one individually.', 'q'
+help.format_title ||| <b>Batch Scheduling (key feature):</b>
+help.format_example ||| Send as many date+message pairs as you want — each gets scheduled separately:
+
+<code>25.12.2024 10:00</code>
+<code>First post</code>
+
+<code>26.12.2024 18:00</code>
+<code>Second pos
+help.formatting.children ||| ['content_types', 'media_types']
+help.formatting.content ||| You can use Telegram markdown-style formatting in your messages:
+
+<code>**bold**</code> — <b>bold</b>
+<code>__italic__</code> — <i>italic</i>
+<code>___underline___</code> — <u>unde
+help.formatting.title ||| Formatting & Inline Buttons
+help.formatting.faq ||| [{'a': 'Supported: bold, italic, underline, strikethrough, code, pre, spoiler (||text||), inline links, and inline buttons via [text=link="url"]. HTML tags also work if you prefer.
+help.advertising.content ||| To advertise to Fast Scheduler users, contact <b>@MaximalXP</b> to discuss placements and packages.
+
+For standard audience reach, Telegram's own <b>Telegram Ads</b> platform is als
+help.advertising.title ||| Advertising & Promotion
+help.advertising.faq ||| [{'a': 'Pricing varies depending on the placement type, duration, and reach. Contact @MaximalXP directly for a custom quote. Telegram Ads (native) have their own pricing at ads.tel
+help.admins.children ||| ['admins_limits', 'admins_permissions', 'admins_transfer']
+help.admins.content ||| The <b>Admins</b> section manages who can use a connected channel and what they can do. It lives inside <b>Sender Bots Management → Admins</b> and is available to every channel tha
+help.admins.title ||| Admins
+help.admins.faq ||| [{'a': "Anyone who is a real human administrator with the <b>Post Messages</b> permission in your channel can be listed as an admin. The list is synced live from Telegram — connect
+help.admins_limits.content ||| All message-related limits are counted <b>per channel</b>, never per user.
+
+<b>Who counts:</b> every admin of the channel — the Main Owner and everyone else — contributes to and sh
+help.admins_limits.title ||| How Admins Share Limits
+help.admins_permissions.content ||| The Main Owner manages an RBAC-style permission list for every admin of the channel.
+
+<b>What can be controlled:</b>
+• Scheduling messages
+• Creating recurring messages
+• Viewing s
+help.admins_permissions.title ||| Permissions & Requests
+help.admins_transfer.content ||| Transferring the Main Owner role is deliberately protected by multiple confirmation layers.
+
+<b>The flow:</b>
+1. The current Main Owner opens the target admin's profile and presses
+help.admins_transfer.title ||| Ownership Transfer
+help.backup_cloud.content ||| Store your backup files in cloud storage (Google Drive, Dropbox, etc.) so they survive device loss.
+
+Telegram documents stay available for a long time, but a separate backup is the
+help.backup_cloud.title ||| Cloud
+help.backup_create.content ||| 1. Use <code>/backup</code>.
+2. Choose whether to protect it with a password.
+3. The bot generates and sends the .fsback file.
+
+A full backup includes scheduled and recurring messa
+help.backup_create.title ||| Create Backup
+help.backup_download.content ||| The backup file is sent to you as a document in the chat.
+
+Save it somewhere safe (cloud drive, computer, another device). Telegram does not keep your bot data forever - your downl
+help.backup_download.title ||| Download
+help.backup_exclude.content ||| A backup does <b>not</b> include:
+• Files/media binary themselves for large uploads are re-verified on restore where needed.
+• Data of other users.
+• Server logs or internal state.
+help.backup_exclude.title ||| What Is Excluded
+help.backup_include.content ||| A full backup includes:
+• Scheduled and recurring messages (content, times, media refs)
+• Connected channels and sender bot assignments
+• Settings (language, time zone, signatures)
+help.backup_include.title ||| What Is Backed Up
+help.backup_password.content ||| Protect your backup with a password (<code>/backup</code> → enable password).
+
+The file becomes encrypted (.fspback) and requires the password to restore.
+
+<b>Warning:</b> without 
+help.backup_password.title ||| Backup Password
+help.backup_restore.content ||| 1. Use <code>/import</code>.
+2. Send the .fsback / .fspback file.
+3. If password-protected, enter the password.
+4. Confirm - the bot restores your data.
+
+<b>Important:</b> restorin
+help.backup_restore.title ||| Restore Backup

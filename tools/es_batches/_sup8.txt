@@ -1,0 +1,280 @@
+help.backup.content ||| 
+help.backup_cloud.content ||| Store your backup files in cloud storage (Google Drive, Dropbox, etc.) so they survive device loss.
+
+Telegram documents stay available for a long time, but a separate backup is the safest option.
+
+Keep the password for .fspback files in a password manager.
+help.backup_create.content ||| 1. Use <code>/backup</code>.
+2. Choose whether to protect it with a password.
+3. The bot generates and sends the .fsback file.
+
+A full backup includes scheduled and recurring messages, settings, connections, and media references - everything needed to restore your account.
+
+Backups are a <b>Premium<
+help.backup_download.content ||| The backup file is sent to you as a document in the chat.
+
+Save it somewhere safe (cloud drive, computer, another device). Telegram does not keep your bot data forever - your downloaded backup is the guarantee you can always recover.
+help.backup_exclude.content ||| A backup does <b>not</b> include:
+• Files/media binary themselves for large uploads are re-verified on restore where needed.
+• Data of other users.
+• Server logs or internal state.
+
+If something can't be included, the backup report tells you.
+help.backup_include.content ||| A full backup includes:
+• Scheduled and recurring messages (content, times, media refs)
+• Connected channels and sender bot assignments
+• Settings (language, time zone, signatures)
+@@STORAGE@@• Media storage items and boxes
+• Referral and promo data
+
+Basically everything needed to restore the same a
+help.backup_password.content ||| Protect your backup with a password (<code>/backup</code> → enable password).
+
+The file becomes encrypted (.fspback) and requires the password to restore.
+
+<b>Warning:</b> without the password, the backup <b>cannot</b> be restored. Store it somewhere you won't lose it.
+help.backup_restore.content ||| 1. Use <code>/import</code>.
+2. Send the .fsback / .fspback file.
+3. If password-protected, enter the password.
+4. Confirm - the bot restores your data.
+
+<b>Important:</b> restoring <b>replaces</b> your current data. Export before restoring if you want to keep both.
+help.backup_schedule.content ||| Automatic recurring backups aren't a feature yet.
+
+Instead, export regularly yourself:
+• <code>/backup</code> for a full snapshot.
+• <code>/export</code> for quick selective exports.
+
+A good habit: backup before big changes or after major campaigns.
+help.backup_size.content ||| Backup file size depends on your data volume: number of messages, media references, and settings.
+
+Text-based backups are small. Media is stored as references (files are re-uploaded), keeping the backup compact.
+help.backup_verify.content ||| After creating a backup, keep it safe and test it:
+• Export once, then import it into a fresh setup to confirm it restores.
+• Ensure the file isn't corrupted (it should open as expected).
+
+Regular test-restores ensure you can recover if something goes wrong.
+help.bot_add.content ||| 1. Open <b>@BotFather</b> → <code>/newbot</code> → pick a name and username.
+2. Copy the token (format <code>1234567890:ABCdef...XYZ</code>).
+3. In the bot: <b>Bots</b> → <b>Enter Token</b> → paste and send.
+4. Assign the bot to one channel.
+5. Add the bot as an <b>Administrator</b> in that channel.
+help.bot_fleet.content ||| Premium users can run up to {bots_prem} sender bots, one per channel.
+
+Each bot has its own token, channel assignment, and optional management settings. Manage the whole fleet from the <b>Bots</b> menu.
+
+Keep tokens private - a leaked token lets anyone post as your bot.
+help.bot_manage.content ||| From <b>Bots</b> in the main menu you can see all connected bots and:
+• Open the bot in Telegram (tap its @username).
+• <b>Replace Token</b> after a reset in @BotFather.
+• <b>Disconnect/Remove</b> the bot.
+
+Disconnecting a bot hands the channel back to the "connect a sender bot" state — scheduling p
+help.bot_permissions.content ||| For a sender bot to post in your channel it must be an <b>Administrator</b> with at least <b>Post Messages</b> permission.
+
+Add it in channel settings: <b>Administrators</b> → <b>Add Admin</b> → search your bot's username → grant permissions.
+
+Optional: <b>Edit Messages</b> and <b>Delete Messages</b
+help.bot_remove.content ||| To disconnect a bot: <b>Bots</b> → select the bot → <b>Remove/Disconnect</b> → confirm.
+
+The bot's token is removed from Fast Scheduler. Messages scheduled for its channel are <b>paused</b>, not deleted.
+
+If you later connect a new bot to the same channel, its messages resume automatically.
+help.bot_rotate.content ||| If your bot token was leaked, reset it in @BotFather (<code>/resetoken</code>) and update it here:
+
+<b>Bots</b> → select the bot → <b>Replace Token</b> → paste the new token.
+
+Scheduled messages resume automatically once the new token is saved. Always rotate tokens immediately if you suspect a leak.
+help.bot_sender.content ||| When a sender bot is assigned to a channel, all posts appear from your bot's name and profile photo instead of @FastSchedulerBot.
+
+This looks more professional and gives you per-channel statistics. Every connected channel must have a sender bot - connect one from <b>Bots</b> before you start schedul
+help.bot_stats.content ||| Per-channel statistics show how each channel's posts perform: totals, averages for views, comments and reactions, plus top reactions.
+
+<b>How:</b> open <b>Statistics</b> (main menu page 2 or /stats) → pick the channel under the overview. The full stats view is delivered via your main bot; each chann
+help.bot_status.content ||| Check a bot's status under <b>Bots</b> - it shows whether the bot is connected and healthy.
+
+If a bot shows as disconnected, verify the token is valid (reset it in @BotFather if needed) and that the bot is still an admin in the channel.
+
+Messages queued while a bot is offline are sent as soon as it 
+help.bots.content ||| 
+help.channel_add.content ||| To connect a channel:
+1. Make <b>@FastSchedulerBot</b> an <b>Administrator</b> in the channel (Post Messages permission).
+2. Open the bot → <b>Connected Channel</b> → <b>Connect Channel</b>.
+3. Send <code>@yourchannel</code>, forward a post, send an invite link, or send the channel ID (e.g. <code>-1
+help.channel_connect.content ||| The bot must be an admin in your channel to post. Add it in channel settings: <b>Administrators</b> → <b>Add Admin</b> → search @FastSchedulerBot.
+
+Grant at least <b>Post Messages</b>. Grant <b>Delete Messages</b> and <b>Edit Messages</b> to allow full management.
+
+If you use a <b>sender bot</b>, it
+help.channel_default.content ||| A <b>default channel</b> is pre-selected every time you start scheduling, so the channel picker is skipped and you go straight to your message.
+
+<b>How:</b> open <b>Connected Channel</b> → find the channel → tap <b>⭐ Set as Default</b>. The channel gets a ⭐ marker in the list; tap <b>Clear Default</
+help.channel_link.content ||| Your channel's permanent link is <code>t.me/yourchannel</code> (for public channels).
+
+You can send this link to the bot to connect the channel, or share it with your audience. Private channels don't have a public link - connect them by forwarding a post or sending the channel ID instead.
+help.channel_manage.content ||| Everything about one channel lives in two places: the <b>Connected Channel</b> list and the channel's own <b>info screen</b>.
+
+<b>Connected Channel</b> (main menu) lists every channel you have connected. For each channel you get:
+• The channel name with a ⭐ marker on your default channel.
+• <b>Edit 
+help.channel_permissions.content ||| For the bot to work, these admin permissions are needed:
+• <b>Post Messages</b> - required to send posts.
+• <b>Edit Messages</b> - recommended, for editing after posting.
+• <b>Delete Messages</b> - recommended, for cleanup.
+
+Add the bot as an administrator in channel settings and tick the permission
+help.channel_posting.content ||| Every post in your channel is delivered by a <b>sender bot</b> — that is what makes scheduling possible at all. This is not an optional nicety: the scheduler unlocks only after each connected channel has its own sender bot, because Telegram requires a bot to hold <b>Post Messages</b> rights in the c
+help.channel_remove.content ||| To unlink a channel:
+1. Open <b>Connected Channel</b> → find the channel.
+2. Tap <b>🔗 Disconnect Channel</b> → confirm.
+
+What happens to the channel's messages:
+• <b>Scheduled messages</b> on that channel are removed or reassigned to another connected channel — the bot tells you exactly how many.
+• 
+help.channel_signature.content ||| A signature is your custom footer (or header) — for example "Posted by @yourchannel" — added automatically when a post goes out.
+
+<b>How:</b> tap <b>📝 Signature</b> on the main menu (or send /signature) → create a signature with <b>Add Signature</b> → choose its position (<b>start</b> or <b>end</b> 
+help.channel_signature_position.content ||| Choose where the signature appears in the sent message:
+• <b>At the end</b> (default) - classic sign-off under the content.
+• <b>At the start</b> - the signature line first, then your content.
+
+You can also add blank lines before the signature so it is visually separated from the message body. Previ
+help.channel_stats.content ||| Premium users can view per-channel statistics and leaderboards: most viewed, most reacted, and most commented posts.
+
+These stats help you learn what content performs best so you can schedule more of what works.
+
+Channel stats are available for every connected channel — shown in the main bot, or ins
+help.channel_unlink.content ||| • <b>Unlink / Remove a channel</b> - the bot stops posting to it; its messages are paused but preserved.
+• <b>Delete a message</b> - the scheduled/recurring message is removed permanently.
+
+Unlinking is reversible: re-connect the channel and everything resumes. Deleting is permanent - use it only wh
+help.channels.content ||| 
+help.commands_premium.content ||| Opens the Premium panel: your plan, limits, payment, and expiry info.
+
+From here you can:
+• See your current plan and usage vs limits
+• Buy or upgrade to Premium (monthly, 3-month, 6-month, or yearly)
+• Choose a payment method: <b>Telegram Stars</b> (in-app purchase)
+• Redeem a promo code
+• Cancel o
+help.commands_schedule.content ||| Starts the message scheduling flow.
+
+1. Send <code>/schedule</code> (or press <b>Schedule</b>)
+2. Choose a channel
+3. Enter the date/time (e.g. <code>25.12.2024 10:00</code>)
+4. Send the message text and/or media
+5. Preview and confirm
+
+You can also schedule many messages at once by sending a .txt f
+help.connect_bot.content ||| Every channel needs its own sender bot - a Telegram bot <b>you</b> own that posts messages to your channel under the bot's name.
+
+<b>Why Connect Your Own Bot?</b>
+• Messages are sent from YOUR bot, not the main bot
+• Your bot's name and photo appear as the author
+• Professional appearance for your c
+help.connect_channel.content ||| Before you can schedule messages, you need to connect a Telegram channel.
+
+<b>Requirements</b>
+• The main bot <b>@FastSchedulerBot</b> must be an <b>Administrator</b> in the channel
+• Give it at least <b>Post Messages</b> permission
+• For sender bots: the sender bot must also be an admin
+
+<b>How to 
+help.error_channel.content ||| • <b>Bot is not an admin</b> - add the bot as admin (Post Messages permission).
+• <b>Channel not found</b> - wrong username or link; verify <code>@yourchannel</code>.
+• <b>Invalid format</b> - use @username, a full invite link, or the numeric ID.
+• <b>Can't connect</b> - make sure you're the owner o
+help.faq_bot.content ||| A sender bot is required for every channel: posts appear from your bot's name, with lower delay, better security, and per-channel stats.
+
+One bot per channel. Free: {bots_free} bot; Premium: up to {bots_prem}.
+help.faq_schedule.content ||| Questions people most often ask about scheduling: formats, editing, limits, multiple channels, media, recurring messages, and more. Tap a question below to see the answer.
+help.getting_started.content ||| Three steps and your first post is scheduled. The whole setup usually takes five minutes.
+
+<b>Step 1: Connect your channel</b>
+Add <b>@FastSchedulerBot</b> as an administrator of your channel with at least the <b>Post Messages</b> permission. Then in the bot: <b>Connected Channel</b> → <b>Connect Ch
+help.glossary_channel.content ||| A Telegram channel is where your audience sees your posts. Fast Scheduler connects to your channel, then posts your scheduled and recurring messages to it.
+
+You must be the owner or an admin, and the bot must be an administrator with at least <b>Post Messages</b> permission.
+
+Free plan: {channels_fr
+help.glossary_premium.content ||| Premium is a paid subscription that raises or removes the free plan limits:
+• More channels and sender bots ({channels_prem}/{bots_prem}).
+• Unlimited scheduled, recurring, and sent messages (Free: {scheduled_free} pending / {monthly_sent_free} sends per month).
+• @@STORAGE@@20 media storage boxes, 
+help.limit_bots.content ||| Free plan: <b>{bots_free}</b> sender bot. Premium: up to <b>{bots_prem}</b>.
+
+Each bot is tied to one channel. If you reach the limit, remove an unused bot or upgrade to Premium.
+help.limit_channels.content ||| Free plan: <b>{channels_free}</b> connected channel. Premium: up to <b>{channels_prem}</b>.
+
+Each channel can have its own sender bot, time zone, and signature. To add more channels, upgrade via <code>/premium</code>.
+help.limit_raise_bots.content ||| Free: {bots_free} bot. Premium: {bots_prem} bots.
+
+Each bot serves one channel. To get more bots, upgrade to Premium.
+help.limit_raise_channels.content ||| Free: {channels_free} channel. Premium: up to {channels_prem}.
+
+More channels = more audience reach. Upgrade via <code>/premium</code> and connect additional channels from <b>Connected Channel</b>.
+help.limit_scheduled.content ||| Free plan stores up to <b>{scheduled_free}</b> scheduled messages pending at once. Premium: unlimited.
+
+When you hit the limit, schedule another after deleting old ones (use <b>Message List</b>). Past-dated messages that were sent are removed automatically.
+
+Check your count in <code>/stats</code>.
+help.limits_premium.content ||| Premium removes most caps:
+• {channels_prem} channels and {bots_prem} sender bots
+• Unlimited pending scheduled messages ({scheduled_free} on Free) and unlimited recurring messages
+• Unlimited sent messages ({monthly_sent_free} per channel per month on Free)
+@@STORAGE@@• Up to {storage_count_prem} m
+help.ms_premium.content ||| Premium storage benefits:
+• {storage_count_prem} boxes instead of {storage_count_free}.
+• Unlimited items instead of {storage_items_free}.
+• Videos allowed in storage ({storage_video_prem}).
+• Larger uploads ({max_media_prem}).
+
+Upgrade via <code>/premium</code> to unlock them.
+help.multichannel.content ||| Premium unlocks up to {channels_prem} channels, each with its own sender bot, schedule, and identity.
+
+<b>How it works</b>
+• Every channel pairs with its own sender bot — posts always appear from that bot's name.
+• When scheduling, you pick the target channel; a <b>Default Channel</b> skips the pick
+help.premium.content ||| 
+help.premium_activate.content ||| Premium activates <b>immediately</b> once the payment is confirmed.
+
+If payment went through but Premium isn't active after 5 minutes:
+1. Reopen <code>/premium</code> to refresh the status.
+2. For Telegram Stars, verify the purchase in your Stars balance.
+3. Contact <b>@MaximalXP</b> with your user 
+help.premium_buy.content ||| 1. Open <b>Premium</b> (main menu or <code>/premium</code>).
+2. Choose <b>Monthly</b>, <b>3-month</b>, <b>6-month</b>, or <b>Yearly</b>.
+3. Pick a payment method: Telegram Stars.
+4. Follow the instructions and confirm.
+5. Premium activates immediately after payment confirms.
+
+Tip: promo codes can be
+help.premium_cancel.content ||| Cancelling only stops <b>auto-renewal</b> - your Premium stays active until the paid period ends.
+
+<b>How to cancel:</b>
+1. Open <b>Premium</b> → <b>Cancel Subscription</b>.
+2. Choose a reason (optional) and confirm.
+
+To re-enable later: <b>Premium</b> → <b>Re-enable Auto-Renew</b>.
+
+Cancel and re-e
+help.premium_compare.content ||| The comparison table in the Premium menu shows every limit side by side:
+
+• Channels: {channels_free} free / {channels_prem} premium
+• Sender bots: {bots_free} free / {bots_prem} premium
+• Scheduled messages: {scheduled_free} free / {scheduled_prem} premium
+• Recurring messages: {recurring_free} fre
+help.premium_expiry.content ||| When your Premium subscription ends, nothing is deleted on day one. You get a grace period, reminders, and a chance to choose what to keep.
+
+<b>The timeline at a glance:</b>
+• <b>Before expiry:</b> you receive reminders at 7, 3 and 1 day(s) left.
+• <b>Day 0:</b> a "Choose What to Keep" menu appears 
+help.premium_features.content ||| What Premium gives you:
+• {channels_prem} connected channels and {bots_prem} sender bots (Free: {channels_free}/{bots_free}).
+• <b>Unlimited</b> scheduled, recurring, and sent messages (Free: {scheduled_free} pending / {monthly_sent_free} sends per month).
+• Up to {storage_count_prem} media storage 
+help.premium_freeze.content ||| When Premium expires, the assets that don't fit your free plan are <b>frozen</b> first and disconnected later - they are NOT deleted at once.
+
+<b>What gets frozen:</b>
+• <b>Channels</b> beyond the free limit stop receiving messages after day 3.
+• <b>Sender bots</b> of frozen channels are turned off.

@@ -1,0 +1,221 @@
+help.advertising.faq.1.q ||| How much does advertising cost?
+help.advertising.faq.2.q ||| Can I advertise my Telegram channel here?
+help.advertising.faq.3.q ||| Is there a self-service ad platform?
+help.advertising.faq.4.q ||| Can I sponsor a specific broadcast message?
+help.admins.faq.1.q ||| How do I become an admin of a channel?
+help.admins.faq.2.q ||| What happens if another admin of my channel activates Premium?
+help.admins.faq.3.q ||| How do I request a permission I don't have?
+help.admins.faq.4.q ||| Do multiple admins get separate limits?
+help.backup.faq.1.q ||| How do I export my data?
+help.backup.faq.2.q ||| How do I restore a backup?
+help.backup.faq.3.q ||| Can I set up automatic backups?
+help.backup.faq.4.q ||| How do I create a password-protected backup?
+help.backup.faq.5.q ||| What's included in a full backup?
+help.backup.faq.6.q ||| What's the difference between .fsback and .fspback?
+help.calendar.faq.1.q ||| How do I see all my messages in a list?
+help.commands.faq.1.q ||| What other features are available?
+help.commands.faq.2.q ||| How do I find my messages?
+help.commands.faq.3.q ||| What is /cancel used for?
+help.commands.faq.4.q ||| How do I use a promo code?
+help.config.faq.1.q ||| Where are the settings?
+help.config.faq.2.q ||| How do I set a Default Channel?
+help.config.faq.3.q ||| Can I use different timezones for different channels?
+help.connect_channel.faq.1.q ||| How do I connect my first channel?
+help.connect_channel.faq.2.q ||| Can I connect multiple channels?
+help.connect_channel.faq.3.q ||| How do I set a default channel?
+help.connect_channel.faq.4.q ||| How do I remove a channel?
+help.connect_channel.faq.5.q ||| How do I change a channel's timezone?
+help.connect_channel.faq.6.q ||| How do I know which channel is connected to which bot?
+help.connect_channel.faq.7.q ||| How do I set my channel's timezone?
+help.delete.faq.1.q ||| Can I edit instead of delete?
+help.delete.faq.2.q ||| Can I undo a deletion?
+help.edit.faq.1.q ||| How do I find messages to edit?
+help.edit.faq.2.q ||| Can I duplicate a message?
+help.edit.faq.3.q ||| Can I change just the date/time without altering content?
+help.edit.faq.4.q ||| Can I move a message to a different channel?
+help.faq_account.faq.1.q ||| How is my account created?
+help.faq_account.faq.2.q ||| Where do I find my user ID?
+help.faq_account.faq.3.q ||| Can I change my account language or time zone?
+help.faq_account.faq.4.q ||| How do I delete my account and data?
+help.faq_api.faq.1.q ||| What is the SetDate companion bot?
+help.faq_api.faq.2.q ||| Do I need a separate API token for it?
+help.faq_api.faq.3.q ||| Where do I find my tokens?
+help.faq_api.faq.4.q ||| Can I automate beyond the companion?
+help.faq_best_practices.faq.1.q ||| When is the best time to post?
+help.faq_best_practices.faq.2.q ||| How should I structure a big campaign?
+help.faq_best_practices.faq.3.q ||| Should I reuse media?
+help.faq_best_practices.faq.4.q ||| Why back up before big changes?
+help.faq_best_practices.faq.5.q ||| What should I run as recurring?
+help.faq_billing.faq.1.q ||| What payment methods are supported?
+help.faq_billing.faq.2.q ||| Can I combine a promo code with a referral?
+help.faq_billing.faq.3.q ||| What happens if my auto-renewal payment fails?
+help.faq_billing.faq.4.q ||| Can I switch plans later?
+help.faq_migration.faq.1.q ||| How do I move my messages to a new account?
+help.faq_migration.faq.2.q ||| What is the full backup format?
+help.faq_migration.faq.3.q ||| Can I import data while keeping my new setup?
+help.faq_migration.faq.4.q ||| I got a <code>.fsback</code> file from the expiry download — how do I use it?
+help.faq_payment.faq.1.q ||| How do I pay for Premium?
+help.faq_payment.faq.2.q ||| Is the payment auto-renewing?
+help.faq_payment.faq.3.q ||| When does my Premium expire?
+help.faq_payment.faq.4.q ||| Can I cancel Premium?
+help.faq_payment.faq.5.q ||| Can I get a refund?
+help.faq_schedule.faq.1.q ||| Do I need a sender bot to schedule messages?
+help.faq_schedule.faq.2.q ||| Can I edit a message after I schedule it?
+help.faq_schedule.faq.3.q ||| How many scheduled messages can I store?
+help.faq_schedule.faq.4.q ||| How many messages can I send per month?
+help.faq_schedule.faq.5.q ||| Can I schedule the same message to multiple channels?
+help.faq_schedule.faq.6.q ||| Can I schedule a poll or quiz?
+help.faq_schedule.faq.7.q ||| What media can I attach to a scheduled message?
+help.faq_schedule.faq.8.q ||| Can I schedule a recurring message (daily / weekly / monthly)?
+help.faq_schedule.faq.9.q ||| Can I use <code>HH:MM</code> to schedule for today?
+help.faq_schedule.faq.10.q ||| Can I upload a .txt file to schedule many messages at once?
+help.faq_schedule.faq.11.q ||| What time zone is used for my scheduled times?
+help.faq_schedule.faq.12.q ||| What happens if my Premium expires during a schedule?
+help.faq_schedule.faq.13.q ||| How do I see everything I have scheduled?
+help.faq_schedule.faq.14.q ||| Can I schedule a forwarded message?
+help.faq_schedule.faq.15.q ||| Can I schedule an album of photos?
+help.faq_security.faq.1.q ||| Where are my bot tokens stored?
+help.faq_security.faq.2.q ||| Is my data shared or sold?
+help.faq_security.faq.3.q ||| Can someone log into my account?
+help.faq_security.faq.4.q ||| How do I delete my data?
+help.faq_storage.faq.1.q ||| What is Media Storage?
+help.faq_storage.faq.2.q ||| How much can I store?
+help.faq_storage.faq.3.q ||| Are stored items ever deleted automatically?
+help.faq_storage.faq.4.q ||| How do I use a stored file in a scheduled message?
+help.faq_telegram.faq.1.q ||| Why can't I schedule a regular (named) poll?
+help.faq_telegram.faq.2.q ||| Are link previews shown in scheduled posts?
+help.faq_telegram.faq.3.q ||| Does content protection affect scheduled posts?
+help.faq_telegram.faq.4.q ||| What are Telegram Stars?
+help.faq_tips.faq.1.q ||| What's the fastest way to schedule for today?
+help.faq_tips.faq.2.q ||| How do I schedule a whole month quickly?
+help.faq_tips.faq.3.q ||| Should I set a per-channel time zone?
+help.faq_tips.faq.4.q ||| How do I avoid gaps in my schedule?
+help.faq_tips.faq.5.q ||| What's the best way to run a big campaign?
+help.faq_troubleshoot.faq.1.q ||| My scheduled message did not send. Why?
+help.faq_troubleshoot.faq.2.q ||| The message went out at the wrong time.
+help.faq_troubleshoot.faq.3.q ||| I accidentally started a flow / nothing responds.
+help.faq_troubleshoot.faq.4.q ||| I paid for Premium but it is not active.
+help.faq_troubleshoot.faq.5.q ||| My media did not attach to the scheduled post.
+help.formatting.faq.1.q ||| What formatting options are supported?
+help.formatting.faq.2.q ||| Can I combine spoilers with other formatting?
+help.getting_started.faq.1.q ||| Do I need a sender bot to schedule messages?
+help.getting_started.faq.2.q ||| How long does it take to set up?
+help.getting_started.faq.3.q ||| What permissions does the bot need in my channel?
+help.glossary_storage.faq.1.q ||| @@STORAGE@@What is media storage?
+help.import.faq.1.q ||| Can I import messages in bulk?
+help.import.faq.2.q ||| What formats are supported for import?
+help.language.faq.1.q ||| How do I disable language sync?
+help.language.faq.2.q ||| How do I hide language sync notifications?
+help.limit_raise_bots.faq.1.q ||| How do I raise my sender bot limit?
+help.limit_raise_channels.faq.1.q ||| How do I add more channels?
+help.limit_raise_daily.faq.1.q ||| How many messages can I send per month?
+help.limit_raise_storage.faq.1.q ||| @@STORAGE@@Can I raise my storage limit?
+help.limits.faq.1.q ||| How do I check my current usage?
+help.media_retention.faq.1.q ||| Is my media quality reduced?
+help.media_retention.faq.2.q ||| How much smaller will my files get?
+help.media_retention.faq.3.q ||| Can I get my original uncompressed file back?
+help.media_storage.faq.1.q ||| @@STORAGE@@How do I create a storage box and save media?
+help.media_storage.faq.2.q ||| @@STORAGE@@How do I rename or delete a storage box?
+help.media_storage.faq.3.q ||| @@STORAGE@@Can I move items between storage boxes?
+help.media_storage.faq.4.q ||| @@STORAGE@@What happens to my storage when Premium expires?
+help.media_storage.faq.5.q ||| @@STORAGE@@Can I store videos in Media Storage?
+help.media_storage.faq.6.q ||| @@STORAGE@@How do I delete individual items from storage?
+help.media_storage.faq.7.q ||| Can I preview media before selecting it for a message?
+help.ms_boxes.faq.1.q ||| @@STORAGE@@How do I create a storage box?
+help.onboarding_step1.faq.1.q ||| How do I start the onboarding?
+help.onboarding_step2.faq.1.q ||| Which channel should I connect?
+help.onboarding_step3.faq.1.q ||| How do I set the channel timezone?
+help.onboarding_step4.faq.1.q ||| How do I schedule my first message?
+help.onboarding_step5.faq.1.q ||| What does onboarding do with my data?
+help.premium.faq.1.q ||| How do I purchase Premium?
+help.premium.faq.2.q ||| How do I cancel my Premium auto-renewal?
+help.premium.faq.3.q ||| What happens when Premium expires (full timeline)?
+help.premium.faq.4.q ||| How do I choose which channels to keep on expiry?
+help.premium.faq.5.q ||| Will my media be deleted when Premium expires?
+help.premium.faq.6.q ||| What is Signatures and how do I use it?
+help.premium.faq.7.q ||| How do I earn free Premium days?
+help.recurring.faq.1.q ||| Can I pause a recurring message without deleting it?
+help.recurring.faq.2.q ||| What happens to recurring messages when Premium expires?
+help.recurring.faq.3.q ||| Can I edit the content of a recurring message?
+help.recurring.faq.4.q ||| How do I change the time a recurring message sends?
+help.recurring.faq.5.q ||| Can I have multiple recurring messages?
+help.recurring.faq.6.q ||| How long does a free recurring message last?
+help.recurring_uses.faq.1.q ||| Can I schedule the same daily post for every day?
+help.recurring_uses.faq.2.q ||| Can I schedule a one-time event post?
+help.recurring_uses.faq.3.q ||| Can news posts go out at the same time weekly?
+help.recurring_uses.faq.4.q ||| How do I run a promo post series?
+help.recurring_uses.faq.5.q ||| Can I schedule a daily quote?
+help.referral.faq.1.q ||| How do I get my referral link?
+help.referral.faq.2.q ||| When do I get my Premium days?
+help.security_2fa.faq.1.q ||| Do I need Telegram two-step verification?
+help.security_data.faq.1.q ||| Where is my data stored?
+help.security_token.faq.1.q ||| Should I keep my bot token secret?
+help.sender_bot_management.faq.1.q ||| How do I connect a bot to get started?
+help.start_schedule.faq.1.q ||| What is the fastest way to schedule a message?
+help.storage_lifecycle.faq.1.q ||| @@STORAGE@@What happens to storage boxes on expiry?
+help.storage_team.faq.1.q ||| @@STORAGE@@Can a team share one storage box?
+help.storage_use_case.faq.1.q ||| @@STORAGE@@When is media storage useful?
+help.timezone.faq.1.q ||| How do timezones affect my schedule?
+help.timezone.faq.2.q ||| What happens if I change a channel's timezone?
+help.timezone.faq.3.q ||| How do I find my timezone in the list?
+help.tips_backup.faq.1.q ||| How often should I make a backup?
+help.tips_bulk.faq.1.q ||| How do I batch-schedule many messages?
+help.tips_channels.faq.1.q ||| Why is my channel not posting?
+help.tips_feedback.faq.1.q ||| What should I include in a bug report?
+help.tips_language.faq.1.q ||| How do I switch the bot language?
+help.tips_payment.faq.1.q ||| Which payment method activates Premium fastest?
+help.tips_premium.faq.1.q ||| What is the best Premium plan?
+help.tips_preview.faq.1.q ||| Can I edit a message after I preview it?
+help.tips_queue.faq.1.q ||| What order are queued messages sent?
+help.tips_recurring.faq.1.q ||| Can recurring messages be paused?
+help.tips_referral.faq.1.q ||| When do I get referral rewards?
+help.tips_search.faq.1.q ||| Does search work across all channels?
+help.tips_signature.faq.1.q ||| Can I use one signature per channel?
+help.tips_storage.faq.1.q ||| @@STORAGE@@What happens to my storage on Premium expiry?
+help.tips_storage.faq.2.q ||| @@STORAGE@@Can I store videos in Media Storage?
+help.tips_timezone.faq.1.q ||| Why do my posts send at the wrong time?
+help.tips_troubleshoot.faq.1.q ||| Where do I start when something breaks?
+help.troubleshoot_bot.faq.1.q ||| What do I do when a bot seems offline?
+help.channels.faq.1.q ||| How many channels can I connect?
+help.channels.faq.2.q ||| Why can't I connect my channel?
+help.bots.faq.1.q ||| Do I need a sender bot?
+help.bots.faq.2.q ||| How do I create a sender bot?
+help.autotime.faq.1.q ||| How does AutoTime determine the best posting time?
+help.autotime.faq.2.q ||| How many posts do I need for AutoTime to work?
+help.autotime.faq.3.q ||| Can I use AutoTime for multiple channels?
+help.formatting.faq.3.q ||| Can I combine multiple formats?
+help.polls.faq.1.q ||| How do I create a poll?
+help.polls.faq.2.q ||| What types of polls can I create?
+help.polls.faq.3.q ||| Can I schedule quiz polls?
+help.inline_buttons.faq.1.q ||| How do I add inline buttons to my messages?
+help.inline_buttons.faq.2.q ||| What types of inline buttons are supported?
+help.inline_buttons.faq.3.q ||| Can I add multiple buttons?
+help.media_modes.faq.1.q ||| What's the difference between normal and random mode?
+help.media_modes.faq.2.q ||| When should I use sequential mode?
+help.media_modes.faq.3.q ||| Can I change the photo mode after scheduling?
+help.errors.faq.1.q ||| How do I exit a stuck flow?
+help.errors.faq.2.q ||| Payment went through but Premium didn't activate
+help.errors.faq.3.q ||| I used a referral link but didn't get Premium days
+help.errors.faq.4.q ||| My scheduled messages stopped sending
+help.errors.faq.5.q ||| I accidentally deleted something — can I recover it?
+help.errors.faq.6.q ||| How do I delete my account or all my data?
+help.errors.faq.7.q ||| Can I get a refund for Premium?
+help.errors.faq.8.q ||| My bot token was revoked by @BotFather
+help.connect_bot.faq.1.q ||| How do I replace a bot token?
+help.connect_bot.faq.2.q ||| How do I disconnect a bot?
+help.connect_bot.faq.3.q ||| Can I use the same bot for multiple channels?
+help.connect_bot.faq.4.q ||| In the sender bot. Management moves to your sender bot automatically when you connect it — no extra setup. Inside the sender bot you get the Management menu: Hide Channel (Public Mode) and Admins. The main bot stays as your hub for scheduling, settings, language, and Premium.
+help.connect_bot.faq.5.q ||| What is Hide Channel and how do I use it?
+help.connect_bot.faq.6.q ||| Why does it say my bot token is invalid?
+help.connect_bot.faq.7.q ||| How do I see statistics for my sender bot?
+help.media_types.faq.1.q ||| Can I mix photos and videos in the same batch?
+help.media_types.faq.2.q ||| What are the video size limits?
+help.media_types.faq.3.q ||| Does the bot support spoilers in media?
+help.media_types.faq.4.q ||| Can I schedule polls with multiple correct answers?
+help.media_types.faq.5.q ||| What file types are supported?
+help.search.faq.1.q ||| What if I want to browse all messages?
+help.multichannel.faq.1.q ||| Can I schedule the same message to all channels?
+help.promocode.faq.1.q ||| Why is m   y code invalid?
+help.faq_bot.faq.3.q ||| Why is my bot not posting?
+help.faq_bot.faq.1.q ||| Why should I add a sender bot?
+help.faq_bot.faq.2.q ||| How do I create and connect a sender bot?

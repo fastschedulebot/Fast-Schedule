@@ -1,0 +1,4 @@
+{
+  "btn": "🌐 Language",
+  "changed": "✅ Language changed to <b>{lang}</b>."
+}
