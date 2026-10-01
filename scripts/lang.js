@@ -145,35 +145,121 @@
   }
   function t(key) { return (STR[get()] || STR.en)[key] || STR.en[key] || key; }
 
-  function translateNode(el, ru) {
-    if (!el || el.querySelector('.fs-lang-seg')) return;
-    // skip code, pre, script, style, svg paths
-    var tag = (el.tagName || '').toLowerCase();
-    if (tag === 'script' || tag === 'style' || tag === 'code' || tag === 'pre') return;
-    // only leaf-ish elements: no element children, or single svg + text (nav cta)
-    var hasElChild = false;
-    for (var i = 0; i < el.childNodes.length; i++) {
-      var n = el.childNodes[i];
-      if (n.nodeType === 1 && (n.tagName || '').toLowerCase() !== 'svg') { hasElChild = true; break; }
-    }
-    if (hasElChild) return;
-    var cur = el.textContent;
-    var trimmed = cur.trim();
-    if (!trimmed) return;
-    if (ru) {
-      var mapped = RU_MAP[trimmed];
-      if (mapped) {
-        if (!el.dataset.fsEn) el.dataset.fsEn = trimmed;
-        // preserve surrounding whitespace
-        var lead = cur.match(/^\s*/)[0], trail = cur.match(/\s*$/)[0];
-        el.textContent = lead + mapped + trail;
+  // Extended RU dictionary lives in ru-chrome.js (separate file, loaded with
+  // `defer` BEFORE this file, so it is always available synchronously —
+  // switching languages translates the whole page instantly, no refresh.
+  // Merged over the inline core above, which stays as an offline fallback.
+  var FIXUPS = [];
+  try {
+    if (window.FS_RU_CHROME) {
+      if (window.FS_RU_CHROME.STR) STR.ru = window.FS_RU_CHROME.STR;
+      if (window.FS_RU_CHROME.META) META = window.FS_RU_CHROME.META;
+      if (window.FS_RU_CHROME.MAP) {
+        for (var _ck in window.FS_RU_CHROME.MAP) RU_MAP[_ck] = window.FS_RU_CHROME.MAP[_ck];
       }
-    } else if (el.dataset.fsEn) {
-      var lead2 = cur.match(/^\s*/)[0], trail2 = cur.match(/\s*$/)[0];
-      el.textContent = lead2 + el.dataset.fsEn + trail2;
-      delete el.dataset.fsEn;
+      if (window.FS_RU_CHROME.FIXUPS) FIXUPS = window.FS_RU_CHROME.FIXUPS;
+    }
+  } catch (e) {}
+
+  // Elements that must NEVER be translated: product-demo mockups (phone
+  // cinema, mock chats/channels, iOS home screen, review stats), code and
+  // form fields. Marketing copy around them still translates node by node.
+  var SKIP_SEL = '[data-no-ru],code,pre,script,style,textarea,.phone-stage,.demo,' +
+    '.ios-app,.chan-msg,.sl-head,.sl-foot,.tg-header,.tg-input,.tg-explorer,.rl-notif,.fx-bar';
+  function skipTextNode(n) {
+    try {
+      var p = n.parentNode;
+      if (!p || p.nodeType !== 1) return true;
+      if (p.closest('.fs-lang-seg')) return true;
+      if (p.closest(SKIP_SEL)) return true;
+      var tag = (p.tagName || '').toLowerCase();
+      if (tag === 'script' || tag === 'style' || tag === 'code' || tag === 'pre' || tag === 'textarea') return true;
+    } catch (e) { return true; }
+    return false;
+  }
+  // Revert-safe store: text nodes cannot carry dataset, so keep originals here.
+  var chromeOrig = (typeof Map !== 'undefined') ? new Map() : null;
+  var chromeList = [];
+  function chromeRemember(n) {
+    if (chromeOrig) { if (!chromeOrig.has(n)) chromeOrig.set(n, n.nodeValue); }
+    else {
+      for (var i = 0; i < chromeList.length; i++) { if (chromeList[i].n === n) return; }
+      chromeList.push({ n: n, t: n.nodeValue });
     }
   }
+  function chromeRestore(n) {
+    if (chromeOrig) {
+      if (chromeOrig.has(n)) { try { n.nodeValue = chromeOrig.get(n); } catch (e) {} chromeOrig.delete(n); }
+    } else {
+      for (var i = 0; i < chromeList.length; i++) {
+        if (chromeList[i].n === n) { try { n.nodeValue = chromeList[i].t; } catch (e) {} chromeList.splice(i, 1); break; }
+      }
+    }
+  }
+  function translateTextNode(n, ru) {
+    if (!n || !n.nodeValue) return;
+    if (skipTextNode(n)) return;
+    // Only whole-node matches: short keys can never corrupt longer sentences,
+    // and inline <svg>/<b>/<span> elements are never touched (no icon loss,
+    // no broken centering — layout and formatting survive translation).
+    var trimmed = n.nodeValue.trim();
+    if (!trimmed || !/[A-Za-z\u00C0-\u024F\u0400-\u04FF]/.test(trimmed)) return;
+    if (ru) {
+      var mapped = RU_MAP[trimmed];
+      if (mapped && n.nodeValue.indexOf(mapped) === -1) {
+        chromeRemember(n);
+        var lead = (n.nodeValue.match(/^\s*/) || [''])[0];
+        var trail = (n.nodeValue.match(/\s*$/) || [''])[0];
+        n.nodeValue = lead + mapped + trail;
+      }
+    } else {
+      chromeRestore(n);
+    }
+  }
+  function applyTree(root, ru) {
+    try {
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+      var batch = [];
+      var tn;
+      while ((tn = walker.nextNode())) batch.push(tn);
+      for (var i = 0; i < batch.length; i++) translateTextNode(batch[i], ru);
+    } catch (e) {}
+  }
+  function applyFixups(ru) {
+    if (!FIXUPS || !FIXUPS.length) return;
+    FIXUPS.forEach(function (fx) {
+      var sel = fx[0], attr = fx[1], en = fx[2], ruStr = fx[3];
+      document.querySelectorAll(sel).forEach(function (el) {
+        try {
+          if (attr) {
+            if (ru) {
+              if (!el.dataset.fsAttrEn) el.dataset.fsAttrEn = el.getAttribute(attr) || '';
+              if ((el.getAttribute(attr) || '') === en || (el.dataset.fsAttrEn || '') === en) el.setAttribute(attr, ruStr);
+            } else if (el.dataset.fsAttrEn) {
+              el.setAttribute(attr, el.dataset.fsAttrEn);
+              delete el.dataset.fsAttrEn;
+            }
+          } else if ((el.textContent || '').trim() === en) {
+            if (ru) {
+              if (!el.dataset.fsEn) el.dataset.fsEn = en;
+              el.textContent = ruStr;
+            }
+          } else if (ru && el.dataset.fsEn === en) {
+            el.textContent = ruStr;
+          } else if (!ru && el.dataset.fsEn === en) {
+            el.textContent = el.dataset.fsEn;
+            delete el.dataset.fsEn;
+          }
+        } catch (e) {}
+      });
+    });
+  }
+
+  // NOTE: the old element-level translateNode() was removed. It replaced
+  // el.textContent on elements holding an <svg>, which destroyed icons, and
+  // it skipped every element with inline tags (<b>/<span>/<br>), which left
+  // split headings half-English. translateTextNode() above replaces only
+  // text nodes, so markup, icons and layout always survive.
 
   function apply(lang) {
     var ru = lang === 'ru';
@@ -220,11 +306,10 @@
       var dict = I18N[key];
       if (dict) el.setAttribute('placeholder', ru ? (dict.ru || dict.en) : dict.en);
     });
-    // generic exact-text map across body (landing + shared chrome)
-    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, null);
-    var batch = [];
-    while (walker.nextNode()) batch.push(walker.currentNode);
-    batch.forEach(function (el) { translateNode(el, ru); });
+    // generic exact-text map across body (landing + shared chrome).
+    // Text-node level: SVG icons, <b>/<span> formatting and alignment survive.
+    applyTree(document.body, ru);
+    applyFixups(ru);
     // full article bodies (help center + blog titles/descs), lazy + revert-safe
     try { translateContent(ru); } catch (e) {}
     // segmented control state + label
@@ -455,13 +540,45 @@
     var lang = get();
     document.documentElement.setAttribute('lang', lang);
     apply(lang);
+    observeLate();
+    // idle preload: RU dict arrives before the user ever clicks RU,
+    // so the first switch is instant even on slow networks
+    try {
+      var idle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1500); };
+      idle(function () { if (get() === 'ru') ensureContent(function () {}); });
+    } catch (e) {}
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
   window.addEventListener('storage', function (e) {
     if (e.key === 'fs-lang' && e.newValue) apply(e.newValue === 'ru' ? 'ru' : 'en');
   });
-  // re-apply after late widgets (help-ai, hero-demo) render
+  // Instant switching for late/dynamic content: the plan-comparison table
+  // (main.js), help-search results and RU-dict bodies render AFTER this
+  // file, so watch for added nodes and translate them in the current
+  // language immediately — no refresh needed.
+  var obsTimer = null;
+  function observeLate() {
+    try {
+      if (!('MutationObserver' in window) || !document.body) return;
+      var obs = new MutationObserver(function (muts) {
+        if (get() !== 'ru') return;
+        if (obsTimer) return;
+        obsTimer = setTimeout(function () {
+          obsTimer = null;
+          try {
+            muts.forEach(function () {});
+            applyTree(document.body, true);
+            applyFixups(true);
+            // article-body dict covers new nodes too (guarded: store exists)
+            try { if (window.FS_RU_CONTENT && contentOrig) applyContent(); } catch (e) {}
+          } catch (e3) {}
+        }, 60);
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+    } catch (e) {}
+  }
   window.addEventListener('fs-lang-change', function () {});
-  setTimeout(function () { try { apply(get()); } catch (e) {} }, 1200);
+  // safety net for very late widgets; the observer above does the real work
+  setTimeout(function () { try { apply(get()); } catch (e) {} }, 1500);
 })();
