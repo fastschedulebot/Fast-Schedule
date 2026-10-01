@@ -2,8 +2,9 @@
 
 Reads website/legal/history/<name>-<date>.html snapshots (raw git
 extracts), rewrites asset/peer links for the history/ directory, adds
-noindex + archive banner + version switcher. Also stamps the switcher
-and effective-date line into the current website/legal/*.html pages.
+noindex + archive banner + glass version switcher. Also stamps the
+switcher and effective-date line into the current website/legal/*.html
+pages.
 
 Usage: py -3 tools/build_legal_history.py
 """
@@ -25,22 +26,46 @@ VERSIONS = [
     ('2026-10-01', 'October 1, 2026', 'current, effective October 8, 2026'),
 ]
 
-CSS = ('<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">'
-       if False else '')
+CHEV_D = ('<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+          '<polyline points="6 9 12 15 18 9"/></svg>')
+CHEV_R = ('<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+          '<polyline points="9 18 15 12 9 6"/></svg>')
+CHECK = ('<svg class="ver-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+         'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+         '<polyline points="20 6 9 17 4 12"/></svg>')
 
 
-def switcher_html(name, title, here, in_history):
-    """Version switcher block. in_history=True when rendered inside history/."""
-    items = []
-    for v, label, note in VERSIONS:
-        if v == here:
-            items.append('<span aria-current="true">%s (%s)</span>' % (v, 'current' if v == '2026-10-01' else 'this version'))
-        elif v == '2026-10-01':
-            items.append('<a href="%s%s.html">%s (current)</a>' % ('../' if in_history else '', name, v))
-        else:
-            items.append('<a href="%s%s-%s.html">%s</a>' % ('history/' if not in_history else '', name, v, v))
-    return ('<div class="ver-switch" role="navigation" aria-label="Document versions">'
-            'Version: ' + ' · '.join(items) + '</div>')
+def _opt(v, sub, href, on):
+    inner = ('<span class="ver-v">%s</span><span class="ver-s">%s</span>%s'
+             % (v, sub, CHECK if on else CHEV_R))
+    if on:
+        return ('<span class="gp-row ver-opt on" role="menuitem" '
+                'aria-current="true">%s</span>' % inner)
+    return ('<a class="gp-row ver-opt" role="menuitem" href="%s">%s</a>'
+            % (href, inner))
+
+
+def switcher_html(name, here, in_history):
+    """Glass pill + hover menu. in_history=True inside history/."""
+    cur_href = ('../%s.html' % name) if in_history else None
+    old_href = (('%s-%s.html' % (name, '2026-09-26')) if in_history
+                else ('history/%s-2026-09-26.html' % name))
+    if here == '2026-10-01':
+        pill = '2026-10-01 · current'
+        menu = (_opt('2026-10-01', 'current · effective Oct 8, 2026', cur_href, True)
+                + _opt('2026-09-26', 'archived', old_href, False))
+    else:
+        pill = '2026-09-26 · archived'
+        menu = (_opt('2026-10-01', 'current · effective Oct 8, 2026', cur_href, False)
+                + _opt('2026-09-26', 'this version · archived', old_href, True))
+    return ('<div class="ver-dd">'
+            '<button type="button" class="ver-pill" aria-haspopup="menu">'
+            '<span class="ver-pill-dot" aria-hidden="true"></span>%s%s</button>'
+            '<div class="glass-pop ver-menu" role="menu" aria-label="Document versions">'
+            '<div class="gp-head">Document versions</div>%s</div></div>'
+            % (pill, CHEV_D, menu))
 
 
 def banner_html(name, title, date_label, current_label):
@@ -54,29 +79,23 @@ def banner_html(name, title, date_label, current_label):
 def process_snapshot(name, title, date_label, stamp):
     src = os.path.join(HIST, '%s-%s.html' % (name, stamp))
     html = open(src, encoding='utf-8').read()
-    # 1. asset paths for history/ depth
     for prefix in ('scripts', 'styles', 'blog', 'help', 'index'):
         html = html.replace('"../%s' % prefix, '"../../%s' % prefix)
-    # 2. peer legal links -> same-date history peers
     for peer in PAGES:
         html = re.sub(r'"%s\.html((?:#[^"]*)?)"' % peer,
                       r'"%s-%s.html\1"' % (peer, stamp), html)
-    # 2b. pin the current lang.js (archives must use the engine with the
-    # .archived opt-out, not whatever version was current at snapshot time)
     html = re.sub(r'lang\.js\?v=[0-9a-z]+', 'lang.js?v=20261002a1', html)
-    # 3. archived marker (opts out of RU body translation)
     html = html.replace('<article class="doc">', '<article class="doc archived">', 1)
-    # 4. noindex (archived legal versions must not compete in search)
     html = re.sub(r'<meta name="robots" content="[^"]*">',
                   '<meta name="robots" content="noindex, follow">', html, count=1)
-    # 5. title stamp
+    if '<meta name="robots"' not in html:
+        anchor = re.search(r'<meta name="viewport"[^>]*>', html).group(0)
+        html = html.replace(anchor, anchor + '\n<meta name="robots" content="noindex, follow">', 1)
     html = re.sub(r'<title>(.*?)</title>',
                   r'<title>\1 (%s)</title>' % stamp, html, count=1)
-    # 6. banner + switcher after the updated line
     anchor = '<p class="updated">Last updated: %s</p>' % date_label
     block = (anchor + '\n    ' +
-             banner_html(name, title, date_label, 'October 1, 2026, effective October 8, 2026') +
-             '\n    ' + switcher_html(name, title, stamp, True))
+             banner_html(name, title, date_label, 'October 1, 2026, effective October 8, 2026'))
     assert anchor in html, 'anchor missing in %s' % src
     html = html.replace(anchor, block, 1)
     open(src, 'w', encoding='utf-8').write(html)
@@ -86,7 +105,7 @@ def process_snapshot(name, title, date_label, stamp):
 def stamp_current(name, title):
     path = os.path.join(LEGAL, '%s.html' % name)
     html = open(path, encoding='utf-8').read()
-    if 'ver-switch' in html:
+    if 'ver-dd' in html:
         print('already stamped:', path)
         return
     anchor = '<p class="updated">Last updated: October 1, 2026</p>'
@@ -94,7 +113,7 @@ def stamp_current(name, title):
     block = (anchor +
              '\n    <p class="effective">Effective October 8, 2026. '
              'Continued use of the Services after that date constitutes acceptance.</p>' +
-             '\n    ' + switcher_html(name, title, '2026-10-01', False))
+             '\n    ' + switcher_html(name, '2026-10-01', False))
     html = html.replace(anchor, block, 1)
     open(path, 'w', encoding='utf-8').write(html)
     print('stamped:', path)
