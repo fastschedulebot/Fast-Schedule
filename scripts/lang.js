@@ -105,7 +105,20 @@
     'min read': 'мин чтения',
     'Last updated': 'Обновлено',
     'Page not found': 'Страница не найдена',
-    'Go home': 'На главную'
+    'Go home': 'На главную',
+    'All topics': 'Все темы',
+    'Growth': 'Рост',
+    'Content': 'Контент',
+    'Bots & Tools': 'Боты и инструменты',
+    'Premium & Safety': 'Premium и безопасность',
+    'Platform': 'Платформа',
+    'Monetization': 'Монетизация',
+    'Subscribers, swaps, discoverability and retention — the playbooks that compound.': 'Подписчики, свапы, поиск и удержание — стратегии, которые работают на перспективу.',
+    'Formatting, calendars and content systems that keep a channel alive.': 'Оформление, календари и контент-системы, которые держат канал на плаву.',
+    'The bot stack behind successful channels — scheduling, analytics, moderation.': 'Стек ботов успешных каналов — планирование, аналитика, модерация.',
+    'Verification, Premium perks, Mini Apps — the platform layer behind channels.': 'Верификация, преимущества Premium, Mini Apps — платформа за кулисами каналов.',
+    'How Telegram itself works: channels vs groups, bot safety, algorithms.': 'Как устроен сам Telegram: каналы и группы, безопасность ботов, алгоритмы.',
+    'Ads, Stars, subscriptions and products — what pays, and when.': 'Реклама, Stars, подписки и товары — что приносит деньги и когда.'
   };
 
   var META = {
@@ -212,6 +225,8 @@
     var batch = [];
     while (walker.nextNode()) batch.push(walker.currentNode);
     batch.forEach(function (el) { translateNode(el, ru); });
+    // full article bodies (help center + blog titles/descs), lazy + revert-safe
+    try { translateContent(ru); } catch (e) {}
     // segmented control state + label
     document.querySelectorAll('.fs-lang-label').forEach(function (el) { el.textContent = d.langLabel; });
     document.querySelectorAll('.fs-lang-seg button').forEach(function (b) {
@@ -231,6 +246,185 @@
       var ev = new CustomEvent('fs-lang-applied', { detail: { lang: lang } });
       window.dispatchEvent(ev);
     } catch (e) {}
+  }
+
+  // ---- Article-body RU translation (help center + blog titles/descs) ----
+  // EN sentences come from the bot's own RU translations (ru-content.js,
+  // lazy-loaded via this file's own <script> path, so it works at any page
+  // depth). Matching works across inline tags: exact text nodes, 2-3 node
+  // windows inside one block, and sentence substrings. Revert-safe: every
+  // touched text node is restored verbatim, so no listeners ever break.
+  var contentOrig = null;
+  var contentDone = false;
+  var contentStarted = false;
+  var contentLoading = false;
+  var origTitle = null;
+
+  function normContent(s) {
+    return s.replace(/\s+/g, ' ')
+      .replace(/^\s+|\s+$/g, '')
+      .replace(/([A-Za-z\u00c0-\u024f\u0400-\u04ff])(\d+\.)/g, '$1 $2')
+      .replace(/([.!?])([A-Z\u0410-\u042f\u0401])/g, '$1 $2');
+  }
+  function keepWS(orig, val) {
+    var lead = (orig.match(/^\s*/) || [''])[0];
+    var trail = (orig.match(/\s*$/) || [''])[0];
+    return lead + val + trail;
+  }
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function ensureContent(cb) {
+    if (window.FS_RU_CONTENT) { cb(); return; }
+    if (contentLoading) { setTimeout(function () { ensureContent(cb); }, 300); return; }
+    contentLoading = true;
+    var src = 'scripts/ru-content.js?v=20261002a1';
+    try {
+      var self = document.querySelector('script[src*="lang.js"]');
+      if (self) src = self.getAttribute('src').replace(/lang\.js.*$/, 'ru-content.js?v=20261002a1');
+    } catch (e) {}
+    var el = document.createElement('script');
+    el.src = src;
+    el.onload = function () { cb(); };
+    el.onerror = function () { contentLoading = false; contentStarted = false; };
+    document.head.appendChild(el);
+  }
+  function contentTouch(n) {
+    for (var i = 0; i < contentOrig.length; i++) {
+      if (contentOrig[i].n === n) return;
+    }
+    contentOrig.push({ n: n, t: n.nodeValue });
+  }
+  function contentSet(n, val) {
+    if (n.nodeValue === val) return;
+    contentTouch(n);
+    n.nodeValue = val;
+  }
+  function skipContentNode(n) {
+    var p = n.parentNode;
+    while (p && p.nodeType === 1) {
+      var t = (p.tagName || '').toLowerCase();
+      if (t === 'code' || t === 'pre' || t === 'script' || t === 'style' || t === 'textarea') return true;
+      p = p.parentNode;
+    }
+    return false;
+  }
+  function blockOf(n, scope) {
+    var p = n.parentNode;
+    while (p && p !== scope) {
+      var t = (p.tagName || '').toLowerCase();
+      if (/^(p|li|h1|h2|h3|h4|h5|h6|td|th|div|section|article|ul|ol|blockquote|summary)$/.test(t)) return p;
+      p = p.parentNode;
+    }
+    return scope;
+  }
+  function applyContent() {
+    var dict = window.FS_RU_CONTENT || {};
+    var keys = [];
+    for (var k in dict) {
+      if (Object.prototype.hasOwnProperty.call(dict, k) && !RU_MAP[k]) keys.push(k);
+    }
+    if (!keys.length) return;
+    keys.sort(function (a, b) { return b.length - a.length; });
+    var lookup = {};
+    var anchor = {};
+    keys.forEach(function (kk) {
+      lookup[kk] = dict[kk];
+      var m = kk.toLowerCase().match(/[a-z\u00c0-\u024f\u0400-\u04ff]{4,}/);
+      if (m) { (anchor[m[0]] = anchor[m[0]] || []).push(kk); }
+    });
+    var scopes = document.querySelectorAll('.doc, .blog-doc, .bento, .blog-chips');
+    if (!scopes.length) return;
+    Array.prototype.forEach.call(scopes, function (scope) {
+      var nodes = [];
+      var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null, false);
+      var tn;
+      while ((tn = walker.nextNode())) {
+        if (!tn.nodeValue || !/[^\s]/.test(tn.nodeValue)) continue;
+        if (skipContentNode(tn)) continue;
+        nodes.push(tn);
+      }
+      if (!nodes.length) return;
+      var done = nodes.map(function () { return false; });
+      var i, norm;
+      // pass 1: exact full-node matches (plus truncated-card … fallback)
+      nodes.forEach(function (n, idx) {
+        norm = normContent(n.nodeValue);
+        var hit = lookup[norm];
+        if (!hit && /[….]{1,3}\s*$/.test(norm)) {
+          var short = norm.replace(/[…\s.]+$/, '');
+          hit = lookup[short];
+        }
+        if (hit) { contentSet(n, keepWS(n.nodeValue, hit)); done[idx] = true; }
+      });
+      // pass 2: 3- and 2-node windows inside one block (inline-tag splits)
+      [3, 2].forEach(function (w) {
+        for (i = 0; i + w <= nodes.length; i++) {
+          var free = true;
+          for (var j = 0; j < w; j++) { if (done[i + j]) { free = false; break; } }
+          if (!free) continue;
+          var blk = blockOf(nodes[i], scope);
+          var same = true;
+          for (j = 1; j < w; j++) { if (blockOf(nodes[i + j], scope) !== blk) { same = false; break; } }
+          if (!same) continue;
+          var joined = '';
+          for (j = 0; j < w; j++) joined += nodes[i + j].nodeValue;
+          norm = normContent(joined);
+          if (lookup[norm]) {
+            var lead = (nodes[i].nodeValue.match(/^\s*/) || [''])[0];
+            var trail = (nodes[i + w - 1].nodeValue.match(/\s*$/) || [''])[0];
+            contentSet(nodes[i], lead + lookup[norm] + (w === 1 ? trail : ''));
+            for (j = 1; j < w; j++) contentSet(nodes[i + j], j === w - 1 ? trail : '');
+            for (j = 0; j < w; j++) done[i + j] = true;
+          }
+        }
+      });
+      // pass 3: sentence substrings inside long untouched nodes (anchored)
+      nodes.forEach(function (n, idx) {
+        if (done[idx] || n.nodeValue.length < 40) return;
+        var words = n.nodeValue.toLowerCase().match(/[a-z\u00c0-\u024f\u0400-\u04ff]{4,}/g) || [];
+        var seen = {};
+        words.forEach(function (wd) {
+          if (seen[wd]) return;
+          seen[wd] = true;
+          var cands = anchor[wd];
+          if (!cands) return;
+          cands.forEach(function (kk) {
+            if (kk.length < 12 || kk.length > n.nodeValue.length + 20) return;
+            var re = new RegExp('(^|[^A-Za-z\\u00c0-\\u024f\\u0400-\\u04ff])(' +
+              escRe(kk).replace(/\s+/g, '\\s+') + ')(?![A-Za-z\\u00c0-\\u024f\\u0400-\\u04ff])');
+            var m = re.exec(n.nodeValue);
+            if (m) contentSet(n, n.nodeValue.replace(re, '$1' + lookup[kk]));
+          });
+        });
+      });
+    });
+  }
+  function translateContent(ru) {
+    if (!ru) {
+      if (contentOrig) {
+        contentOrig.forEach(function (rec) { try { rec.n.nodeValue = rec.t; } catch (e) {} });
+        contentOrig = null;
+      }
+      contentDone = false;
+      contentStarted = false;
+      if (origTitle !== null) { try { document.title = origTitle; } catch (e) {} origTitle = null; }
+      return;
+    }
+    if (contentDone || contentStarted) return;
+    contentStarted = true;
+    ensureContent(function () {
+      if (contentDone) return;
+      contentOrig = [];
+      try { applyContent(); } catch (e) {}
+      try {
+        var h1 = document.querySelector('.doc h1, .blog-doc h1');
+        if (h1 && h1.textContent.trim().length > 3) {
+          if (origTitle === null) origTitle = document.title;
+          document.title = h1.textContent.trim() +
+            (document.querySelector('.blog-doc') ? ' \u2014 \u0411\u043b\u043e\u0433 Fast Scheduler' : ' \u2014 \u041f\u043e\u043c\u043e\u0449\u044c');
+        }
+      } catch (e2) {}
+      contentDone = true;
+    });
   }
 
   // data-i18n registry for templates (extend without touching HTML widely)
