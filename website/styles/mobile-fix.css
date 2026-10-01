@@ -6,3 +6,19 @@ img,svg,video,canvas{max-width:100%;height:auto}
 @media(hover:none),(pointer:coarse){a,button,.gp-row,.icon-btn,.nav-link{min-height:44px}.icon-btn{min-width:44px}}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr!important}.phone-stage{max-width:340px;margin:8px auto 0}}
 :focus-visible{outline:3px solid #1faa59;outline-offset:2px}
+/* compat v20261002: older browsers without color-mix (old Safari/Samsung Internet/UC/Firefox ESR) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img{border-style:none}
+button{font:inherit}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+@supports not (background:color-mix(in srgb,red 50%,blue)){
+.home-nav,.glass,header.site,.toc-bar,.glass-pop{background:var(--surface)!important}
+.fs-lang-seg{background:rgba(127,127,127,.20)!important}
+.fs-lang-seg button.on{background:rgba(255,255,255,.9)!important}
+html[data-theme="dark"] .fs-lang-seg button.on{background:rgba(255,255,255,.16)!important}
+.seg-pill,.toc-pill,.doc-tab.active,.doc-tab:hover,.hk-row:hover,.hk-edit:hover,.hero-replay:hover{background:var(--surface-2)!important;border-color:var(--border)!important}
+.comparison tbody tr:nth-child(even),.legal .doc thead th,.legal .doc tbody tr:nth-child(even){background:var(--surface-2)!important}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.glass-pop,.home-nav,.fs-lang-seg{background:var(--surface)!important}
+}
