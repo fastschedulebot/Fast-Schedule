@@ -37,6 +37,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Channels", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/channels.html"}, {"@type": "ListItem", "position": 4, "name": "How to Connect a Telegram Channel to Fast Scheduler (Full Walkthrough)", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/qa_add_channel_guide.html"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I connect a private channel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — via invite link or by forwarding any message from the channel during connection. Public username is not required."}}, {"@type": "Question", "name": "Why do I need my own bot just to post?", "acceptedAnswer": {"@type": "Answer", "text": "Telegram architecture: messages in a channel are sent by a bot account, not by your user account. Pairing your own sender bot also means posts appear under your brand, not a generic one."}}, {"@type": "Question", "name": "The channel connects but posts fail. First checks?", "acceptedAnswer": {"@type": "Answer", "text": "Sender bot still admin? Post Messages permission on? Bot not revoked in @BotFather? Those three cover nearly all post failures."}}]}</script>
 <link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
+  <link rel="stylesheet" href="../../styles/lang.css?v=20261001a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>.hc-card {
   background: var(--surface);
@@ -251,6 +252,7 @@
     .hc-body td:not(:first-child), .hc-body th:not(:first-child) { text-align: center; }
 
   </style>
+<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">
 </head>
 <body>
 <header class="site">
@@ -317,12 +319,13 @@
   </div>
 </footer>
 <script src="../../scripts/theme.js?v=20260930a1"></script>
-<script src="../../scripts/nav-hide.js?v=20260930a2"></script>
-<script src="../../scripts/settings.js?v=20260930a1"></script>
-<script src="../../scripts/help-search.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script src="../../scripts/help-ai.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
-<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+<script defer src="../../scripts/nav-hide.js?v=20260930a2"></script>
+<script defer src="../../scripts/settings.js?v=20260930a1"></script>
+  <script defer src="../../scripts/lang.js?v=20261001b1"></script>
+<script defer src="../../scripts/help-search.js?v=20260930a1"></script>
+<script defer src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script defer src="../../scripts/help-ai.js?v=20260930a1"></script>
+<script defer src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script defer src="../../scripts/scroll-jump.js?v=20260930a1"></script>
 </body>
 </html>

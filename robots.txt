@@ -32,4 +32,10 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: DuckDuckGo-Favicons-Bot
+Allow: /
+
 Sitemap: https://fastschedulebot.github.io/Fast-Schedule/sitemap.xml

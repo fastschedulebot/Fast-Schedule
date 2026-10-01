@@ -10,7 +10,11 @@
   <meta name="description" content="Fast Scheduler is a free Telegram bot that schedules, publishes and tracks your channel posts on autopilot. Batch-schedule weeks of content in one chat, post from your own bot, and see what performs. Set it once — save hours every week.">
   <meta name="keywords" content="telegram scheduler, telegram channel bot, schedule telegram posts, telegram post scheduler, telegram scheduling bot, batch schedule telegram, telegram autopost, telegram bot for channels, scheduled posts telegram">
   <link rel="canonical" href="https://fastschedulebot.github.io/Fast-Schedule/">
-  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="en" href="https://fastschedulebot.github.io/Fast-Schedule/">
+  <link rel="alternate" hreflang="ru" href="https://fastschedulebot.github.io/Fast-Schedule/?lang=ru">
+  <link rel="alternate" hreflang="x-default" href="https://fastschedulebot.github.io/Fast-Schedule/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="duckduckbot" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fast Scheduler">
   <meta property="og:title" content="Fast Scheduler — Schedule Telegram Channel Posts on Autopilot">
@@ -72,6 +76,7 @@
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles/main.css?v=20260930a2">
+  <link rel="stylesheet" href="styles/lang.css?v=20261001a1">
 <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
   <style>
     :root {
@@ -895,6 +900,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Fast Scheduler", "alternateName": "Fast Scheduler Telegram bot", "url": "https://fastschedulebot.github.io/Fast-Schedule/", "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://fastschedulebot.github.io/Fast-Schedule/help.html?q={search_term_string}"}, "query-input": "required name=search_term_string"}}</script>
 <link rel="stylesheet" href="styles/hero-cinema.css?v=20260930a1">
 <link rel="stylesheet" href="styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="styles/mobile-fix.css?v=20261001b1">
 </head>
 <body class="home">
   <nav class="home-nav" aria-label="Main">
@@ -1533,10 +1539,11 @@
   })();
 </script>
 <script src="scripts/theme.js?v=20260930a1"></script>
-<script src="scripts/nav-hide.js?v=20260930a2"></script>
-<script src="scripts/settings.js?v=20260930a1"></script>
-<script src="scripts/hotkeys.js?v=20260930a1"></script>
-<script src="scripts/scroll-jump.js?v=20260930a1"></script>
+<script defer src="scripts/nav-hide.js?v=20260930a2"></script>
+<script defer src="scripts/settings.js?v=20260930a1"></script>
+  <script defer src="scripts/lang.js?v=20261001b1"></script>
+<script defer src="scripts/hotkeys.js?v=20260930a1"></script>
+<script defer src="scripts/scroll-jump.js?v=20260930a1"></script>
 <script>
   /* burger menu + navbar scroll elevation */
   (function () {
@@ -1574,9 +1581,9 @@
     }
   })();
 </script>
-<script src="scripts/liquid-nav.js?v=20260930a1"></script>
-<script src="scripts/help-search.js?v=20260930a1"></script>
-<script src="scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script defer src="scripts/liquid-nav.js?v=20260930a1"></script>
+<script defer src="scripts/help-search.js?v=20260930a1"></script>
+<script defer src="scripts/hotkeys-modal.js?v=20260930a1"></script>
 <script>
   (function () {
     var root = document.documentElement;
@@ -1642,8 +1649,8 @@
   })();
 </script>
 
-<script src="scripts/site-config.js?v=20260930a1"></script>
-<script src="scripts/main.js?v=20260930a1"></script>
-<script src="scripts/hero-demo.js?v=20260930a1"></script>
+<script defer src="scripts/site-config.js?v=20260930a1"></script>
+<script defer src="scripts/main.js?v=20260930a1"></script>
+<script defer src="scripts/hero-demo.js?v=20260930a1"></script>
 </body>
 </html>

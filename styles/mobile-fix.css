@@ -1,0 +1,8 @@
+/* mobile-fix v20261001 */
+html,body{overflow-x:clip}
+img,svg,video,canvas{max-width:100%;height:auto}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:560px){.table-scroll table{min-width:520px;font-size:14px}}
+@media(hover:none),(pointer:coarse){a,button,.gp-row,.icon-btn,.nav-link{min-height:44px}.icon-btn{min-width:44px}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr!important}.phone-stage{max-width:340px;margin:8px auto 0}}
+:focus-visible{outline:3px solid #1faa59;outline-offset:2px}

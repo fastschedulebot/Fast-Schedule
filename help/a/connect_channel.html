@@ -37,6 +37,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Getting Started", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/start.html"}, {"@type": "ListItem", "position": 4, "name": "Connecting a Channel", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_channel.html"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I connect my first channel?", "acceptedAnswer": {"@type": "Answer", "text": "Step by step: 1. Add the bot to your channel: Open your channel on Telegram → Channel Info → Administrators → Add Admin → search for @FastSchedulerBot → select it → grant at least Post Messages permission → confirm 2. Connect in the bot: Click Connected Channel on the main menu → click Connect Channel 3. Identify your channel: Send the channel username ( @yourchannel ) — OR forward a post from your channel — OR send an invite link — OR send the numeric channel ID ( -1001234567890 ) 4. Done! The channel appears in your list as connected. If you use a sender bot: also add your sender bot as admin in the same channel."}}, {"@type": "Question", "name": "Can I connect multiple channels?", "acceptedAnswer": {"@type": "Answer", "text": "Free plan: 1 channel. Premium: up to 3 channels. Each channel can have its own sender bot and schedule. To add another: click Connected Channel → Connect Channel → follow the same steps. You can switch between channels during scheduling by selecting the desired one."}}, {"@type": "Question", "name": "How do I set a default channel?", "acceptedAnswer": {"@type": "Answer", "text": "Premium feature. Step by step: 1. Click Connected Channel on the main menu (or use /channel ) 2. Select the channel you want as default 3. Click Set as Default 4. The default channel is now auto-selected during scheduling, saving you a step 5. To change it later: repeat the steps and choose a different channel 6. To remove default: go to the same channel settings → click Remove Default"}}, {"@type": "Question", "name": "How do I remove a channel?", "acceptedAnswer": {"@type": "Answer", "text": "Step by step: 1. Click Connected Channel on the main menu 2. Find the channel you want to remove 3. Click the Remove button next to it 4. Confirm — the channel is disconnected Important: Scheduled messages for that channel are paused , not deleted. They remain in your account with all content and settings. If you reconnect the same channel later (using the same method as first connection), the messages resume automatically."}}, {"@type": "Question", "name": "How do I change a channel's timezone?", "acceptedAnswer": {"@type": "Answer", "text": "Step by step: 1. Click Connected Channel on the main menu (or use /channel / /timezone ) 2. Select the channel you want to configure 3. Click Timezone 4. Scroll through the list and select your timezone (e.g., America/New_York, Europe/London, Asia/Tokyo) 5. The timezone is saved automatically All scheduled and recurring times for this channel will use the new timezone."}}, {"@type": "Question", "name": "How do I know which channel is connected to which bot?", "acceptedAnswer": {"@type": "Answer", "text": "Click Connected Channel on the main menu. Each channel in the list shows its assigned sender bot username below the channel name. To change the bot assignment: 1. Click Bots on the main menu 2. Select the bot you want to reassign 3. Click Change Channel and pick a different channel"}}, {"@type": "Question", "name": "How do I set my channel's timezone?", "acceptedAnswer": {"@type": "Answer", "text": "Use the Timezone option when viewing your channel settings."}}]}</script>
 <link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
+  <link rel="stylesheet" href="../../styles/lang.css?v=20261001a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>.hc-card {
   background: var(--surface);
@@ -251,6 +252,7 @@
     .hc-body td:not(:first-child), .hc-body th:not(:first-child) { text-align: center; }
 
   </style>
+<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">
 </head>
 <body>
 <header class="site">
@@ -329,12 +331,13 @@
   </div>
 </footer>
 <script src="../../scripts/theme.js?v=20260930a1"></script>
-<script src="../../scripts/nav-hide.js?v=20260930a2"></script>
-<script src="../../scripts/settings.js?v=20260930a1"></script>
-<script src="../../scripts/help-search.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script src="../../scripts/help-ai.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
-<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+<script defer src="../../scripts/nav-hide.js?v=20260930a2"></script>
+<script defer src="../../scripts/settings.js?v=20260930a1"></script>
+  <script defer src="../../scripts/lang.js?v=20261001b1"></script>
+<script defer src="../../scripts/help-search.js?v=20260930a1"></script>
+<script defer src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script defer src="../../scripts/help-ai.js?v=20260930a1"></script>
+<script defer src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script defer src="../../scripts/scroll-jump.js?v=20260930a1"></script>
 </body>
 </html>
