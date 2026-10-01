@@ -6,6 +6,11 @@ img,svg,video,canvas{max-width:100%;height:auto}
 @media(hover:none),(pointer:coarse){a,button,.gp-row,.icon-btn,.nav-link{min-height:44px}.icon-btn{min-width:44px}}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr!important}.phone-stage{max-width:340px;margin:8px auto 0}}
 :focus-visible{outline:3px solid #1faa59;outline-offset:2px}
+/* legal version history */
+.ver-banner{border:1px solid var(--border);background:var(--surface-2);border-radius:12px;padding:12px 16px;margin:0 0 12px}
+.ver-switch{font-size:14px;opacity:.9;margin:0 0 18px}
+.ver-switch [aria-current]{font-weight:700}
+.effective{font-size:14px;opacity:.85}
 /* compat v20261002: older browsers without color-mix (old Safari/Samsung Internet/UC/Firefox ESR) */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 img{border-style:none}
