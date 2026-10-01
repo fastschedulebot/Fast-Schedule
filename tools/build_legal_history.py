@@ -29,16 +29,16 @@ CSS = ('<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">'
        if False else '')
 
 
-def switcher_html(name, title, here, base):
-    """Version switcher block. base = path prefix to history dir from page."""
+def switcher_html(name, title, here, in_history):
+    """Version switcher block. in_history=True when rendered inside history/."""
     items = []
     for v, label, note in VERSIONS:
         if v == here:
             items.append('<span aria-current="true">%s (%s)</span>' % (v, 'current' if v == '2026-10-01' else 'this version'))
         elif v == '2026-10-01':
-            items.append('<a href="%s%s.html">%s (current)</a>' % (base, name, v))
+            items.append('<a href="%s%s.html">%s (current)</a>' % ('../' if in_history else '', name, v))
         else:
-            items.append('<a href="%shistory/%s-%s.html">%s</a>' % (base, name, v, v))
+            items.append('<a href="%s%s-%s.html">%s</a>' % ('history/' if not in_history else '', name, v, v))
     return ('<div class="ver-switch" role="navigation" aria-label="Document versions">'
             'Version: ' + ' · '.join(items) + '</div>')
 
@@ -76,7 +76,7 @@ def process_snapshot(name, title, date_label, stamp):
     anchor = '<p class="updated">Last updated: %s</p>' % date_label
     block = (anchor + '\n    ' +
              banner_html(name, title, date_label, 'October 1, 2026, effective October 8, 2026') +
-             '\n    ' + switcher_html(name, title, stamp, ''))
+             '\n    ' + switcher_html(name, title, stamp, True))
     assert anchor in html, 'anchor missing in %s' % src
     html = html.replace(anchor, block, 1)
     open(src, 'w', encoding='utf-8').write(html)
@@ -94,7 +94,7 @@ def stamp_current(name, title):
     block = (anchor +
              '\n    <p class="effective">Effective October 8, 2026. '
              'Continued use of the Services after that date constitutes acceptance.</p>' +
-             '\n    ' + switcher_html(name, title, '2026-10-01', 'history/'))
+             '\n    ' + switcher_html(name, title, '2026-10-01', False))
     html = html.replace(anchor, block, 1)
     open(path, 'w', encoding='utf-8').write(html)
     print('stamped:', path)
