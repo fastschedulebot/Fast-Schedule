@@ -1,0 +1,121 @@
+{
+  "_comment": "Deep Link Short Name Reference",
+  "_format": "https://t.me/bot?start=STEP1--STEP2--STEP3",
+  "_separator": "-- (double dash) between steps, = between key and value",
+  "_example_1": "o=cal                  => open=calendar",
+  "_example_2": "p=2                    => page=2 (main menu page 2)",
+  "_example_3": "o=hp--p=2--o=co        => open=help page=2 open=commands_overview",
+  "_example_4": "o=sm--mt=sph           => open=schedule_message media_type=single_photo",
+  "_example_5": "o=sch--c=cnt--c=ods    => open=schedule click=continue click=open_date_setter",
+
+  "actions": {
+    "open": "o",
+    "page": "p",
+    "click": "c",
+    "message": "m"
+  },
+
+  "targets": {
+    "commands": {
+      "start": "st",
+      "schedule": "sch",
+      "schedule_message": "sm",
+      "recurring": "rec",
+      "recurring_message": "rm",
+      "premium": "prem",
+      "help": "hp",
+      "commands_overview": "co",
+      "stats": "stt",
+      "channel": "ch",
+      "storage": "stor",
+      "search": "srch",
+      "language": "lng",
+      "lang": "lng",
+      "calendar": "cal",
+      "export": "exp",
+      "import": "imp",
+      "list": "lst",
+      "backup": "bak",
+      "delete": "del",
+      "bots": "bts",
+      "addbot": "abt",
+      "referral": "ref",
+      "feedback": "fb"
+    },
+    "menu": {
+      "schedule_message": "sm",
+      "recurring_message": "rm",
+      "connect_channel": "cch",
+      "show_channel": "shch",
+      "change_channel": "xch",
+      "message_list": "ml",
+      "media_storage": "ms",
+      "statistics": "stat",
+      "search_menu": "srchm",
+      "calendar_view": "cv",
+      "export_menu": "em",
+      "import_data": "id",
+      "language_menu": "lm",
+      "premium_menu": "pm",
+      "referral_menu": "refm",
+      "back_to_main": "bm",
+      "feedback_menu": "fm",
+      "admin_panel": "ap",
+      "delete_menu": "dm"
+    },
+    "params": {
+      "media_type": "mt",
+      "single_photo": "sph",
+      "random_photo": "rph",
+      "no_media": "nm",
+      "photo_mode": "pm",
+      "photo_mode_random": "pmr",
+      "photo_mode_normal": "pmn",
+      "photo_mode_sequential": "pms",
+      "photo_mode_storage": "pmf",
+      "photo_mode_none": "pmx"
+    },
+    "clicks": {
+      "continue": "cnt",
+      "connect_sender_bot": "csb",
+      "open_date_setter": "ods",
+      "skip": "skp",
+      "confirm": "cfm",
+      "cancel": "cncl",
+      "done": "dn"
+    },
+    "premium": {
+      "premium_menu_monthly": "pmm",
+      "premium_menu_yearly": "pmy",
+      "premium_cancel": "pc",
+      "upgrade_to_premium": "utp",
+      "buy_premium_monthly": "bpm"
+    },
+    "help_topics": {
+      "commands": "hc",
+      "connect_bot": "hcb",
+      "connect_channel": "hcc",
+      "help_schedule": "hsch",
+      "media_types": "hmt",
+      "recurring": "hrec",
+      "media_storage": "hms",
+      "setdate": "hsd",
+      "formatting": "hfmt",
+      "premium": "hprem",
+      "import_export": "hie",
+      "contact": "hco"
+    },
+    "admin": {
+      "admin_complaints": "ac",
+      "admin_broadcast": "ab",
+      "admin_user_info": "aui",
+      "admin_set_limit": "asl",
+      "admin_block_user": "abu",
+      "admin_send_user": "asu",
+      "admin_promocodes": "apc",
+      "admin_premiums": "apm",
+      "admin_bot_stats": "abs",
+      "admin_deep_link_builder": "adlb"
+    }
+  }
+}
