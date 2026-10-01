@@ -1,0 +1,197 @@
+import.btn ||| 📥 Import
+import.export_title ||| 📤 📥 Export / Import
+import.export_menu_text ||| 📤 📥 <b>Export / Import</b>
+
+Manage your data:
+• Export all your messages, channels, and settings as a file
+• Import data from a previous export
+• Create and restore backups
+import.instructions ||| 📥 <b>Import Data</b>
+
+Send me a JSON file exported from Fast Scheduler Bot.
+
+⚠️ Importing will merge data with your existing setup and overwrite matching entries.
+import.file_missing ||| ❌ Please send a valid JSON export file.
+import.invalid_format ||| ❌ Invalid file format. Please send a JSON export file.
+import.success ||| ✅ Import successful!
+
+• Messages: {messages} imported
+• Channels: {channels} imported
+• Bots: {bots} imported
+import.error_version ||| ❌ This export was created by a different bot version. Update may be required.
+import.error_generic ||| ❌ Import failed: {error}
+import.merge_options_title ||| 📥 Import Options
+import.merge_keep_existing ||| Keep existing (skip duplicates)
+import.merge_overwrite ||| Overwrite existing
+import.merge_add ||| Add all (keep duplicates)
+import.merge_mode_chosen ||| ✅ Import mode: {mode}
+import.file_too_large ||| ❌ File too large. Maximum: {limit} MB.
+import.file_size_limit ||| ❌ File is too large to import (max {limit} MB).
+import.file_wrong_extension ||| ❌ Please send a .json file.
+import.processing ||| ⏳ Processing import...
+import.preview ||| 📊 Preview:
+import.confirm_btn ||| ✅ Confirm Import
+import.cancel_btn ||| ❌ Cancel
+import.global_error ||| ❌ Import error: {error}
+import.link_invalid ||| ❌ Invalid import link.
+import.no_file ||| ❌ No file received. Please send the export file.
+import.no_valid_messages ||| ❌ No valid messages found in the import.
+import.overflow_cancelled ||| ❌ Import cancelled due to limit overflow.
+import.file_received ||| ✅ Import from file <b>{filename}</b> successful!
+import.photo_received ||| 📷 Photo received ({n}/{total})
+import.prompt ||| 📥 Send a JSON file exported from Fast Scheduler Bot.
+import.select_photo_mode ||| 📷 <b>Select Media Mode</b>
+
+Choose how your media will be attached to scheduled posts (photos, videos, documents and other files all work in every mode):
+
+<b>📷 Normal</b>
+Each post gets the exact same file. Perfect for branding — u
+import.send_photo_normal ||| 📷 Send as individual posts
+import.send_photo_sequential ||| 📸 Send as album
+import.send_photos_random ||| 💭 Send with random photos
+import.session_expired ||| ⏳ Import session expired. Please start over.
+import.setdate_notes ||| 📝 SetDate messages will be imported as regular scheduled messages.
+import.storage_order_prompt ||| 💾 Select import order from storage:
+import.storage_select_box ||| 💾 Select a storage box to import from:
+import.tz_change_account ||| 🔄 Change account timezone
+import.tz_remember ||| 💡 Remember my choice
+import.tz_use_account ||| 📍 Use account timezone
+import.tz_use_file ||| 📁 Use file timezone
+import.use_storage_all_btn ||| 💾 Import All from Storage
+import.with_normal_photo ||| 📷 With normal photo
+import.with_random_photos ||| 📷 With random photos
+import.without_photos ||| ❌ Skip photos
+import.from_storage ||| 💾 Import from Storage
+import.send_random_photos ||| 📷 {count} random photo(s) attached.
+import.tz_mismatch ||| ⚠️ Timezone mismatch: file uses {file_tz}, your account uses {user_tz}. Choose which to use:
+import.item_normal ||| 📄 #{job_id} — {dt}
+import.overflow ||| ⚠️ {count} message(s) exceed the limit.
+import.overflow_first_n ||| ✅ First {n} messages saved.
+import.overflow_last_n ||| ✅ Last {n} messages saved.
+import.limit_overflow ||| ⚠️ Limit overflow: {available} free slots, {total} total, {current} current, {limit} max, {overflow} excess.
+import.item_base ||| 📄 #{job_id} — {dt}
+import.error ||| ❌ Import error: {error}
+import.item_sequential ||| 📸 #{job_id} — {dt} (sequential)
+import.item_random ||| 🎲 #{job_id} — {dt} (random)
+import.cancelled ||| Import cancelled.
+media.only_allowed ||| ❌ Only media files (photos, videos, documents) are allowed here.
+media.receive_status ||| ✅ Media received ({count} so far). Send more or click <b>Done</b>.
+media.storage ||| @@STORAGE@@💾 Media Storage
+media.storage_title ||| @@STORAGE@@💾 <b>Media Storage</b>
+
+Store and manage media files for reuse across your scheduled messages.
+media.storage_empty ||| @@STORAGE@@🗭 No media files in this storage yet.
+media.storage_full ||| @@STORAGE@@⚠️ Media storage is full ({count}/{limit}). Delete some files or upgrade to Premium.
+media.storage_limit_reached ||| @@STORAGE@@⚠️ You've reached the media storage limit ({limit}).
+media.limit_reached_premium ||| @@STORAGE@@⚠️ <b>Media Storage limit reached ({limit})</b>
+
+Delete one of your storages or add media to one of your existing storages instead of creating a new one — or contact our admin (@MaximalXP) for custom higher limits.
+media.my_storages_btn ||| @@STORAGE@@💾 My Storages
+media.use_from_storage ||| @@STORAGE@@💾 Use from Storage
+media.saved ||| @@STORAGE@@✅ Media saved to storage.
+media.saved_count ||| @@STORAGE@@✅ {count} media files saved.
+media.deleted ||| @@STORAGE@@🗑 Media file deleted.
+media.renamed ||| @@STORAGE@@✅ Media renamed to {name}.
+media.replaced ||| @@STORAGE@@✅ Media file replaced.
+media.name_prompt ||| @@STORAGE@@📝 Send a name for this media file:
+media.rename_btn ||| @@STORAGE@@✏️ Rename
+media.replace_btn ||| @@STORAGE@@🔄 Replace
+media.use_btn ||| @@STORAGE@@💾 Use
+media.save_prompt ||| @@STORAGE@@💾 Save to Media Storage?
+
+You can save this media file to your storage for reuse in future messages.
+media.pick_prompt ||| @@STORAGE@@💾 Choose media from storage:
+
+Select a file to attach to your message.
+media.rename_prompt ||| @@STORAGE@@📝 Send a new name for this media file:
+media.replace_prompt ||| @@STORAGE@@❓ Replace this media file with a new one?
+
+The old file will be deleted.
+media.type_animation ||| @@STORAGE@@Animation
+media.type_audio ||| @@STORAGE@@Audio
+media.type_document ||| @@STORAGE@@Document
+media.type_photo ||| @@STORAGE@@Photo
+media.type_sticker ||| @@STORAGE@@Sticker
+media.type_video ||| @@STORAGE@@Video
+media.type_voice ||| @@STORAGE@@Voice
+media.type_video_note ||| @@STORAGE@@Video Note
+media.label_photo ||| @@STORAGE@@Photo
+media.label_video ||| @@STORAGE@@Video
+media.label_document ||| @@STORAGE@@Document
+media.label_animation ||| @@STORAGE@@Animation
+media.label_voice ||| @@STORAGE@@Voice
+media.label_audio ||| @@STORAGE@@Audio
+media.label_sticker ||| @@STORAGE@@Sticker
+media.label_video_note ||| @@STORAGE@@Video Note
+media.type_location ||| 📍 Location
+media.label_location ||| 📍 Location
+media.type_venue ||| 🏢 Venue
+media.label_venue ||| 🏢 Venue
+media.exceeds_limit ||| @@STORAGE@@❌ This file exceeds the size limit ({limit} MB).
+media.exceeds_premium_limit ||| @@STORAGE@@❌ This file exceeds the maximum size limit ({limit} MB).
+media.attached_info ||| {count} file(s) attached
+media.saved_multiple ||| @@STORAGE@@✅ {count} media files saved to storage.
+media.moved ||| @@STORAGE@@✅ Media moved.
+media.text_without_media ||| @@STORAGE@@❌ This storage action requires media files.
+media.text ||| Media
+media.caption_template ||| @@STORAGE@@{caption}
+media.icon_photo ||| 📷
+media.icon_video ||| 📹
+media.icon_location ||| 📍
+media.caption_too_long ||| ❌ Caption is too long ({count} chars). Max {max} chars.
+media.download ||| 📥 Download
+media. ||| 📁 Media
+media.storage_list ||| @@STORAGE@@💾 <b>Storage List</b>
+
+{legend}
+
+{media_count} item(s) — Page {page}/{total_pages}
+media.received_waiting_date ||| 📷 {media_type} received. Now send the date and time:
+media.emoji_received_waiting_date ||| ✨ {media_type} received. Now send the date and time:
+media.doc_text_received ||| 📄 {media_type} + text received.
+
+⚠️ <b>Note:</b> If you want to import scheduled messages, delete the caption from the document and send it again.
+media.text_received_waiting_date ||| ✅ {media_type} + text received. Now send the date and time:
+
+Example: <code>25.12.2024 10:00</code> or <code>10:00</code> for today.
+The text will be posted together with the {media_type}.
+media.updated_confirm ||| ✅ Media updated for job #{job_id}.
+media.renamed_confirm ||| ✏️ Renamed to {name}.
+media.pick_video ||| 🎬 {name}
+media.storage_count ||| 💾 Media items
+media.download_sent ||| 📥 Here's the file:
+media.page_size_set ||| ✅ Page size set.
+media.image ||| 🖼 Image
+media.file ||| 📄 File
+media.type_poll ||| Poll
+media.type_checklist ||| Checklist
+media.items_total ||| 💾 Total media items
+media.pick_photo ||| 📷 {name}
+media.type_mixed ||| Mixed media
+report.title ||| 📊 Reports
+report.btn ||| 📊 Generate Report
+report.create_title ||| 📊 <b>Create Report</b>
+report.type_daily ||| Daily Summary
+report.type_weekly ||| Weekly Report
+report.type_monthly ||| Monthly Report
+report.type_custom ||| Custom Range
+report.type_summary ||| 📊 Summary
+report.type_leaderboard ||| 🏆 Leaderboard
+report.type_comments ||| 💬 Most Commented
+report.type_reactions ||| ❤️ Most Reacted
+report.select_type ||| 📝 Select report type:
+report.email_prompt ||| 📨 Enter email to receive the report:
+report.email_skip ||| ⏭ Skip Email
+report.email_invalid ||| ❌ Invalid email address.
+report.email_confirmed ||| 📨 Report will be sent to {email}
+report.generating ||| ⏳ Generating report...
+report.ready ||| ✅ Report ready!
+report.download_btn ||| 📥 Download Report
+report.no_data ||| ❌ No data to report.
+report.send_btn ||| 📤 Send
+report.channel_prompt ||| 📢 Select channel for report:
+report.deleted ||| 🗑 Report deleted.
+report.deleted_text ||| ✅ The report has been deleted.
+report.metric_comments ||| 💬 Comments: {count}
+report.metric_reactions ||| 📷 Reactions: {count}
+report.metric_views ||| 👁 Views: {count}

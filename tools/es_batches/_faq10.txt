@@ -1,0 +1,95 @@
+help.advertising.faq.1.a ||| Pricing varies depending on the placement type, duration, and reach. Contact @MaximalXP directly for a custom quote. Telegram Ads (native) have their own pricing at ads.telegram.org.
+help.advertising.faq.2.a ||| Yes! Contact @MaximalXP to discuss promotional opportunities including sponsored placements, cross-promotion, and featured listings.
+help.advertising.faq.3.a ||| For Telegram's native advertising, use ads.telegram.org — it's a self-service platform. For custom placements within Fast Scheduler, contact @MaximalXP directly.
+help.advertising.faq.4.a ||| Yes, sponsored messages within bot broadcasts are available. Contact @MaximalXP to discuss your content, timing, and pricing.
+help.admins.faq.1.a ||| Anyone who is a real human administrator with the <b>Post Messages</b> permission in your channel can be listed as an admin. The list is synced live from Telegram — connect a channel and the bot discovers its admins automatically.
+
+Only the <b>Main Owner</b> (the channel creator) can manage the Admins section and change permissions. Other admins ca
+help.admins.faq.2.a ||| Premium is <b>per channel</b>: when any admin of a channel activates Premium, that channel's limits upgrade for <b>everyone</b> who uses it — other channels you have stay on their own limits.
+
+The upgrade is automatic and needs no action from the other admins.
+help.admins.faq.3.a ||| If you tap a button you don't have access to, the bot shows "You do not have permission…" with a <b>Request permission from the admin</b> button underneath.
+
+Press it, optionally add a short message explaining why you need the permission, and the Main Owner gets a Yes/No request. One request per permission per week, so think about what you ask for!
+help.admins.faq.4.a ||| Yes — that's the whole point of the system. Every admin of the same channel shares the exact same quota: the monthly send limit counts messages actually <b>sent this calendar month</b> across all admins (Free: {monthly_sent_free} per channel), and the pending queue cap counts messages <b>waiting to be sent</b> (Free: {scheduled_free}). Neither goes
+help.backup.faq.1.a ||| Step by step:
+1. Click <b>Export</b> on the main menu (page 2) or use <code>/export</code>
+@@STORAGE@@2. Choose what to export: <b>Scheduled Messages</b>, <b>Recurring Messages</b>, or <b>Media Storage</b>
+3. Choose format:
+ • <b>.txt</b> — plain text, human-readable
+ • <b>.csv</b> — spreadsheet (opens in Excel/Google Sheets)
+ • <b>.json</b> — stru
+help.backup.faq.2.a ||| Step by step:
+1. Click <b>Import</b> on the main menu (page 2) or use <code>/import</code>
+2. Send the backup file (.fsback or .fspback)
+3. If password-protected, enter the password when prompted
+4. The bot restores all your data — messages, channels, bots, settings
+5. You'll get a confirmation when done
+
+<b>Note:</b> Restoring a backup <b>replaces
+help.backup.faq.3.a ||| Automatic backups are not available as a built-in feature yet. However, you can manually export anytime:
+• Use <code>/export</code> for selective export (scheduled, recurring, or media)
+• Use <code>/backup</code> for a full backup (Premium, can be password-protected)
+
+Recommendation: export your data regularly, especially before making big changes.
+help.backup.faq.4.a ||| Premium feature. Step by step:
+1. Use <code>/backup</code> command
+2. When prompted, choose <b>Enable Password Protection</b>
+3. Enter a password (you'll need this to restore later — don't forget it!)
+4. The .fspback file is generated and sent to you
+5. To restore: use <code>/import</code> → send the .fspback file → enter the password
+
+<b>Warning:<
+help.backup.faq.5.a ||| @@STORAGE@@A full backup (.fsback / .fspback) includes: all scheduled messages (text, media, settings), all recurring messages, media storage items and boxes, channel connections and settings, bot tokens and assignments, user preferences (language, timezone), and referral data. Everything needed to restore your account to exactly the same state.
+help.backup.faq.6.a ||| <b>.fsback</b> is a standard full backup (no password). <b>.fspback</b> is a password-protected backup with encryption (Premium only). Both contain the same data, but .fspback requires a password to restore. To create a .fspback: use <code>/backup</code> → choose password protection → enter your password.
+help.connect_channel.faq.1.a ||| Step by step:
+1. <b>Add the bot to your channel:</b> Open your channel on Telegram → Channel Info → Administrators → Add Admin → search for <b>@FastSchedulerBot</b> → select it → grant at least <b>Post Messages</b> permission → confirm
+2. <b>Connect in the bot:</b> Click <b>Connected Channel</b> on the main menu → click <b>Connect Channel</b>
+3. <b
+help.connect_channel.faq.2.a ||| Free plan: 1 channel. Premium: up to 3 channels. Each channel can have its own sender bot and schedule. To add another: click <b>Connected Channel</b> → <b>Connect Channel</b> → follow the same steps. You can switch between channels during scheduling by selecting the desired one.
+help.connect_channel.faq.3.a ||| Premium feature. Step by step:
+1. Click <b>Connected Channel</b> on the main menu (or use <code>/channel</code>)
+2. Select the channel you want as default
+3. Click <b>Set as Default</b>
+4. The default channel is now auto-selected during scheduling, saving you a step
+5. To change it later: repeat the steps and choose a different channel
+6. To remove
+help.connect_channel.faq.4.a ||| Step by step:
+1. Click <b>Connected Channel</b> on the main menu
+2. Find the channel you want to remove
+3. Click the <b>Remove</b> button next to it
+4. Confirm — the channel is disconnected
+
+<b>Important:</b> Scheduled messages for that channel are <b>paused</b>, not deleted. They remain in your account with all content and settings. If you reconne
+help.connect_channel.faq.5.a ||| Step by step:
+1. Click <b>Connected Channel</b> on the main menu (or use <code>/channel</code> / <code>/timezone</code>)
+2. Select the channel you want to configure
+3. Click <b>Timezone</b>
+4. Scroll through the list and select your timezone (e.g., America/New_York, Europe/London, Asia/Tokyo)
+5. The timezone is saved automatically
+
+All scheduled an
+help.connect_channel.faq.6.a ||| Click <b>Connected Channel</b> on the main menu. Each channel in the list shows its assigned sender bot username below the channel name. To change the bot assignment:
+1. Click <b>Bots</b> on the main menu
+2. Select the bot you want to reassign
+3. Click <b>Change Channel</b> and pick a different channel
+help.connect_channel.faq.7.a ||| Use the Timezone option when viewing your channel settings.
+help.faq_billing.faq.1.a ||| Telegram <b>Stars</b>. Monthly Stars plans auto-renew; 3-month, 6-month, and yearly plans are one-time purchases.
+help.faq_billing.faq.2.a ||| Promo codes and referral bonuses can both grant Premium time. For the exact stacking behavior and your current status check the <b>Referral</b> help section.
+help.faq_billing.faq.3.a ||| You get a bounded grace period with 'Automatic renewal failed' notices. If the charge never succeeds, the standard Premium expiry process begins.
+help.faq_billing.faq.4.a ||| While Premium is active you can choose another plan when renewing. After expiry you re-subscribe from the Premium menu.
+help.faq_payment.faq.1.a ||| Choose a plan in the Premium menu and pay with <b>Telegram Stars</b>. Premium activates immediately after payment is confirmed.
+help.faq_payment.faq.2.a ||| The monthly Stars plan <b>auto-renews</b> until cancelled. Prepaid 3-month, 6-month, and yearly plans are <b>one-time</b> — you buy a fixed period with no automatic charge.
+help.faq_payment.faq.3.a ||| Your expiration date is shown in the Premium menu and in the status line under <code>/premium</code>. You will get reminders before it ends.
+help.faq_payment.faq.4.a ||| Yes, for the auto-renewing monthly plan: open the Premium menu and tap <b>Cancel Premium</b>. It stops future auto-renewal — you keep Premium until the end of the current paid period, then the standard expiry process begins. Prepaid 3/6-month and yearly plans never auto-renew, so there is nothing to cancel.
+help.faq_payment.faq.5.a ||| Refunds are handled case by case. Contact <b>@MaximalXP</b> with the payment details.
+help.faq_schedule.faq.1.a ||| Yes. After connecting a channel, connect a sender bot for it from <b>Bots</b> - scheduling unlocks once every channel has its own bot. Posts then appear from your bot's name, and you also get lower delivery delays and per-channel statistics.
+help.faq_schedule.faq.2.a ||| Yes. Open <b>Message List</b> (or use <code>/list</code>), tap the message, then <b>Edit</b> — you can change the text, the date/time, the media, or even the target channel. Use <code>/edit</code> with the job ID for a direct shortcut.
+help.faq_schedule.faq.3.a ||| Free plan: <b>{scheduled_free} pending messages</b> stored at once. Premium: <b>unlimited</b>. If you go over the free limit you will receive a notice listing the excess; messages stay frozen but are not deleted.
+help.faq_schedule.faq.4.a ||| Free plan: <b>{monthly_sent_free} sent messages per channel per calendar month</b>. Premium: <b>unlimited</b> sends. There is no daily cap on either plan.
+help.faq_schedule.faq.5.a ||| Each scheduled message targets one channel. Free plan: <b>1 channel</b>. Premium: <b>up to {channels_prem} channels</b>, each with its own sender bot, time zone, and signature.
+help.faq_schedule.faq.6.a ||| Yes. Create the poll/quiz in any chat, then <b>forward</b> it to the bot during scheduling. Note: Telegram only allows <b>anonymous</b> polls in channels.
+help.faq_schedule.faq.7.a ||| Photos, videos, GIFs, documents, and albums. Free plan videos: <b>{max_video_free}</b> (no 4K). Premium: <b>{max_video_prem}</b> with 4K support. Use Normal, Random, or Sequential media modes.
+help.faq_schedule.faq.8.a ||| Yes. Free plan: <b>{recurring_free} recurring message</b>. Premium: <b>unlimited</b>. Set the interval and time, then manage it (edit, pause, delete) from <b>Message List</b>.
+help.faq_schedule.faq.9.a ||| Yes. When entering the date, a time in <code>HH:MM</code> format schedules the message for today at that time. Full dates like <code>2026-08-20 14:30</code> also work.
+help.faq_schedule.faq.10.a ||| Yes. Send a .txt file and the bot parses it into multiple scheduled posts. This is the fastest way to build a month of content — combine it with the SetDate companion bot.

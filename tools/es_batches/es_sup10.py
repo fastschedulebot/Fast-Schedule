@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+PATCH = {
+'help.advertising.faq.1.a': 'El precio varia segun placement, duracion y alcance. Contacta @MaximalXP para cotizacion. Telegram Ads (nativo) tiene sus precios en ads.telegram.org.',
+'help.advertising.faq.2.a': 'Si. Contacta @MaximalXP para promos incluyendo placements, cross-promo y destacados.',
+'help.advertising.faq.3.a': 'Para ads nativos usa ads.telegram.org — es self-service. Para placements custom en Fast Scheduler, contacta @MaximalXP.',
+'help.advertising.faq.4.a': 'Si, mensajes patrocinados en broadcasts disponibles. Contacta @MaximalXP por contenido, tiempos y precio.',
+'help.admins.faq.2.a': 'Premium es <b>por canal</b>: cuando algun admin activa Premium, ese canal sube para <b>todos</b> — tus otros canales quedan igual. Automatico, sin accion de otros.',
+'help.backup.faq.3.a': 'Copias automaticas aun no existen. Exporta tu mismo: <code>/export</code> para selectivo, <code>/backup</code> para full (Premium con clave). Recomendacion: exporta seguido, sobre todo antes de cambios grandes.',
+'help.backup.faq.5.a': '@@STORAGE@@Una copia full (.fsback/.fspback) trae: programados, recurrentes, items y cajas de almacen, canales y bots, preferencias (idioma, zona) y referidos. Todo para restaurar igual.',
+'help.backup.faq.6.a': '<b>.fsback</b> es copia full standard (sin clave). <b>.fspback</b> es cifrada con clave (solo Premium). Mismos datos, pero .fspback pide clave. Para crearla: <code>/backup</code> con proteccion y pon tu clave.',
+'help.connect_channel.faq.2.a': 'Gratis: 1 canal. Premium: hasta 3 canales. Cada canal puede tener su remitente. Para otro: <b>Canal conectado</b> con <b>conectar</b> y sigue igual. Cambias de canal al programar.',
+'help.faq_payment.faq.1.a': 'Paga Premium con Stars desde el menu Premium. Elige plan, confirma y listo. Sin tarjeta externa.',
+'help.faq_payment.faq.2.a': 'Si, se renueva solo si activas auto-renovacion. Puedes cancelarla cuando quieras desde estado Premium.',
+'help.faq_payment.faq.4.a': 'Si. Cancela auto-renovacion en estado Premium. Sigues Premium hasta que expire, sin cargos nuevos.',
+'help.faq_schedule.faq.1.a': 'Si. Cada canal necesita su remitente para postear. Sin remitente, programar queda bloqueado. Conectalo en Bots.',
+'help.faq_schedule.faq.2.a': 'Si. Abre tu lista de mensajes, elige el programado y edita contenido o fecha. La version vieja se reemplaza.',
+'help.faq_schedule.faq.3.a': 'Gratis hasta 100 pendientes por canal. Premium ilimitados. Los enviados no cuentan, solo en espera.',
+'help.faq_schedule.faq.4.a': 'Gratis 100 envios por canal/mes. Premium ilimitados. Resetea el dia 1.',
+'help.faq_schedule.faq.11.a': 'Se usa tu zona o la del canal. Ponla en Zona horaria. Todos tus horarios se interpretan ahi.',
+}

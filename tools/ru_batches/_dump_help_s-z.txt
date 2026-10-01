@@ -1,0 +1,252 @@
+##### schedule
+help.schedule = "/schedule — Schedule a message"
+##### schedule_advanced
+help.schedule_advanced.children = [IDENTS] ["schedule_edit", "schedule_delete", "schedule_location", "schedule_poll_quiz", "schedule_voice", "schedule_animation", "schedule_sticker", "schedule_timezone", "schedule_forward"]
+help.schedule_advanced.title = "Advanced Scheduling: Edit, Delete, Polls & More"
+help.schedule_advanced.content = "Beyond the basic flow, the scheduler covers a set of practical extras. Here is the complete picture.\n\n<b>Editing scheduled messages</b>\nEverything about a pending message stays editable until the moment it is sent: open the <b>Message List</b>, tap the message, and choose <b>Edit</b> (or use <code>/edit</code> with the job ID). You can change the text, the date and time, the attached media, and even the target channel. The bot shows a fresh preview before saving.\n\n<b>Deleting messages</b>\nPending messages can be removed one by one from the Message List, via <code>/delete</code>, or by job ID. <b>Delete All</b> wipes every scheduled and recurring message for a channel at once — use it with care, the bot asks for confirmation first.\n\n<b>Scheduling forwardable content</b>\nAnything you can forward inside Telegram can be scheduled: forward a post from another channel while scheduling, and the bot copies its text and media into your own post. This is also how you schedule <b>polls</b> and <b>quizzes</b>: create the poll in any chat, forward it to the bot during scheduling, and pick a date. Only anonymous polls may post in channels — that is a Telegram rule for channels, not a bot limit.\n\n<b>Special content types</b>\n• <b>Location and venues</b> — send the location during scheduling.\n• <b>Voice messages and video notes</b> — recorded or forwarded as usual.\n• <b>Animated GIFs and stickers</b> — stickers can even carry a text caption, posted right after the sticker.\n\n<b>Time zones</b>\nEvery date you enter is interpreted in the <b>channel's time zone</b>, so a channel with an international audience posts exactly when its readers are awake. Set or check it under <b>Connected Channel</b> → channel → <b>Time Zone</b>, or with <code>/timezone</code>."
+##### schedule_album
+help.schedule_album.content = "An album is a group of photos (or mixed media) sent as one Telegram album.\n\nTo schedule an album: send several photos together during the media step, then choose <b>Normal</b> mode - they are posted as a single grouped message."
+help.schedule_album.title = "Albums"
+##### schedule_animation
+help.schedule_animation.content = "Schedule animated GIFs the same way as photos: send the animation during scheduling and it becomes the message media.\n\nAnimations play inline in the channel. Add a caption for context. Large animations are compressed by the bot to keep sending fast."
+help.schedule_animation.title = "GIFs"
+##### schedule_caption
+help.schedule_caption.content = "When you schedule a photo or video, the text you send becomes the <b>caption</b>.\n\nCaptions support the same formatting as text posts: bold, italic, links, spoilers, and inline buttons.\n\nKeep captions short - they wrap under the media. For longer text, consider a text-only post followed by the media in a separate message."
+help.schedule_caption.title = "Captions & Formatting"
+##### schedule_delete
+help.schedule_delete.content = "Remove a message you no longer need:\n• From <b>Message List</b>: tap the delete/trash button on the message.\n• Use <code>/delete</code> and follow the flow.\n• <b>Delete by ID</b>: enter a specific job ID (e.g. <code>s_123</code>).\n\nDeletion is <b>permanent</b> - the message will never be sent. Deleting a channel or bot only <b>pauses</b> its messages, it doesn't delete them."
+help.schedule_delete.title = "Delete Scheduled"
+##### schedule_document
+help.schedule_document.content = "Schedule any file as a document: PDF, DOCX, XLSX, ZIP, and more.\n\nSend the file during scheduling - the bot attaches it to the scheduled message with an optional caption.\n\nDocuments are stored and sent without compression (unlike photos/videos). File size limits follow your plan."
+help.schedule_document.title = "Document Posts"
+##### schedule_edit
+help.schedule_edit.content = "Change a message after it was scheduled:\n1. Open <b>Message List</b> (<code>/list</code>).\n2. Tap the message → <b>Edit</b>.\n3. Choose what to change: <b>Text</b>, <b>Date/Time</b>, <b>Media</b>, or <b>Channel</b>.\n4. Confirm.\n\nYou can also use <code>/edit &lt;job_id&gt;</code> to jump straight to editing a specific message."
+help.schedule_edit.title = "Edit Scheduled"
+##### schedule_forward
+help.schedule_forward.content = "You can schedule a <b>forward</b> of an existing message instead of typing new content.\n\nDuring scheduling, forward the message from any chat. The bot copies its text and media into the scheduled post. You can then edit the caption before confirming.\n\nForwarding is a fast way to re-post your best content at a later time."
+help.schedule_forward.title = "Forwarding"
+##### schedule_location
+help.schedule_location.content = "Scheduled messages can include a <b>location</b> pin.\n\nSend a location during scheduling and the bot attaches it to the post with an optional caption - useful for event announcements, meetups, or store openings."
+help.schedule_location.title = "Location Posts"
+##### schedule_media
+help.schedule_media.content = "Attach photos, videos, GIFs, or documents to any scheduled message.\n\nDuring scheduling, after sending the text, choose how to attach media:\n• <b>Normal</b> - one file attached to every message.\n• <b>Random</b> - each message gets a random file from the ones you sent.\n• <b>Sequential</b> - files are assigned in order, repeating as needed.\n@@STORAGE@@• <b>From Storage</b> - reuse saved media.\n\nFree plan videos: {max_video_free}. Premium: {max_video_prem}."
+help.schedule_media.title = "Photo & Video Posts"
+##### schedule_one_time
+help.schedule_one_time.content = "A one-time scheduled message is sent exactly once at the date and time you choose.\n\n<b>How to create one:</b>\n1. Tap <b>Schedule Message</b> (or /schedule) and pick the channel.\n2. Send your message in blocks: a date-time line, the message text on the next line, then a blank line before the next block — three blocks means three messages.\n3. Choose the <b>Photo Mode</b> (skip / attach normally / random from storage / sequential).\n4. Check the <b>Review</b> screen and confirm.\n\nThe bot replies with the queued job IDs and times — everything is editable or deletable from <b>Message List</b> until the moment of sending. Use it for announcements, promos and reminders; for repeating posts use Recurring Messages instead."
+help.schedule_one_time.title = "One-Time Schedule"
+##### schedule_poll
+help.schedule_poll.content = "Schedule polls and quizzes for your channel.\n\n<b>How to do it:</b>\n1. Create the poll/quiz in any Telegram chat first.\n2. During scheduling, <b>forward</b> the poll/quiz to the bot.\n3. Confirm - it is posted at the scheduled time.\n\nNote: only <b>anonymous</b> polls work in channels (Telegram rule). Regular polls with user names are not allowed in channels."
+help.schedule_poll.title = "Polls"
+##### schedule_poll_quiz
+help.schedule_poll_quiz.content = "A quiz is a poll with one correct answer and an optional explanation shown after voting.\n\nCreate the quiz in any chat (Telegram → Attachment → Poll → Quiz mode), then <b>forward</b> it during scheduling. The bot posts it at the chosen time.\n\nTip: enable the explanation field so users see why the answer is correct - it keeps engagement high."
+help.schedule_poll_quiz.title = "Quiz Polls"
+##### schedule_review
+help.schedule_review.content = "Before a message is scheduled, the bot always shows a <b>preview</b> with all details: text, media, channel, date/time, signature, and inline buttons.\n\nYou can:\n• Confirm to schedule,\n• Edit the content, time, or channel,\n• Or cancel.\n\nThis prevents mistakes like the wrong date or a missing attachment."
+help.schedule_review.title = "Review Before Sending"
+##### schedule_sticker
+help.schedule_sticker.content = "Stickers can be included in scheduled messages by sending the sticker during scheduling.\n\nYou can attach custom text to a sticker: send the sticker with a caption, or send the text together with the date (e.g. <code>25.12.2024 10:00</code> then the text on the next line). Since Telegram doesn't support captions on stickers, the text is posted as a separate message right after the sticker."
+help.schedule_sticker.title = "Stickers"
+##### schedule_text
+help.schedule_text.content = "Send plain or formatted text in your scheduled message.\n\nSupported formatting (Telegram syntax): <code>**bold**</code>, <code>__italic__</code>, <code>~~strikethrough~~</code>, <code>||spoiler||</code>, <code>[text](url)</code>, <code>`code`</code>.\n\nYou can also add <b>inline buttons</b> with the <code>&lt;inline&gt;Button&lt;link=\"...\"&gt;</code> syntax - see <b>Formatting &amp; Inline Buttons</b>."
+help.schedule_text.title = "Text Posts"
+##### schedule_timezone
+help.schedule_timezone.content = "Every date/time you enter is interpreted in the <b>channel's time zone</b>, not necessarily yours.\n\nSet or check the channel's time zone: <b>Connected Channel</b> → select the channel → <b>Time Zone</b>.\n\nIf your messages seem to post at the wrong hour, this is almost always the cause - update the time zone and re-schedule."
+help.schedule_timezone.title = "Scheduling Time Zone"
+##### schedule_video
+help.schedule_video.content = "Schedule video posts {max_video_free} on Free (larger videos require Premium: {max_video_prem}).\n\nSupported formats: MP4, MOV, AVI. Upload the file during scheduling and add a caption if you like.\n\nFor videos to display inline (not as a document), keep the format and size within Telegram's limits. Premium allows uploading videos to media storage too."
+help.schedule_video.title = "Video Posts"
+##### schedule_voice
+help.schedule_voice.content = "Schedule voice messages by sending the voice file during scheduling.\n\nVoice messages appear as a playable audio bubble in the channel - great for daily podcasts, briefings, or personal updates. The bot can also attach a caption to the voice post."
+help.schedule_voice.title = "Voice Messages"
+##### scheduling
+help.scheduling.children = [IDENTS] ["schedule_one_time", "schedule_text", "schedule_media", "schedule_video", "schedule_document", "schedule_album", "schedule_poll", "schedule_forward", "schedule_caption", "formatting", "schedule_review", "edit", "delete", "recurring", "multichannel", "schedule_advanced"]
+help.scheduling.content = "Everything about one-time scheduling: the basic flow, every content type the bot can post, and the tools to manage what you have queued.\n\n<b>The basic flow</b>\n1. Tap <b>Schedule Message</b> (or send <code>/schedule</code>).\n2. Pick the channel — the bot you paired with it will do the posting.\n3. Enter the date and time: use the format <code>DD.MM.YYYY HH:MM</code> (for example <code>25.12.2025 10:00</code>) or send it in the same message as the text.\n4. Send the message content — plain text or with photos, videos, documents, polls, stickers, voice, locations.\n5. Review the preview and confirm.\n\nThe post goes out automatically at the chosen time, in the channel's time zone. Before scheduling works at all, two things must be connected: the channel (bot as admin) and its sender bot — see Getting Started if you are not there yet.\n\n<b>Managing the queue</b>\nEverything you schedule lands in the <b>Message List</b> and <b>Calendar</b>: preview before it posts, edit any detail, or delete what changed. The topics below cover each content type and every management tool."
+help.scheduling.title = "Scheduling Messages"
+##### search
+help.search.content = "The search tool finds any scheduled or recurring message by its text — no scrolling through the calendar needed.\n\n<b>How to search</b>\n1. Tap <b>Search</b> on the main menu (second page) or send <code>/search</code>.\n2. Type a keyword or phrase.\n3. The bot lists every matching scheduled and recurring message with its job ID and send time.\n4. Results show job ID and send time — open one and you get the same preview and edit/delete controls as the Message List.\n\n<b>What is searched</b>\n• The text content of all scheduled messages.\n• The text content of all recurring messages.\n• Job IDs such as <code>s_123</code> or <code>r_456</code>.\nSearch is case-insensitive, matches partial words (\"hel\" finds \"hello\"), and covers <b>all</b> your messages across every channel at once.\n\n<b>Narrowing results</b>\nUse more specific words — the bot matches any of them. To browse by channel or date instead of keyword, the <b>Message List</b> and <b>Calendar</b> tools are the better fit."
+help.search.title = "Searching Messages"
+help.search.children = [IDENTS] ["search_messages", "search_filter", "search_delete"]
+help.search.faq = [IDENTS] [{"q": "What if I want to browse all messages?", "a": "Use Message List to browse messages by channel instead of searching.", "links": ["message_list"], "0": "message_list,calendar"}]
+##### search_delete
+help.search_delete.content = "Every search result opens the same controls as the Message List: preview, edit, and <b>delete</b>.\n\nTo clean up a finished campaign: search for its keyword, walk the results, and delete each message you no longer need. Deletion is <b>permanent</b> — the bot asks for confirmation and shows the removed job ID afterwards.\n\nNeed to wipe everything for one channel? <b>Delete All</b> in the Message List removes all scheduled and recurring messages for that channel in one confirmed step — faster than deleting search results one by one."
+help.search_delete.title = "Deleting Found Messages"
+##### search_filter
+help.search_filter.content = "While the search box matches any word you type, you can focus results before searching:\n• Open Search from inside a channel's context (via <b>Bots</b> → a connected bot) to scope results to that channel only.\n• Combine keywords: the bot finds messages containing any of them, so adding words narrows the practical result set.\n• Job IDs give an exact match — ideal when you know the ID from a previous preview or notification.\n\nFor everything else — channel-by-channel browsing, month view, per-channel cleanup — the Message List and Calendar remain the fastest tools."
+help.search_filter.title = "Search Scoping & Filters"
+##### search_hint
+help.search_hint = "Search help topics..."
+##### search_messages
+help.search_messages.content = "Find any scheduled or recurring message by keyword.\n\n1. Tap <b>Search</b> (or <code>/search</code>).\n2. Send a word or phrase.\n3. Browse the matching messages; tap one to preview, edit, or delete.\n\nSearch is case-insensitive and matches partial words."
+help.search_messages.title = "Search"
+##### search_results
+help.search_results = "Help results for \"{query}\":"
+##### security_2fa
+help.security_2fa.content = "• Access to the bot is tied to your Telegram account (no extra passwords).\n• Enable Telegram's two-step verification for extra security on your account.\n• Never send your bot token or payment details in plain chat to strangers.\n\nTelegram's own security settings protect your login."
+help.security_2fa.title = "Account Safety"
+help.security_2fa.faq = [IDENTS] [{"a": "Recommended. Two-step verification protects your Telegram login — and therefore your bot access and connected channels — from unauthorized use.", "q": "Do I need Telegram two-step verification?"}]
+##### security_data
+help.security_data.content = "• Your data is stored securely and used only for the service.\n• It's not sold or shared beyond payment processing.\n• Export a backup regularly (<code>/backup</code>) to keep a copy.\n• Request deletion anytime via <b>@MaximalXP</b>.\n\nSee Privacy for the full policy."
+help.security_data.title = "Data Safety"
+help.security_data.faq = [IDENTS] [{"a": "Your data is stored by the bot and used only to run schedules. Export or backup your data anytime, and contact support for data-related requests.", "q": "Where is my data stored?"}]
+##### security_token
+help.security_token.content = "Your bot token is like a password for your sender bot.\n\n• Never share it publicly (screenshots, support chats).\n• If leaked, reset it in @BotFather and <b>Replace Token</b> in the bot.\n• Tokens are stored encrypted.\n\nA leaked token lets anyone post as your bot."
+help.security_token.title = "Token Safety"
+help.security_token.faq = [IDENTS] [{"a": "Absolutely. Never share your sender bot token or payment details in chat. Anyone with a token could post to your channels.", "q": "Should I keep my bot token secret?"}]
+##### sender_bot_management
+help.sender_bot_management.content = "A sender bot is more than a posting tool — it is also a full management interface for your channel.\n\n<b>How it works</b>\nWhen you connect a sender bot to a channel, management moves to it <b>automatically</b> — no extra setup. The main bot then shows a restricted menu (or a private \"Public Mode\" view if you hide the channel), while the full dashboard lives inside your bot.\n\n<b>Inside the sender bot (Management menu)</b>\n• <b>Hide / Show Channel</b> — in Public Mode your channel name is hidden from strangers who start the bot; they only see a generic welcome and an Open Main Bot button.\n• <b>Admins</b> — grant other Telegram accounts limited access to your channel: scheduling, viewing stats, or managing settings (RBAC).\n• Channel admins open the same bot and see exactly the tools their role allows — nothing more.\n\n<b>Restore to the main bot?</b> Not needed. Management stays with the sender bot; if the bot's token ever breaks, Fast Scheduler falls back to the main bot for delivery so posts are never lost."
+help.sender_bot_management.title = "Sender Bot Management"
+##### setdate
+help.setdate.content = "Need to schedule many posts at once? The <b>SetDate Bot</b> lets you bulk-create schedules in minutes.\n\n<b>What is SetDate?</b>\nSetDate is a companion bot that helps you create multiple scheduled messages quickly. Instead of entering each message one by one, you prepare all messages in SetDate and import them in one click.\n\n<b>How It Works</b>\n1. Click <b>Open SetDate</b> during the scheduling flow\n2. The SetDate bot opens with your context\n3. Set a start date and how many posts per day\n4. Define posting times (e.g., 09:00, 14:00, 18:00)\n5. Send your messages — one message per block, separated by blank lines\n6. Generate a schedule file\n7. Click <b>Import to Fast Scheduler</b>\n8. You return to Fast Scheduler with all messages pre-loaded\n9. Choose media options and confirm\n\n<b>Benefits</b>\n• Schedule 10, 50, or 100+ posts in just a few minutes\n• Auto-assigns dates and times to each message\n• Supports European and American date formats\n• Supports inline buttons with custom layouts\n• Preserves all text formatting\n\n<b>Features</b>\n• Flexible time parsing: <code>08:00</code>, <code>2:00 PM</code>, <code>12;00</code>\n• Upload .txt files with your posts\n• Download your schedule as .txt, .csv, or .json\n• Preview messages before importing\n• One-click import back to Fast Scheduler\n\n<b>Language Sync</b>\nBoth bots share your language preference. When you change the language in one, the other bot sends you a message asking if you want to sync the change — tap Yes to apply it."
+help.setdate.title = "SetDate Integration"
+##### signature
+help.signature.content = "Add a custom signature — for example \"Posted by @yourbot\" — to every post on the channels you choose.\n\n<b>How to set up:</b>\n1. Tap <b>📝 Signature</b> on the main menu or send /signature.\n2. Use <b>Add Signature</b> and send your signature text (bold, italic, code and links work).\n3. Pick the position — start or end of the post — and how many blank lines separate it.\n4. Enable <b>auto-add</b> and select the channels it should attach to; or add it per message from the signature list.\n\nGood to know:\n• Signatures are appended at <b>send time</b> — your stored messages stay clean.\n• They never take over your inline button rows.\n• Free users can try signatures once; after that it is a Premium feature.\n\n<b>When Premium expires:</b> auto-add stops once Premium is gone, and signature settings are deleted when the expiry process fully completes. Reactivate Premium to keep everything."
+help.signature.title = "Signatures (Premium)"
+##### start
+help.start.children = [IDENTS] ["getting_started", "start_account", "start_schedule", "start_tips", "glossary", "setdate", "advertising"]
+help.start.content = "New here? This section takes you from an empty chat to a published post: connect your channel, connect a sender bot, schedule the first message — then explore the tools that keep a channel running on autopilot.\n\nThe three setup steps are short guides with pictures of what to tap. After that, the glossary explains any term you meet along the way, and the SetDate topic covers bulk-creating schedules from a file."
+help.start.title = "Getting Started"
+##### start_account
+help.start_account.content = "Your account is created automatically the first time you open the bot - nothing to sign up for.\n\n• Your <b>user ID</b> is shown in <code>/premium</code> and is used by support to find your account.\n• Your <b>language</b> and <b>time zone</b> are stored in your settings.\n• Your <b>plan</b> (Free or Premium) controls your limits.\n\nTo change language use <code>/language</code>; to set your time zone use <code>/timezone</code>. To delete your data or account, contact <b>@MaximalXP</b>."
+help.start_account.title = "Your Account"
+##### start_schedule
+help.start_schedule.content = "1. Add <b>@FastSchedulerBot</b> to your channel as an <b>Administrator</b> (Post Messages permission is enough).\n2. In the bot: <b>Connected Channel</b> → <b>Connect Channel</b>, then send <code>@yourchannel</code> or forward any post.\n3. Connect a <b>sender bot</b> for the channel from <b>Bots</b> (create one via @BotFather or connect an existing bot) - required before you can schedule.\n4. Tap <b>Schedule Message</b>, pick the channel, enter a date and time (e.g. <code>25.12.2025 10:00</code>).\n5. Type your message, attach media if you like, review the preview and confirm.\n\nThat's it - your sender bot posts for you at the chosen time. See <b>Getting Started</b> for the detailed step-by-step guide."
+help.start_schedule.title = "Send Your First Post"
+help.start_schedule.faq = [IDENTS] [{"a": "Use <code>/schedule</code>, pick a channel, send the date/time and message, then confirm. For many posts at once, upload a .txt file in batch format.", "q": "What is the fastest way to schedule a message?"}]
+##### start_tips
+help.start_tips.content = "• Use <code>HH:MM</code> alone to schedule for today at that time.\n• Upload a .txt file during scheduling to create many messages at once (blank line = new message).\n• Use <b>Message List</b> (<code>/list</code>) to edit or delete posts later.\n• Add a <b>sender bot</b> so posts appear from your own bot's name.\n• Set your <b>time zone</b> so times mean what you expect.\n• Anything you type in the bot works in both bots: <b>@FastSchedulerBot</b> and <b>@SetDate_bot</b> share your settings."
+help.start_tips.title = "Quick Tips"
+##### statistics
+help.statistics.content = "See your scheduling activity and how your posts perform.\n\n<b>How to open:</b> tap <b>Statistics</b> on the main menu (page 2) or send /stats.\n\n<b>The overview shows:</b>\n• Scheduled and recurring message counts right now\n• Messages sent today and total sent\n• Messages created in total\n• Connected channels\n\n<b>Per-channel stats:</b> every channel row opens its own view — total messages, average views, comments and reactions, plus the top reactions on your posts.\n\n<b>Leaderboards (Premium):</b> from a channel's stats tap <b>Leaderboard</b> — top posts by views, comments or reactions, paginated up to 50 rows per page, filtered by period (today / week / month / year / all). Comment attribution needs the bot in your linked discussion group.\n\nOnly posts sent through Fast Scheduler are counted — manually published posts don't appear."
+help.statistics.title = "Statistics Dashboard"
+##### stats
+help.stats = "/stats — View your statistics"
+##### storage
+help.storage = "@@STORAGE@@/storage — Manage media storage"
+##### storage_lifecycle
+help.storage_lifecycle.content = "Storage items persist until you delete them. When Premium expires, non-kept boxes are deleted on day 17 and the kept box is trimmed to {storage_items_free} items (videos first).\n\nRenew Premium before day 17 to keep all media."
+help.storage_lifecycle.title = "Lifecycle"
+help.storage_lifecycle.faq = [IDENTS] [{"a": "@@STORAGE@@You keep one box you choose. Day 17: other boxes are deleted and your kept box is trimmed to {storage_items_free} items. Renew before then to keep everything.", "q": "@@STORAGE@@What happens to storage boxes on expiry?"}]
+##### storage_use_case
+help.storage_use_case.content = "Use media storage when you:\n• Post the same photos/videos repeatedly (products, headers, promos).\n• Want consistent branding across posts.\n• Build schedules in bulk and need media without re-uploading.\n\nFor one-off posts, just attach media directly during scheduling."
+help.storage_use_case.title = "When to Use Storage"
+help.storage_use_case.faq = [IDENTS] [{"a": "@@STORAGE@@Whenever you reuse visuals — promo banners, cover images, or recurring content. Save once, then attach to any scheduled message without re-uploading.", "q": "@@STORAGE@@When is media storage useful?"}]
+##### text
+help.text = "<b>Help Center</b>\n\nSelect a topic below to learn more about Fast Scheduler Bot."
+##### timezone
+help.timezone.children = [IDENTS] ["timezone_set", "timezone_detect", "timezone_auto", "timezone_list", "timezone_examples"]
+help.timezone.content = ""
+help.timezone.title = "Time Zone"
+help.timezone.faq = [IDENTS] [{"a": "Each channel has its own timezone. Scheduling times are interpreted in that timezone.", "links": ["connect_channel", "calendar", "scheduling"], "q": "How do timezones affect my schedule?"}, {"a": "Existing scheduled messages adjust to the new timezone.", "links": ["connect_channel"], "q": "What happens if I change a channel's timezone?"}, {"a": "Type part of your city or region name to filter. The list uses IANA timezone names (e.g., America/New_York, Europe/London, Asia/Tokyo).", "links": ["connect_channel"], "q": "How do I find my timezone in the list?"}]
+##### timezone_auto
+help.timezone_auto.content = "The bot can detect your time zone automatically from your approximate location.\n\n• Allow Telegram to share your location once.\n• The bot picks the closest time zone.\n• You can still change it manually afterwards.\n\nAutomatic detection is a good starting point; fine-tune manually if you travel or live near a zone border."
+help.timezone_auto.title = "Automatic Time Zone"
+##### timezone_detect
+help.timezone_detect.content = "Instead of picking from a long list, tap <b>Auto-Detect</b> and share your location once - the bot sets the correct time zone for you.\n\nWorks best when you grant location in Telegram. You can override the result manually at any time."
+help.timezone_detect.title = "Auto Detect"
+##### timezone_examples
+help.timezone_examples.content = "• UTC+0: London, Lisbon\n• UTC+3: Moscow, Nairobi\n• UTC+4: Dubai, Baku\n• UTC+5.5: India\n• UTC+8: Beijing, Singapore, Manila\n• UTC+10: Sydney\n• UTC-5: New York\n• UTC-8: Los Angeles\n\nSearch by city in the time zone picker to find yours fast."
+help.timezone_examples.title = "Examples"
+##### timezone_list
+help.timezone_list.content = "All standard IANA time zones are supported - from UTC-12 to UTC+14, including half-hour and quarter-hour offsets.\n\nSearch by city, country, or abbreviation (e.g. \"Hanoi\", \"NYC\", \"CET\"). The bot shows the current local time so you can verify the choice."
+help.timezone_list.title = "Supported Zones"
+##### timezone_set
+help.timezone_set.content = "Set your time zone so the bot interprets scheduling times correctly.\n\n1. Use <code>/timezone</code> (or find it in settings).\n2. Choose from the list, search a city, or let the bot detect it from your location.\n\nTip: every <b>channel</b> also has its own time zone. If a message posts at the wrong hour, check the channel's time zone setting."
+help.timezone_set.title = "Set Time Zone"
+##### tips
+help.tips.children = [IDENTS] ["tips_backup", "tips_bulk", "tips_channels", "tips_feedback", "tips_language", "tips_migration", "tips_payment", "tips_premium", "tips_preview", "tips_queue", "tips_recurring", "tips_referral", "tips_search", "tips_security", "tips_signature", "tips_storage", "tips_timezone", "tips_troubleshoot"]
+help.tips.title = "Pro Tips"
+help.tips.content = "A collection of tips to get the most out of Fast Scheduler Bot.\n\nPick a topic below — each has practical advice plus a quick FAQ."
+##### tips_backup
+help.tips_backup.content = "• Create a backup regularly — before big changes or when Premium expires (a .fsback file is sent automatically on day 3).\n• Backup files include your channels, settings, and configured messages.\n• Store backups somewhere safe — e.g. Saved Messages in Telegram.\n• Use <b>/import</b> to bring everything back on a new device or after reinstalling."
+help.tips_backup.title = "Backup Tips"
+help.tips_backup.faq = [IDENTS] [{"a": "Make a backup before big changes and keep the auto-backup you receive when Premium expires (day 3). A backup restores your channels and settings.", "q": "How often should I make a backup?"}]
+##### tips_bulk
+help.tips_bulk.content = "• Schedule dozens of posts at once by uploading a .txt file — one date+message per block.\n• Use the same format as the examples: each date line followed by the message keeps them together.\n• Attach different media to each block, or send texts first and let photos attach in order.\n• Preview before confirming to catch wrong dates early.\n\nSee <b>Batch Scheduling</b> for the format details."
+help.tips_bulk.title = "Bulk Tips"
+help.tips_bulk.faq = [IDENTS] [{"a": "Upload a .txt file with date+message blocks (see Batch Scheduling for the exact format). The bot creates one scheduled message per block.", "q": "How do I batch-schedule many messages?"}]
+##### tips_channels
+help.tips_channels.content = "• Make the bot a channel admin with <b>Post Messages</b> (and Delete Messages for media cleanup).\n• Use @usernames or invite links when connecting channels.\n• Set the <b>channel time zone</b> so schedule times match your audience.\n• One channel = one sender bot keeps delivery reliable.\n\nSee <b>Channels</b> for connection and management details."
+help.tips_channels.title = "Channel Tips"
+help.tips_channels.faq = [IDENTS] [{"a": "Check the bot is still a channel admin with Post Messages, the timezone is correct, and the sender bot is connected.", "q": "Why is my channel not posting?"}]
+##### tips_feedback
+help.tips_feedback.content = "• Always include your user ID (from <code>/premium</code>) when contacting support.\n• Add screenshots or exact error text — they speed up fixes.\n• Choose the right category (bug / feature / general) so reports route correctly.\n• Check your feedback status — the bot keeps you updated via the Feedback menu.\n\nSee <b>Feedback</b> for how to submit."
+help.tips_feedback.title = "Feedback Tips"
+help.tips_feedback.faq = [IDENTS] [{"a": "Your user ID, the exact error or screenshot, the channel involved, and what you expected to happen. This helps us fix it faster.", "q": "What should I include in a bug report?"}]
+##### tips_language
+help.tips_language.content = "• Change language with <code>/language</code> — it applies immediately.\n• Set your timezone in the same settings area so schedule times align.\n• If your language is missing, use Feedback to request it — new languages are added over time.\n\nSee <b>Language</b> for the full list."
+help.tips_language.title = "Language Tips"
+help.tips_language.faq = [IDENTS] [{"a": "Send <code>/language</code> and pick your language. It applies immediately to all your channels.", "q": "How do I switch the bot language?"}]
+##### tips_migration
+help.tips_migration.content = "• Moving to a new phone? Install the bot and connect the same channels as admin.\n• Use <b>/import</b> to restore settings and messages from a backup file.\n• Your Premium is tied to your Telegram account, so it follows you automatically."
+help.tips_migration.title = "Migration Tips"
+##### tips_payment
+help.tips_payment.content = "• Telegram Stars monthly plans renew automatically; yearly plans are one-time purchases.\n• Keep payment receipts — they help support verify issues quickly.\n• Redeem promo codes before they expire.\n• Yearly plans are the best value per day.\n\nSee <b>Payments</b> for how each method works."
+help.tips_payment.title = "Payment Tips"
+help.tips_payment.faq = [IDENTS] [{"a": "Telegram Stars activates instantly. Card/PayPal and crypto are usually confirmed within minutes. See Payments for details.", "q": "Which payment method activates Premium fastest?"}]
+##### tips_premium
+help.tips_premium.content = "• Review <b>Premium</b> periodically to know your limits and usage.\n• Recurring messages are unlimited on Premium — automate your digests.\n• On expiry, use the <b>Choose What to Keep</b> menu to pick the channel you keep.\n• Renew before day 35+12h to restore everything instantly.\n\nSee <b>Premium</b> and <b>Premium Expiry</b> for details."
+help.tips_premium.title = "Premium Tips"
+help.tips_premium.faq = [IDENTS] [{"a": "Yearly plans give the best daily price. Compare plans in <code>/premium</code> to pick what fits your volume.", "q": "What is the best Premium plan?"}]
+##### tips_preview
+help.tips_preview.content = "• Always preview before confirming a scheduled message.\n• The preview shows text, media, time, channel, and options.\n• You can edit a preview — change time, channel, or content — before it's saved.\n• Use <b>Message List</b> to re-open any message for preview later."
+help.tips_preview.title = "Preview Tips"
+help.tips_preview.faq = [IDENTS] [{"a": "Yes — the preview lets you change time, channel, or content before confirming. After saving, edit it via Message List.", "q": "Can I edit a message after I preview it?"}]
+##### tips_queue
+help.tips_queue.content = "• Messages are processed in schedule order — earliest time first.\n• If many messages share the same time, they send in creation order.\n• Missed send windows are handled gracefully; check your sent reports.\n• Use reports for a send confirmation after each batch."
+help.tips_queue.title = "Queue Tips"
+help.tips_queue.faq = [IDENTS] [{"a": "Earliest scheduled time first; equal times are sent in creation order. Check sent reports for confirmations.", "q": "What order are queued messages sent?"}]
+##### tips_recurring
+help.tips_recurring.content = "• Use recurring messages for daily digests, weekly roundups, or monthly posts.\n• Premium unlocks unlimited recurring messages.\n• Recurring messages count separately from one-time scheduled messages.\n• On Premium expiry you keep up to {recurring_free} recurring message — choose which.\n\nSee <b>Recurring</b> for setup."
+help.tips_recurring.title = "Recurring Tips"
+help.tips_recurring.faq = [IDENTS] [{"a": "Yes — open the recurring message in Message List to pause, edit, or delete it. Paused messages stop sending until resumed.", "q": "Can recurring messages be paused?"}]
+##### tips_referral
+help.tips_referral.content = "• Share your invite link everywhere — groups, channels, your bio.\n• Friends must join and send enough messages for you to earn days.\n• Track your balance and referrals in <code>/referral</code>.\n• Watch for the minimum-message rule to avoid abuse.\n\nSee <b>Referral</b> for rules and rewards."
+help.tips_referral.title = "Referral Tips"
+help.tips_referral.faq = [IDENTS] [{"a": "After invited friends join and send at least {referral_min_messages} messages. Track your balance in <code>/referral</code>.", "q": "When do I get referral rewards?"}]
+##### tips_search
+help.tips_search.content = "• Search matches keywords and partial words, case-insensitively.\n• You can search by job ID (e.g. <code>s_123</code>).\n• Search covers all your channels at once.\n• Found messages can be previewed, edited, or deleted right from results.\n\nSee <b>Search</b> for usage."
+help.tips_search.title = "Search Tips"
+help.tips_search.faq = [IDENTS] [{"a": "Yes — search covers all your scheduled and recurring messages across every channel at once.", "q": "Does search work across all channels?"}]
+##### tips_security
+help.tips_security.content = "• Enable Telegram two-step verification on your account.\n• Never share your bot token or payment details in chat.\n• Only grant channel admin (Post Messages) to the bot and your sender bots.\n• Revoke sender bot access from devices you no longer use."
+help.tips_security.title = "Security Tips"
+##### tips_signature
+help.tips_signature.content = "• Signatures are appended after message content — great for branding.\n• You can set a different signature per channel.\n• Keep signatures short; they count toward the message length limit.\n• Signatures are stripped when Premium expires (after day 3).\n\nSee <b>Signatures</b> for setup."
+help.tips_signature.title = "Signature Tips"
+help.tips_signature.faq = [IDENTS] [{"a": "Yes — each channel has its own signature setting. Signatures strip automatically when Premium expires after day 3.", "q": "Can I use one signature per channel?"}]
+##### tips_storage
+help.tips_storage.content = "• Organize media into named boxes so messages are easy to reuse.\n• On Premium expiry you can keep one storage box; keep the one you use most.\n• The kept box is trimmed to {storage_items_free} items (videos first) on day 17.\n• @@STORAGE@@Use storage to resend the same visuals repeatedly without re-uploading.\n\nSee <b>Media Storage</b> for the full guide."
+help.tips_storage.title = "@@STORAGE@@Storage Tips"
+help.tips_storage.faq = [IDENTS] [{"a": "@@STORAGE@@On day 0 you pick one box to keep. Day 17: non-kept boxes are deleted and your kept box is trimmed to {storage_items_free} items. Renew before then to keep everything.", "q": "@@STORAGE@@What happens to my storage on Premium expiry?"}, {"a": "@@STORAGE@@Yes. Videos are kept within the per-item size limits ({max_video_free} for free / {max_video_prem} for Premium) and stored separately from photos, without quality loss.", "q": "@@STORAGE@@Can I store videos in Media Storage?"}]
+##### tips_timezone
+help.tips_timezone.content = "• Always set the time zone for each channel you use.\n• Times in the calendar are shown in the channel's timezone.\n• Use <code>/timezone</code> to check or change it quickly.\n• For audiences in a different region, schedule in their local time.\n\nSee <b>Time Zone</b> for details."
+help.tips_timezone.title = "Time Zone Tips"
+help.tips_timezone.faq = [IDENTS] [{"a": "Your channel timezone is used for scheduling. Change it with <code>/timezone</code> to match your audience.", "q": "Why do my posts send at the wrong time?"}]
+##### tips_troubleshoot
+help.tips_troubleshoot.content = "• Messages not sending? Check the bot is still a channel admin.\n• Media failing? Check size limits and bot permissions.\n• Late posts? Verify the channel's timezone and sender bot status.\n• When stuck, check the <b>Troubleshooting</b> category first.\n\nFor step-by-step fixes, open the <b>Troubleshooting</b> category."
+help.tips_troubleshoot.title = "Troubleshoot Tips"
+help.tips_troubleshoot.faq = [IDENTS] [{"a": "Check the Troubleshooting category first. If it's still broken, use Feedback with your user ID, error text, and steps to reproduce.", "q": "Where do I start when something breaks?"}]
+##### title
+help.title = "<b>Help & Commands</b>"
+##### tools
+help.tools.children = [IDENTS] ["message_list", "search", "statistics", "calendar"]
+help.tools.title = "Tools"
+help.tools.content = "Four tools manage everything you schedule:\n\n• <b>Message List</b> — the workhorse. Browse messages per channel, preview, edit, delete.\n• <b>Calendar</b> — the month at a glance; tap a day to see its posts.\n• <b>Search</b> — keyword search across all scheduled and recurring messages.\n• <b>Statistics</b> — sends, limits, and per-channel counters.\n\nAll four are one tap from the main menu (second page), and each has a matching command: <code>/list</code>, <code>/calendar</code>, <code>/search</code>, <code>/stats</code>."
+##### topic_not_found
+help.topic_not_found = "Help topic not found: {topic}"
+##### troubleshoot_bot
+help.troubleshoot_bot.content = "If a sender bot stops responding:\n\n• Check that the bot is still an admin in the channel.\n• Reconnect the sender bot from <b>Sender Bots</b>.\n• Telegram restarts bots from time to time — wait a couple of minutes.\n• If messages queue up, they resume once the bot is back.\n\nIf problems continue, contact support with the affected channel and bot."
+help.troubleshoot_bot.title = "Bot Down"
+help.troubleshoot_bot.faq = [IDENTS] [{"a": "Reconnect the sender bot from Sender Bots and confirm it's a channel admin. Telegram restarts bots periodically — wait a few minutes before retrying.", "q": "What do I do when a bot seems offline?"}]
+##### troubleshoot_late
+help.troubleshoot_late.content = "If a message posts later than scheduled:\n\n• Check the <b>channel timezone</b> — schedule times use it.\n• Verify the sender bot is online and an admin.\n• Telegram can delay delivery under load — the bot retries.\n• Check the sent report for the actual posting time.\n\nSet the correct timezone to fix the issue."
+help.troubleshoot_late.title = "Late Post"
+##### troubleshoot_media
+help.troubleshoot_media.content = "If media doesn't post:\n\n• Check file size against limits ({max_media_free} free / {max_media_prem} Premium per item; videos {max_video_free} / {max_video_prem}).\n• Make sure the file format is supported by Telegram.\n• Confirm the bot has permission to post media.\n• Corrupted uploads fail — re-upload the file.\n\nRe-schedule the message after fixing the file."
+help.troubleshoot_media.title = "Media Fails"
+##### troubleshoot_nopost
+help.troubleshoot_nopost.content = "If nothing was posted:\n\n• Confirm the bot is a channel admin with <b>Post Messages</b>.\n• Check the schedule time and timezone are correct.\n• Verify the sender bot is connected and online.\n• Look at <b>Message List</b> to confirm the message still exists (not deleted/expired).\n\nUse the <b>Troubleshooting</b> topics for permission and rate-limit fixes."
+help.troubleshoot_nopost.title = "No Post Sent"
+##### troubleshoot_perm
+help.troubleshoot_perm.content = "Missing permissions cause most posting failures:\n\n• Make the bot an admin of the channel.\n• Grant <b>Post Messages</b> (and Delete Messages for media cleanup).\n• For sender bots, ensure they also have the needed rights.\n• If you use a private link, ensure you're the owner/admin.\n\nThe bot verifies permissions automatically after you update them."
+help.troubleshoot_perm.title = "Permission"

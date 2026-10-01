@@ -1,0 +1,60 @@
+activate.premium_referral ||| ⭐ Activate Days
+add.more_media_btn ||| ➕ Add More Media
+add.storage_btn ||| @@STORAGE@@➕ Add Storage
+add.media_btn ||| @@STORAGE@@➕ Add Media
+add.promo_code_btn ||| 💳 Add Promo Code
+add.report_btn ||| 📊 Add Report
+addbot.share_button ||| 🔗 Share Bot
+addbot.share_choose_bot ||| 🤖 Choose which bot to share:
+addbot.share_connect_channel ||| 📢 Or share the channel connection:
+addbot.share_no_free_channels ||| ⚠️ All your channels already have bots connected.
+addbot.share_selected ||| ✅ Bot share link generated.
+addbot.token_request ||| 🔑 Send me your bot token (from @BotFather):
+addbot.remove_confirm_title ||| 🗑 <b>Remove Bot?</b>
+addbot.remove_error ||| ❌ Could not remove bot.
+addbot.replace_title ||| 🔄 <b>Replace Bot</b>
+addbot.connected_title ||| ✅ Bot Connected!
+addbot.connected_text ||| @{username} is now managing <b>{channel}</b>.
+addbot.connected_multi_title ||| ✅ {count} Bots Connected!
+addbot.create_button ||| ➕ Create New Bot
+addbot.token_button ||| 🔑 I Have a Token
+addbot.create_failed ||| ❌ Failed to create bot.
+addbot.instruction_title ||| <b>Connect Sender Bot</b>
+addbot.button ||| 🤖 Connect Bot
+addbot.removed_success ||| ✅ Bot has been disconnected successfully.
+album.label ||| 🖼 Album
+all.btn ||| All
+all.features_unlocked ||| ✅ All features unlocked
+announcement ||| 📢 Announcement
+archive.progress ||| ⏳ Creating archive... {percent}%
+are.you_sure ||| ❓ Are you sure?
+are.you_sure_irreversible ||| ⚠️ This cannot be undone.
+assign.bot_btn ||| 🤖 Assign @{bot_username}
+attachment.name ||| 📎 {name}
+auto.renewal ||| Auto-Renewal
+autotime.title ||| 🕐 AutoTime
+autotime.btn ||| 🕐 AutoTime
+autotime.channel_prompt ||| 📢 Select a channel to analyze:
+autotime.analyzing ||| ⏳ Analyzing channel activity... This may take a moment.
+autotime.apply_btn ||| ✅ Apply This Time
+autotime.applied ||| ✅ AutoTime set to {time} for {channel}.
+autotime.analysis_failed ||| ❌ Could not analyze channel activity.
+autotime.analyze_btn ||| 🕐 Analyze
+autotime.cancel_btn ||| ❌ Cancel AutoTime
+autotime.dont_show_btn ||| 🚫 Don't show again
+autotime.promo_hidden ||| ❌ AutoTime promo hidden.
+autotime.promo_on ||| ✅ AutoTime promo enabled.
+autotime.promo_toggled_on ||| ✅ AutoTime promo is now visible.
+back.main_btn ||| 🔙 Main Menu
+back.to_file_list ||| 📁 Back to Files
+back.to_main ||| 🏠 Back to Main
+back.to_premium_menu ||| ◀️ Back to Premium Menu
+backup.no ||| No
+backup.eye_toggle ||| 👁
+blocked.alert ||| 🚫 {reason}
+blocked.users ||| 🚫 {count} user(s)
+block.reason_default ||| Violation of the bot's terms of service
+bot.btn ||| bot
+bot.assigned_check ||| ✅
+bot.unassigned_check ||| ⬜
+bot.back_online ||| ✅ Bot @{username} is back online and managing {channel}.

@@ -1,0 +1,344 @@
+monthly_sent_reached_alert ||| ⚠️ Monthly send limit for this channel ({limit}/month) is reached. Message {job_id} was not sent.
+monthly_standard_option ||| ⭐ Standard monthly subscription — {price}/month
+monthly_three_option ||| 3️⃣ 3 months — {price} (save {full_price})
+monthly_six_option ||| 6️⃣ 6 months — {price} (save {full_price})
+monthly_pay_monthly_note ||| 💡 Paying month-by-month: 3 months = {three_month_total}, 6 months = {six_month_total}
+multi_month_discount_note ||| 🏷️ <b>Prepaid discount: {percent}% off</b> — you pay {discounted} instead of {price}.
+expiry.day0_title ||| ❄️ <b>Premium Expired</b>
+expiry.day0_info ||| Your Premium subscription has expired.
+
+Messages will still be sent to all your channels for the next <b>{days} days</b>. Nothing is frozen yet.
+
+After the grace period, channels and sender bots you don't keep will be frozen, then disconnected:
+
+Excess assets that will be affected:
+expiry.day0_footer ||| Upgrade to Premium within the next 2 weeks to avoid losing access to these assets.
+
+@@STORAGE@@You will also be asked which media storage to keep.
+expiry.excess_channels ||| 📺 <b>Excess channels ({count}):</b>
+expiry.excess_bots ||| 🤖 <b>Excess bots ({count}):</b>
+expiry.day3_title ||| ⚠️ <b>Messages Will Stop Tomorrow</b>
+expiry.day3_info ||| This is a reminder that in <b>1 day</b>, messages will stop being sent to your frozen channels.
+
+After that, your excess channels and sender bots will remain frozen for the next 11 days, but no new messages will be delivered.
+expiry.day3_footer ||| Renew Premium now to restore full functionality.
+expiry.day4_title ||| ⏸️ <b>Messages Stopped</b>
+expiry.day4_info ||| Messages to your frozen channels have been stopped.
+
+Your excess channels and sender bots remain connected but frozen. They will be automatically disconnected in about 3 weeks if Premium is not renewed.
+expiry.day4_footer ||| Renew Premium now to resume message delivery and keep your channels.
+expiry.backup_sent_title ||| 🗂️ <b>Your Data Backup</b>
+expiry.backup_sent_info ||| Because your Premium has expired, we have prepared a full backup of your data.
+
+You can use it to restore your channels, bots, and messages if you decide to renew Premium later.
+expiry.backup_marketing ||| Renew Premium anytime to continue exactly where you left off — all your data will still be here.
+expiry.day14_title ||| ⏳ <b>2 Weeks Since Premium Expired</b>
+expiry.day14_info ||| Your excess channels and bots have been frozen for 2 weeks.
+
+You have <b>{weeks} weeks</b> remaining before they are permanently disconnected.
+
+Assets still at risk:
+expiry.day14_footer ||| Renew Premium to keep everything as is.
+expiry.day15_title ||| 🕐 <b>Premium Expired — 15 Days</b>
+expiry.day15_info ||| Your channels and sender bots remain frozen. The clock is ticking.
+
+In about 20 days, they will be permanently disconnected and all associated data will be removed.
+
+We will send you a final warning before that happens.
+expiry.day15_footer ||| Renew Premium before it's too late.
+expiry.disconnect_warn_title ||| 🚨 <b>Final Warning: Disconnection in 12 Hours</b>
+expiry.disconnect_warn_info ||| This is your last chance. In <b>{hours} hours</b>, the following assets will be permanently disconnected:
+
+All scheduled messages, recurring messages, and channel data, that exceeds the free tier limits will be deleted.
+expiry.disconnect_warn_footer ||| Renew Premium immediately to keep your channels, bots, and data.
+expiry.disconnected_title ||| 🔌 <b>Excess Assets Disconnected</b>
+expiry.disconnected_info ||| Your excess channels and sender bots have been disconnected.
+
+The following assets were affected:
+expiry.disconnected_channels ||| 📺 <b>Disconnected channels ({count}):</b>
+expiry.disconnected_bots ||| 🤖 <b>Disconnected bots ({count}):</b>
+expiry.disconnected_footer ||| Your channel and bot usernames have been saved in your account information. You can re-connect them if you upgrade to Premium again.
+expiry.media_choice_title ||| @@STORAGE@@📦 <b>Keep Your Media Storage</b>
+expiry.media_choice_info ||| @@STORAGE@@Your Premium has expired. You may keep <b>one</b> media storage.
+
+@@STORAGE@@All other storages will be deleted, and the kept storage will be trimmed to 100 items (videos removed first).
+
+@@STORAGE@@Choose which storage to keep:
+expiry.media_keep_btn ||| 📁 {name} ({count} items)
+expiry.media_choice_saved ||| @@STORAGE@@✅ Media storage choice saved.
+expiry.media_choice_confirmed ||| @@STORAGE@@✅ <b>Media storage choice saved.</b>
+
+@@STORAGE@@Your selected storage will be kept. Others will be deleted after the grace period.
+
+@@STORAGE@@The kept storage will be trimmed to 100 items (videos removed first).
+expiry.media_deletion_title ||| @@STORAGE@@📦 <b>Media Storage Cleanup</b>
+expiry.media_deletion_info ||| @@STORAGE@@Your media storage cleanup is scheduled in <b>{days} days</b>.
+
+@@STORAGE@@If you haven't chosen a storage to keep, we will delete all media.
+
+@@STORAGE@@Choose which storage to keep in the menu.
+expiry.media_deletion_footer ||| Upgrade to Premium to keep all your media.
+expiry.choice_title ||| 📋 <b>Choose What to Keep</b>
+expiry.choice_info ||| Your Premium has expired. You can keep up to <b>{channels} channel(s)</b>.
+
+The sender bot of a kept channel stays with it; the sender bots of the other channels are frozen too.
+
+Select which channels to keep below.
+expiry.choice_channels_header ||| 📺 <b>Channels (keep up to {limit}):</b>
+expiry.choice_bots_header ||| 🤖 <b>Bots (keep up to {limit}):</b>
+expiry.choice_recurring_header ||| 🔄 <b>Recurring Messages (keep 1):</b>
+expiry.choice_help ||| Click a button below to toggle an asset on/off. Then click 💾 Save.
+expiry.choice_keep_btn ||| ✅ Keep {name}
+expiry.choice_remove_btn ||| ❌ Remove {name}
+expiry.choice_save_btn ||| 💾 Save Selection
+expiry.choice_limit_reached ||| ⚠️ You can only keep up to {limit}.
+expiry.choice_no_channels ||| ⚠️ You must keep at least one channel.
+expiry.choice_saved_alert ||| ✅ Selection saved!
+expiry.choice_confirmed_title ||| ✅ <b>Selection Saved</b>
+expiry.choice_confirmed_info ||| You chose to keep <b>{channels} channel(s)</b>.
+
+Their sender bots stay active. The remaining channels and their sender bots are frozen and will eventually be disconnected.
+expiry.scheduled_excess_title ||| 📅 <b>Scheduled Messages Over Limit</b>
+expiry.scheduled_excess_info ||| You have <b>{count}</b> scheduled messages, but your free plan only allows <b>{limit}</b>.
+
+After the 3-day grace period, excess scheduled messages will not be sent.
+expiry.scheduled_excess_footer ||| Upgrade to Premium to send all messages, or download a full backup to keep your data safe.
+expiry.download_scheduled_btn ||| 📥 Download Full Backup (.fsback)
+expiry.download_scheduled_caption ||| 📥 Your full data backup (.fsback)
+
+This file contains everything — scheduled messages, recurring messages, channels, bots, media, and settings. Keep it safe: you can restore it any time with /import.
+expiry.download_scheduled_sent ||| ✅ Full backup sent! Import it any time with /import.
+expiry.cmd_grace_title ||| ⏳ <b>Premium Expired — Reminder</b>
+expiry.cmd_grace_info ||| You haven't renewed your Premium subscription. In <b>{days} day(s)</b>, messages to channels you didn't choose to keep will stop sending and those channels will be frozen.
+
+Your extra sender bots will be turned off in about 3 weeks.
+expiry.cmd_grace_footer ||| Renew Premium now to keep everything working.
+premium.status ||| ⭐ Premium: {status}
+premium.unsupported_title ||| ⚠️ <b>This content can't be sent yet:</b>
+premium.sticker_warning ||| ⚠️ Premium stickers can't be sent — they can only be sent by Telegram Premium accounts, and a bot is never Premium.
+premium.rich_warning ||| ⚠️ Rich formatted articles can't be sent for now — this feature requires the bot owner to have Telegram Premium. The message will be sent as plain text.
+premium.status_frozen ||| 🧊 Frozen
+premium.status_text ||| ⭐ Premium
+premium.menu_text ||| <b>Premium Subscription</b>
+
+<b>Your Plan:</b> {plan}
+
+📦 <b>FREE PLAN</b>
+
+• Recurring: {recurring_free} (expires after 1 year)
+
+• Channels: {channels_free}
+
+• Bots: {bots_free}
+
+• Statistics: Averages only (Premium for full)
+
+• Videos in scheduled messages: {videos_msg_free}
+
+• Videos in storage: {videos_storage_free}
+
+• Total media items: {media_items_free}
+
+• 4K media: {allow_4k_free}
+
+• Broadcast priority: Standard
+
+• Compression: {compression_free}
+
+• Leaderboard: No
+
+• Auto-reports: Premium only
+
+👑 <b>PREMIUM PLAN</b>
+
+• Recurring: {recurring_prem}
+
+• Channels: {channels_prem}
+
+• Bots: {bots_prem}
+
+• Statistics: Unlimited reports, leaderboard, full per-post data
+
+• Videos in scheduled messages: {videos_msg_prem}
+
+• Videos in storage: {videos_storage_prem}
+
+• Total media items: {media_items_prem}
+
+• 4K media: {allow_4k_prem}
+
+• Broadcast priority: Priority
+
+• Compression: {compression_prem}
+
+• Leaderboard: Yes
+
+• Auto-reports: Unlimited
+premium.value_intro ||| Spend less time managing your channel. Prepare weeks of content in advance, keep your media ready, and let Fast Scheduler handle reliable delivery while you focus on growing your audience.
+premium.menu_stats_premium |||  📊 Statistics:  Unlimited reports, leaderboard, full per-post data
+premium.menu_stats_free |||  📊 Statistics:  Averages only (Premium for full)
+premium.menu_leaderboard_premium |||  🏆 Leaderboard:  Sort by reactions, time ranges, top 100, custom filters
+premium.menu_leaderboard_free |||  🏆 Leaderboard:  Premium only
+premium.menu_senderbot_premium |||  🤖 Sender Bot Management:  Full features in sender bot
+premium.menu_senderbot_free |||  🤖 Sender Bot Management:  Limited (Premium for full)
+premium.menu_autoreports_premium |||  📊 Auto-Reports:  Unlimited
+premium.menu_autoreports_free |||  📊 Auto-Reports: Premium only
+premium.activated_lifetime ||| ✅ <b>Premium Activated!</b>
+
+Your Premium is now active with <b>Lifetime</b> duration.
+premium.activated_date ||| ✅ <b>Premium Activated!</b>
+
+Your Premium ({plan}) is now active until {date}.
+premium.status_line_paid ||| ✅ <b>Premium Active</b>
+
+{expires}
+Auto-renew: {autorenew}
+premium.status_line_paid_cancelled ||| ✅ <b>Premium Active</b>
+
+Expires: {expires} (auto-renew cancelled)
+premium.next_renewal ||| Next renewal
+premium.status_details ||| ⭐ <b>Premium Status</b>
+
+Plan: {plan}
+Status: {status}
+Started: {started}
+Expires: {expires}
+Auto-renew: {autorenew}
+premium.not_active ||| ❌ Premium is not active on your account.
+premium.expiration_unknown ||| Unknown
+premium.start_unknown ||| Unknown
+premium.required ||| ⭐ <b>Premium Feature</b>
+
+This feature requires an active Premium subscription.
+
+Upgrade to unlock:
+• Higher limits on messages, channels, and bots
+• Video uploads
+• Full statistics and leaderboards
+• Backup & export
+premium.comparison_rich ||| 📊 <b>Plan Comparison</b>
+
+| Feature | Free | Premium |
+|---------|:----:|:-------:|
+| Recurring messages | {recurring_free} | {recurring_prem} |
+| Scheduled messages | {scheduled_free} | {scheduled_prem} |
+| Monthly sends | {monthly_sent_free} | {monthly_sent_prem} |
+| Videos in storage | {storage_video_free} | {storage_video_prem} |
+| Signatures | 1 free trial | Unlimited |
+| Multi-date scheduling | — | ✓ |
+@@STORAGE@@| Media storages | {media_storages_free} | {media_storages_prem} |
+| Connected channels | {channels_free} | {channels_prem} |
+| Sender bots | {bots_free} | {bots_prem} |
+| Video uploads | {videos_msg_free} | {videos_msg_prem} |
+| Max media size | {max_media_free} | {max_media_prem} |
+| 4K media | {free_allow_4k} | {premium_allow_4k} |
+| Statistics | Basic | Advanced |
+| Search | Included | Included |
+| Calendar | Included | Included |
+| Backup & export | — | ✓ |
+| Leaderboard | — | ✓ |
+| Reports | {reports_free} | {reports_prem} |
+premium.comparison_free ||| 📊 <b>Free Plan</b>
+
+• {monthly_sent_free} sent messages per channel / month
+• Up to {scheduled_free} scheduled messages pending
+• Up to {recurring_free} recurring messages
+• Up to {channels_free} channel
+• Up to {bots_free} sender bot
+• Media up to {max_media_free}
+@@STORAGE@@• Media storages: {media_storages_free}
+• Video: {videos_msg_free}
+• Statistics: yes
+• Search: yes
+• Backup & export: no
+premium.comparison_paid ||| 📊 <b>Premium Plan</b>
+
+• Unlimited sent messages per channel / month
+• Unlimited scheduled messages pending
+• Up to {recurring_prem} recurring messages
+• Up to {channels_prem} channels
+• Up to {bots_prem} sender bots
+• Media up to {max_media_prem}
+@@STORAGE@@• Media storages: {media_storages_prem}
+• Video: {videos_msg_prem}
+• Full statistics + leaderboard
+• Backup & export
+• Unlimited reports
+• Priority support
+premium.comparison_text ||| 📊 <b>Compare Plans</b>
+
+See what you get with Premium:
+premium.payment_choice_text ||| ⭐ <b>Choose your Premium term</b>
+
+All Premium payments are made with Telegram Stars:
+premium.plan_monthly_3 ||| 3-month prepaid
+premium.plan_monthly_6 ||| 6-month prepaid
+premium.monthly_subscription_explainer ||| ✅ <b>Standard monthly subscription:</b> pay once with Telegram Stars, then Telegram renews it every 30 days until you cancel. Cancellation keeps Premium active until the paid period ends.
+premium.multi_month_payment_explainer ||| ✅ <b>Now you're paying for all {months} months.</b> This prepaid term does not renew automatically. After that period ends, Premium will not renew; the monthly reference price is {monthly_price}. Choose a new plan when you want to continue.
+premium.yearly_one_time_explainer ||| ℹ️ <b>Yearly is a one-time Stars purchase.</b> After 1 year Premium ends unless you choose and pay for another plan.
+premium.monthly_standard_option ||| ⭐ Standard monthly subscription — {price}/month
+premium.monthly_three_option ||| 3️⃣ 3 months — {price} (save {full_price})
+premium.monthly_six_option ||| 6️⃣ 6 months — {price} (save {full_price})
+premium.monthly_pay_monthly_note ||| 💡 Paying month-by-month: 3 months = {three_month_total}, 6 months = {six_month_total}
+premium.multi_month_discount_note ||| 🏷️ <b>Prepaid discount: {percent}% off</b> — you pay {discounted} instead of {price}.
+premium.payment_options_text ||| 💳 Available payment options:
+premium.price_line ||| 💰 {price}
+premium.stars_only_payment_notice ||| ⭐ Premium payments are available only through Telegram Stars.
+premium.cancel_provider_failed ||| ❌ Telegram could not confirm cancellation. Premium remains active; please try again before the next renewal.
+premium.premium_cancel_provider_failed ||| ❌ Telegram could not confirm cancellation. Premium remains active; please try again before the next renewal.
+premium.purchase_blocked_notice ||| ❌ Premium purchases are currently disabled. Please try again later or contact support.
+premium.payment_success ||| ✅ <b>Payment Successful!</b>
+
+Your Premium access is now active. The Premium menu shows whether this plan renews automatically. Standard monthly renews every 30 days; prepaid 3/6-month and yearly plans are one-time purchases.
+
+Welcome to Premium!
+premium.cancel ||| ❌ Cancel Premium
+premium.cancel_requested_button ||| ❌ Cancellation Requested
+premium.already_cancelled_info ||| ❌ Cancellation already in progress.
+
+Started: {started}
+Expires: {expires}
+Cancel by: {cancel_by}
+premium.cancel_request_error ||| ❌ Could not process cancellation.
+premium.cancel_request_sent ||| ✅ Cancellation request sent!
+
+Your Premium will remain active until <b>{expires}</b>.
+premium.cancel_requested ||| ❌ Cancellation requested. Premium ends on {expires}.
+premium.cancel_confirm_button ||| ✅ Yes, Cancel Premium
+premium.cancel_confirm_text ||| ⚠️ Are you sure you want to cancel Premium?
+
+You will lose access to premium features after the current period ends.
+premium.invoice_description ||| Fast Scheduler Bot Premium Subscription
+premium.auto_renew_on ||| Auto-renewal is ON
+premium.auto_renew_off ||| Auto-renewal is OFF
+premium.reenable_auto_renew_btn ||| ✅ Re-enable Auto-renew
+premium.turn_off_auto_renew_btn ||| ❌ Turn Off Auto-renew
+premium.auto_renew_benefits ||| ✅ Auto-renew keeps your Premium active without interruption.
+premium.keep_premium_text ||| Keep Premium and manage your excess assets below.
+premium.excess_summary_header ||| ⚠️ <b>Excess Assets Detected</b>
+
+When your Premium expires, you'll have more assets than the Free plan allows.
+premium.excess_channels_detail ||| 📢 Channels: {current} (limit: {limit}, scheduled: {scheduled})
+premium.excess_bots_detail ||| 🤖 Bots: {current} (limit: {limit})
+premium.excess_recurring_detail ||| 🔄 Recurring: {current}
+premium.excess_consequences ||| ⚠️ Excess assets will be frozen (not deleted). You can restore them if you reactivate Premium.
+premium.backup_recommendation ||| 📤 <b>Recommendation:</b> Export your data before your Premium expires.
+premium.step_header ||| ⭐ <b>Manage Assets Before Downgrade</b>
+
+Started: {started}
+Expires: {expires}
+premium.manage_channels_btn ||| 📢 Manage Channels
+premium.manage_bots_btn ||| 🤖 Manage Bots
+premium.manage_recurring_btn ||| 🔄 Manage Recurring
+premium.manage_complete_text ||| ✅ All excess assets managed. You're all set!
+premium.select_keep_channel ||| 📢 Keep {channel}
+premium.select_keep_bot ||| 🤖 Keep @{bot}
+premium.select_keep_recurring ||| 🔄 Keep message #{id}
+premium.save_selection ||| ✅ Save Selection
+premium.select_max_limit ||| ⚠️ You can select up to {limit} items.
+premium.select_at_least_one ||| ❌ Select at least one item to keep.
+premium.selection_saved ||| ✅ Selection saved.
+premium.give_up_btn ||| ❌ Give Up & Downgrade
+premium.give_up_title ||| ❌ <b>Give Up Premium Assets</b>
+premium.give_up_warning ||| ⚠️ You're about to give up assets that exceed Free plan limits.
+premium.give_up_assets_header ||| Assets to give up:

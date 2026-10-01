@@ -1,0 +1,202 @@
+help.btn ||| ❓ Help
+help.text ||| <b>Help Center</b>
+
+Select a topic below to learn more about Fast Scheduler Bot.
+help.center_intro ||| Welcome to the Help Center. Browse topics or search for answers.
+help.title ||| <b>Help & Commands</b>
+help.commands.title ||| Text Commands
+help.start.title ||| Getting Started
+help.recurring.title ||| Recurring Messages
+help.delete.title ||| Delete Messages
+help.premium.title ||| Premium
+help.language.title ||| Language
+help.feedback.title ||| Feedback & Support
+help.search.title ||| Searching Messages
+help.backup.title ||| Backup
+help.calendar.title ||| Calendar View
+help.export.title ||| Export
+help.import.title ||| Import
+help.formatting.title ||| Formatting & Inline Buttons
+help.advertising.title ||| Advertising & Promotion
+help.admins.title ||| Admins
+help.admins_limits.title ||| How Admins Share Limits
+help.admins_permissions.title ||| Permissions & Requests
+help.admins_transfer.title ||| Ownership Transfer
+help.backup_cloud.title ||| Cloud
+help.backup_create.title ||| Create Backup
+help.backup_download.title ||| Download
+help.backup_exclude.title ||| What Is Excluded
+help.backup_include.title ||| What Is Backed Up
+help.backup_password.title ||| Backup Password
+help.backup_restore.title ||| Restore Backup
+help.backup_schedule.title ||| Scheduled Backups
+help.backup_size.title ||| Backup Size
+help.backup_verify.title ||| Verify
+help.bot_add.title ||| Add a Sender Bot
+help.bot_fleet.title ||| Bot Fleet
+help.bot_manage.title ||| Manage Sender Bots
+help.bot_permissions.title ||| Bot Permissions
+help.bot_remove.title ||| Remove a Sender Bot
+help.bot_rotate.title ||| Rotate Token
+help.bot_sender.title ||| Posting as Your Bot
+help.bot_stats.title ||| Channel Stats & Leaderboards
+help.bot_status.title ||| Bot Status
+help.bots.title ||| Sender Bots
+help.channel_add.title ||| Add a Channel
+help.channel_connect.title ||| Connect the Bot
+help.channel_default.title ||| Default Channel
+help.channel_link.title ||| Permanent Link
+help.channel_manage.title ||| Manage Channels
+help.channel_permissions.title ||| Channel Permissions
+help.channel_posting.title ||| How Posting Works: Sender Bots
+help.channel_remove.title ||| Remove a Channel
+help.channel_signature.title ||| Signature
+help.channel_signature_position.title ||| Signature Position
+help.channel_stats.title ||| Channel Stats
+help.channel_unlink.title ||| Unlink vs Delete
+help.channels.title ||| Channels
+help.commands_help.title ||| /help
+help.commands_language.title ||| /language
+help.commands_list.title ||| All Commands
+help.commands_premium.title ||| /premium
+help.commands_referral.title ||| /referral
+help.commands_schedule.title ||| /schedule
+help.commands_search.title ||| /search
+help.commands_settings.title ||| Settings
+help.config.title ||| Settings & Configuration
+help.connect_bot.title ||| Connecting a Bot
+help.connect_channel.title ||| Connecting a Channel
+help.contact.title ||| Contact & Support
+help.contact_bug.title ||| Report a Bug
+help.contact_email.title ||| Email
+help.contact_feature_detail.title ||| Request a Feature
+help.contact_response.title ||| Response Time
+help.contact_support.title ||| Support
+help.contact_telegram.title ||| Telegram Support
+help.content_types.title ||| Supported Content Types (Free Plan)
+help.edit.title ||| Edit Messages
+help.error_channel.title ||| Channel Errors
+help.error_common.title ||| Common Errors
+help.error_forbidden.title ||| Forbidden
+help.error_media.title ||| Media Errors
+help.error_network.title ||| Network Errors
+help.error_payment.title ||| Payment Errors
+help.error_rate.title ||| Rate Limited
+help.error_timeout.title ||| Timeouts
+help.errors.title ||| Troubleshooting
+help.export_chat.title ||| Export a Chat
+help.export_csv.title ||| CSV Export
+help.export_data.title ||| Export Data
+help.export_formats.title ||| Formats
+help.export_json.title ||| JSON Export
+help.export_odt.title ||| ODT Export
+help.export_rtf.title ||| RTF Export
+help.export_text.title ||| Plain Text
+help.faq.title ||| Frequently Asked Questions
+help.faq_account.title ||| Account FAQ
+help.faq_api.title ||| API FAQ
+help.faq_best_practices.title ||| Best Practices
+help.faq_billing.title ||| Billing FAQ
+help.faq_bot.title ||| Sender Bot FAQ
+help.faq_migration.title ||| Migration FAQ
+help.faq_payment.title ||| Payment FAQ
+help.faq_schedule.title ||| Scheduling FAQ
+help.faq_security.title ||| Security FAQ
+help.faq_storage.title ||| @@STORAGE@@Storage FAQ
+help.faq_telegram.title ||| Telegram FAQ
+help.faq_tips.title ||| Tips FAQ
+help.faq_troubleshoot.title ||| Troubleshooting FAQ
+help.feedback_category_bug_detail.title ||| Bug Reports
+help.feedback_category_feature_detail.title ||| Feature Requests
+help.feedback_category_other_detail.title ||| Other
+help.feedback_category_payment_detail.title ||| Payment Issues
+help.feedback_file.title ||| Attachments
+help.feedback_history.title ||| History
+help.feedback_new.title ||| Send Feedback
+help.feedback_reply.title ||| Replies
+help.feedback_status_help.title ||| Status Meanings
+help.feedback_view.title ||| View My Feedback
+help.getting_started.title ||| Getting Started
+help.glossary.title ||| Glossary
+help.glossary_channel.title ||| Channel
+help.glossary_export.title ||| Export
+help.glossary_feedback.title ||| Feedback
+help.glossary_import.title ||| Import
+help.glossary_premium.title ||| Premium
+help.glossary_recurring.title ||| Recurring
+help.glossary_sender.title ||| Sender Bot
+help.glossary_signature.title ||| Signature
+help.glossary_storage.title ||| @@STORAGE@@Media Storage
+help.gs_step1.title ||| Step 1: Connect a Channel
+help.gs_step2.title ||| Step 2: Connect a Sender Bot
+help.gs_step3.title ||| Step 3: Schedule a Message
+help.import_chat.title ||| Import a Chat
+help.import_csv.title ||| CSV Import
+help.import_data.title ||| Importing Your Data
+help.import_formats.title ||| Supported Import Formats
+help.import_from_storage.title ||| @@STORAGE@@Import From Storage
+help.import_json.title ||| JSON Import
+help.language_add.title ||| Missing Language?
+help.language_change.title ||| Change Language
+help.language_help.title ||| Language Help
+help.language_list.title ||| Languages
+help.language_sync.title ||| Sync Across Bots
+help.legal.title ||| Legal & Terms
+help.legal_contact.title ||| Legal Contact
+help.legal_data.title ||| Your Data
+help.legal_gdpr.title ||| GDPR
+help.legal_privacy.title ||| Privacy Policy
+help.legal_privacy_detail.title ||| Privacy Details
+help.legal_terms.title ||| Legal Terms
+help.legal_terms_detail.title ||| Terms Details
+help.limit_bots.title ||| Sender Bot Limit
+help.limit_channels.title ||| Channel Limit
+help.limit_daily.title ||| Monthly Send Limit
+help.limit_increase.title ||| Raise Limits
+help.limit_media.title ||| Media Limit
+help.limit_raise_bots.title ||| Raise Bots
+help.limit_raise_channels.title ||| Raise Channels
+help.limit_raise_daily.title ||| Raise Send Limits
+help.limit_raise_storage.title ||| Raise Storage
+help.limit_recurring.title ||| Recurring Limit
+help.limit_scheduled.title ||| Scheduled Limit
+help.limit_storage_detail.title ||| Storage Limit
+help.limits.title ||| Limits
+help.limits_free.title ||| Free Plan Limits
+help.limits_premium.title ||| Premium Plan Limits
+help.media_retention.title ||| Media Compression & Retention
+help.media_storage.title ||| @@STORAGE@@Media Storage
+help.media_types.title ||| Media Selection Types
+help.message_list.title ||| Message List
+help.ms_archive.title ||| Archive
+help.ms_box_manage.title ||| @@STORAGE@@Manage Box
+help.ms_boxes.title ||| @@STORAGE@@Storage Boxes
+help.ms_copy.title ||| Copying Items Between Boxes
+help.ms_create.title ||| Create a Box
+help.ms_delete.title ||| Delete Media
+help.ms_document_storage.title ||| @@STORAGE@@Stored Documents
+help.ms_from_storage_help.title ||| @@STORAGE@@Using From Storage
+help.ms_limits.title ||| @@STORAGE@@Storage Limits
+help.ms_manage.title ||| @@STORAGE@@Manage Storage
+help.ms_move.title ||| Move Media
+help.ms_photo.title ||| @@STORAGE@@Stored Photos
+help.ms_premium.title ||| @@STORAGE@@Storage on Premium
+help.ms_preview.title ||| Preview
+help.ms_quota.title ||| Quota
+help.ms_rename.title ||| Rename Box
+help.ms_replace.title ||| Replace Media
+help.ms_save.title ||| @@STORAGE@@Save Media
+help.ms_search.title ||| Search Storage
+help.ms_video.title ||| @@STORAGE@@Stored Videos
+help.multichannel.title ||| Multi-Channel Scheduling
+help.onboarding_step1.title ||| Step 1: Link
+help.onboarding_step2.title ||| Step 2: Schedule
+help.payment_confirm.title ||| Confirmation
+help.payment_crypto.title ||| Crypto
+help.payment_currencies.title ||| Currencies
+help.payment_failed.title ||| Failed Payment
+help.payment_invoice_pay.title ||| Pay Invoice
+help.payment_promo_apply.title ||| Apply Promo
+help.payment_stars.title ||| Telegram Stars
+help.payment_status.title ||| Payment Status
+help.premium_activate.title ||| Premium Activation

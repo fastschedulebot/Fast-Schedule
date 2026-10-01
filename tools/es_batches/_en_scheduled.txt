@@ -1,0 +1,8 @@
+{
+  "limit_reached": "⚠️ Channel limit reached: {used}/{limit} scheduled messages pending.\n\nDelete some pending messages or upgrade to Premium to schedule more.",
+  "messages_list": "📅 <b>Scheduled Messages</b>\n\nYou have {count} scheduled message(s). Select one to view or manage.",
+  "item_line": "{icon} {id}: {preview} — {datetime}",
+  "expired_on_restart": "⏳ Job #{job_id} expired ({datetime})",
+  "sent_late": "⏳ Job #{job_id} sent {delay} late.",
+  "messages": "Scheduled messages"
+}

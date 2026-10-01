@@ -1,0 +1,5 @@
+{
+  "btn": "📢 Channels ({limit}, {max}, {type})",
+  "connected_line": "📢 {count} channel(s) connected.",
+  "connected": "Channels connected"
+}
