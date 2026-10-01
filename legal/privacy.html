@@ -79,7 +79,7 @@
     <div class="legal-main">
   <article class="doc">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 26, 2026</p>
+    <p class="updated">Last updated: October 1, 2026</p>
     <p class="see-also">See also: <a href="terms.html">Terms of Service</a> · <a href="refundpolicy.html">Refund Policy</a></p>
     <nav class="toc-box" aria-label="Contents"><p class="toc-title">Contents</p><ol><li><a href="#1-introduction" title="1. Introduction">1. Introduction</a></li><li><a href="#2-definitions" title="2. Definitions">2. Definitions</a></li><li><a href="#3-who-we-are-data-controller" title="3. Who We Are (Data Controller)">3. Who We Are (Data Controller)</a></li><li><a href="#4-categories-of-personal-data-we-process" title="4. Categories of Personal Data We Process">4. Categories of Personal Data We Process</a></li><li><a href="#5-sources-of-personal-data" title="5. Sources of Personal Data">5. Sources of Personal Data</a></li><li><a href="#6-legal-bases-for-processing-gdpr-art-6" title="6. Legal Bases for Processing (GDPR Art. 6)">6. Legal Bases for Processing (GDPR Art. 6)</a></li><li><a href="#7-how-we-use-personal-data" title="7. How We Use Personal Data">7. How We Use Personal Data</a></li><li><a href="#8-sharing-and-disclosure" title="8. Sharing and Disclosure">8. Sharing and Disclosure</a></li><li><a href="#9-international-data-transfers" title="9. International Data Transfers">9. International Data Transfers</a></li><li><a href="#10-data-retention" title="10. Data Retention">10. Data Retention</a></li><li><a href="#11-security" title="11. Security">11. Security</a></li><li><a href="#12-children" title="12. Children">12. Children</a></li><li><a href="#13-your-rights" title="13. Your Rights">13. Your Rights</a></li><li><a href="#14-cross-bot-data-sharing" title="14. Cross-Bot Data Sharing">14. Cross-Bot Data Sharing</a></li><li><a href="#15-logging-and-monitoring" title="15. Logging and Monitoring">15. Logging and Monitoring</a></li><li><a href="#16-changes-to-this-policy" title="16. Changes to This Policy">16. Changes to This Policy</a></li><li><a href="#17-contact" title="17. Contact">17. Contact</a></li></ol></nav>
     <h2 id="1-introduction">1. Introduction</h2>
@@ -87,13 +87,15 @@
 <ul>
 <li><strong>Fast Scheduler</strong> — a Telegram bot for scheduling and automating messages to Telegram channels and groups, with companion payment, reporting, and data-management features (the "<strong>Main Service</strong>"); and</li>
 <li><strong>SetDate</strong> — a companion Telegram bot that helps you build posting schedules and import them into the Main Service (the "<strong>SetDate Service</strong>").</li>
-<li><strong>FastScheduler Support</strong> — a companion Telegram bot for support conversations, help, feedback intake, and ratings (the "<strong>Support Service</strong>", and together with the Main Service and the SetDate Service, the "<strong>Services</strong>").</li>
+<li><strong>FastScheduler Support</strong> — a companion Telegram bot for support conversations, help, feedback intake, and ratings (the "<strong>Support Service</strong>"); and</li>
+<li><strong>Our website</strong> at https://fastschedulebot.github.io/Fast-Schedule/ — landing pages, help center, blog, and legal pages in English and Russian (the "<strong>Website</strong>", and together with the Main Service, the SetDate Service, and the Support Service, the "<strong>Services</strong>").</li>
 </ul>
 <p>This policy applies to all personal data processed through the Services, including data collected via:<br />
 - The Main Service directly;<br />
 - Connected <strong>Sender Bots</strong> (Telegram bots whose tokens you provide so the Services can post on your behalf);<br />
 - The SetDate Service (when you choose to import a schedule);<br />
-- The Support Service (when you contact support or submit feedback and ratings); and<br />
+- The Support Service (when you contact support or submit feedback and ratings);<br />
+- The Website (as described in Section 4(m) — essentially on-device preferences only); and<br />
 - Payment processing interactions with our third-party payment providers.</p>
 <p>If you do not agree with this policy, please do not use the Services.</p>
 <hr />
@@ -108,6 +110,7 @@
 <li><strong>Premium</strong> means a paid subscription tier (monthly or annual) provided by the Services.</li>
 <li><strong>SetDate</strong> means a separate Telegram bot operated by us that helps you design posting schedules for import into the Main Service.</li>
 <li><strong>Support Service</strong> means a separate Telegram bot operated by us for support conversations, help, feedback intake, and ratings.</li>
+<li><strong>Website</strong> means our public informational website at https://fastschedulebot.github.io/Fast-Schedule/ (landing, help center, blog, legal pages), hosted as static files on GitHub Pages. The Website has no user accounts and no server-side processing of visitor data.</li>
 </ul>
 <hr />
 <h2 id="3-who-we-are-data-controller">3. Who We Are (Data Controller)</h2>
@@ -202,11 +205,16 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <ul>
 <li>When payments are processed, we temporarily process payment confirmation data (subscription ID, user ID, price, currency, transaction status) to grant or revoke Premium access. Data received from the payment provider is processed strictly for subscription management and is not used for any other purpose.</li>
 </ul>
-<h3 id="m-legal-information-website-and-marketing-attribution">(m) Legal-information website and marketing attribution</h3>
+<h3 id="m-website-and-marketing-attribution">(m) Website and marketing attribution</h3>
 <ul>
-<li>Our legal-information website sets <strong>no cookies and no third-party trackers</strong>. Your theme preference (light/dark) is stored only in your own browser's local storage; this data is not transmitted to our servers.</li>
-<li>When you open the bot from a link on our legal-information website (for example <code>https://t.me/FastSchedulerBot?start=start__legal_terms</code>), we record the <strong>source page</strong> of that arrival (e.g., <code>legal_terms</code>, <code>legal_privacy</code>, <code>legal_refund</code>) together with a timestamp and your Telegram user ID in an internal rotation-limited analytics file (<code>data/tracking.json</code>, capped at 10,000 entries). This is used only in aggregate to understand which pages bring users to the bot, and is viewable by our staff via an internal command (<code>/track</code>).</li>
-<li>We do <strong>not</strong> use third-party advertising networks, social-media pixels, or cross-site tracking cookies. We do not use Google Analytics or any third-party product-analytics SDK: no usage data ever leaves our servers for analytics purposes.</li>
+<li>Our Website is a static site (no user accounts, no server-side code of ours). It collects <strong>no personal data on our servers</strong>. Everything below stays in your own browser unless you click a link that opens our Telegram bot.</li>
+<li><strong>Preferences stored only in your browser</strong> (local storage, never transmitted to us): <code>theme</code> (light/dark), <code>fs-lang</code> (English/Russian), <code>fs-motion</code>, <code>fs-fx</code>, <code>fs-hotkeys</code>, <code>fs-hotkey-custom</code>, <code>fs-rail</code> (display and accessibility preferences), <code>fs-help-recents</code> (your last few help-center searches, up to 6), <code>site_clicks</code> (your last link clicks, up to 200, kept for nothing but your own history), and <code>cookie_consent</code> (your cookie-banner choice).</li>
+<li><strong>One functional cookie:</strong> when you answer the cookie banner, we store a <code>consent=accepted|declined</code> cookie (1-year expiry, first-party only) so the banner does not reappear. It contains no identifier and is never used for tracking. Choosing "decline" changes nothing else — the site has no trackers to disable and works identically either way.</li>
+<li><strong>Feature-flag check:</strong> the site fetches a tiny public file (<code>storage_state.json</code>, a few bytes) about once a minute to know which features to display. This is a plain anonymous download — no identifier, cookie, or personal data is sent with it.</li>
+<li><strong>Help search assistant:</strong> the on-page help assistant runs <strong>entirely in your browser</strong> — your query never leaves your device and is processed by no server.</li>
+<li><strong>Opening the bot from the Website:</strong> buttons and pricing links open Telegram with a source tag (for example <code>?start=start__website</code>, <code>?start=premium_monthly__pricing</code>). When you do, we record the <strong>source tag</strong> together with a timestamp and your Telegram user ID in an internal rotation-limited analytics file (<code>data/tracking.json</code>, capped at 10,000 entries, oldest overwritten automatically). This is used only in aggregate to understand which pages bring users to the bot, and is viewable by our staff via an internal command (<code>/track</code>). Simply browsing the Website — without opening the bot — records nothing on our side.</li>
+<li><strong>Hosting and third parties:</strong> the Website's files are served by <strong>GitHub Pages</strong> (GitHub, Inc., USA). GitHub necessarily receives standard connection data (such as your IP address) to deliver the pages, under GitHub's own privacy statement — we have no server logs of our own. All scripts, styles, and fonts are served from the same site (no CDNs, no external dependencies). The Website contains <strong>no analytics, no advertising networks, no social-media pixels, no cross-site tracking cookies, and no third-party SDKs of any kind</strong>. Links to Telegram, GitHub, or search engines naturally leave our site and are governed by those services' policies.</li>
+<li><strong>Public indexing:</strong> the Website's public pages (landing, help, blog, legal) are intentionally indexable by search engines and AI assistants (see <code>robots.txt</code>, <code>sitemap.xml</code>, <code>llms.txt</code>, and the blog RSS feed). They contain no personal data — only our own documentation and articles.</li>
 </ul>
 <p>We do <strong>not</strong> intentionally collect special categories of Personal Data (e.g., health, biometric, political, religious data, trade-union membership). Message content you choose to schedule is your responsibility; you should avoid scheduling sensitive personal data about yourself or others.</p>
 <hr />
@@ -282,6 +290,14 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <td>Optional features requiring explicit choice (e.g., non-essential notifications you opt into, referral program participation)</td>
 <td>Consent (Art. 6(1)(a))</td>
 </tr>
+<tr>
+<td>Remembering your Website cookie-banner choice (first-party <code>consent</code> cookie, no tracking)</td>
+<td>Consent (Art. 6(1)(a)) — set only after you click accept/decline; declining disables nothing because there is nothing to disable</td>
+</tr>
+<tr>
+<td>Delivering the static Website to visitors (hosting-level connection handling by GitHub Pages)</td>
+<td>Legitimate interests (Art. 6(1)(f)) — operating a public informational website; no visitor profiling is performed</td>
+</tr>
 </tbody>
 </table></div>
 <p>Where we rely on legitimate interests, we have balanced those interests against your rights and freedoms and conclude that operating, securing, and improving the Services represents a compelling, proportionate interest. You have the right to object to any Processing based on legitimate interests (see Section 13).</p>
@@ -302,6 +318,7 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <li><strong>Statistics and analytics</strong>: Generate aggregate, non-identifying usage statistics (e.g., total messages sent, popular features) to improve the Services.</li>
 <li><strong>Security and abuse prevention</strong>: Monitor for and prevent fraudulent, abusive, or unauthorized use of the Services; maintain audit logs of administrative actions; enforce rate limits; scan for security threats (e.g., injection attacks, token leaks).</li>
 <li><strong>Marketing attribution</strong>: Record the source of user arrivals from website/marketing campaigns for aggregate analysis (non-identifying reporting only).</li>
+<li><strong>Website operation</strong>: Serve public informational pages (landing, help center, blog, legal) in English and Russian; remember purely on-device display preferences (theme, language, accessibility options); record the source tag only when you click through from the Website into our Telegram bot.</li>
 <li><strong>Legal compliance</strong>: Comply with applicable legal and regulatory obligations.</li>
 </ol>
 <p>We do <strong>not</strong>:<br />
@@ -320,6 +337,9 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 </li>
 <li>
 <p><strong>Infrastructure (hosting and database)</strong> — All stored Personal Data is processed by secure third-party cloud and database providers acting as our Processors, with data hosted in the European Union. Their processing is covered by their data-processing terms.</p>
+</li>
+<li>
+<p><strong>GitHub Pages (Website hosting only)</strong> — Our public Website's static files are served by GitHub, Inc. (USA). GitHub processes standard connection data (e.g., IP address) required to deliver the pages, under GitHub's own privacy statement. We operate no server-side code on the Website and keep no visitor logs of our own.</p>
 </li>
 <li>
 <p><strong>SetDate companion bot</strong> — Shares a minimal data file (user language preference and an ephemeral schedule-building session) via a local file on the same server, only when you explicitly use the import feature.</p>
@@ -344,7 +364,7 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <p>Personal Data may be transferred to and Processed in countries outside your country of residence, including:</p>
 <ul>
 <li><strong>The European Union</strong> — our cloud and database providers host data on servers in the EU.</li>
-<li><strong>The United States and other global locations</strong> — Telegram operates globally.</li>
+<li><strong>The United States and other global locations</strong> — Telegram operates globally; GitHub, Inc. (USA) serves our static Website files to visitors.</li>
 </ul>
 <p>Where transfers are made from the EEA, UK, or Switzerland to third countries that have not received an adequacy decision from the European Commission, we rely on appropriate safeguards such as:</p>
 <ul>
@@ -409,6 +429,16 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <td><strong>Marketing attribution (tracking.json)</strong></td>
 <td>Maximum 10,000 entries (rotation)</td>
 <td>Capped file; oldest entries are overwritten automatically.</td>
+</tr>
+<tr>
+<td><strong>Website on-device data (your browser only)</strong></td>
+<td>Until you clear it</td>
+<td>Theme, language, display preferences, recent help searches, on-device click history, and the <code>consent</code> cookie (1-year expiry) live exclusively in your browser. We cannot see, access, or delete them — clearing your browser data removes them.</td>
+</tr>
+<tr>
+<td><strong>Website delivery (GitHub Pages)</strong></td>
+<td>Per GitHub's retention</td>
+<td>We keep no visitor logs; connection data handling is governed by GitHub's privacy statement.</td>
 </tr>
 <tr>
 <td><strong>Referral program data</strong></td>
@@ -502,6 +532,7 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 <hr />
 <h2 id="12-children">12. Children</h2>
 <p>The Services are not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction). Telegram requires users to be at least 13 years old to use its platform.</p>
+<p>The Website itself is general-audience informational content (documentation, guides, legal pages) with no accounts, no age gate, and no data collection from visitors of any age. The 13+ requirement applies to using the Telegram bots (per Telegram's own age requirement).</p>
 <p>We do <strong>not</strong> knowingly collect Personal Data from children below the applicable minimum age. If you believe that a child has provided us with Personal Data without the requisite parental or guardian consent, please contact us immediately at fastschedulebot@gmail.com. If we become aware that we have inadvertently collected Personal Data from a child below the applicable minimum age, we will take steps to delete that information promptly.</p>
 <hr />
 <h2 id="13-your-rights">13. Your Rights</h2>
