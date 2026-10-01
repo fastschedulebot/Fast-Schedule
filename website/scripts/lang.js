@@ -334,6 +334,8 @@
     var scopes = document.querySelectorAll('.doc, .blog-doc, .bento, .blog-chips');
     if (!scopes.length) return;
     Array.prototype.forEach.call(scopes, function (scope) {
+      // archived legal versions stay in their original language
+      try { if (scope.closest('.archived')) return; } catch (e) {}
       var nodes = [];
       var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null, false);
       var tn;
