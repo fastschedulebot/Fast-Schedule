@@ -38,7 +38,6 @@
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
-  <link rel="stylesheet" href="../../styles/lang.css?v=20261001a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -91,7 +90,7 @@
     .blog-cols { display: grid; grid-template-columns: minmax(0, 860px) 220px; gap: 28px;
       align-items: start; justify-content: center; }
     .blog-toc { position: sticky; top: 88px; font-size: .85rem; }
-    .blog-toc-t { font-size: .72rem; font-weight: 800;
+    .blog-toc-t { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
       color: var(--text-dim); margin: 4px 0 10px; }
     .blog-toc a { display: block; padding: 5px 10px; border-radius: 8px; color: var(--text-dim);
       border-left: 2px solid var(--border); line-height: 1.35; }
@@ -110,32 +109,23 @@
     .blog-toc-fab svg { width: 16px; height: 16px; color: var(--green-strong); }
     .blog-toc-scrim { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .3s; }
     .blog-toc-scrim.open { opacity: 1; pointer-events: auto; }
-    .blog-toc-sheet { position: fixed; left: 0; top: 0; bottom: 0; right: auto; z-index: 101; width: min(380px, 94vw);
-      display: flex; flex-direction: column; padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
-      background: var(--surface); border: 1px solid var(--border); border-left: 0;
-      border-radius: 0 18px 18px 0; box-shadow: 14px 0 38px rgba(0,0,0,.22);
-      transform: translateX(-106%); visibility: hidden; transition: transform .38s cubic-bezier(.32,.72,.35,1), visibility 0s .38s; }
+    .blog-toc-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 101; max-height: 76dvh;
+      display: flex; flex-direction: column; padding: 10px 18px calc(14px + env(safe-area-inset-bottom));
+      background: var(--surface); border: 1px solid var(--border); border-bottom: 0;
+      border-radius: 18px 18px 0 0; box-shadow: 0 -12px 34px rgba(0,0,0,.28);
+      transform: translateY(100%); visibility: hidden; transition: transform .38s cubic-bezier(.32,.72,.35,1), visibility 0s .38s; }
     .blog-toc-sheet.open { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.32,.72,.35,1); }
-    /* the nav row folds to one column inside the narrow sidebar */
-    .blog-toc-sheet .blog-toc-nav { grid-template-columns: 1fr; gap: 6px; }
-    .blog-toc-sheet .blog-toc-navc { padding: 10px 12px; }
     .blog-toc-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 10px; font-weight: 800; font-size: 1.05rem; flex: none; }
     .blog-toc-nav { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 8px; margin: 0 0 12px; flex: none; }
     .blog-toc-navc { display: block; min-width: 0; padding: 9px 11px; border: 1px solid var(--border); border-radius: 12px;
       background: color-mix(in srgb, var(--surface-2) 55%, transparent); text-decoration: none; color: var(--text); position: relative; }
-    .blog-toc-navc small { display: block; font-size: .66rem; font-weight: 700; color: var(--text-dim); }
+    .blog-toc-navc small { display: block; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); }
     .blog-toc-navc b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .8rem; line-height: 1.3; margin-top: 3px; }
     .blog-toc-navc svg { position: absolute; right: 8px; top: 50%; translate: 0 -50%; width: 14px; height: 14px; color: var(--text-dim); }
     a.blog-toc-navc:hover { text-decoration: none; border-color: var(--green); }
     .blog-toc-navc.cur { background: color-mix(in srgb, var(--green) 8%, transparent); border-color: color-mix(in srgb, var(--green) 35%, var(--border)); }
     .blog-toc-navc.cur b { -webkit-line-clamp: 3; }
     .blog-toc-navc.none { border-style: dashed; opacity: .6; }
-    .blog-toc-navd { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-      margin-top: 5px; font-size: .72rem; line-height: 1.45; color: var(--text-dim); font-weight: 500; }
-    .blog-toc-navc.cur .blog-toc-navd { display: none; }
-    .blog-toc-navc.none { display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 9px 11px; }
-    .blog-toc-navc.none small { display: block; -webkit-line-clamp: unset; }
     .blog-toc-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; border-left: 2px dotted var(--border); margin: 4px 0 4px 6px; padding: 0 0 0 4px; }
     .blog-toc-list li { list-style: none; }
     .blog-toc-list a { display: block; padding: 9px 0 9px 16px; color: var(--text); font-weight: 650; font-size: .93rem; position: relative; }
@@ -182,10 +172,11 @@
       color: var(--text); text-decoration: none;
       transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
     .bcard:hover { border-color: var(--green); box-shadow: var(--shadow-sm);
-      text-decoration: none; }
+      text-decoration: none; transform: translateY(-2px); }
     .bcard-cover { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
-    .bcard-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .bcard:hover .bcard-cover img { transform: none; }
+    .bcard-cover img { display: block; width: 100%; height: 100%; object-fit: cover;
+      transition: transform .35s ease; }
+    .bcard:hover .bcard-cover img { transform: scale(1.04); }
     .bcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 16px 18px 18px; }
     .bcard-body b { font-size: 1rem; line-height: 1.35; letter-spacing: -.01em; }
     .bcard-desc { color: var(--text-dim); font-size: .88rem; line-height: 1.5; }
@@ -276,8 +267,8 @@
     .hc-pager svg { flex: none; width: 17px; height: 17px; color: var(--text-dim); }
     .hc-pager small { display: block; font-size: .78rem; font-weight: 650; color: var(--text-dim); }
     .hc-pager a span { min-width: 0; flex: 1 1 auto; }
-    .hc-pager b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-      font-size: .9rem; margin-top: 2px; max-width: 100%; overflow-wrap: break-word; }
+    .hc-pager b { display: block; font-size: .9rem; margin-top: 2px; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
     @media (max-width: 640px) {
       .hc-pager { gap: 9px; }
       .hc-pager a { padding: 12px 13px; gap: 9px; }
@@ -318,46 +309,7 @@
 
     /* settings menu help popover reuses .help-menu rules from main.css */
 
-  
-    /* ===== Desktop reading experience (editorial layout) =====
-       Wide, calm article page: huge centered headline, centered meta row,
-       generous measure. Mobile layout is untouched — everything below applies
-       at >=1141px only (where the side TOC rail exists). */
-    @media (min-width: 1141px) {
-      .blog-doc {
-        background: transparent; border: 0; box-shadow: none; border-radius: 0;
-        padding: 0; max-width: 980px; margin: 0 auto;
-      }
-      .blog-doc h1 {
-        font-size: clamp(2.6rem, 4.2vw, 3.6rem); line-height: 1.08;
-        letter-spacing: -.03em; text-align: center; max-width: 20ch;
-        margin: 26px auto 0; font-weight: 800;
-      }
-      .blog-byline {
-        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-        gap: 6px 14px; font-size: .95rem; margin: 22px auto 0; max-width: 760px;
-      }
-      .blog-doc-cover { margin: 34px auto 8px; max-width: 980px; border-radius: 16px; }
-      .blog-doc .hc-body { margin-top: 34px; }
-      .blog-doc .hc-body > p:first-of-type {
-        font-size: 1.16rem; line-height: 1.75; color: var(--text);
-      }
-      .blog-doc .hc-body p { font-size: 1.06rem; line-height: 1.78; margin: 0 0 18px; }
-      .blog-doc .hc-body h3 {
-        font-size: 1.5rem; letter-spacing: -.02em; margin: 44px 0 14px; line-height: 1.25;
-      }
-      .blog-doc .hc-body ul { margin: 0 0 18px; }
-      .blog-doc .hc-body li { font-size: 1.06rem; line-height: 1.75; margin-bottom: 8px; }
-      .blog-cols { grid-template-columns: minmax(0, 980px) 240px; gap: 44px; }
-    }
-
-    /* mobile: "Keep reading" shows 3 suggestions; desktop shows all */
-    .hc-chip.mob-extra { display: none; }
-    @media (min-width: 761px) {
-      .hc-chip.mob-extra { display: inline-flex; }
-    }
-</style>
-<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">
+  </style>
 </head>
 <body class="blog">
 <header class="site">
@@ -389,6 +341,7 @@
             <a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
           </div>
         </span>
+        <a class="gp-row" role="menuitem" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span>Blog</span></a>
         <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span></a>
       </div>
     </span>
@@ -416,8 +369,9 @@
       <div class="hc-body"><p>Open the comments on a growing channel and within a week you’ll meet the spam wave: crypto shills, mass-DM “admins”, sticker floods. Moderation bots are the standard answer, but a misconfigured one punishes real readers — the trick is layering the right bots with the right strictness.</p><h3 id="s-the-standard-stack">The standard stack</h3><ul><li><b>Shieldy</b> — the entry-point guard: captcha on join, message-frequency limits, instant removal of “join then post link” behavior. Cheap, effective, set-and-forget.</li><li><b>Rose</b> — the full toolkit: warns, mutes, bans, filters (links, caps, invites, blacklist words), plus notes and locks. One bot can run the whole group.</li><li><b>Combot</b> — moderation with analytics: it tracks who’s active, gives you a dashboard, and pairs its anti-spam with reports you can actually read.</li></ul><h3 id="s-configuration-that-doesn-t-annoy-humans">Configuration that doesn’t annoy humans</h3><p>Start with a <b>warn-then-mute ladder</b> (2 warns → 1 hour mute → ban), never instant bans for gray-area behavior. Set caps/link filters loose rather than strict — a reader sharing a relevant link is worth more than the spam you prevented. Use a captcha only during spam waves; permanent captchas cost you real members at the exact moment they arrived motivated. And whitelist your own channel: forwards from it should never trigger anything.</p><h3 id="s-the-channel-side-layer">The channel-side layer</h3><p>Comments inherit the tone of the channel. A channel that posts clear rules once a month, answers comments, and has a pinned “how we moderate” note gets self-policing communities — regulars report spam before bots catch it. Bots handle volume; humans set culture. Both are required, in that order of effort.</p><h3 id="s-a-worked-anti-spam-configuration">A worked anti-spam configuration</h3><p>Concrete starting settings that keep a discussion group of a few thousand members clean without punishing regulars:</p><ul><li><b>Shieldy:</b> captcha on, but only during waves (it has an on/off toggle — leave it off in calm periods); delete messages with links from accounts younger than 24 hours; limit join-and-post to one message in the first minute.</li><li><b>Rose:</b> warn-then-mute ladder (2 warnings → 1h mute → 1 day → ban); blacklist the obvious crypto/pharma patterns rather than individual words; lock stickers-and-gifs in the channel-adjacent announcements group if you run one.</li><li><b>Combot:</b> run its reports weekly — the useful signal isn't the spam it caught but the <i>activity distribution</i>: a group where 5 people produce 90% of messages is a group about to go quiet, and the fix is content prompts, not moderation.</li></ul><p>The whitelist discipline that ties it together: your own channel, admin accounts, and the bots themselves get whitelisted first. Half of all "the bot is broken" reports are the bot moderating another bot.</p><h3 id="s-rose-the-20-minute-configuration-that-matters">Rose: the 20-minute configuration that matters</h3><p>The practical Rose setup for a discussion group: <code>/settings</code> → <b>captcha</b> on (button, 120-second timeout) to catch the join-and-spam wave; <b>locks</b> set to links=admins-only and forwards=off during spam waves; <b>warns</b> at three, with the action set to a 24-hour mute; media restrictions on voice notes and video notes if the group is a discussion annex and not a hangout. The rule of thumb for every lock: you're trading false positives for spam friction. Start permissive, tighten after incidents, never pre-tighten "to be safe" — over-locked groups moderate ghosts while the real spam adapts faster than your lock list.</p><h3 id="s-shieldy-s-philosophy-and-when-it-backfires">Shieldy's philosophy — and when it backfires</h3><p>Shieldy is aggressive by design: it deletes messages from brand-new members that contain links or forwards, throws a CAPTCHA at joins, and it does this with almost no configuration. That default profile is perfect for public channels with linked groups that catch spam waves right after every promo post. It's wrong for communities whose members legitimately share links — a dev group posting repos or a deals group posting shops will get eaten alive by Shieldy's freshness rules. The honest test: if more than one real member per week loses a message to the bot, the group has outgrown Shieldy's defaults — move to Rose warns with a human-reviewable ladder, and keep Shieldy in reserve for the next attack wave.</p><h3 id="s-combot-moderation-as-data">Combot: moderation as data</h3><p>Combot's real value isn't its captcha — it's the per-user history. Three uses that change decisions: spot <b>sleepers</b> (accounts that joined weeks ago, said nothing, and activate the day your promo goes out); check a loud critic's history before banning — a two-year member with three thousand messages is not a wave account; and lean on the global spam database, which flags known scammer accounts at join time. Pair it with the weekly top-members digest: your most active participants are your future moderators, and promoting from the data instead of from who shouts loudest is how groups stay healthy as they grow.</p><h3 id="s-the-escalation-ladder-every-group-needs">The escalation ladder every group needs</h3><p>Write the ladder down before you need it: <b>1)</b> automatic — captcha and obvious spam deleted by the bots; <b>2)</b> <code>/warn</code> — three warnings trigger an automatic 24-hour mute; <b>3)</b> <code>/mute 1h</code> for heated violations that shouldn't count as formal warnings; <b>4)</b> <code>/ban</code> reserved for scams, rings and doxxing; <b>5)</b> always state the reason, publicly, in one line. Pin the ladder as a single message. Groups die from moderator mood swings more often than from spam — a published, predictable ladder makes enforcement boring, and boring enforcement is what members read as fairness. When someone complains about a mute, you answer with the pinned message, not with your mood.</p></div>
       
       <div class="blog-moreq"><a href="../index.html#cat=tools">More on this topic<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips"><a class="hc-chip" href="telegram-bots-for-channel-owners.html"><span>Top Telegram Bots Every Channel Owner Should Know in 2026</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="automate-telegram-channel-workflow.html"><span>How to Automate a Telegram Channel (Without Losing Your Voice)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="how-to-create-a-telegram-bot.html"><span>How to Create Your Own Telegram Bot with BotFather (Step by Step)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="telegram-analytics-tools-compared.html"><span>Telegram Analytics Compared: TGStat vs Telemetr vs Your Scheduler’s Stats</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="telegram-bot-commands-cheatsheet.html"><span>The Channel Owner’s Bot Cheatsheet: Commands Worth Memorizing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="telegram-rss-bots.html"><span>RSS-to-Telegram Bots: Auto-Posting Feeds Without Losing Your Voice</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips"><a class="hc-chip" href="telegram-bots-for-channel-owners.html"><span>Top Telegram Bots Every Channel Owner Should Know in 2026</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="automate-telegram-channel-workflow.html"><span>How to Automate a Telegram Channel (Without Losing Your Voice)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="how-to-create-a-telegram-bot.html"><span>How to Create Your Own Telegram Bot with BotFather (Step by Step)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-analytics-tools-compared.html"><span>Telegram Analytics Compared: TGStat vs Telemetr vs Your Scheduler’s Stats</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-bot-commands-cheatsheet.html"><span>The Channel Owner’s Bot Cheatsheet: Commands Worth Memorizing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-rss-bots.html"><span>RSS-to-Telegram Bots: Auto-Posting Feeds Without Losing Your Voice</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
     </article>
+    <nav class="hc-pager" aria-label="More articles"><a class="hc-card next" href="../index.html"><span><small>All articles</small><b>Back to the Blog</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></nav>
     <div class="hc-cta"><div><b>Posting on a schedule?</b><p>Fast Scheduler batch-schedules weeks of Telegram posts in one chat — free to start, posts from your own bot.</p></div>
     <a class="btn" href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Try Fast Scheduler</a></div>
   </div>
@@ -437,42 +391,17 @@
     </nav>
   </div>
 </footer>
-<script>/* href -> one-line description, consumed by the mobile Contents sheet prev/next cards */
-window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A current, honest walkthrough of creating a Telegram channel in 2026 — settings most guides skip, the first five posts that matter, and how…", "reach-1000-subscribers-telegram.html": "A practical playbook for the hardest part of Telegram growth: the first 1,000 subscribers. Seeding loops, swap etiquette, comment tactics, a…", "best-time-to-post-telegram.html": "Real posting windows by audience type, why local time beats global advice, how to run a one-week A/B test with scheduled posts, and the one…", "telegram-channel-ideas.html": "Not just ideas — the niches with proven retention on Telegram, how to pick a lane you can sustain, and the positioning formula that separate…", "grow-telegram-channel-from-zero.html": "A week-by-week 90-day plan to grow a Telegram channel from zero: content phases, first swaps, metrics to track weekly, and the retention tra…", "telegram-seo-and-discovery.html": "Where Telegram search actually looks, why Google indexes public channels, the directory and catalog landscape (TGStat, Telemetr, Telegramic)…", "cross-promotion-telegram-swaps.html": "How channel swaps really work: finding partners via TGStat/Telemetr, writing posts that convert, pricing paid promos on Telega.in, the etiqu…", "telegram-channel-mistakes.html": "The mistakes that don’t announce themselves: stacking posts, dead-hour publishing, caption walls, fake-subscriber temptations, ignoring the…", "telegram-niche-research.html": "A data-first niche validation routine: TGStat/Telemetr catalogs, engagement-rate math, gap analysis, and the 10-question checklist that pred…", "telegram-for-local-business.html": "Why local channels outperform local social pages: geo search, neighborhood mechanics, what to post between promos, and the booking/notificat…", "telegram-channel-migration.html": "Changing a channel’s identity the safe way: renames that keep subscribers, the merge problem (Telegram has no merge), redirect channels, con…", "telegram-advertising-guide.html": "Where to buy posts (Telega.in, direct deals, Telegram Ads), what promo posts convert, how to price them, and how to tell a real channel from…", "telegram-subscriber-retention.html": "The real reasons people mute or leave Telegram channels — posting walls, bait-and-switch, dead months — and the retention habits that keep a…", "telegram-referral-programs.html": "Bot-based referral rewards, shareable invite mechanics, and the honest math on what referral growth costs — plus the failure modes that turn…", "telegram-channel-name-ideas.html": "60+ Telegram channel name ideas by niche, the 5 rules behind names that get found in search, and the naming mistakes that quietly cost subsc…", "telegram-channel-description-examples.html": "25 Telegram channel description examples you can adapt, the 120-character formula that converts visitors, and what the description field act…", "telegram-channel-for-youtubers.html": "How YouTubers use Telegram channels to own their audience: what to post between uploads, launch workflows, and why Telegram beats link-in-bi…", "telegram-analytics-mistakes.html": "The reading errors behind most bad channel decisions — judging posts at the wrong hour, trusting subscriber counts, comparing channels that…", "telegram-channel-teardown.html": "A structural teardown of a mid-size channel that outperforms its size class — publishing rhythm, ERR discipline, monetization spacing and th…", "fast-scheduler-referral-program-beta.html": "How the <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a> referral program works: why unlocking needs a connected channel plus one scheduled message, how both sides earn 3 Pre…", "telegram-post-formatting-guide.html": "Telegram formatting that lifts view rates: bold discipline, emoji as section markers, captions that don’t truncate, link previews, and the l…", "telegram-content-calendar.html": "A repeatable batching workflow for Telegram channels: theme slots, the capture pipeline, writing in batches, and queueing a month ahead with…", "telegram-polls-guide.html": "Polls are Telegram’s cheapest engagement engine: anonymous vs public votes, quiz mode, un/quizzes in channels vs groups, 12 question-type tr…", "schedule-posts-with-photos-and-video.html": "Media-grouping rules, the 10MB/50MB/2GB video ceilings, albums vs single photos, media storage for reused assets, and how scheduling bots ha…", "telegram-fonts-and-rich-text.html": "Every text entity Telegram supports — including the ones the mobile composer hides — plus markdown shortcuts, custom emoji packs for channel…", "telegram-video-content-guide.html": "Video mechanics for channels: autoplay and compression, size ceilings for bots, circles vs regular video, length sweet spots by niche, and s…", "telegram-content-pillars.html": "How to structure a channel around 3–5 recurring post types — value, proof, community, offer — so you never stare at an empty composer again.", "telegram-series-and-serialized-posts.html": "Why multi-part posts and numbered series keep subscribers checking the channel daily — formats, pacing, and how to schedule a series without…", "telegram-source-curation.html": "A working pipeline for curating news and links for a Telegram digest — sources, filters, attribution etiquette, and how to add a take withou…", "telegram-for-newsletters.html": "Should your newsletter move to Telegram? Open rates compared, the migration playbook, what you lose without email, and the hybrid setup that…", "telegram-channel-art-and-branding.html": "Telegram channel branding that survives a 40px avatar: logo design rules, cover images, color systems, custom emoji and consistent post styl…", "telegram-emoji-reactions-guide.html": "How Telegram reactions work for channels — custom packs, default sets, what the counts mean — and how to use them to lift engagement honestl…", "telegram-channel-content-ideas-by-niche.html": "90 proven Telegram post formats organized by niche — jobs, dev, local business, deals, education, news — with the weekly rhythm each one sup…", "telegram-bots-for-channel-owners.html": "The actual bot stack behind successful Telegram channels — named: BotFather, ManyBot, ControllerBot, Combot, Rose, Shieldy, FeedBridge-style…", "automate-telegram-channel-workflow.html": "The automation stack for serious channels — named: schedulers (ManyBot, ControllerBot, <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a>), RSS bridges, moderation bots, analyt…", "how-to-create-a-telegram-bot.html": "BotFather from zero: /newbot, tokens, descriptions and avatars, commands, privacy mode, inline mode — and what you can realistically build w…", "telegram-analytics-tools-compared.html": "What each analytics layer actually measures — TGStat’s ERR and citation index, Telemetr’s ad analytics, Combot for groups, and built-in sche…", "telegram-bot-commands-cheatsheet.html": "The commands that actually matter across the tools you already use: BotFather essentials, scheduling basics, TGStat lookups, moderation stap…", "telegram-rss-bots.html": "How RSS bridge bots turn any feed into channel posts — setup, filtering, rate limits, and the two rules that keep automated feeds from killi…", "telegram-moderation-bots.html": "The moderation stack for linked discussion groups — anti-spam, captcha, caps and link filters, warning systems — and how to configure them w…", "telegram-scheduler-comparison.html": "A practical comparison of ways to schedule Telegram posts in 2026 — the native composer, ManyBot, ControllerBot, <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a> and self-hos…", "telegram-channel-stats-explained.html": "What Telegram channel stats actually measure — views vs reach, reactions, forwards, notification modes — and the numbers that matter for gro…", "telegram-botfather-commands-full-list.html": "Every BotFather command explained — /newbot to /setuserpic — plus the settings that matter for channel bots and the ones you can safely igno…", "telegram-auto-forward-and-crosspost.html": "Auto-forward posts between Telegram channels, cross-post to Twitter/X, Discord and RSS — every working method with limits and gotchas.", "telegram-bot-development-no-code.html": "What you can genuinely build with no-code Telegram bot platforms in 2026 — constructors, flows, Mini Apps — where the ceiling is, and when c…", "telegram-automation-guide-2026.html": "Every automation layer a Telegram channel can have — scheduling, feeds, moderation, cross-posting, analytics — with the architecture that st…", "telegram-verification-and-scams.html": "How Telegram verification works in 2026, how scammers fake channels and admins, and the checks that protect your audience — and your channel…", "telegram-premium-for-channels.html": "What Telegram Premium actually does for channels — stickers, boosts, custom emoji, transcriptions — and which premium features are worth car…", "telegram-mini-apps.html": "What Mini Apps are, why they matter for channels, and the no-code and low-code ways to add shop fronts, quizzes and tools to a channel in 20…", "how-to-get-telegram-premium-free.html": "Every legitimate way to get Telegram Premium free — giveaways, fragment discounts, trial offers — and how fake “free premium” scams actually…", "telegram-dark-mode-and-ui-tips.html": "Telegram dark mode done properly: theme editor, accent colors, chat folders, custom wallpapers and the UI tweaks that make Telegram yours.", "telegram-channel-vs-group.html": "The real differences that matter in 2026 — who can post, subscriber limits, comments, discoverability — and why the winning setup for most c…", "telegram-bot-safety.html": "How bot permissions really work — admin rights, bot tokens from BotFather, privacy mode — a channel owner’s checklist for connecting tools l…", "telegram-algorithm-explained.html": "The honest answer about Telegram’s recommendation system: what it ranks, why views drop after posting, where “Similar channels” come from, a…", "telegram-privacy-for-channel-owners.html": "What subscribers can see about you: phone number, last seen, profile photos, forwards and your personal account — the settings that separate…", "telegram-comments-and-discussion-groups.html": "Linked groups explained: posting as the channel, moderation stacks with Combot/Rose/Shieldy, slow mode, comment etiquette, and the formats t…", "telegram-groups-vs-whatsapp-vs-discord.html": "Telegram vs WhatsApp vs Discord compared for community builders: member limits, discoverability, bots, moderation tools and the honest verdi…", "how-to-delete-or-pause-telegram-channel.html": "How to delete a Telegram channel safely, what “pausing” really looks like, how to hand channels to a new owner, and what subscribers see in…", "telegram-community-management.html": "Running a Telegram community that survives growth: culture-setting in the first 90 days, moderation ladders, conflict triage, rituals that r…", "monetize-telegram-channel.html": "Ads via Telega.in, swaps-for-money, Stars, paid subscriptions, affiliate and your own product — real revenue expectations, when each model b…", "telegram-crypto-payments.html": "The payment rails available inside Telegram in 2026 — CryptoBot invoices, Stars, external processors — with the fee, tax and scam notes owne…", "telegram-paid-subscriptions.html": "How to gate content behind a subscription in 2026 — Telegram Stars channel subscriptions, invite-link bots, and the pricing and churn realit…", "telegram-affiliate-marketing.html": "How affiliate income actually works in Telegram channels — disclosure, link strategy, conversion realities, and why the trust tax punishes s…", "telegram-stars-for-channel-owners.html": "Stars from the owner side: paid posts, channel subscriptions, gifts, withdrawal realities, pricing psychology, and how Stars compare to Cryp…", "sell-products-in-telegram.html": "The no-website sales stack: CryptoBot invoices, Stars paid content, order-taking bots, catalog bots, payment flow patterns that work in chan…", "telegram-sponsorships.html": "How channels land sponsors directly — media kits, rate cards, placement formats, and the delivery report that keeps advertisers renewing.", "telegram-channel-for-crypto-signals.html": "Running a crypto signals channel honestly: what regulators expect, how to prove track records, pricing models and the scams ruining the nich…", "telegram-monetization-mistakes.html": "The money decisions that destroy channels in hindsight — launching too early, pricing from subscriber count, the discount spiral, mixed paym…"};</script>
 <script src="../../scripts/theme.js?v=20260930a1"></script>
-<script defer src="../../scripts/nav-hide.js?v=20260930a2"></script>
-<script defer src="../../scripts/article-nav.js?v=20260930a2"></script>
-<script defer src="../../scripts/settings.js?v=20260930a1"></script>
-  <script defer src="../../scripts/lang.js?v=20261001b1"></script>
-<script defer src="../../scripts/help-search.js?v=20260930a1"></script>
-<script defer src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script defer src="../../scripts/hotkeys.js?v=20260930a1"></script>
-<script defer src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+<script src="../../scripts/settings.js"></script>
+  <script src="../../scripts/lang.js?v=20261001a1"></script>
+<script src="../../scripts/help-search.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
 <script>
 /* Mobile Contents sheet: pill opens/closes, scrim + Esc + link tap close. */
 (function () {
   'use strict';
-  /* Decorate prev/next cards with the article's first sentence (the same
-     description the hub cards show). Data comes from the hub page through
-     the cards' data-search attribute (title + description baked in). */
-  function decorateNavCards(scope) {
-    var cards = scope.querySelectorAll('.blog-toc-navc.prev, .blog-toc-navc.next');
-    cards.forEach(function (card) {
-      if (card.dataset.decorated) return;
-      card.dataset.decorated = '1';
-      var href = card.getAttribute('href');
-      var desc = (window.BLOG_DESCRIPTIONS && window.BLOG_DESCRIPTIONS[href]) || '';
-      if (!desc) {
-        var chip = document.querySelector('.hc-chip[href="' + href + '"] span');
-        if (chip) desc = chip.textContent;
-      }
-      if (!desc) desc = 'Open this article';
-      var d = document.createElement('span');
-      d.className = 'blog-toc-navd';
-      d.textContent = desc;
-      card.appendChild(d);
-    });
-  }
   function parts() {
     return {
       sheet: document.querySelector('[data-blog-toc-sheet]'),
@@ -481,7 +410,6 @@ window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A curre
   }
   function open(scrim, sheet) {
     if (!sheet) return;
-    decorateNavCards(sheet);
     sheet.hidden = false; scrim.hidden = false;
     void sheet.offsetWidth;
     sheet.classList.add('open'); scrim.classList.add('open');
@@ -499,22 +427,18 @@ window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A curre
     if (p.sheet && !p.sheet.hidden && e.target.closest && e.target.closest('.blog-toc-list a')) close(p.scrim, p.sheet);
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { var pe = parts(); close(pe.scrim, pe.sheet); return; }
-    /* S opens/closes the contents sidebar (not while typing, respects the
-       site's Hotkeys switch; S is unused on article pages) */
-    if (e.key !== 's' && e.key !== 'S') return;
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    var el = document.activeElement, tag = (el && el.tagName) || '';
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || (el && el.isContentEditable)) return;
-    if (document.documentElement.getAttribute('data-keys') === 'off') return;
+    if (e.key !== 'Escape') return;
     var p = parts();
-    if (p.sheet && !p.sheet.hidden) close(p.scrim, p.sheet);
-    else open(p.scrim, p.sheet);
+    close(p.scrim, p.sheet);
   });
-  /* the Contents pill is visible from the start: it is the phone's only
-     entry to prev/next navigation and the section list */
+  /* show the pill once the reader scrolls into the article */
   var fab = document.querySelector('[data-blog-toc-fab]');
-  if (fab) fab.hidden = false;
+  if (fab) {
+    var shown = false;
+    window.addEventListener('scroll', function () {
+      if (!shown && window.scrollY > 420) { shown = true; fab.hidden = false; }
+    }, { passive: true });
+  }
 })();
 /* Blog TOC: scroll-spy for the desktop rail + smooth anchor scrolling. */
 (function () {

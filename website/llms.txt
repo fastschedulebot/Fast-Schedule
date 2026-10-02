@@ -6,7 +6,7 @@
 - Bot: https://t.me/FastSchedulerBot
 - Support / feedback bot (a human reads every ticket): https://t.me/FastSchedulerSupport_bot
 - Help Center (interactive search): https://fastschedulebot.github.io/Fast-Schedule/help.html
-- Blog (Telegram channel growth guides): https://fastschedulebot.github.io/Fast-Schedule/blog/ (68 articles)
+- Blog (Telegram channel growth guides): https://fastschedulebot.github.io/Fast-Schedule/blog/ (70 articles)
 - Full help corpus for AI retrieval: https://fastschedulebot.github.io/Fast-Schedule/llms-full.txt (308 articles)
 - Pricing: Free plan (1 channel, 100 pending scheduled messages, 100 sends/channel/month, 1 recurring message); Premium $6.83/month or $68.03/year (3 channels, unlimited sends, unlimited recurring, bigger uploads, leaderboards, backups).
 - Privacy Policy: https://fastschedulebot.github.io/Fast-Schedule/legal/privacy.html
@@ -17,7 +17,7 @@
 
 - [Getting Started](https://fastschedulebot.github.io/Fast-Schedule/help/c/start.html): 21 guides
 - [Scheduling Messages](https://fastschedulebot.github.io/Fast-Schedule/help/c/scheduling.html): 19 guides
-- [Channels](https://fastschedulebot.github.io/Fast-Schedule/help/c/channels.html): 14 guides
+- [Channels](https://fastschedulebot.github.io/Fast-Schedule/help/c/channels.html): 13 guides
 - [Sender Bots](https://fastschedulebot.github.io/Fast-Schedule/help/c/bots.html): 13 guides
 - [Admins](https://fastschedulebot.github.io/Fast-Schedule/help/c/admins.html): 4 guides
 - [Premium](https://fastschedulebot.github.io/Fast-Schedule/help/c/premium.html): 33 guides
@@ -28,7 +28,7 @@
 - [Export](https://fastschedulebot.github.io/Fast-Schedule/help/c/export.html): 9 guides
 - [Import](https://fastschedulebot.github.io/Fast-Schedule/help/c/import.html): 7 guides
 - [Backup](https://fastschedulebot.github.io/Fast-Schedule/help/c/backup.html): 13 guides
-- [Media Storage](https://fastschedulebot.github.io/Fast-Schedule/help/c/media_storage.html): 16 guides
+- [Media Storage](https://fastschedulebot.github.io/Fast-Schedule/help/c/media_storage.html): 17 guides
 - [Tools](https://fastschedulebot.github.io/Fast-Schedule/help/c/tools.html): 9 guides
 - [Pro Tips](https://fastschedulebot.github.io/Fast-Schedule/help/c/tips.html): 20 guides
 - [Feedback & Support](https://fastschedulebot.github.io/Fast-Schedule/help/c/feedback.html): 11 guides

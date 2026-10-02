@@ -1,6 +1,6 @@
 # Fast Scheduler — complete help center corpus
 
-Exported 2026-09-29. 308 articles. Canonical pages: https://fastschedulebot.github.io/Fast-Schedule/help/a/<article-id>.html
+Exported 2026-10-02. 308 articles. Canonical pages: https://fastschedulebot.github.io/Fast-Schedule/help/a/<article-id>.html
 
 # Getting Started
 
@@ -26,16 +26,13 @@ A: The bot needs at minimum the Post Messages permission. For full functionality
 ## Connecting a Channel
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/connect_channel.html
 
-Before you can schedule messages, you need to connect a Telegram channel. Requirements • The main bot @FastSchedulerBot must be an Administrator in the channel • Give it at least Post Messages permission • For sender bots: the sender bot must also be an admin How to Connect 1. Add the bot to your channel as Administrator 2. In Fast Scheduler, go to Connected Channel 3. Click Connect Channel 4. Send the channel username: @yourchannel • Or forward any message from the channel • Or send an invite link • Or send the channel ID (e.g., -1001234567890 ) Multiple Channels • Free plan: 1 channel • Premium: up to 3 channels • Switch between channels at any time during scheduling • Set a Default Channel (Premium) to skip channel selection Removing a Channel • Go to Connected Channel → click on the channel • Scheduled messages for that channel will be paused Common Errors • "Bot is not an admin" — add the bot as admin in channel settings • "Channel not found" — check the username/link is correct • "Invalid format" — use @username or full invite link
+Before you can schedule messages, you need to connect a Telegram channel. Requirements • The main bot @FastSchedulerBot must be an Administrator in the channel • Give it at least Post Messages permission • For sender bots: the sender bot must also be an admin How to Connect 1. Add the bot to your channel as Administrator 2. In Fast Scheduler, go to Connected Channel 3. Click Connect Channel 4. Send the channel username: @yourchannel • Or forward any message from the channel • Or send an invite link • Or send the channel ID (e.g., -1001234567890 ) Multiple Channels • Free plan: 1 channel • Premium: up to 3 channels • Switch between channels at any time during scheduling Removing a Channel • Go to Connected Channel → click on the channel • Scheduled messages for that channel will be paused Common Errors • "Bot is not an admin" — add the bot as admin in channel settings • "Channel not found" — check the username/link is correct • "Invalid format" — use @username or full invite link
 
 Q: How do I connect my first channel?
 A: Step by step: 1. Add the bot to your channel: Open your channel on Telegram → Channel Info → Administrators → Add Admin → search for @FastSchedulerBot → select it → grant at least Post Messages permission → confirm 2. Connect in the bot: Click Connected Channel on the main menu → click Connect Channel 3. Identify your channel: Send the channel username ( @yourchannel ) — OR forward a post from your channel — OR send an invite link — OR send the numeric channel ID ( -1001234567890 ) 4. Done! The channel appears in your list as connected. If you use a sender bot: also add your sender bot as admin in the same channel.
 
 Q: Can I connect multiple channels?
 A: Free plan: 1 channel. Premium: up to 3 channels. Each channel can have its own sender bot and schedule. To add another: click Connected Channel → Connect Channel → follow the same steps. You can switch between channels during scheduling by selecting the desired one.
-
-Q: How do I set a default channel?
-A: Premium feature. Step by step: 1. Click Connected Channel on the main menu (or use /channel ) 2. Select the channel you want as default 3. Click Set as Default 4. The default channel is now auto-selected during scheduling, saving you a step 5. To change it later: repeat the steps and choose a different channel 6. To remove default: go to the same channel settings → click Remove Default
 
 Q: How do I remove a channel?
 A: Step by step: 1. Click Connected Channel on the main menu 2. Find the channel you want to remove 3. Click the Remove button next to it 4. Confirm — the channel is disconnected Important: Scheduled messages for that channel are paused , not deleted. They remain in your account with all content and settings. If you reconnect the same channel later (using the same method as first connection), the messages resume automatically.
@@ -318,7 +315,7 @@ Pause and resume recurring messages without deleting them. How to Pause: 1. Open
 ## Multi-Channel Scheduling
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/multichannel.html
 
-Premium unlocks up to 3 channels, each with its own sender bot, schedule, and identity. How it works • Every channel pairs with its own sender bot — posts always appear from that bot's name. • When scheduling, you pick the target channel; a Default Channel skips the picker for your main one. • Each channel keeps its own time zone, signature, and settings. Everyday workflow • Switch the default channel when you focus on one project; switch back when done. • Use Message List with the channel filter to review one channel at a time. • Cross-posting the same message? Schedule it once per channel — a few taps with the Default Channel picker. Free plan covers 1 channel and 1 bot; Premium raises both to 3.
+Premium unlocks up to 3 channels, each with its own sender bot, schedule, and identity. How it works • Every channel pairs with its own sender bot — posts always appear from that bot's name. • When scheduling, you pick the target channel. • Each channel keeps its own time zone, signature, and settings. Everyday workflow • Use Message List with the channel filter to review one channel at a time. • Cross-posting the same message? Schedule it once per channel. Free plan covers 1 channel and 1 bot; Premium raises both to 3.
 
 Q: Can I schedule the same message to all channels?
 A: Not automatically. Schedule the message separately for each channel.
@@ -418,12 +415,7 @@ The bot must be an admin in your channel to post. Add it in channel settings: Ad
 ## Manage Channels
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/channel_manage.html
 
-Everything about one channel lives in two places: the Channels list and the channel's own info screen . Channels (main menu) lists every channel you have connected. For each channel you get: • The channel name with a ⭐ marker on your default channel. • Time Zone — posts for this channel are sent in the channel's own time zone, so you never juggle UTC offsets yourself. • Change Channel — replace this channel with a different one; its scheduled messages move with you. • Disconnect Channel — unlink the channel (see Remove a Channel). • Set as Default / Clear Default — the default channel is pre-selected every time you schedule, so you skip the picker. Tap a channel's → button for the details screen: connection role, sender bot, time zone, and how many scheduled and recurring messages the channel holds. Each channel is configured independently — ideal for multi-channel setups.
-
-## Default Channel
-URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/channel_default.html
-
-A default channel is pre-selected every time you start scheduling, so the channel picker is skipped and you go straight to your message. How: open Channels → find the channel → tap ⭐ Set as Default . The channel gets a ⭐ marker in the list; tap Clear Default on the default channel to remove the marker again. Setting a default channel is a Premium feature — free users see an upgrade prompt instead. You can still pick a different channel manually during scheduling at any time; the default only pre-selects, it never locks you in.
+Everything about one channel lives in two places: the Channels list and the channel's own info screen . Channels (main menu) lists every channel you have connected. For each channel you get: • The channel name. • Time Zone — posts for this channel are sent in the channel's own time zone, so you never juggle UTC offsets yourself. • Change Channel — replace this channel with a different one; its scheduled messages move with you. • Disconnect Channel — unlink the channel (see Remove a Channel). Tap a channel's → button for the details screen: connection role, sender bot, time zone, and how many scheduled and recurring messages the channel holds. Each channel is configured independently — ideal for multi-channel setups.
 
 ## Channel Permissions
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/channel_permissions.html
@@ -751,7 +743,7 @@ Premium can be reactivated after it expires or even after the final disconnect. 
 ## Refunds
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/premium_refund.html
 
-Refunds for Premium payments are handled on a case-by-case basis. To request a refund, contact @MaximalXP with: • Your user ID (shown in /premium ). • The payment method and date. • The transaction ID or receipt, if available. • A short reason for the request. Refunds are reviewed individually and are not guaranteed. If a payment is reversed by your bank/provider, Premium is revoked automatically and your account may be restricted until the issue is resolved.
+Premium is paid in Telegram Stars, and Stars purchases are final under Telegram's own rules. Outside mandatory consumer rights, refunds are discretionary and granted case by case — typically for a double charge or a technical fault on our side. To request a refund, email fastschedulebot@gmail.com with: • The transaction ID (in the Stars payment confirmation or Settings → Payments). • Your Telegram username. • The purchase date and a short reason. We acknowledge requests within 7 business days . Approved refunds return through Telegram only; referral days and promo free periods have no monetary value and are never refundable. To stop future billing on a monthly plan, cancel via /premium — the paid period stays active until its end date.
 
 ## Premium Troubleshooting
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/premium_troubleshooting.html
@@ -1304,7 +1296,10 @@ Q: How do I rename or delete a storage box?
 A: To rename : click Media Storage → select the box → click Rename → type the new name → confirm. To delete : click Media Storage → select the box → click Delete Box → confirm deletion. Warning: Deleting a box removes ALL media inside it permanently.
 
 Q: Can I move items between storage boxes?
-A: Yes. Step by step: 1. Click Media Storage → open the source box 2. Use Move All or Copy All (optionally filtered by type: images, videos, files) 3. Choose the destination box from the list 4. The items are moved/copied — no need to re-upload This helps you reorganize your media collection without re-uploading anything.
+A: Yes — bulk move and copy is a Premium feature. Step by step: 1. Click Media Storage → open the source box 2. Use Move All or Copy All (optionally filtered by type: images, videos, files) 3. Choose the destination box from the list 4. The items are moved/copied — no need to re-upload On the Free plan you can move or copy one file at a time instead — open the item and use Move / Copy . This helps you reorganize your media collection without re-uploading anything.
+
+Q: Can I download a whole storage box?
+A: Yes — box download is a Premium feature: open the box and tap Download Box to get its files as an archive. On the Free plan open any item and tap Download to save files one at a time, without compression.
 
 Q: What happens to my storage when Premium expires?
 A: On the first day after expiry, you'll get a prompt to choose 1 storage box to keep . If you don't choose, the newest box is kept by default. Excess boxes are deleted after 17 days. The kept box is trimmed to 100 newest items (videos are kept first, then newest by date). To avoid this: reactivate Premium with /premium before day 17.
@@ -1372,7 +1367,7 @@ Save media to a storage box for reuse: 1. Open Storage → pick a box. 2. Send p
 ## Manage Storage
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/ms_manage.html
 
-All storage actions are available from Storage in the main menu: • Create/rename/delete boxes. • Upload, preview, copy, move, replace, and delete items. Items are kept until you delete them. If Premium lapses, the expiry cleanup may remove excess media.
+All storage actions are available from Storage in the main menu: • Create/rename/delete boxes. • Upload, preview, copy, move, replace, and delete items. • Premium bulk tools inside an open box: Move All , Copy All (optionally filtered by type) and Download Box for the whole box as an archive. Items are kept until you delete them. If Premium lapses, the expiry cleanup may remove excess media.
 
 ## Storage Limits
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/ms_limits.html
@@ -1382,7 +1377,7 @@ Free: 1 box, up to 100 items total, no videos in storage. Premium: up to 20 boxe
 ## Storage on Premium
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/ms_premium.html
 
-Premium storage benefits: • 20 boxes instead of 1. • Unlimited items instead of 100. • Videos allowed in storage (up to 50MB). • Larger uploads (100 MB). Upgrade via /premium to unlock them.
+Premium storage benefits: • 20 boxes instead of 1, with up to 500 items each. • Videos allowed in storage (up to 50MB). • Larger uploads (100 MB). • Move All / Copy All — reorganize a whole box in one tap, optionally filtered by type (images, videos, files). • Download Box — save an entire box as a single archive. On Free you can still move, copy, and download items one at a time. Upgrade via /premium to unlock them.
 
 ## Media Compression & Retention
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/media_retention.html
@@ -1405,6 +1400,20 @@ Storage items persist until you delete them. When Premium expires, non-kept boxe
 
 Q: What happens to storage boxes on expiry?
 A: You keep one box you choose. Day 17: other boxes are deleted and your kept box is trimmed to 100 items. Renew before then to keep everything.
+
+## Bulk Move, Copy & Box Download
+URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/ms_bulk.html
+
+Reorganizing a box item by item is slow. Premium adds three bulk tools inside any open box: Move All • Moves every item (or only one type: images, videos, files) into a box you pick. • Use it to split a mixed box by type or to retire a finished campaign in one tap. Copy All • Same flow, but the source box keeps its items — handy for seeding a new campaign box from an archive without touching the original. Download Box • Saves the whole box as a single archive, so you can keep an offline copy or hand assets to a teammate. On Free, open any item and use Move , Copy , or Download for one file at a time.
+
+Q: Is bulk move/copy a Premium feature?
+A: Yes — Move All , Copy All , and Download Box need Premium. On Free you can move, copy, or download one file at a time instead.
+
+Q: Can I move only videos or only photos?
+A: Yes. Move All and Copy All offer an optional type filter (images, videos, files), so one tap can split a mixed box by type.
+
+Q: What do I get when I download a box?
+A: One archive with the box files, for offline backup or sharing with a teammate. On Free, open items one by one and tap Download instead.
 
 ## What Is Media Storage and How Do You Use It Without Losing Your Mind?
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/qa_media_storage_guide.html
@@ -2079,7 +2088,7 @@ Opens the referral program: invite friends and earn free Premium days. How it wo
 ## Settings
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/commands_settings.html
 
-There is no single Settings screen. Each setting lives in its own menu or command: • /language — interface language • /timezone — timezones • /signature — default signature for new messages • /channel — connected channels and default channel Settings are stored per-user and apply across all your channels.
+There is no single Settings screen. Each setting lives in its own menu or command: • /language — interface language • /timezone — timezones • /signature — default signature for new messages • /channel — connected channels Settings are stored per-user and apply across all your channels.
 
 ## /language
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/commands_language.html
@@ -2308,13 +2317,10 @@ How fast you'll get an answer depends on the channel: • Telegram support — u
 ## Settings & Configuration
 URL: https://fastschedulebot.github.io/Fast-Schedule/help/a/config.html
 
-Configure Fast Scheduler to work exactly how you want. Language • Use /language or tap Language on the main menu • Choose from available languages • Changes sync with @SetDate_bot (you'll be asked to confirm) • See Language help topic for details about sync, disabling, and hiding notifications Timezone • Use /timezone to set your timezone • Set per-channel timezones for multi-channel users • Supports city search, location detection, and manual offset • Messages are scheduled in your local time • See Timezone help topic for details Signature • Premium feature — add a signature to your messages • Choose position (start/end) and blank lines before it • Preview before saving • See Signature help topic for details Default Channel • Set a default channel in channel settings to skip the channel picker • Each channel can have its own timezone • Manage connected channels with /channel Commands • See Commands Overview for the full command list • Most features are accessible via both commands and buttons Language Sync • Language is shared between @FastSchedulerBot and @SetDate_bot • Can be disabled entirely in the Language menu • Anyone can disable sync entirely in the Language menu Managing Multiple Channels & Bots • Connect up to 1 channel (3 on Premium) • Connect up to 1 sender bot (3 on Premium) • Each channel can use a different sender bot • See relevant help topics for details
+Configure Fast Scheduler to work exactly how you want. Language • Use /language or tap Language on the main menu • Choose from available languages • Changes sync with @SetDate_bot (you'll be asked to confirm) • See Language help topic for details about sync, disabling, and hiding notifications Timezone • Use /timezone to set your timezone • Set per-channel timezones for multi-channel users • Supports city search, location detection, and manual offset • Messages are scheduled in your local time • See Timezone help topic for details Signature • Premium feature — add a signature to your messages • Choose position (start/end) and blank lines before it • Preview before saving • See Signature help topic for details Channels • Each channel can have its own timezone • Manage connected channels with /channel Commands • See Commands Overview for the full command list • Most features are accessible via both commands and buttons Language Sync • Language is shared between @FastSchedulerBot and @SetDate_bot • Can be disabled entirely in the Language menu • Anyone can disable sync entirely in the Language menu Managing Multiple Channels & Bots • Connect up to 1 channel (3 on Premium) • Connect up to 1 sender bot (3 on Premium) • Each channel can use a different sender bot • See relevant help topics for details
 
 Q: Where are the settings?
-A: There is no single Settings button. Each setting is accessible from its own menu or command: • /language — change language • /timezone — set timezone • /signature — manage signature (Premium) • /channel — manage channels and default channel • /commands — list all available commands Settings are also available from the main menu buttons.
-
-Q: How do I set a Default Channel?
-A: Go to Connected Channels → tap a channel → Set as Default . Once set, scheduling new messages skips the channel picker and uses your default channel directly.
+A: There is no single Settings button. Each setting is accessible from its own menu or command: • /language — change language • /timezone — set timezone • /signature — manage signature (Premium) • /channel — manage channels • /commands — list all available commands Settings are also available from the main menu buttons.
 
 Q: Can I use different timezones for different channels?
 A: Yes. Use /timezone and then select a specific channel to set its timezone independently. Each channel's scheduled messages will use its own timezone.

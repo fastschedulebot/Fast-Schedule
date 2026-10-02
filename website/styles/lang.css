@@ -43,3 +43,26 @@
 html[data-theme="dark"] .fs-lang-seg button.on {
   background: color-mix(in srgb, #fff 18%, transparent);
 }
+
+/* RU layout guards: Russian strings run longer — never clip, never break
+   alignment. Translation replaces text nodes only, so icons/gradients stay;
+   these rules just give the longer text room. */
+html[lang="ru"] .oneline,
+html[lang="ru"] .sec-head h2,
+html[lang="ru"] .final-cta h2,
+html[lang="ru"] .hero-copy h1,
+html[lang="ru"] .hero-finale-head h2 { white-space: normal; overflow-wrap: break-word; }
+html[lang="ru"] .pprice { white-space: normal; }
+html[lang="ru"] .pprice small { white-space: nowrap; }
+html[lang="ru"] .foot-open-t { white-space: normal; }
+html[lang="ru"] .cta-big,
+html[lang="ru"] .foot-open,
+html[lang="ru"] .nav-cta-sm,
+html[lang="ru"] .nav-cta-m { white-space: normal; text-align: center; }
+html[lang="ru"] .foot-open-t { text-align: left; }
+html[lang="ru"] .faq-glass summary,
+html[lang="ru"] .plan-g li,
+html[lang="ru"] .feat p,
+html[lang="ru"] .step p,
+html[lang="ru"] .quote p { hyphens: none; overflow-wrap: break-word; }
+html[lang="ru"] .grad { -webkit-box-decoration-break: clone; box-decoration-break: clone; }
