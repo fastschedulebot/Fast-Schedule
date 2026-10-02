@@ -1,0 +1,234 @@
+// Site settings: theme, motion, effects. One controller for every page —
+// state lives in localStorage, so a change here applies site-wide.
+// (No-flash reads happen inline in each page's <head>.)
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('settingsBtn');
+  var menu = document.getElementById('settingsMenu');
+  var wrap = btn ? btn.parentElement : null;
+  var closeT = null, hoverT = null;
+
+  function openMenu() {
+    if (menu && !menu.classList.contains('open')) {
+      clearTimeout(closeT);
+      menu.classList.add('open');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+  function closeMenu() {
+    if (menu && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  if (btn && menu && wrap) {
+    if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      wrap.addEventListener('mouseenter', function () { clearTimeout(closeT); hoverT = setTimeout(openMenu, 70); });
+      wrap.addEventListener('mouseleave', function () { clearTimeout(hoverT); closeT = setTimeout(closeMenu, 160); });
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation(); clearTimeout(hoverT);
+      menu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSiteMenu(); closeMenu(); } });
+  }
+
+  /* ---------- "Main site" hover submenu (site sections) ---------- */
+  var siteWrap = document.querySelector('.settings-wrap .site-menu-wrap');
+  var sitePop = document.getElementById('siteMenu');
+  function openSiteMenu() {
+    if (sitePop && !sitePop.classList.contains('open')) {
+      sitePop.classList.add('open');
+      var row = siteWrap && siteWrap.querySelector('.site-menu-row');
+      if (row) row.setAttribute('aria-expanded', 'true');
+    }
+  }
+  function closeSiteMenu() {
+    if (sitePop && sitePop.classList.contains('open')) {
+      sitePop.classList.remove('open');
+      var row = siteWrap && siteWrap.querySelector('.site-menu-row');
+      if (row) row.setAttribute('aria-expanded', 'false');
+    }
+  }
+  if (siteWrap && sitePop) {
+    var sCloseT = null, sHoverT = null;
+    var finePointer = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    /* Hover opens this popover ONLY when the wrap is the Help row's (the row
+       links to the help center and the popover is the quick-search). On the
+       help center page the same markup is the "Main site" row — hovering it
+       must never open the help search; it is a plain navigation link there. */
+    var rowIsHelp = /help\.html|help\//.test(
+      (siteWrap.querySelector('.site-menu-row') || {}).getAttribute &&
+      siteWrap.querySelector('.site-menu-row').getAttribute('href') || '');
+    function keepOpen() { clearTimeout(sCloseT); }
+    if (finePointer && rowIsHelp) {
+      siteWrap.addEventListener('mouseenter', function () { clearTimeout(sCloseT); sHoverT = setTimeout(openSiteMenu, 60); });
+      siteWrap.addEventListener('mouseleave', function () { clearTimeout(sHoverT); sCloseT = setTimeout(closeSiteMenu, 450); });
+    }
+    sitePop.addEventListener('mouseenter', keepOpen);
+    sitePop.addEventListener('pointerdown', keepOpen);
+    sitePop.addEventListener('focusin', keepOpen);
+
+    /* The row is a genuine link that should just NAVIGATE — on every page,
+       desktop and mobile. It used to intercept plain left clicks on desktop
+       and open the quick-search popover instead, which read as "Main site
+       opens the help search". The search stays reachable through the chevron
+       row and "Open Help Center" inside the popover; direct navigation wins
+       here (cmd/ctrl/middle-click still work natively). */
+    var siteRow = siteWrap.querySelector('.site-menu-row');
+    if (siteRow) {
+      /* phones: no hover, popover is cramped and it looks broken */
+      var coarse = window.matchMedia && matchMedia('(hover: none), (pointer: coarse)').matches;
+      if (coarse) {
+        siteRow.addEventListener('click', function () { closeMenu(); closeSiteMenu(); });
+      }
+    }
+    sitePop.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { keepOpen(); closeSiteMenu(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!siteWrap.contains(e.target)) closeSiteMenu();
+    });
+    /* the chevron on the Help row toggles the quick-search popover without
+       navigating (the row itself is a plain navigation link now). On the help
+       center page the row is "Main site" — it has no chevron anyway. */
+    var chev = siteWrap.querySelector('.site-menu-row .chev');
+    if (chev) {
+      chev.style.pointerEvents = 'auto';
+      chev.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (sitePop.classList.contains('open')) closeSiteMenu(); else openSiteMenu();
+      });
+    }
+  }
+
+  /* ---------- Dark mode ---------- */
+  var rowDark = document.getElementById('rowDark');
+  function syncDark() {
+    if (rowDark) rowDark.setAttribute('aria-checked', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+  }
+  if (rowDark) {
+    rowDark.addEventListener('click', function (e) { e.stopPropagation();
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (err) {}
+      syncDark();
+    });
+  }
+
+  /* ---------- Animations (motion) ---------- */
+  var rowAnim = document.getElementById('rowAnim');
+  function syncAnim() {
+    if (rowAnim) rowAnim.setAttribute('aria-checked', root.getAttribute('data-motion') === 'off' ? 'false' : 'true');
+  }
+  if (rowAnim) {
+    rowAnim.addEventListener('click', function (e) { e.stopPropagation();
+      var off = root.getAttribute('data-motion') === 'off';
+      if (off) { root.removeAttribute('data-motion'); try { localStorage.setItem('fs-motion', 'on'); } catch (err) {} }
+      else { root.setAttribute('data-motion', 'off'); try { localStorage.setItem('fs-motion', 'off'); } catch (err) {} }
+      syncAnim();
+    });
+  }
+
+  /* ---------- Effects (shine, hover lifts, breathing, glow) ---------- */
+  var rowFx = document.getElementById('rowFx');
+  function syncFx() {
+    if (rowFx) rowFx.setAttribute('aria-checked', root.getAttribute('data-fx') === 'off' ? 'false' : 'true');
+  }
+  if (rowFx) {
+    rowFx.addEventListener('click', function (e) { e.stopPropagation();
+      var off = root.getAttribute('data-fx') === 'off';
+      if (off) { root.removeAttribute('data-fx'); try { localStorage.setItem('fs-fx', 'on'); } catch (err) {} }
+      else { root.setAttribute('data-fx', 'off'); try { localStorage.setItem('fs-fx', 'off'); } catch (err) {} }
+      syncFx();
+    });
+  }
+
+  /* ---------- Hotkeys ----------
+     One switch for every keyboard shortcut on the site (the rail's "s", the
+     jump button's "g"/Home/End, the pricing ring's arrow keys). Other scripts
+     read FS_KEYS.enabled() and listen for the change event, so toggling it takes
+     effect immediately without a reload. */
+  var rowKeys = document.getElementById('rowKeys');
+  var FS_KEYS = {
+    enabled: function () { return root.getAttribute('data-keys') !== 'off'; },
+    /* every shortcut must also stay out of the way while typing */
+    typing: function (el) {
+      el = el || document.activeElement;
+      if (!el) return false;
+      var tag = (el.tagName || '').toUpperCase();
+      return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable === true;
+    },
+    /* true when a shortcut may run: enabled, not typing, no modifier held */
+    allow: function (e) {
+      if (!FS_KEYS.enabled()) return false;
+      if (e && (e.metaKey || e.ctrlKey || e.altKey)) return false;
+      return !FS_KEYS.typing();
+    }
+  };
+  window.FS_KEYS = FS_KEYS;
+
+  function syncKeys() {
+    var on = FS_KEYS.enabled();
+    if (rowKeys) rowKeys.setAttribute('aria-checked', on ? 'true' : 'false');
+  }
+  if (rowKeys) {
+    rowKeys.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var on = !FS_KEYS.enabled();
+      if (on) root.removeAttribute('data-keys'); else root.setAttribute('data-keys', 'off');
+      try { localStorage.setItem('fs-hotkeys', on ? 'on' : 'off'); } catch (err) {}
+      syncKeys();
+      try { window.dispatchEvent(new CustomEvent('fs-hotkeys-change', { detail: { on: on } })); } catch (err) {}
+    });
+  }
+
+  /* ---------- Zen mode: double-tap (not on controls) hides/shows chrome ----------
+     Hides the navbar and the bottom bars (jump FAB, Contents bar, cookie
+     banner) while reading; a second double-tap brings them back. */
+  (function () {
+    if (window.matchMedia && !matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    var last = 0, timer = null;
+    document.addEventListener('touchend', function (e) {
+      if (e.target.closest && e.target.closest('a, button, input, select, textarea, [role="button"], .hc-fab, .jump-fab, .toc-bar, .hc-toc-fab, .hc-pager')) return;
+      var now = Date.now();
+      if (now - last < 320) {
+        last = 0; clearTimeout(timer);
+        document.body.classList.toggle('zen');
+      } else {
+        last = now;
+        clearTimeout(timer);
+        timer = setTimeout(function () { last = 0; }, 340);
+      }
+    }, { passive: true });
+  })();
+
+  syncDark(); syncAnim(); syncFx(); syncKeys();
+
+  // Keep every setting in sync across open tabs/pages.
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'theme' && e.newValue) { root.setAttribute('data-theme', e.newValue); syncDark(); }
+    if (e.key === 'fs-motion') {
+      if (e.newValue === 'off') root.setAttribute('data-motion', 'off'); else root.removeAttribute('data-motion');
+      syncAnim();
+    }
+    if (e.key === 'fs-fx') {
+      if (e.newValue === 'off') root.setAttribute('data-fx', 'off'); else root.removeAttribute('data-fx');
+      syncFx();
+    }
+    if (e.key === 'fs-hotkeys') {
+      if (e.newValue === 'off') root.setAttribute('data-keys', 'off'); else root.removeAttribute('data-keys');
+      syncKeys();
+      try { window.dispatchEvent(new CustomEvent('fs-hotkeys-change', { detail: { on: e.newValue !== 'off' } })); } catch (err) {}
+    }
+    if (e.key === 'fs-rail') {
+      /* the rail lives in liquid-nav.js, which listens for this event */
+      try { window.dispatchEvent(new CustomEvent('fs-rail-change', { detail: { off: e.newValue === 'off' } })); } catch (err) {}
+    }
+  });
+})();
