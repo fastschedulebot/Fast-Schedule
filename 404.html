@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t && window.matchMedia) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    if (localStorage.getItem('fs-motion') === 'off') document.documentElement.setAttribute('data-motion', 'off');
+    if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
+    if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
+    if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+  } catch (e) {}
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests"><title>Page not found — Fast Scheduler</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/styles/main.css?v=20260930a2">
+  <link rel="stylesheet" href="/styles/lang.css?v=20261002b1"><link rel="stylesheet" href="/styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="styles/mobile-fix.css?v=20261001b1">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand brand-text" href="/index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span><span class="brand-short">FS</span></a>
+    <a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerSupport_bot?start=_t?start=start__website_404" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span></a>
+    <span class="settings-wrap">
+      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
+        <div class="gp-head">Settings</div>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="gp-sep" role="separator"></div>
+        <a class="gp-row" role="menuitem" href="/help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help Center</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </span>
+  </div>
+</header>
+<main class="legal"><div class="wrap" style="max-width:640px;margin:0 auto;text-align:center;padding:70px 20px">
+  <h1 style="font-size:3rem;margin:0">404</h1>
+  <p style="font-size:1.15rem;color:var(--text-dim)">This page wandered off schedule.</p>
+  <p style="margin:26px 0"><a class="btn btn-primary" href="/index.html">Back to home</a>
+  <a class="btn btn-ghost" href="/help.html">Search the Help Center</a></p>
+</div></main>
+<script src="/scripts/theme.js?v=20260930a1"></script>
+<script defer src="/scripts/nav-hide.js?v=20260930a2"></script>
+<script defer src="/scripts/settings.js?v=20260930a1"></script>
+  <script defer src="/scripts/ru-chrome.js?v=20261002b1"><script defer src="/scripts/lang.js?v=20261002b1"></script>
+<script defer src="/scripts/hotkeys.js?v=20260930a1"></script>
+<script defer src="/scripts/hotkeys-modal.js?v=20260930a1"></script>
+</body>
+</html>
