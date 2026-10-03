@@ -202,6 +202,36 @@ header.site {
   height: 64px;
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; margin-right: auto; }
+
+/* ---------- Unified navbar (every page except the main page) ----------
+   Left group: Open Bot CTA + settings gear + brand. Right group: Blog and
+   Help Center pills + Open Bot CTA. An optional .nav-center slot holds
+   page extras (help search, legal doc tabs). */
+.nav-unified { justify-content: space-between; }
+.nav-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nav-unified .brand { margin-right: 0; }
+.nav-unified .brand-full { color: var(--green-strong); }
+.nav-unified .nav-center { flex: 1 1 auto; display: flex; justify-content: center; min-width: 0; margin: 0 8px; }
+.nav-unified .nav-center .hc-hsearch { width: min(400px, 100%); margin-left: 0; }
+.nav-unified .doc-tabs { margin-left: 0; margin-right: 0; }
+.nav-unified .nav-cta kbd { margin-left: 2px; }
+/* Help quick-search popover hanging off the navbar Help pill (not the settings menu) */
+.nav-unified .site-menu-wrap { position: relative; display: inline-flex; }
+.nav-menu-pop { position: absolute; top: calc(100% + 10px); right: 0; left: auto;
+  min-width: min(300px, calc(100vw - 32px)); margin: 0; z-index: 60;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .2s var(--ease-apple), transform .25s var(--ease-apple), visibility 0s .25s; }
+.nav-menu-pop.open { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: 0s; }
+@media (max-width: 640px) { .nav-unified .nav-left .nav-cta { display: none; } }
+@media (max-width: 760px) {
+  .nav-unified .nav-right .nav-cta { display: inline-flex; padding: 8px 12px; font-size: .82rem; }
+  .nav-unified .nav-right .nav-cta kbd { display: none; }
+}
+@media (max-width: 900px) {
+  .nav-unified .nav-link span { display: none; }
+  .nav-unified .nav-link { padding: 0 11px; height: 40px; }
+  .nav-unified .nav-group { gap: 8px; }
+}
 .brand-text { font-size: 1rem; letter-spacing: .2px; }
 .brand-short { display: none; }
 
@@ -920,6 +950,21 @@ html[data-fx="off"] .marquee:hover .marquee-track { animation-play-state: runnin
 .gp-row .chev { margin-left: auto; width: 15px; height: 15px; color: var(--text-dim); }
 .gp-sep { height: 1px; margin: 6px 10px; background: var(--border); opacity: .8; }
 .gp-row:focus-visible, .gp-row[role="switch"]:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+/* ---------- Global font size (settings menu → Font size, S/M/L) ----------
+   Percentages keep the visitor's own browser default as the baseline.
+   Applies through html[data-font], set pre-paint by each page's NOFLASH
+   snippet and owned at runtime by scripts/settings.js (FS_FONT). */
+html[data-font="s"] { font-size: 93.75%; }
+html[data-font="l"] { font-size: 112.5%; }
+.gp-row.gp-fonts { cursor: default; }
+.hc-fonts { display: inline-flex; align-items: baseline; gap: 2px; margin-left: auto; }
+.hc-fonts button { font: inherit; background: none; border: 0; cursor: pointer; color: var(--text-dim);
+  padding: 3px 8px; border-radius: 8px; font-weight: 800; line-height: 1; }
+.hc-fonts button:hover { color: var(--green-strong); }
+.hc-fonts button.on { color: #fff; background: var(--green-strong); }
+.hc-fonts button:nth-child(1) { font-size: .78rem; }
+.hc-fonts button:nth-child(2) { font-size: .95rem; }
+.hc-fonts button:nth-child(3) { font-size: 1.12rem; }
 
 /* ---------- iOS-style switch ---------- */
 .io-switch {

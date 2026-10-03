@@ -25,53 +25,28 @@
     if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
     if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
     if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+    var _ffs = localStorage.getItem('fs-font') || localStorage.getItem('fs-help-font') || localStorage.getItem('fs-blog-font');
+    if (_ffs) { document.documentElement.setAttribute('data-font', _ffs); }
+    var _ffs = localStorage.getItem('fs-font') || localStorage.getItem('fs-help-font') || localStorage.getItem('fs-blog-font');
+    if (_ffs) { document.documentElement.setAttribute('data-font', _ffs); }
   } catch (e) {}
 </script>
-<link rel="stylesheet" href="../styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="../styles/main.css?v=20261002c4">
   <link rel="stylesheet" href="../styles/lang.css?v=20261001a1"">
 <link rel="stylesheet" href="../styles/liquid-nav.css?v=20260930a1">
 <link rel="stylesheet" href="../styles/hotkeys-modal.css?v=20260930a1">
 </head>
 <body class="legal">
 
-
-<header class="site">
-  <div class="wrap nav">
-    <a class="brand brand-text" href="../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><span class="brand-full">Fast Scheduler</span><span class="brand-short">FS</span></a>
-    <nav class="doc-tabs" aria-label="Legal documents">
-      <a class="doc-tab" href="privacy.html">Privacy</a>
-      <a class="doc-tab" href="terms.html">Terms</a>
-      <a class="doc-tab" href="refundpolicy.html">Refunds</a>
-    </nav>
-    <a class="btn btn-primary nav-cta has-tip" data-tip="Opens the bot in Telegram. The page you came from is recorded for first-time users." href="https://t.me/FastSchedulerBot?start=start__legal" target="_blank" rel="noopener noreferrer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Open Bot</span></a>
-    <span class="settings-wrap">
-      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
-        <div class="gp-head">Settings</div>
+<header class="site"><div class="wrap nav nav-unified"><div class="nav-group nav-left"><a class="btn btn-primary nav-cta has-tip" data-tip="Opens the bot in Telegram. The page you came from is recorded for first-time users." href="https://t.me/FastSchedulerBot?start=start__legal" target="_blank" rel="noopener noreferrer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a><span class="settings-wrap"><button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings"><div class="gp-head">Settings</div>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1111 3a7 7 0 0010 10z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <div class="gp-row gp-fonts" data-fonts><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
         <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
         <div class="gp-sep" role="separator"></div>
-        <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="../help.html"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-          <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
-            <form class="help-search" id="helpSearchForm" role="search">
-              <svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
-            </form>
-            <div class="help-recent">
-              <div class="help-recent-title" id="helpRecentTitle">Popular articles</div>
-              <div class="help-recent-list" id="helpRecentList"></div>
-            </div>
-            <a class="gp-row help-menu-open" role="menuitem" href="../help.html"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-          </div>
-        </span>
-        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Support chat</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-      </div>
-    </span>
-  </div>
-</header>
+        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Support chat</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="brand" href="../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a></div><div class="nav-center"><nav class="doc-tabs" aria-label="Legal documents"><a class="doc-tab active" href="privacy.html">Privacy</a><a class="doc-tab" href="terms.html">Terms</a><a class="doc-tab" href="refundpolicy.html">Refunds</a></nav></div><div class="nav-group nav-right"><a class="nav-link" href="../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span>Blog</span></a><span class="site-menu-wrap"><a class="nav-link site-menu-row" role="menuitem" href="../help.html" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help Center</span></a><div class="glass-pop site-menu-pop help-menu nav-menu-pop" id="siteMenu" role="menu" aria-label="Help center quick search"><form class="help-search" id="helpSearchForm" role="search"><svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center"></form><div class="help-recent"><div class="help-recent-title" id="helpRecentTitle">Popular articles</div><div class="help-recent-list" id="helpRecentList"></div></div><a class="gp-row help-menu-open" role="menuitem" href="../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="btn btn-primary nav-cta has-tip" data-tip="Opens the bot in Telegram. The page you came from is recorded for first-time users." href="https://t.me/FastSchedulerBot?start=start__legal" target="_blank" rel="noopener noreferrer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a></div></div></header>
 <main class="wrap legal">
   <div class="legal-layout">
     <aside class="toc-side"><nav aria-label="Contents" id="tocSideNav" data-mood="calm"><p class="toc-title">Contents</p><span class="toc-pill" id="tocPill" aria-hidden="true"></span><ol><li><a href="#1-introduction" title="1. Introduction">1. Introduction</a></li><li><a href="#2-definitions" title="2. Definitions">2. Definitions</a></li><li><a href="#3-who-we-are-data-controller" title="3. Who We Are (Data Controller)">3. Who We Are (Data Controller)</a></li><li><a href="#4-categories-of-personal-data-we-process" title="4. Categories of Personal Data We Process">4. Categories of Personal Data We Process</a></li><li><a href="#5-sources-of-personal-data" title="5. Sources of Personal Data">5. Sources of Personal Data</a></li><li><a href="#6-legal-bases-for-processing-gdpr-art-6" title="6. Legal Bases for Processing (GDPR Art. 6)">6. Legal Bases for Processing (GDPR Art. 6)</a></li><li><a href="#7-how-we-use-personal-data" title="7. How We Use Personal Data">7. How We Use Personal Data</a></li><li><a href="#8-sharing-and-disclosure" title="8. Sharing and Disclosure">8. Sharing and Disclosure</a></li><li><a href="#9-international-data-transfers" title="9. International Data Transfers">9. International Data Transfers</a></li><li><a href="#10-data-retention" title="10. Data Retention">10. Data Retention</a></li><li><a href="#11-security" title="11. Security">11. Security</a></li><li><a href="#12-children" title="12. Children">12. Children</a></li><li><a href="#13-your-rights" title="13. Your Rights">13. Your Rights</a></li><li><a href="#14-cross-bot-data-sharing" title="14. Cross-Bot Data Sharing">14. Cross-Bot Data Sharing</a></li><li><a href="#15-logging-and-monitoring" title="15. Logging and Monitoring">15. Logging and Monitoring</a></li><li><a href="#16-changes-to-this-policy" title="16. Changes to This Policy">16. Changes to This Policy</a></li><li><a href="#17-contact" title="17. Contact">17. Contact</a></li></ol></nav></aside>
@@ -79,17 +54,17 @@
     <div class="legal-main">
   <article class="doc">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: October 02, 2026</p>
+    <p class="updated">Last updated: October 03, 2026</p>
     <p class="see-also">See also: <a href="terms.html">Terms of Service</a> · <a href="refundpolicy.html">Refund Policy</a></p>
     <nav class="toc-box" aria-label="Contents"><p class="toc-title">Contents</p><ol><li><a href="#1-introduction" title="1. Introduction">1. Introduction</a></li><li><a href="#2-definitions" title="2. Definitions">2. Definitions</a></li><li><a href="#3-who-we-are-data-controller" title="3. Who We Are (Data Controller)">3. Who We Are (Data Controller)</a></li><li><a href="#4-categories-of-personal-data-we-process" title="4. Categories of Personal Data We Process">4. Categories of Personal Data We Process</a></li><li><a href="#5-sources-of-personal-data" title="5. Sources of Personal Data">5. Sources of Personal Data</a></li><li><a href="#6-legal-bases-for-processing-gdpr-art-6" title="6. Legal Bases for Processing (GDPR Art. 6)">6. Legal Bases for Processing (GDPR Art. 6)</a></li><li><a href="#7-how-we-use-personal-data" title="7. How We Use Personal Data">7. How We Use Personal Data</a></li><li><a href="#8-sharing-and-disclosure" title="8. Sharing and Disclosure">8. Sharing and Disclosure</a></li><li><a href="#9-international-data-transfers" title="9. International Data Transfers">9. International Data Transfers</a></li><li><a href="#10-data-retention" title="10. Data Retention">10. Data Retention</a></li><li><a href="#11-security" title="11. Security">11. Security</a></li><li><a href="#12-children" title="12. Children">12. Children</a></li><li><a href="#13-your-rights" title="13. Your Rights">13. Your Rights</a></li><li><a href="#14-cross-bot-data-sharing" title="14. Cross-Bot Data Sharing">14. Cross-Bot Data Sharing</a></li><li><a href="#15-logging-and-monitoring" title="15. Logging and Monitoring">15. Logging and Monitoring</a></li><li><a href="#16-changes-to-this-policy" title="16. Changes to This Policy">16. Changes to This Policy</a></li><li><a href="#17-contact" title="17. Contact">17. Contact</a></li></ol></nav>
     <h2 id="1-introduction">1. Introduction</h2>
 <p>This Privacy Policy explains how Maxim Mkrtchyan, an individual operator based in Armenia ("<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), collects, uses, discloses, and protects personal data when you ("<strong>you</strong>" or "<strong>the User</strong>") use:</p>
-<ul>
+<ol>
 <li><strong>Fast Scheduler</strong> — a Telegram bot for scheduling and automating messages to Telegram channels and groups, with companion payment, reporting, and data-management features (the "<strong>Main Service</strong>"); and</li>
 <li><strong>SetDate</strong> — a companion Telegram bot that helps you build posting schedules and import them into the Main Service (the "<strong>SetDate Service</strong>").</li>
 <li><strong>FastScheduler Support</strong> — a companion Telegram bot for support conversations, help, feedback intake, and ratings (the "<strong>Support Service</strong>"); and</li>
 <li><strong>Our website</strong> at https://fastschedulebot.github.io/Fast-Schedule/ — landing pages, help center, blog, and legal pages in English and Russian (the "<strong>Website</strong>", and together with the Main Service, the SetDate Service, and the Support Service, the "<strong>Services</strong>").</li>
-</ul>
+</ol>
 <p>This policy applies to all personal data processed through the Services, including data collected via:<br />
 - The Main Service directly;<br />
 - Connected <strong>Sender Bots</strong> (Telegram bots whose tokens you provide so the Services can post on your behalf);<br />
@@ -100,7 +75,7 @@
 <p>If you do not agree with this policy, please do not use the Services.</p>
 <hr />
 <h2 id="2-definitions">2. Definitions</h2>
-<ul>
+<ol>
 <li><strong>Personal Data</strong> means any information relating to an identified or identifiable natural person.</li>
 <li><strong>Processing</strong> means any operation performed on Personal Data (collection, storage, use, disclosure, deletion, etc.).</li>
 <li><strong>Controller</strong> means the entity that determines the purposes and means of Processing.</li>
@@ -111,7 +86,7 @@
 <li><strong>SetDate</strong> means a separate Telegram bot operated by us that helps you design posting schedules for import into the Main Service.</li>
 <li><strong>Support Service</strong> means a separate Telegram bot operated by us for support conversations, help, feedback intake, and ratings.</li>
 <li><strong>Website</strong> means our public informational website at https://fastschedulebot.github.io/Fast-Schedule/ (landing, help center, blog, legal pages), hosted as static files on GitHub Pages. The Website has no user accounts and no server-side processing of visitor data.</li>
-</ul>
+</ol>
 <hr />
 <h2 id="3-who-we-are-data-controller">3. Who We Are (Data Controller)</h2>
 <p>The data controller responsible for your Personal Data is:</p>
@@ -126,84 +101,84 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <h2 id="4-categories-of-personal-data-we-process">4. Categories of Personal Data We Process</h2>
 <p>We Process the following categories of Personal Data:</p>
 <h3 id="a-telegram-identity-and-profile">(a) Telegram identity and profile</h3>
-<ul>
+<ol>
 <li>Telegram user ID (a numeric identifier assigned by Telegram).</li>
 <li>Telegram username (if set), first name, last name (as provided by Telegram).</li>
 <li>Your chosen interface language and time zone within the Services.</li>
 <li>Account creation timestamp and last-seen timestamp.</li>
 <li>Terms-acceptance record (timestamp of acceptance, your username at that time, and whether the account was new or already existing).</li>
-</ul>
+</ol>
 <h3 id="b-channel-and-group-data">(b) Channel and group data</h3>
-<ul>
+<ol>
 <li>Identifiers of the Telegram channels and groups you connect (numeric IDs, titles, usernames).</li>
 <li>Whether a channel is administered by you directly or by a Sender Bot on your behalf.</li>
 <li>Channel connection timestamps and disconnection history.</li>
 <li>Channel administrator records (Telegram user IDs of appointed channel admins, their roles/permissions, and ownership-transfer or permission requests).</li>
-</ul>
+</ol>
 <h3 id="c-messaging-content-scheduled-and-recurring-posts">(c) Messaging content — scheduled and recurring posts</h3>
-<ul>
+<ol>
 <li>The full text, captions, media file identifiers (Telegram file_ids), formatting, inline buttons, and signatures you create for scheduled or recurring posts. This includes locations and venues you choose to schedule as message content (coordinates, titles, addresses).</li>
 <li>If you send a live location or coordinates to auto-detect your time zone, the coordinates are processed in memory only to resolve the time-zone name and are never stored.</li>
 <li>Recurring/calendar schedule definitions (frequency in CRON format, times, timezone).</li>
 <li>Stored message templates, poll configurations, quiz/checklist data.</li>
 <li>Imported schedule content received from the SetDate Service.</li>
 <li>Unique job IDs assigned to each scheduled or recurring message, used for tracking and delivery.</li>
-</ul>
+</ol>
 <h3 id="d-connected-sender-bot-credentials">(d) Connected Sender Bot credentials</h3>
-<ul>
+<ol>
 <li>The Telegram bot token you submit to connect a Sender Bot. Tokens are <strong>encrypted at rest</strong> (AES-GCM) in a dedicated SQLite database and are <strong>redacted</strong> in all operational logs. We do not use these tokens for any purpose other than operating the Sender Bot on your instruction.</li>
 <li>The bot username, bot ID, and the channel ID to which the bot is linked.</li>
 <li>Management transfer status (whether primary management has been handed over to the Sender Bot).</li>
-</ul>
+</ol>
 <h3 id="e-feedback-ratings-and-support-communications">(e) Feedback, ratings, and support communications</h3>
-<ul>
+<ol>
 <li>Free-text feedback messages and attachments (screenshots, logs, documents) you voluntarily submit through the <code>/feedback</code> command or feedback menu (in the Main Service or the Support Service).</li>
 <li>Support tickets (complaints): your ticket messages, category, status, and any optional attachments.</li>
 <li>Star ratings (1–5) and optional written reviews you leave through the in-bot rating buttons.</li>
 <li>Each submitted rating generates an internal notification to the administrator containing your name, @username, Telegram user ID, star count, review text, submission date, and your current Free/Premium status, so reviews can be moderated and answered (administrators can reply to your rating inside the bot).</li>
 <li>Diagnostic information you voluntarily share when reporting an issue (e.g., via "show my actions" or "report an issue"), which may include metadata about your recent in-bot activity (commands used, timestamps) needed to resolve the issue.</li>
-</ul>
+</ol>
 <h3 id="f-setdate-session-data">(f) SetDate session data</h3>
-<ul>
+<ol>
 <li>The language you select in the SetDate Service.</li>
 <li>A one-time schedule-building session (dates and times you choose) that is transmitted to the Main Service when you use the import feature. This data is transient and used only to fulfil the import.</li>
-</ul>
+</ol>
 <h3 id="g-usage-statistics-and-operational-data">(g) Usage statistics and operational data</h3>
-<ul>
+<ol>
 <li><strong>Message delivery statistics</strong>: For each message sent, we record the channel ID, channel username, timestamp, and message type. These are stored in a dedicated statistics SQLite database (<code>data/stats.db</code>) and are used for aggregate reporting.</li>
 <li><strong>Message reaction and view counts</strong>: We periodically collect reaction counts and view counts for messages sent through the Services, stored per-channel for leaderboard and statistics features.</li>
 <li><strong>Comment authors</strong>: If your channel has a linked discussion group and one of our bots is a member of it, we record the public Telegram identity of users who comment on your bot-sent channel posts (their Telegram user ID, @username, first name, and last name as shown in Telegram) together with per-post comment counts. This is used exclusively to build the "top commentators" leaderboard and to attribute comments in statistics reports. It covers only comments on messages sent through the Services, never private messages, and is never shared with other users outside the statistics you choose to view.</li>
 <li><strong>Feature usage counts</strong>: Counts of scheduled messages created, messages sent daily, recurring messages configured, signatures created, searches performed, and similar operational metrics.</li>
 <li><strong>Login/access records</strong> for administrative staff, protected by a separate secret credential.</li>
-</ul>
+</ol>
 <h3 id="h-signature-data">(h) Signature data</h3>
-<ul>
+<ol>
 <li>Saved message signature templates (text, formatting, inline buttons, attachment file_id, attachment media type).</li>
 <li>Signature position preference (above or below the message).</li>
 <li>Automatic signature assignment settings (per-channel auto-add configuration).</li>
-</ul>
+</ol>
 <h3 id="i-search-data">(i) Search data</h3>
-<ul>
+<ol>
 <li>Search query terms you enter through the in-bot search feature. Search is performed against your own scheduled/recurring messages and is not shared.</li>
-</ul>
+</ol>
 <h3 id="j-promotional-codes-and-referral-program-data">(j) Promotional codes and referral program data</h3>
-<ul>
+<ol>
 <li>Promo codes you apply and their usage history (discount received, subscription ID).</li>
 <li>Referral code assigned to your account, the user who referred you (if any), referral rewards earned and claimed, and the list of users you have referred.</li>
 <li>Referral reward expiration and claiming status.</li>
-</ul>
+</ol>
 <h3 id="k-billing-and-subscription-data">(k) Billing and subscription data</h3>
-<ul>
+<ol>
 <li>Subscription status (Free or Premium), subscription tier (monthly or annual), payment provider used, subscription start and end dates.</li>
 <li>Telegram payment confirmations for Stars purchases (amount, currency, Telegram and provider charge identifiers).</li>
 <li>Payment retry history and frozen asset state (channels/bots/schedules flagged for disconnection during premium expiry).</li>
 <li>Freeze/grace period state and expiration dates.</li>
 <li>Cancellation requests and their processing status.</li>
-</ul>
+</ol>
 <h3 id="l-web-server-operational-data">(l) Web server operational data</h3>
-<ul>
+<ol>
 <li>When payments are processed, we temporarily process payment confirmation data (subscription ID, user ID, price, currency, transaction status) to grant or revoke Premium access. Data received from the payment provider is processed strictly for subscription management and is not used for any other purpose.</li>
-</ul>
+</ol>
 <h3 id="m-website-and-marketing-attribution">(m) Website and marketing attribution</h3>
 <p>Our Website is a static site (no user accounts, no server-side code of ours). It collects <strong>no personal data on our servers</strong>. Everything below stays in your own browser unless you click a link that opens our Telegram bot:</p>
 <p><strong>Preferences stored only in your browser (local storage, never transmitted to us):</strong><br />
@@ -225,7 +200,7 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <hr />
 <h2 id="5-sources-of-personal-data">5. Sources of Personal Data</h2>
 <p>We collect Personal Data from the following sources:</p>
-<ul>
+<ol>
 <li><strong>Directly from you</strong>, when you interact with the Services by:</li>
 <li>Sending commands and messages to the bot;</li>
 <li>Connecting channels by providing a Telegram channel or group identifier;</li>
@@ -255,7 +230,7 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <p><strong>From the payment provider</strong> (Telegram Stars):</p>
 </li>
 <li>We receive payment confirmations confirming payment status, subscription identifiers, and user identifiers for the purpose of granting or revoking Premium access. Telegram handles all payment data per its own terms.</li>
-</ul>
+</ol>
 <p>We do <strong>not</strong> purchase Personal Data from third-party data brokers.</p>
 <hr />
 <h2 id="6-legal-bases-for-processing-gdpr-art-6">6. Legal Bases for Processing (GDPR Art. 6)</h2>
@@ -333,7 +308,7 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <hr />
 <h2 id="8-sharing-and-disclosure">8. Sharing and Disclosure</h2>
 <p>We share Personal Data only as necessary to provide the Services:</p>
-<ul>
+<ol>
 <li>
 <p><strong>Telegram</strong> — All interactions pass through Telegram's servers. Telegram acts as an independent controller for data it Processes under its own Privacy Policy (https://telegram.org/privacy). We have no control over how Telegram handles data transmitted through its platform.</p>
 </li>
@@ -362,21 +337,21 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
 <li>
 <p><strong>Service integrations</strong>: We operate a local Node.js API server (if configured) for payment invoice generation. No user data is transmitted to external services beyond those listed above.</p>
 </li>
-</ul>
+</ol>
 <p>We require all Processors to be bound by contractual data protection terms that provide at least the same level of protection as this Privacy Policy.</p>
 <hr />
 <h2 id="9-international-data-transfers">9. International Data Transfers</h2>
 <p>Personal Data may be transferred to and Processed in countries outside your country of residence, including:</p>
-<ul>
+<ol>
 <li><strong>The European Union</strong> — our cloud and database providers host data on servers in the EU.</li>
 <li><strong>The United States and other global locations</strong> — Telegram operates globally; GitHub, Inc. (USA) serves our static Website files to visitors.</li>
-</ul>
+</ol>
 <p>Where transfers are made from the EEA, UK, or Switzerland to third countries that have not received an adequacy decision from the European Commission, we rely on appropriate safeguards such as:</p>
-<ul>
+<ol>
 <li>The European Commission's <strong>Standard Contractual Clauses (SCCs)</strong> adopted under Article 46(2) of the GDPR;</li>
 <li>The <strong>UK International Data Transfer Addendum</strong> (where applicable);</li>
 <li>The safeguards maintained by our Processors.</li>
-</ul>
+</ol>
 <p>You may request a copy of the relevant safeguards by contacting fastschedulebot@gmail.com (redacted as necessary to protect commercial confidentiality).</p>
 <hr />
 <h2 id="10-data-retention">10. Data Retention</h2>
@@ -522,7 +497,7 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 </tbody>
 </table></div>
 <h3 id="organisational-and-technical-measures">Organisational and technical measures</h3>
-<ul>
+<ol>
 <li><strong>Credential redaction</strong>: All bot tokens and sensitive credentials are redacted (masked) in operational logs.</li>
 <li><strong>Administrative access control</strong>: Administrative functions are protected by a separate secret credential (<code>ADMIN_PASSWORD</code>), which is not shared with end users. Administrative dashboards require an additional token (<code>ADMIN_DASHBOARD_TOKEN</code>).</li>
 <li><strong>Rate limiting</strong>: The Services implement per-user rate limiting for actions such as channel connection, message scheduling, and bot creation to prevent abuse.</li>
@@ -532,7 +507,7 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 <li><strong>IDOR protection</strong>: Access to other users' data (ratings, channels, schedules) is prevented by explicit ownership checks (<code>_owns_channel</code>, <code>_owns_rating</code>) throughout the codebase.</li>
 <li><strong>Blocked users</strong>: Users who violate the Terms of Service may be blocked. Blocked users cannot use the Services.</li>
 <li><strong>Regular backups</strong>: Operational data is backed up periodically. Backup files are stored on the same server and are subject to the same access controls.</li>
-</ul>
+</ol>
 <p>No method of transmission or storage is 100% secure. While we strive to protect your Personal Data using appropriate technical and organizational measures, we cannot guarantee absolute security.</p>
 <hr />
 <h2 id="12-children">12. Children</h2>
@@ -585,7 +560,7 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 </table></div>
 <h3 id="exercising-your-rights-in-bot">Exercising your rights in-bot</h3>
 <p>You can exercise most of your rights directly through the Services:</p>
-<ul>
+<ol>
 <li><strong><code>/delete</code></strong> — Delete scheduled or recurring messages and stored media (content-level deletion, not account erasure).</li>
 <li><strong>Account erasure</strong> — There is no self-serve wipe; request it via the support bot or privacy email (see Section 10).</li>
 <li><strong><code>/export</code></strong> / <strong><code>/backup</code></strong> — Download a full backup of your data (<code>.fsback</code> or <code>.fspback</code> format), including scheduled messages, recurring schedules, channel connections, settings, signatures, referral data, and more.</li>
@@ -595,25 +570,25 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 <li><strong><code>/cancel</code></strong> — Cancel any in-progress operation.</li>
 <li><strong><code>/legal</code></strong> — Open the legal menu with links to the Privacy Policy, Terms of Service, and Refund Policy.</li>
 <li><strong>Contact support</strong> — If you cannot use the in-bot tools above, message the support bot (https://t.me/FastSchedulerSupport_bot) and access, export, or deletion requests will be processed manually after verifying you through your Telegram account.</li>
-</ul>
+</ol>
 <p>For requests that cannot be fulfilled through the in-bot interface (e.g., complex data-access requests, objection to Processing based on legitimate interests), please contact us at fastschedulebot@gmail.com. We will respond to your request within the timeframe required by applicable law (generally <strong>one month</strong> under the GDPR, extendable by two months for complex requests).</p>
 <p>We may need to verify your identity before processing your request. We will not discriminate against you for exercising your privacy rights.</p>
 <hr />
 <h2 id="14-cross-bot-data-sharing">14. Cross-Bot Data Sharing</h2>
 <p>The Services consist of multiple cooperating Telegram bots. This section describes how data flows between them.</p>
 <h3 id="main-service-and-setdate">Main Service and SetDate</h3>
-<ul>
+<ol>
 <li><strong>What is shared</strong>: When you use SetDate to build a posting schedule and choose to import it into the Main Service, the SetDate bot writes your Telegram user ID, selected language, and the schedule data (dates/times) to a local shared file on the same server.</li>
 <li><strong>How it is used</strong>: The Main Service reads this file once to create the corresponding scheduled messages, then leaves the data in place (SetDate may overwrite it on subsequent sessions).</li>
 <li><strong>How long it is retained</strong>: The shared file is not automatically deleted; however, it contains only the most recent session. No historical schedule data is accumulated.</li>
-</ul>
+</ol>
 <h3 id="main-service-and-sender-bots">Main Service and Sender Bots</h3>
-<ul>
+<ol>
 <li><strong>Sender Bots are separate Telegram bot applications</strong>, each with their own token, running in the same process as the Main Service (managed by a <code>BotLifecycleManager</code>).</li>
 <li><strong>What is shared</strong>: When management is transferred to a Sender Bot, the Main Service redirects certain user interactions to the Sender Bot via Telegram deep links. Scheduled messages are delivered through the Sender Bot (using its token) rather than through the Main Service's bot token. The Sender Bot reads the same shared data stores (scheduled messages, user settings, channels) from the same server.</li>
 <li><strong>Encryption</strong>: The Sender Bot's token is stored encrypted at rest (AES-GCM) in the token database and is decrypted in memory only when the bot needs to operate.</li>
 <li><strong>User data separation</strong>: A Sender Bot only processes data for the user who owns it. It does not have access to other users' data.</li>
-</ul>
+</ol>
 <hr />
 <h2 id="15-logging-and-monitoring">15. Logging and Monitoring</h2>
 <h3 id="operational-logs">Operational logs</h3>
@@ -636,11 +611,11 @@ To erase your entire account, contact the support bot (https://t.me/FastSchedule
 <hr />
 <h2 id="16-changes-to-this-policy">16. Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time to reflect changes in our data practices, legal requirements, or the Services themselves.</p>
-<ul>
+<ol>
 <li>Material changes will be announced through the Services (e.g., via a notice in the bot).</li>
 <li>The "Last updated" date at the top of this policy will reflect the date of the latest revision.</li>
 <li>We encourage you to review this Privacy Policy periodically.</li>
-</ul>
+</ol>
 <p>Your continued use of the Services after changes take effect constitutes your acceptance of the updated policy.</p>
 <hr />
 <h2 id="17-contact">17. Contact</h2>
@@ -677,11 +652,11 @@ Personal Telegram: <a href="https://t.me/MaximalXP">@MaximalXP</a></p>
     <div class="copy">© 2026 Fast Scheduler. All rights reserved.</div>
   </div>
 </footer>
-<script src="../scripts/settings.js?v=20260930a1"></script>
-  <script src="../scripts/lang.js?v=20261001a1"></script>
+<script src="../scripts/settings.js?v=20261002c3"></script>
+  </script></script><script src="../scripts/ru-chrome.js?v=20261002c2"></script><script src="../scripts/lang.js?v=20261002c2"></script>
 <script src="../scripts/help-search.js?v=20260930a1"></script>
-<script src="../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script src="../scripts/hotkeys.js?v=20260930a1"></script>
+<script src="../scripts/hotkeys-modal.js?v=20260930a2"></script>
+<script src="../scripts/hotkeys.js?v=20260930a2"></script>
 <script src="../scripts/scroll-jump.js?v=20260930a1"></script>
 <script src="../scripts/main.js?v=20260930a1"></script>
 <script src="../scripts/liquid-nav.js?v=20260930a1"></script>

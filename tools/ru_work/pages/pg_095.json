@@ -1,0 +1,136 @@
+{
+ "files": {
+  "website\\help\\a\\advertising.html": [
+   "Advertising & Promotion — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Telegram Ads",
+   "Common questions",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\bots.html": [
+   "Sender Bots — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "How Do I Connect a Private Telegram Channel to Fast Scheduler?",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\channels.html": [
+   "Channels — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "How Do I Format Telegram Posts? (Bold, Italic, Links, Spoilers and Buttons)",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\contact.html": [
+   "Contact & Support — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Email",
+   "How Do I Delete My Fast Scheduler Account and All My Data?",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\contact_bug.html": [
+   "Report a Bug — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Telegram:",
+   "Email",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\edit.html": [
+   "Edit Messages — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Related topics",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\errors.html": [
+   "Troubleshooting — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Related topics",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\faq_tips.html": [
+   "Tips FAQ — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "SetDate",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\import_csv.html": [
+   "CSV Import — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   ".txt",
+   "Import From Storage",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\import_json.html": [
+   "JSON Import — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   ".json",
+   ".fsback",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\limits.html": [
+   "Limits — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Related topics",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\ms_box_manage.html": [
+   "Manage Box — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Manage Box",
+   "Save Media",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ]
+ }
+}

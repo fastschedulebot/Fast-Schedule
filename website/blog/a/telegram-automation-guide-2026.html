@@ -10,6 +10,9 @@
     if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
     if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
     if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+    if (localStorage.getItem('fs-blog-wide') === 'on') document.documentElement.classList.add('blog-wide');
+    var _ffb = localStorage.getItem('fs-font') || localStorage.getItem('fs-blog-font');
+    if (_ffb) { document.documentElement.setAttribute('data-font', _ffb); document.documentElement.setAttribute('data-blogfont', _ffb); }
   } catch (e) {}
 </script>
 <meta charset="utf-8">
@@ -33,11 +36,11 @@
 <meta name="twitter:description" content="Every automation layer a Telegram channel can have — scheduling, feeds, moderation, cross-posting, analytics — with the architecture that stays reliable, the invariants that prevent disasters, and what never to automate.">
 <meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Complete Telegram Automation Guide for 2026: From First Bot to Self-Updating Channel", "description": "Every automation layer a Telegram channel can have — scheduling, feeds, moderation, cross-posting, analytics — with the architecture that stays reliable, the invariants that prevent disasters, and what never to automate.", "articleBody": "Every channel owner ends up automating something — the question is whether it happens accidentally, one fragile script at a time, or deliberately, as an architecture. This is the deliberate version: every automation layer a Telegram channel can have in 2026, the order to adopt them, the one invariant that keeps the whole system safe, and the failure modes that take down automations that looked solid. The goal is a channel that keeps its voice while the plumbing runs itself. The layer map: what can be automated, in adoption order Layer 1 — publishing (adopt first, saves the most stress): every post goes through a scheduler's queue — ManyBot, ControllerBot, Fast Scheduler, whatever fits — so publishing stops depending on someone remembering. The queue view replaces the mental load, and the weekly review becomes possible because next week is already visible. Layer 2 — intake: sources flow into a review chat automatically — RSS bridges for feeds, form-to-chat bridges for submissions, forwarding rules for the channels you monitor. Nothing publishes from intake; it arrives . Layer 3 — moderation: captcha-on-join, link filters and duplicate detection (Rose, Shieldy, Combot) run unsupervised; humans handle the ladder above them. Layer 4 — distribution: cross-posting to sister channels or out to other platforms, through one writer. Layer 5 — measurement: weekly stats collection, ERR tracking, the ritual report — a spreadsheet fed by exports beats a dashboard nobody opens. Five layers, adopted in this order, take a channel from personality-driven to system-driven in about a quarter. The single-writer rule: the invariant that prevents disasters Every automation horror story traces to one violation: two systems that both believe they own the publishing tap. The fix is an invariant worth writing on a sticky note: every channel has exactly one writer — a human in the composer or one bot, never both, and nothing else holds admin rights to post. Everything else is upstream of the writer: feeds and forms flow into the review chat, drafts flow into the scheduler, analytics reads what published. Audit it quarterly: list every bot with post rights in every channel and ask, for each, \"is this the writer?\" — any answer that isn't yes-or-expired-rights is a duplicate-post accident waiting for a quiet week to happen in. Related hygiene: when you retire a tool, revoke its rights the same day (a live token in an abandoned tool is a safety issue, not clutter) — BotFather's /revoke takes ten seconds. Idempotency: the boring property that saves reputations Automations fail and get retried — the professional property that makes retries safe is idempotency : the same input applied twice produces one post, not two. The classic failure is the RSS bridge that re-reads a feed after a GUID change and republishes everything as new, overnight, to four thousand people. Defenses, cheapest first: bridges that deduplicate on the feed's item ID (most decent ones do — verify yours by re-adding a feed once and watching); a duplicate check in your review flow (search the channel for the headline before promoting); and the queue as the last gate — a post that already exists in the queue shouldn't be addable again. You can't prevent every double-publish, but you can make them rare enough that the apology post stays hypothetical. The failure modes that take real channels down Automations fail silently , which is what makes them dangerous. The gallery: the DST drift — daylight saving moves the \"9:00\" post to 10:00 for a month before anyone notices (fix: pin the channel's home timezone in the scheduler; check one scheduled post after each clock change). The regenerated token — a token revoken in BotFather turns every dependent tool mute at once (fix: the weekly ping command in your health check). The silent bridge death — a source site changes its feed structure and your intake quietly goes empty (fix: the Friday queue check includes \"did intake arrive this week?\"). The rate-limit wall — a broadcast bot that ignores retry_after gets throttled for hours mid-announcement (fix: tools that queue and back off properly — roughly one message per second per chat is the ceiling). Each failure is findable in two minutes a week, which is what the health check below actually is. The weekly health check (five checks, two minutes) 1) The queue — next week's slots exist and nothing is scheduled into dead hours. 2) The published log — last week's posts show no duplicates, no dead-hour sends, no naked-markdown accidents. 3) The ping — send each automation bot one status command; anything that doesn't answer gets fixed before it matters. 4) Intake freshness — the review chat received material this week. 5) The trend — ERR against last week, leaves against the month. Two minutes every Friday; every item on this list has caught a real failure on real channels before the audience saw it. The health check is the price automation charges for its convenience, and it's the cheapest insurance in the whole stack. What never to automate The list is short because it's important. The voice: AI-assisted drafts are a tool, but posts that published without a human reading them will eventually embarrass the channel — the approval gate is one tap and it's the whole job. Community replies: automated welcome messages and canned answers read as absence; members can smell the difference, and the first ten seconds of a conversation set its ceiling. Apologies and corrections: when something goes wrong, the response must be human — automating sincerity is sincerity's cancellation. And the decision itself: automation decides when, how and in what order things publish; it should never decide whether — the publish button's human is the channel's editor, and keeping that seat occupied is what keeps a self-updating channel from becoming a self-deleting one.", "articleSection": "Bots & Tools", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "image": "https://fastschedulebot.github.io/Fast-Schedule/blog/img/telegram-automation-guide-2026.jpg", "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-automation-guide-2026.html", "datePublished": "2026-09-27", "dateModified": "2026-09-27", "isPartOf": {"@type": "Blog", "name": "Fast Scheduler Blog", "url": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Complete Telegram Automation Guide for 2026: From First Bot to Self-Updating Channel", "description": "Every automation layer a Telegram channel can have — scheduling, feeds, moderation, cross-posting, analytics — with the architecture that stays reliable, the invariants that prevent disasters, and what never to automate.", "articleBody": "Every channel owner ends up automating something — the question is whether it happens accidentally, one fragile script at a time, or deliberately, as an architecture. This is the deliberate version: every automation layer a Telegram channel can have in 2026, the order to adopt them, the one invariant that keeps the whole system safe, and the failure modes that take down automations that looked solid. The goal is a channel that keeps its voice while the plumbing runs itself. The layer map: what can be automated, in adoption order Layer 1 — publishing (adopt first, saves the most stress): every post goes through a scheduler's queue — ManyBot, ControllerBot, Fast Scheduler, whatever fits — so publishing stops depending on someone remembering. The queue view replaces the mental load, and the weekly review becomes possible because next week is already visible. Layer 2 — intake: sources flow into a review chat automatically — RSS bridges for feeds, form-to-chat bridges for submissions, forwarding rules for the channels you monitor. Nothing publishes from intake; it arrives . Layer 3 — moderation: captcha-on-join, link filters and duplicate detection (Rose, Shieldy, Combot) run unsupervised; humans handle the ladder above them. Layer 4 — distribution: cross-posting to sister channels or out to other platforms, through one writer. Layer 5 — measurement: weekly stats collection, ERR tracking, the ritual report — a spreadsheet fed by exports beats a dashboard nobody opens. Five layers, adopted in this order, take a channel from personality-driven to system-driven in about a quarter. The single-writer rule: the invariant that prevents disasters Every automation horror story traces to one violation: two systems that both believe they own the publishing tap. The fix is an invariant worth writing on a sticky note: every channel has exactly one writer — a human in the composer or one bot, never both, and nothing else holds admin rights to post. Everything else is upstream of the writer: feeds and forms flow into the review chat, drafts flow into the scheduler, analytics reads what published. Audit it quarterly: list every bot with post rights in every channel and ask, for each, \"is this the writer?\" — any answer that isn't yes-or-expired-rights is a duplicate-post accident waiting for a quiet week to happen in. Related hygiene: when you retire a tool, revoke its rights the same day (a live token in an abandoned tool is a safety issue, not clutter) — BotFather's /revoke takes ten seconds. Idempotency: the boring property that saves reputations Automations fail and get retried — the professional property that makes retries safe is idempotency : the same input applied twice produces one post, not two. The classic failure is the RSS bridge that re-reads a feed after a GUID change and republishes everything as new, overnight, to four thousand people. Defenses, cheapest first: bridges that deduplicate on the feed's item ID (most decent ones do — verify yours by re-adding a feed once and watching); a duplicate check in your review flow (search the channel for the headline before promoting); and the queue as the last gate — a post that already exists in the queue shouldn't be addable again. You can't prevent every double-publish, but you can make them rare enough that the apology post stays hypothetical. The failure modes that take real channels down Automations fail silently , which is what makes them dangerous. The gallery: the DST drift — daylight saving moves the \"9:00\" post to 10:00 for a month before anyone notices (fix: pin the channel's home timezone in the scheduler; check one scheduled post after each clock change). The regenerated token — a token revoken in BotFather turns every dependent tool mute at once (fix: the weekly ping command in your health check). The silent bridge death — a source site changes its feed structure and your intake quietly goes empty (fix: the Friday queue check includes \"did intake arrive this week?\"). The rate-limit wall — a broadcast bot that ignores retry_after gets throttled for hours mid-announcement (fix: tools that queue and back off properly — roughly one message per second per chat is the ceiling). Each failure is findable in two minutes a week, which is what the health check below actually is. The weekly health check (five checks, two minutes) 1) The queue — next week's slots exist and nothing is scheduled into dead hours. 2) The published log — last week's posts show no duplicates, no dead-hour sends, no naked-markdown accidents. 3) The ping — send each automation bot one status command; anything that doesn't answer gets fixed before it matters. 4) Intake freshness — the review chat received material this week. 5) The trend — ERR against last week, leaves against the month. Two minutes every Friday; every item on this list has caught a real failure on real channels before the audience saw it. The health check is the price automation charges for its convenience, and it's the cheapest insurance in the whole stack. What never to automate The list is short because it's important. The voice: AI-assisted drafts are a tool, but posts that published without a human reading them will eventually embarrass the channel — the approval gate is one tap and it's the whole job. Community replies: automated welcome messages and canned answers read as absence; members can smell the difference, and the first ten seconds of a conversation set its ceiling. Apologies and corrections: when something goes wrong, the response must be human — automating sincerity is sincerity's cancellation. And the decision itself: automation decides when, how and in what order things publish; it should never decide whether — the publish button's human is the channel's editor, and keeping that seat occupied is what keeps a self-updating channel from becoming a self-deleting one.", "articleSection": "Bots & Tools", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "image": "https://fastschedulebot.github.io/Fast-Schedule/blog/img/telegram-automation-guide-2026.webp", "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-automation-guide-2026.html", "datePublished": "2026-09-27", "dateModified": "2026-09-27", "isPartOf": {"@type": "Blog", "name": "Fast Scheduler Blog", "url": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "The Complete Telegram Automation Guide for 2026: From First Bot to Self-Updating Channel", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-automation-guide-2026.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which automation should a small channel set up first?", "acceptedAnswer": {"@type": "Answer", "text": "Scheduling, without question. Moving all posts through a queue is an afternoon of work, costs nothing, and removes the most damaging failure mode small channels have — the forgotten posting day that breaks the habit loop. Intake automation and moderation bots come next, in that order; cross-posting is rarely worth it until there are two worthwhile destinations."}}, {"@type": "Question", "name": "How do I stop my RSS bot from double-posting?", "acceptedAnswer": {"@type": "Answer", "text": "Use a bridge that deduplicates on the feed item ID, re-add one of your feeds once as a test and watch what happens, and route automated items through a review chat rather than straight to the channel. If a feed keeps regenerating IDs, filter it out — that source is not bridge-safe, and no amount of retry logic will make it one."}}, {"@type": "Question", "name": "Is it safe to give one bot all the admin rights?", "acceptedAnswer": {"@type": "Answer", "text": "It is safe only if that bot is your writer and the rights match its job: a scheduler needs post and edit rights, nothing more. Distribution of rights should follow the single-writer rule — one bot publishes, moderation bots live only in the discussion group with moderation rights, and analytics bots need to read, not post. Quarterly, revoke anything whose purpose you cannot name."}}, {"@type": "Question", "name": "Can AI writing tools run a Telegram channel end to end?", "acceptedAnswer": {"@type": "Answer", "text": "They can draft, summarize feeds and fill template slots — and channels that publish AI output unreviewed develop a noticeable voice drift that audiences and advertisers both detect. The working pattern is AI-prepared, human-approved: drafts enter the queue, a person edits and releases. The voice is the product; automation can surround it, but the moment it replaces the reading human, the channel starts dying politely."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="../../styles/main.css?v=20261002c4">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -90,7 +93,7 @@
     .blog-cols { display: grid; grid-template-columns: minmax(0, 860px) 220px; gap: 28px;
       align-items: start; justify-content: center; }
     .blog-toc { position: sticky; top: 88px; font-size: .85rem; }
-    .blog-toc-t { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    .blog-toc-t { font-size: .92rem; font-weight: 800; letter-spacing: -.01em;
       color: var(--text-dim); margin: 4px 0 10px; }
     .blog-toc a { display: block; padding: 5px 10px; border-radius: 8px; color: var(--text-dim);
       border-left: 2px solid var(--border); line-height: 1.35; }
@@ -119,7 +122,7 @@
     .blog-toc-nav { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 8px; margin: 0 0 12px; flex: none; }
     .blog-toc-navc { display: block; min-width: 0; padding: 9px 11px; border: 1px solid var(--border); border-radius: 12px;
       background: color-mix(in srgb, var(--surface-2) 55%, transparent); text-decoration: none; color: var(--text); position: relative; }
-    .blog-toc-navc small { display: block; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); }
+    .blog-toc-navc small { display: block; font-size: .76rem; font-weight: 700; letter-spacing: 0; color: var(--text-dim); }
     .blog-toc-navc b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .8rem; line-height: 1.3; margin-top: 3px; }
     .blog-toc-navc svg { position: absolute; right: 8px; top: 50%; translate: 0 -50%; width: 14px; height: 14px; color: var(--text-dim); }
     a.blog-toc-navc:hover { text-decoration: none; border-color: var(--green); }
@@ -170,13 +173,11 @@
     .bcard { display: flex; flex-direction: column; min-width: 0; overflow: hidden;
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       color: var(--text); text-decoration: none;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-    .bcard:hover { border-color: var(--green); box-shadow: var(--shadow-sm);
-      text-decoration: none; transform: translateY(-2px); }
+      transition: border-color .2s ease; }
+    .bcard:hover { border-color: var(--green);
+      text-decoration: none; }
     .bcard-cover { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
-    .bcard-cover img { display: block; width: 100%; height: 100%; object-fit: cover;
-      transition: transform .35s ease; }
-    .bcard:hover .bcard-cover img { transform: scale(1.04); }
+    .bcard-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .bcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 16px 18px 18px; }
     .bcard-body b { font-size: 1rem; line-height: 1.35; letter-spacing: -.01em; }
     .bcard-desc { color: var(--text-dim); font-size: .88rem; line-height: 1.5; }
@@ -283,9 +284,18 @@
     .hc-faq summary { cursor: pointer; list-style: none; padding: 13px 0; font-weight: 650; font-size: .95rem;
       display: flex; justify-content: space-between; gap: 14px; align-items: center; }
     .hc-faq summary::-webkit-details-marker { display: none; }
-    .hc-faq summary::after { content: "+"; font-size: 1.3rem; color: var(--green-strong);
-      transition: transform .25s; flex: none; }
-    .hc-faq details[open] summary::after { transform: rotate(45deg); }
+    /* drawn plus (two bars, one shared center) instead of a "+" glyph:
+       glyphs rotate off-center and the open-state x looks broken. Both
+       bars spin together into a clean x. */
+    .hc-faq summary { position: relative; padding-right: 28px; }
+    .hc-faq summary::before, .hc-faq summary::after {
+      content: ""; position: absolute; top: 50%; background: var(--green-strong);
+      border-radius: 2px; transition: transform .25s var(--ease-spring, ease);
+    }
+    .hc-faq summary::before { right: 1px; width: 14px; height: 2px; transform: translateY(-50%); }
+    .hc-faq summary::after { right: 7px; width: 2px; height: 14px; transform: translateY(-50%); }
+    .hc-faq details[open] summary::before,
+    .hc-faq details[open] summary::after { transform: translateY(-50%) rotate(135deg); }
     .hc-fa { padding: 0 0 16px; }
     .hc-fa p { margin: 0 0 8px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
     .hc-cta {
@@ -309,44 +319,108 @@
 
     /* settings menu help popover reuses .help-menu rules from main.css */
 
+    /* ---- hub hero panel (light touch: rounded container, like modern blogs) ---- */
+    .blog-hero-panel { margin-top: 4px; border-radius: 24px; padding: clamp(26px, 4vw, 44px);
+      background: color-mix(in srgb, var(--green) 7%, var(--surface));
+      border: 1px solid var(--border); }
+    .blog-hero-panel h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 10px;
+      letter-spacing: -.03em; color: var(--text); }
+    .blog-hero-panel .lead { color: var(--text-dim); font-size: 1.02rem; line-height: 1.6;
+      max-width: 640px; margin: 0 0 6px; }
+    .blog-hero-panel .blog-search { position: static; margin: 20px 0 0; max-width: 640px; }
+    .blog-kindtabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+    .blog-kindtab { font: inherit; font-size: .9rem; font-weight: 750; color: var(--text-dim);
+      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+      padding: 9px 20px; cursor: pointer; transition: color .18s, border-color .18s, background .18s; }
+    .blog-kindtab:hover { color: var(--green-strong);
+      border-color: color-mix(in srgb, var(--green) 50%, transparent); }
+    .blog-kindtab.on { color: #fff; background: var(--green-strong); border-color: var(--green-strong); }
+    .blog-kindtab .cnt { font-size: .78em; font-weight: 650; opacity: .65; margin-left: 4px; }
+    .bcard-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem;
+      font-weight: 800; letter-spacing: 0;
+      color: var(--green-strong); }
+    .bcard-kicker.news { color: #b07a1e; }
+    html[data-theme="dark"] .bcard-kicker.news { color: #e0aa4e; }
+    .blog-sec[data-kind="news"] > h2::after { content: '•  News'; font-size: .72rem; font-weight: 800;
+      letter-spacing: 0; color: #b07a1e; margin-left: 10px; }
+
+    /* ---- keep-reading show more/less ---- */
+    .hc-chips.is-collapsed .hc-chip:nth-child(n+4) { display: none; }
+    .hc-chips.is-expanded .hc-chip:nth-child(n+4) { animation: hcMoreIn .35s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes hcMoreIn { from { opacity: 0; transform: translateY(8px); } }
+    .hc-more { display: inline-flex; align-items: center; gap: 8px; margin: 12px 0 0; font: inherit;
+      font-size: .88rem; font-weight: 700; color: var(--green-strong); background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px; padding: 9px 18px; cursor: pointer; }
+    /* docked to the right end of the chips row, beside the last chip */
+    .hc-chips.has-more { align-items: center; }
+    .hc-chips > .hc-more { margin: 0 0 0 auto; align-self: center; flex: none; }
+    .hc-more:hover { border-color: var(--green); }
+    .hc-more[hidden] { display: none; }
+
+    /* ---- reader settings (settings menu: Wide / Article navigation / Font) ---- */
+    .gp-reading[hidden] { display: none !important; }
+    @media (max-width: 1020px) {
+      #settingsMenu [data-blog-wide], #settingsMenu [data-blog-rail] { display: none !important; }
+    }
+    .gp-row.gp-fonts { cursor: default; }
+    .hc-fonts { display: inline-flex; align-items: baseline; gap: 2px; margin-left: auto; }
+    .hc-fonts button { font: inherit; background: none; border: 0; cursor: pointer; color: var(--text-dim);
+      padding: 3px 8px; border-radius: 8px; font-weight: 800; line-height: 1; }
+    .hc-fonts button:hover { color: var(--green-strong); }
+    .hc-fonts button.on { color: #fff; background: var(--green-strong); }
+    .hc-fonts button:nth-child(1) { font-size: .78rem; }
+    .hc-fonts button:nth-child(2) { font-size: .95rem; }
+    .hc-fonts button:nth-child(3) { font-size: 1.12rem; }
+    html[data-blogfont="s"] .blog-doc .hc-body { font-size: .88rem; }
+    html[data-blogfont="l"] .blog-doc .hc-body { font-size: 1.12rem; }
+    html.blog-wide .blog-cols { grid-template-columns: minmax(0, 1fr); }
+    html.blog-wide .blog-toc { display: none; }
+    html.blog-wide .blog-doc { max-width: 960px; margin: 0 auto; width: 100%; }
+    html.rail-off .blog-cols { grid-template-columns: minmax(0, 1fr); }
+    html.rail-off .blog-toc { display: none; }
+    /* ---- liquid-glass section reel: floating prev/current/next ---- */
+    .blog-reel { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 90;
+      transform: translateX(-50%) translateY(24px); width: min(340px, calc(100vw - 32px));
+      border-radius: 18px; padding: 10px 16px 12px; opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s cubic-bezier(.22,.61,.36,1);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 62%, transparent), color-mix(in srgb, var(--surface-2) 45%, transparent));
+      -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid color-mix(in srgb, #fff 22%, var(--border));
+      box-shadow: 0 12px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18); overflow: hidden; }
+    .blog-reel.show { opacity: 1; pointer-events: auto; transform: translateX(-50%); }
+    .blog-reel::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.14) 45%, transparent 60%);
+      transform: translateX(-110%); animation: reelSheen 7s ease-in-out infinite; }
+    @keyframes reelSheen { 0%, 72% { transform: translateX(-110%); } 88%, 100% { transform: translateX(110%); } }
+    .blog-reel button { display: block; width: 100%; background: none; border: 0; padding: 0; font: inherit;
+      color: var(--text-dim); cursor: pointer; text-align: center; }
+    .blog-reel button span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .blog-reel [data-reel-prev] span, .blog-reel [data-reel-next] span { font-size: .74rem; font-weight: 600; opacity: .75; }
+    .blog-reel [data-reel-cur] { margin: 2px 0; }
+    .blog-reel [data-reel-cur] span { font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--text); }
+    .blog-reel [data-reel-cur]::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); margin: 0 auto 4px; box-shadow: 0 0 8px var(--green); }
+    .blog-reel.swap [data-reel-cur] span { animation: reelSwap .32s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes reelSwap { 0% { opacity: 0; transform: translateY(10px) scale(.94); } 60% { opacity: 1; transform: translateY(-1px) scale(1.02); } 100% { opacity: 1; transform: none; } }
+    html[data-motion="off"] .blog-reel::after, html[data-motion="off"] .blog-reel.swap [data-reel-cur] span { animation: none; }
+
   </style>
 </head>
 <body class="blog">
-<header class="site">
-  <div class="wrap nav">
-    <a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a>
-    <a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Blog</a>
-    <a class="nav-link" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Help Center</a>
-    <a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span></a>
-    <span class="settings-wrap">
-      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
-        <div class="gp-head">Settings</div>
+<header class="site"><div class="wrap nav nav-unified"><div class="nav-group nav-left"><a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a><span class="settings-wrap"><button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings"><div class="gp-head">Settings</div>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <div class="gp-row gp-fonts" data-fonts><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
+        <div class="gp-sep gp-reading" data-blog-reading></div>
+          <div class="gp-head gp-reading" data-blog-reading>Reading</div>
+          <button type="button" class="gp-row gp-reading" data-blog-reading role="menuitemcheckbox" aria-checked="false" data-blog-wide><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span>Wide format</span><span class="io-switch" aria-hidden="true"></span></button>
+          <button type="button" class="gp-row gp-reading" data-blog-reading role="menuitemcheckbox" aria-checked="true" data-blog-rail><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Article navigation</span><span class="io-switch" aria-hidden="true"></span></button>
+          <div class="gp-row gp-fonts" data-fonts><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
         <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
         <div class="gp-sep" role="separator"></div>
-        <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-          <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
-            <form class="help-search" id="helpSearchForm" role="search">
-              <svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
-            </form>
-            <div class="help-recent">
-              <div class="help-recent-title" id="helpRecentTitle">Popular articles</div>
-              <div class="help-recent-list" id="helpRecentList"></div>
-            </div>
-            <a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-          </div>
-        </span>
-        <a class="gp-row" role="menuitem" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span>Blog</span></a>
-        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span></a>
-      </div>
-    </span>
-  </div>
-</header>
+        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a></div><div class="nav-group nav-right"><a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span>Blog</span></a><span class="site-menu-wrap"><a class="nav-link site-menu-row" role="menuitem" href="../../help.html" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help Center</span></a><div class="glass-pop site-menu-pop help-menu nav-menu-pop" id="siteMenu" role="menu" aria-label="Help center quick search"><form class="help-search" id="helpSearchForm" role="search"><svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center"></form><div class="help-recent"><div class="help-recent-title" id="helpRecentTitle">Popular articles</div><div class="help-recent-list" id="helpRecentList"></div></div><a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a></div></div></header>
 <main class="legal">
 <div class="blog-cols">
   <div>
@@ -364,12 +438,12 @@
 </div>
     <article class="blog-doc">
       <h1>The Complete Telegram Automation Guide for 2026: From First Bot to Self-Updating Channel</h1>
-      <p class="blog-byline">Bots & Tools · September 27, 2026 · 6 min read · Fast Scheduler team</p>
-      <figure class="blog-doc-cover"><img src="../img/telegram-automation-guide-2026.jpg" alt="" width="1200" height="675" loading="eager" onerror="this.parentNode.style.display='none'"></figure>
+      <p class="blog-byline">Articles · Bots & Tools · September 27, 2026 · 6 min read · Fast Scheduler team</p>
+      <figure class="blog-doc-cover"><img src="../img/telegram-automation-guide-2026.webp" alt="" width="1200" height="675" loading="eager" onerror="this.parentNode.style.display='none'"></figure>
       <div class="hc-body"><p>Every channel owner ends up automating something — the question is whether it happens accidentally, one fragile script at a time, or deliberately, as an architecture. This is the deliberate version: every automation layer a Telegram channel can have in 2026, the order to adopt them, the one invariant that keeps the whole system safe, and the failure modes that take down automations that looked solid. The goal is a channel that keeps its voice while the plumbing runs itself.</p><h3 id="s-the-layer-map-what-can-be-automated-in-adoption-order">The layer map: what can be automated, in adoption order</h3><p><b>Layer 1 — publishing (adopt first, saves the most stress):</b> every post goes through a scheduler's queue — ManyBot, ControllerBot, Fast Scheduler, whatever fits — so publishing stops depending on someone remembering. The queue view replaces the mental load, and the weekly review becomes possible because next week is already visible. <b>Layer 2 — intake:</b> sources flow into a review chat automatically — RSS bridges for feeds, form-to-chat bridges for submissions, forwarding rules for the channels you monitor. Nothing publishes from intake; it <i>arrives</i>. <b>Layer 3 — moderation:</b> captcha-on-join, link filters and duplicate detection (Rose, Shieldy, Combot) run unsupervised; humans handle the ladder above them. <b>Layer 4 — distribution:</b> cross-posting to sister channels or out to other platforms, through one writer. <b>Layer 5 — measurement:</b> weekly stats collection, ERR tracking, the ritual report — a spreadsheet fed by exports beats a dashboard nobody opens. Five layers, adopted in this order, take a channel from personality-driven to system-driven in about a quarter.</p><h3 id="s-the-single-writer-rule-the-invariant-that-prevents-disasters">The single-writer rule: the invariant that prevents disasters</h3><p>Every automation horror story traces to one violation: two systems that both believe they own the publishing tap. The fix is an invariant worth writing on a sticky note: <b>every channel has exactly one writer</b> — a human in the composer or one bot, never both, and nothing else holds admin rights to post. Everything else is upstream of the writer: feeds and forms flow into the review chat, drafts flow into the scheduler, analytics reads what published. Audit it quarterly: list every bot with post rights in every channel and ask, for each, "is this the writer?" — any answer that isn't yes-or-expired-rights is a duplicate-post accident waiting for a quiet week to happen in. Related hygiene: when you retire a tool, revoke its rights the same day (a live token in an abandoned tool is a safety issue, not clutter) — BotFather's <code>/revoke</code> takes ten seconds.</p><h3 id="s-idempotency-the-boring-property-that-saves-reputations">Idempotency: the boring property that saves reputations</h3><p>Automations fail and get retried — the professional property that makes retries safe is <b>idempotency</b>: the same input applied twice produces one post, not two. The classic failure is the RSS bridge that re-reads a feed after a GUID change and republishes everything as new, overnight, to four thousand people. Defenses, cheapest first: bridges that deduplicate on the feed's item ID (most decent ones do — verify yours by re-adding a feed once and watching); a duplicate check in your review flow (search the channel for the headline before promoting); and the queue as the last gate — a post that already exists in the queue shouldn't be addable again. You can't prevent every double-publish, but you can make them rare enough that the apology post stays hypothetical.</p><h3 id="s-the-failure-modes-that-take-real-channels-down">The failure modes that take real channels down</h3><p>Automations fail <i>silently</i>, which is what makes them dangerous. The gallery: <b>the DST drift</b> — daylight saving moves the "9:00" post to 10:00 for a month before anyone notices (fix: pin the channel's home timezone in the scheduler; check one scheduled post after each clock change). <b>The regenerated token</b> — a token revoken in BotFather turns every dependent tool mute at once (fix: the weekly ping command in your health check). <b>The silent bridge death</b> — a source site changes its feed structure and your intake quietly goes empty (fix: the Friday queue check includes "did intake arrive this week?"). <b>The rate-limit wall</b> — a broadcast bot that ignores <code>retry_after</code> gets throttled for hours mid-announcement (fix: tools that queue and back off properly — roughly one message per second per chat is the ceiling). Each failure is findable in two minutes a week, which is what the health check below actually is.</p><h3 id="s-the-weekly-health-check-five-checks-two-minutes">The weekly health check (five checks, two minutes)</h3><p>1) <b>The queue</b> — next week's slots exist and nothing is scheduled into dead hours. 2) <b>The published log</b> — last week's posts show no duplicates, no dead-hour sends, no naked-markdown accidents. 3) <b>The ping</b> — send each automation bot one status command; anything that doesn't answer gets fixed before it matters. 4) <b>Intake freshness</b> — the review chat received material this week. 5) <b>The trend</b> — ERR against last week, leaves against the month. Two minutes every Friday; every item on this list has caught a real failure on real channels before the audience saw it. The health check is the price automation charges for its convenience, and it's the cheapest insurance in the whole stack.</p><h3 id="s-what-never-to-automate">What never to automate</h3><p>The list is short because it's important. <b>The voice:</b> AI-assisted drafts are a tool, but posts that published without a human reading them will eventually embarrass the channel — the approval gate is one tap and it's the whole job. <b>Community replies:</b> automated welcome messages and canned answers read as absence; members can smell the difference, and the first ten seconds of a conversation set its ceiling. <b>Apologies and corrections:</b> when something goes wrong, the response must be human — automating sincerity is sincerity's cancellation. And <b>the decision itself:</b> automation decides when, how and in what order things publish; it should never decide <i>whether</i> — the publish button's human is the channel's editor, and keeping that seat occupied is what keeps a self-updating channel from becoming a self-deleting one.</p></div>
       <div class="hc-faq"><h2>Common questions</h2><details><summary>Which automation should a small channel set up first?</summary><div class="hc-fa"><p>Scheduling, without question. Moving all posts through a queue is an afternoon of work, costs nothing, and removes the most damaging failure mode small channels have — the forgotten posting day that breaks the habit loop. Intake automation and moderation bots come next, in that order; cross-posting is rarely worth it until there are two worthwhile destinations.</p></div></details><details><summary>How do I stop my RSS bot from double-posting?</summary><div class="hc-fa"><p>Use a bridge that deduplicates on the feed item ID, re-add one of your feeds once as a test and watch what happens, and route automated items through a review chat rather than straight to the channel. If a feed keeps regenerating IDs, filter it out — that source is not bridge-safe, and no amount of retry logic will make it one.</p></div></details><details><summary>Is it safe to give one bot all the admin rights?</summary><div class="hc-fa"><p>It is safe only if that bot is your writer and the rights match its job: a scheduler needs post and edit rights, nothing more. Distribution of rights should follow the single-writer rule — one bot publishes, moderation bots live only in the discussion group with moderation rights, and analytics bots need to read, not post. Quarterly, revoke anything whose purpose you cannot name.</p></div></details><details><summary>Can AI writing tools run a Telegram channel end to end?</summary><div class="hc-fa"><p>They can draft, summarize feeds and fill template slots — and channels that publish AI output unreviewed develop a noticeable voice drift that audiences and advertisers both detect. The working pattern is AI-prepared, human-approved: drafts enter the queue, a person edits and releases. The voice is the product; automation can surround it, but the moment it replaces the reading human, the channel starts dying politely.</p></div></details></div>
       <div class="blog-moreq"><a href="../index.html#cat=tools">More on this topic<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips"><a class="hc-chip" href="telegram-bots-for-channel-owners.html"><span>Top Telegram Bots Every Channel Owner Should Know in 2026</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="automate-telegram-channel-workflow.html"><span>How to Automate a Telegram Channel (Without Losing Your Voice)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="how-to-create-a-telegram-bot.html"><span>How to Create Your Own Telegram Bot with BotFather (Step by Step)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-analytics-tools-compared.html"><span>Telegram Analytics Compared: TGStat vs Telemetr vs Your Scheduler’s Stats</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-bot-commands-cheatsheet.html"><span>The Channel Owner’s Bot Cheatsheet: Commands Worth Memorizing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-rss-bots.html"><span>RSS-to-Telegram Bots: Auto-Posting Feeds Without Losing Your Voice</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips" data-chips-more><a class="hc-chip" href="telegram-bots-for-channel-owners.html"><span>Top Telegram Bots Every Channel Owner Should Know in 2026</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="automate-telegram-channel-workflow.html"><span>How to Automate a Telegram Channel (Without Losing Your Voice)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="how-to-create-a-telegram-bot.html"><span>How to Create Your Own Telegram Bot with BotFather (Step by Step)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-analytics-tools-compared.html"><span>Telegram Analytics Compared: TGStat vs Telemetr vs Your Scheduler’s Stats</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-bot-commands-cheatsheet.html"><span>The Channel Owner’s Bot Cheatsheet: Commands Worth Memorizing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-rss-bots.html"><span>RSS-to-Telegram Bots: Auto-Posting Feeds Without Losing Your Voice</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div><button type="button" class="hc-more" data-more hidden><span data-more-t>Show more</span><span data-less-t hidden>Show less</span></button></div>
     </article>
     <nav class="hc-pager" aria-label="More articles"><a class="hc-card next" href="../index.html"><span><small>All articles</small><b>Back to the Blog</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></nav>
     <div class="hc-cta"><div><b>Posting on a schedule?</b><p>Fast Scheduler batch-schedules weeks of Telegram posts in one chat — free to start, posts from your own bot.</p></div>
@@ -377,6 +451,7 @@
   </div>
   <nav class="blog-toc" aria-label="On this page"><div class="blog-toc-t">On this page</div><a href="#s-the-layer-map-what-can-be-automated-in-adoption-order">The layer map: what can be automated, in adoption order</a><a href="#s-the-single-writer-rule-the-invariant-that-prevents-disasters">The single-writer rule: the invariant that prevents disasters</a><a href="#s-idempotency-the-boring-property-that-saves-reputations">Idempotency: the boring property that saves reputations</a><a href="#s-the-failure-modes-that-take-real-channels-down">The failure modes that take real channels down</a><a href="#s-the-weekly-health-check-five-checks-two-minutes">The weekly health check (five checks, two minutes)</a><a href="#s-what-never-to-automate">What never to automate</a><div class="blog-toc-back"><a href="../index.html">← All articles</a></div></nav>
 </div>
+<div class="blog-reel" data-blog-reel hidden aria-hidden="true"><button type="button" data-reel-prev tabindex="-1"><span></span></button><button type="button" data-reel-cur tabindex="-1"><span></span></button><button type="button" data-reel-next tabindex="-1"><span></span></button></div>
 </main>
 <footer class="site">
   <div class="wrap foot">
@@ -392,11 +467,11 @@
   </div>
 </footer>
 <script src="../../scripts/theme.js?v=20260930a1"></script>
-<script src="../../scripts/settings.js"></script>
-  <script src="../../scripts/lang.js?v=20261001a1"></script>
+<script src="../../scripts/settings.js?v=20261002c3"></script>
+  </script><script src="../../scripts/ru-chrome.js?v=20261002c2"></script><script src="../../scripts/lang.js?v=20261002c2"></script>
 <script src="../../scripts/help-search.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20260930a2"></script>
+<script src="../../scripts/hotkeys.js?v=20260930a2"></script>
 <script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
 <script>
 /* Mobile Contents sheet: pill opens/closes, scrim + Esc + link tap close. */
@@ -426,6 +501,31 @@
     if (e.target.classList && e.target.classList.contains('blog-toc-scrim')) { close(p.scrim, p.sheet); return; }
     if (p.sheet && !p.sheet.hidden && e.target.closest && e.target.closest('.blog-toc-list a')) close(p.scrim, p.sheet);
   });
+  /* keep-reading show more / less */
+  (function () {
+    function setup() {
+      document.querySelectorAll('[data-chips-more]').forEach(function (box) {
+        var btn = box.querySelector(':scope > [data-more]') || box.nextElementSibling;
+        var need = box.querySelectorAll('.hc-chip').length > 3;
+        box.classList.toggle('is-collapsed', need);
+        if (btn && btn.hasAttribute('data-more')) {
+          if (need) { box.classList.add('has-more'); if (btn.parentElement !== box) box.appendChild(btn); }
+          btn.hidden = !need;
+        }
+      });
+    }
+    document.addEventListener('click', function (e) {
+      var mb = e.target.closest && e.target.closest('[data-more]');
+      if (!mb) return;
+      var box = (mb.closest && mb.closest('[data-chips-more]')) || mb.previousElementSibling;
+      var collapsed = box && box.classList.contains('is-collapsed');
+      if (box) { box.classList.toggle('is-collapsed', !collapsed); box.classList.toggle('is-expanded', !!collapsed); }
+      var mt = mb.querySelector('[data-more-t]'), lt = mb.querySelector('[data-less-t]');
+      if (mt) mt.hidden = !!collapsed;
+      if (lt) lt.hidden = !collapsed;
+    });
+    setup();
+  })();
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     var p = parts();
@@ -485,6 +585,109 @@
       if (m && m.open) m.open = false;
     });
   });
+})();
+/* Reader settings: Wide / Article navigation / Font size (article pages). */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function paintBlogReader() {
+    var wide = load('fs-blog-wide') === 'on';
+    var railOff = load('fs-rail') === 'off';
+    var font = load('fs-font') || load('fs-blog-font');
+    root.classList.toggle('blog-wide', wide);
+    root.classList.toggle('rail-off', railOff);
+    if (font) { root.setAttribute('data-font', font); root.setAttribute('data-blogfont', font); } else { root.removeAttribute('data-font'); root.removeAttribute('data-blogfont'); }
+    var q = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
+    q('[data-blog-wide]', function (b) { b.setAttribute('aria-checked', wide ? 'true' : 'false'); });
+    q('[data-blog-rail]', function (b) { b.setAttribute('aria-checked', railOff ? 'false' : 'true'); });
+    if (window.__blogReelPaint) { try { window.__blogReelPaint(); } catch (e) {} }
+    q('[data-fonts]', function (box) {
+      Array.prototype.forEach.call(box.querySelectorAll('button'), function (b) {
+        b.classList.toggle('on', (font || 'm') === b.getAttribute('data-font'));
+      });
+    });
+  }
+  document.addEventListener('click', function (ev) {
+    if (!ev.target.closest) return;
+    var w = ev.target.closest('[data-blog-wide]');
+    if (w) { store('fs-blog-wide', w.getAttribute('aria-checked') !== 'true' ? 'on' : 'off'); paintBlogReader(); return; }
+    var r = ev.target.closest('[data-blog-rail]');
+    if (r) { store('fs-rail', r.getAttribute('aria-checked') === 'true' ? 'off' : 'on'); paintBlogReader(); return; }
+    var f = ev.target.closest('[data-fonts] button');
+    if (f) { var fv = f.getAttribute('data-font'); store('fs-font', fv); store('fs-blog-font', fv); try { window.dispatchEvent(new CustomEvent('fs-font-change', { detail: { font: fv } })); } catch (e2) {} paintBlogReader(); return; }
+  });
+  window.addEventListener('fs-font-change', function () { paintBlogReader(); });
+  window.__blogPaintReader = paintBlogReader;
+  paintBlogReader();
+})();
+/* Floating liquid-glass section reel: prev / current / next section. */
+(function () {
+  'use strict';
+  var reel = document.querySelector('[data-blog-reel]');
+  if (!reel) return;
+  var bPrev = reel.querySelector('[data-reel-prev]');
+  var bCur = reel.querySelector('[data-reel-cur]');
+  var bNext = reel.querySelector('[data-reel-next]');
+  var curKey = null, ticking = false;
+  function tocLinks() {
+    var nav = document.querySelector('.blog-cols .blog-toc');
+    return nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
+  }
+  function railGone() {
+    if (document.documentElement.classList.contains('blog-wide')) return true;
+    try { return window.matchMedia('(max-width: 1140px)').matches; } catch (e) { return true; }
+  }
+  function setLabel(btn, link) {
+    btn.querySelector('span').textContent = link ? link.textContent.trim() : '';
+    btn._to = link ? link.getAttribute('href') : null;
+  }
+  function jump(btn) {
+    if (!btn._to) return;
+    var el = document.getElementById(btn._to.slice(1));
+    if (!el) return;
+    var off = el.getBoundingClientRect().top + window.pageYOffset - 76;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                 document.documentElement.getAttribute('data-motion') === 'off';
+    window.scrollTo({ top: off, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function paint() {
+    var links = tocLinks();
+    var idx = -1;
+    links.forEach(function (a, i) { if (a.classList.contains('on')) idx = i; });
+    var sc = window.scrollY || document.documentElement.scrollTop || 0;
+    var show = links.length >= 2 && sc > 480 && railGone();
+    reel.hidden = !show;
+    reel.setAttribute('aria-hidden', show ? 'false' : 'true');
+    if (reel.classList.contains('show') !== show) reel.classList.toggle('show', show);
+    if (!show) { curKey = null; return; }
+    if (idx === -1) idx = 0;
+    var key = links[idx].getAttribute('href');
+    if (key === curKey) return;
+    curKey = key;
+    setLabel(bPrev, links[idx - 1]);
+    setLabel(bCur, links[idx]);
+    setLabel(bNext, links[idx + 1]);
+    bPrev.style.visibility = links[idx - 1] ? 'visible' : 'hidden';
+    bNext.style.visibility = links[idx + 1] ? 'visible' : 'hidden';
+    reel.classList.remove('swap');
+    void reel.offsetWidth;
+    reel.classList.add('swap');
+  }
+  bPrev.addEventListener('click', function () { jump(bPrev); });
+  bCur.addEventListener('click', function () { jump(bCur); });
+  bNext.addEventListener('click', function () { jump(bNext); });
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    var raf = window.requestAnimationFrame || function (cb) { setTimeout(cb, 100); };
+    raf(function () { ticking = false; paint(); });
+  }, { passive: true });
+  window.__blogReelPaint = function () { curKey = null; paint(); };
+  window.addEventListener('fs-lang-change', function () { curKey = null; paint(); });
+  window.addEventListener('fs-lang-applied', function () { curKey = null; paint(); });
+  paint();
 })();
 </script>
 </body>

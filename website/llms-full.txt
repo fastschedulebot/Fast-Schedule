@@ -1,6 +1,6 @@
 # Fast Scheduler — complete help center corpus
 
-Exported 2026-10-02. 308 articles. Canonical pages: https://fastschedulebot.github.io/Fast-Schedule/help/a/<article-id>.html
+Exported 2026-10-03. 308 articles. Canonical pages: https://fastschedulebot.github.io/Fast-Schedule/help/a/<article-id>.html
 
 # Getting Started
 

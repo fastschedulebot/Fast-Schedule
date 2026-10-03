@@ -10,6 +10,9 @@
     if (localStorage.getItem('fs-fx') === 'off') document.documentElement.setAttribute('data-fx', 'off');
     if (localStorage.getItem('fs-hotkeys') === 'off') document.documentElement.setAttribute('data-keys', 'off');
     if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
+    if (localStorage.getItem('fs-blog-wide') === 'on') document.documentElement.classList.add('blog-wide');
+    var _ffb = localStorage.getItem('fs-font') || localStorage.getItem('fs-blog-font');
+    if (_ffb) { document.documentElement.setAttribute('data-font', _ffb); document.documentElement.setAttribute('data-blogfont', _ffb); }
   } catch (e) {}
 </script>
 <meta charset="utf-8">
@@ -33,12 +36,11 @@
 <meta name="twitter:description" content="A working pipeline for curating news and links for a Telegram digest — sources, filters, attribution etiquette, and how to add a take without becoming a news feed.">
 <meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Source Curation: How Digest Channels Find Signal Before Everyone Else", "description": "A working pipeline for curating news and links for a Telegram digest — sources, filters, attribution etiquette, and how to add a take without becoming a news feed.", "articleBody": "Digest channels (“the 5 things that mattered today”) are one of the most sustainable formats on Telegram: high perceived value, low production cost, and a natural daily rhythm. But a digest is only as good as its sourcing pipeline. Here’s how curators actually build one. Build the intake, not the willpower Follow lists, not channels. Keep a folder in Telegram of 20–40 source channels in your niche. Read the folder at a fixed time daily; mute notifications. RSS bridges — FeedBridge-style bots and RSS-to-Telegram services pipe blogs, journals and news sites into a private feed. RSS catches what channels miss. X/Reddit/HN searches for your niche keywords, skimmed once a day, supply what the first two layers missed. The filter is the product Readers don’t subscribe to access information — they have too much already. They subscribe to your filter : five items out of two hundred, with one line each on why it matters. Cap the digest at 5–7 items, ever. The moment a digest becomes long, it becomes homework, and homework gets muted. Attribution and takes Always link the original source — Telegram indexes outbound links, source channels notice the traffic and often return the favor, and readers trust curators who cite. Add one line of your own take per item: that line is the difference between a curator and a reposter. And batch the whole digest into one scheduled post at a fixed hour; a digest that arrives “roughly in the evening” trains a habit, while one that arrives whenever doesn’t. Attribution: the currency curators forget Curated digests live on other people's material, and how you credit it is a strategic choice, not a courtesy. The practice that compounds: Link the original source, always. Yes, it's an outbound link — and source channels notice referral traffic. Mid-size sources check their analytics and will mention or swap with curators who send readers. Name the finder when you didn't find it. \"(spotted in @channel)\" costs eight characters and earns a peer who'll feed you stories later. Curation is a network disguised as a channel. Add the take, carry the risk. Your one-line read on each item is the only part that's yours — and the only part that can be wrong in public. That's fine: curators with a visible stance build audiences; neutral reposters build nothing. The intake stack, concretely A working curator's intake has four parts. 1) An RSS reader (Feedly, Inoreader) holding 60–120 feeds — including your competitor digests, because you want to read what they read plus what they miss. 2) A dedicated Telegram folder with 30–50 source channels you never forward from without checking the original. 3) A capture chat: forward anything promising to a private \"inbox\" chat in one tap. 4) A weekly sweep of Hacker News and the relevant subreddits for the long tail. The inbox chat is your product backlog. If capture takes more than one tap, you'll stop by week three — curation dies of friction, not of laziness. The 5-3-1 daily cut From a full day of intake, publish the cut: 5 links that survive the question \"would my reader act on this today?\", 3 one-line takes on things you're not linking formally, 1 deep item — a teardown, a comparison, a larger curation. The volume discipline is the product: digests that fire off fifteen links a day train readers to skim; five links with context train readers to open. Readers feel the filter before they can articulate it, and your unsubscribe rate tracks every time you break the cut. When a slow news day tempts you to pad — don't. A digest that sometimes publishes less is trusted; a digest that always publishes something is ignored. Speed vs correctness — pick a lane, label it Every curator faces the dilemma: be twenty minutes early with a rumor or three hours late with a verified story. The solution is formats, not agonizing. Run a \"fast lane\" post type explicitly labeled unconfirmed , and a \"verified\" format that only carries checked material — readers forgive labeled speed, never unlabeled wrongness. And make corrections a feature, not an embarrassment: when you get something wrong, post the correction in a fixed format the same day. Curators who visibly correct are trusted; curators who never correct are assumed to never check. That assumption is the only thing in curation you can't rebuild after losing it.", "articleSection": "Content", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "image": "https://fastschedulebot.github.io/Fast-Schedule/blog/img/telegram-source-curation.jpg", "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-source-curation.html", "datePublished": "2026-09-26", "dateModified": "2026-09-26", "isPartOf": {"@type": "Blog", "name": "Fast Scheduler Blog", "url": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Source Curation: How Digest Channels Find Signal Before Everyone Else", "description": "A working pipeline for curating news and links for a Telegram digest — sources, filters, attribution etiquette, and how to add a take without becoming a news feed.", "articleBody": "Digest channels (“the 5 things that mattered today”) are one of the most sustainable formats on Telegram: high perceived value, low production cost, and a natural daily rhythm. But a digest is only as good as its sourcing pipeline. Here’s how curators actually build one. Build the intake, not the willpower Follow lists, not channels. Keep a folder in Telegram of 20–40 source channels in your niche. Read the folder at a fixed time daily; mute notifications. RSS bridges — FeedBridge-style bots and RSS-to-Telegram services pipe blogs, journals and news sites into a private feed. RSS catches what channels miss. X/Reddit/HN searches for your niche keywords, skimmed once a day, supply what the first two layers missed. The filter is the product Readers don’t subscribe to access information — they have too much already. They subscribe to your filter : five items out of two hundred, with one line each on why it matters. Cap the digest at 5–7 items, ever. The moment a digest becomes long, it becomes homework, and homework gets muted. Attribution and takes Always link the original source — Telegram indexes outbound links, source channels notice the traffic and often return the favor, and readers trust curators who cite. Add one line of your own take per item: that line is the difference between a curator and a reposter. And batch the whole digest into one scheduled post at a fixed hour; a digest that arrives “roughly in the evening” trains a habit, while one that arrives whenever doesn’t. Attribution: the currency curators forget Curated digests live on other people's material, and how you credit it is a strategic choice, not a courtesy. The practice that compounds: Link the original source, always. Yes, it's an outbound link — and source channels notice referral traffic. Mid-size sources check their analytics and will mention or swap with curators who send readers. Name the finder when you didn't find it. \"(spotted in @channel)\" costs eight characters and earns a peer who'll feed you stories later. Curation is a network disguised as a channel. Add the take, carry the risk. Your one-line read on each item is the only part that's yours — and the only part that can be wrong in public. That's fine: curators with a visible stance build audiences; neutral reposters build nothing. The intake stack, concretely A working curator's intake has four parts. 1) An RSS reader (Feedly, Inoreader) holding 60–120 feeds — including your competitor digests, because you want to read what they read plus what they miss. 2) A dedicated Telegram folder with 30–50 source channels you never forward from without checking the original. 3) A capture chat: forward anything promising to a private \"inbox\" chat in one tap. 4) A weekly sweep of Hacker News and the relevant subreddits for the long tail. The inbox chat is your product backlog. If capture takes more than one tap, you'll stop by week three — curation dies of friction, not of laziness. The 5-3-1 daily cut From a full day of intake, publish the cut: 5 links that survive the question \"would my reader act on this today?\", 3 one-line takes on things you're not linking formally, 1 deep item — a teardown, a comparison, a larger curation. The volume discipline is the product: digests that fire off fifteen links a day train readers to skim; five links with context train readers to open. Readers feel the filter before they can articulate it, and your unsubscribe rate tracks every time you break the cut. When a slow news day tempts you to pad — don't. A digest that sometimes publishes less is trusted; a digest that always publishes something is ignored. Speed vs correctness — pick a lane, label it Every curator faces the dilemma: be twenty minutes early with a rumor or three hours late with a verified story. The solution is formats, not agonizing. Run a \"fast lane\" post type explicitly labeled unconfirmed , and a \"verified\" format that only carries checked material — readers forgive labeled speed, never unlabeled wrongness. And make corrections a feature, not an embarrassment: when you get something wrong, post the correction in a fixed format the same day. Curators who visibly correct are trusted; curators who never correct are assumed to never check. That assumption is the only thing in curation you can't rebuild after losing it.", "articleSection": "Content", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "image": "https://fastschedulebot.github.io/Fast-Schedule/blog/img/telegram-source-curation.webp", "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-source-curation.html", "datePublished": "2026-09-26", "dateModified": "2026-09-26", "isPartOf": {"@type": "Blog", "name": "Fast Scheduler Blog", "url": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Source Curation: How Digest Channels Find Signal Before Everyone Else", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-source-curation.html"}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20260930a2">
-  <link rel="stylesheet" href="../../styles/lang.css?v=20261002b1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261002c4">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -91,7 +93,7 @@
     .blog-cols { display: grid; grid-template-columns: minmax(0, 860px) 220px; gap: 28px;
       align-items: start; justify-content: center; }
     .blog-toc { position: sticky; top: 88px; font-size: .85rem; }
-    .blog-toc-t { font-size: .72rem; font-weight: 800;
+    .blog-toc-t { font-size: .92rem; font-weight: 800; letter-spacing: -.01em;
       color: var(--text-dim); margin: 4px 0 10px; }
     .blog-toc a { display: block; padding: 5px 10px; border-radius: 8px; color: var(--text-dim);
       border-left: 2px solid var(--border); line-height: 1.35; }
@@ -110,32 +112,23 @@
     .blog-toc-fab svg { width: 16px; height: 16px; color: var(--green-strong); }
     .blog-toc-scrim { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .3s; }
     .blog-toc-scrim.open { opacity: 1; pointer-events: auto; }
-    .blog-toc-sheet { position: fixed; left: 0; top: 0; bottom: 0; right: auto; z-index: 101; width: min(380px, 94vw);
-      display: flex; flex-direction: column; padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
-      background: var(--surface); border: 1px solid var(--border); border-left: 0;
-      border-radius: 0 18px 18px 0; box-shadow: 14px 0 38px rgba(0,0,0,.22);
-      transform: translateX(-106%); visibility: hidden; transition: transform .38s cubic-bezier(.32,.72,.35,1), visibility 0s .38s; }
+    .blog-toc-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 101; max-height: 76dvh;
+      display: flex; flex-direction: column; padding: 10px 18px calc(14px + env(safe-area-inset-bottom));
+      background: var(--surface); border: 1px solid var(--border); border-bottom: 0;
+      border-radius: 18px 18px 0 0; box-shadow: 0 -12px 34px rgba(0,0,0,.28);
+      transform: translateY(100%); visibility: hidden; transition: transform .38s cubic-bezier(.32,.72,.35,1), visibility 0s .38s; }
     .blog-toc-sheet.open { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.32,.72,.35,1); }
-    /* the nav row folds to one column inside the narrow sidebar */
-    .blog-toc-sheet .blog-toc-nav { grid-template-columns: 1fr; gap: 6px; }
-    .blog-toc-sheet .blog-toc-navc { padding: 10px 12px; }
     .blog-toc-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 10px; font-weight: 800; font-size: 1.05rem; flex: none; }
     .blog-toc-nav { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 8px; margin: 0 0 12px; flex: none; }
     .blog-toc-navc { display: block; min-width: 0; padding: 9px 11px; border: 1px solid var(--border); border-radius: 12px;
       background: color-mix(in srgb, var(--surface-2) 55%, transparent); text-decoration: none; color: var(--text); position: relative; }
-    .blog-toc-navc small { display: block; font-size: .66rem; font-weight: 700; color: var(--text-dim); }
+    .blog-toc-navc small { display: block; font-size: .76rem; font-weight: 700; letter-spacing: 0; color: var(--text-dim); }
     .blog-toc-navc b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .8rem; line-height: 1.3; margin-top: 3px; }
     .blog-toc-navc svg { position: absolute; right: 8px; top: 50%; translate: 0 -50%; width: 14px; height: 14px; color: var(--text-dim); }
     a.blog-toc-navc:hover { text-decoration: none; border-color: var(--green); }
     .blog-toc-navc.cur { background: color-mix(in srgb, var(--green) 8%, transparent); border-color: color-mix(in srgb, var(--green) 35%, var(--border)); }
     .blog-toc-navc.cur b { -webkit-line-clamp: 3; }
     .blog-toc-navc.none { border-style: dashed; opacity: .6; }
-    .blog-toc-navd { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-      margin-top: 5px; font-size: .72rem; line-height: 1.45; color: var(--text-dim); font-weight: 500; }
-    .blog-toc-navc.cur .blog-toc-navd { display: none; }
-    .blog-toc-navc.none { display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 9px 11px; }
-    .blog-toc-navc.none small { display: block; -webkit-line-clamp: unset; }
     .blog-toc-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; border-left: 2px dotted var(--border); margin: 4px 0 4px 6px; padding: 0 0 0 4px; }
     .blog-toc-list li { list-style: none; }
     .blog-toc-list a { display: block; padding: 9px 0 9px 16px; color: var(--text); font-weight: 650; font-size: .93rem; position: relative; }
@@ -180,12 +173,11 @@
     .bcard { display: flex; flex-direction: column; min-width: 0; overflow: hidden;
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       color: var(--text); text-decoration: none;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-    .bcard:hover { border-color: var(--green); box-shadow: var(--shadow-sm);
+      transition: border-color .2s ease; }
+    .bcard:hover { border-color: var(--green);
       text-decoration: none; }
     .bcard-cover { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
     .bcard-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .bcard:hover .bcard-cover img { transform: none; }
     .bcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 16px 18px 18px; }
     .bcard-body b { font-size: 1rem; line-height: 1.35; letter-spacing: -.01em; }
     .bcard-desc { color: var(--text-dim); font-size: .88rem; line-height: 1.5; }
@@ -276,8 +268,8 @@
     .hc-pager svg { flex: none; width: 17px; height: 17px; color: var(--text-dim); }
     .hc-pager small { display: block; font-size: .78rem; font-weight: 650; color: var(--text-dim); }
     .hc-pager a span { min-width: 0; flex: 1 1 auto; }
-    .hc-pager b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-      font-size: .9rem; margin-top: 2px; max-width: 100%; overflow-wrap: break-word; }
+    .hc-pager b { display: block; font-size: .9rem; margin-top: 2px; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
     @media (max-width: 640px) {
       .hc-pager { gap: 9px; }
       .hc-pager a { padding: 12px 13px; gap: 9px; }
@@ -292,9 +284,18 @@
     .hc-faq summary { cursor: pointer; list-style: none; padding: 13px 0; font-weight: 650; font-size: .95rem;
       display: flex; justify-content: space-between; gap: 14px; align-items: center; }
     .hc-faq summary::-webkit-details-marker { display: none; }
-    .hc-faq summary::after { content: "+"; font-size: 1.3rem; color: var(--green-strong);
-      transition: transform .25s; flex: none; }
-    .hc-faq details[open] summary::after { transform: rotate(45deg); }
+    /* drawn plus (two bars, one shared center) instead of a "+" glyph:
+       glyphs rotate off-center and the open-state x looks broken. Both
+       bars spin together into a clean x. */
+    .hc-faq summary { position: relative; padding-right: 28px; }
+    .hc-faq summary::before, .hc-faq summary::after {
+      content: ""; position: absolute; top: 50%; background: var(--green-strong);
+      border-radius: 2px; transition: transform .25s var(--ease-spring, ease);
+    }
+    .hc-faq summary::before { right: 1px; width: 14px; height: 2px; transform: translateY(-50%); }
+    .hc-faq summary::after { right: 7px; width: 2px; height: 14px; transform: translateY(-50%); }
+    .hc-faq details[open] summary::before,
+    .hc-faq details[open] summary::after { transform: translateY(-50%) rotate(135deg); }
     .hc-fa { padding: 0 0 16px; }
     .hc-fa p { margin: 0 0 8px; color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
     .hc-cta {
@@ -318,82 +319,108 @@
 
     /* settings menu help popover reuses .help-menu rules from main.css */
 
-  
-    /* ===== Desktop reading experience (editorial layout) =====
-       Wide, calm article page: huge centered headline, centered meta row,
-       generous measure. Mobile layout is untouched — everything below applies
-       at >=1141px only (where the side TOC rail exists). */
-    @media (min-width: 1141px) {
-      .blog-doc {
-        background: transparent; border: 0; box-shadow: none; border-radius: 0;
-        padding: 0; max-width: 980px; margin: 0 auto;
-      }
-      .blog-doc h1 {
-        font-size: clamp(2.6rem, 4.2vw, 3.6rem); line-height: 1.08;
-        letter-spacing: -.03em; text-align: center; max-width: 20ch;
-        margin: 26px auto 0; font-weight: 800;
-      }
-      .blog-byline {
-        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-        gap: 6px 14px; font-size: .95rem; margin: 22px auto 0; max-width: 760px;
-      }
-      .blog-doc-cover { margin: 34px auto 8px; max-width: 980px; border-radius: 16px; }
-      .blog-doc .hc-body { margin-top: 34px; }
-      .blog-doc .hc-body > p:first-of-type {
-        font-size: 1.16rem; line-height: 1.75; color: var(--text);
-      }
-      .blog-doc .hc-body p { font-size: 1.06rem; line-height: 1.78; margin: 0 0 18px; }
-      .blog-doc .hc-body h3 {
-        font-size: 1.5rem; letter-spacing: -.02em; margin: 44px 0 14px; line-height: 1.25;
-      }
-      .blog-doc .hc-body ul { margin: 0 0 18px; }
-      .blog-doc .hc-body li { font-size: 1.06rem; line-height: 1.75; margin-bottom: 8px; }
-      .blog-cols { grid-template-columns: minmax(0, 980px) 240px; gap: 44px; }
-    }
+    /* ---- hub hero panel (light touch: rounded container, like modern blogs) ---- */
+    .blog-hero-panel { margin-top: 4px; border-radius: 24px; padding: clamp(26px, 4vw, 44px);
+      background: color-mix(in srgb, var(--green) 7%, var(--surface));
+      border: 1px solid var(--border); }
+    .blog-hero-panel h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 10px;
+      letter-spacing: -.03em; color: var(--text); }
+    .blog-hero-panel .lead { color: var(--text-dim); font-size: 1.02rem; line-height: 1.6;
+      max-width: 640px; margin: 0 0 6px; }
+    .blog-hero-panel .blog-search { position: static; margin: 20px 0 0; max-width: 640px; }
+    .blog-kindtabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+    .blog-kindtab { font: inherit; font-size: .9rem; font-weight: 750; color: var(--text-dim);
+      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+      padding: 9px 20px; cursor: pointer; transition: color .18s, border-color .18s, background .18s; }
+    .blog-kindtab:hover { color: var(--green-strong);
+      border-color: color-mix(in srgb, var(--green) 50%, transparent); }
+    .blog-kindtab.on { color: #fff; background: var(--green-strong); border-color: var(--green-strong); }
+    .blog-kindtab .cnt { font-size: .78em; font-weight: 650; opacity: .65; margin-left: 4px; }
+    .bcard-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem;
+      font-weight: 800; letter-spacing: 0;
+      color: var(--green-strong); }
+    .bcard-kicker.news { color: #b07a1e; }
+    html[data-theme="dark"] .bcard-kicker.news { color: #e0aa4e; }
+    .blog-sec[data-kind="news"] > h2::after { content: '•  News'; font-size: .72rem; font-weight: 800;
+      letter-spacing: 0; color: #b07a1e; margin-left: 10px; }
 
-    /* mobile: "Keep reading" shows 3 suggestions; desktop shows all */
-    .hc-chip.mob-extra { display: none; }
-    @media (min-width: 761px) {
-      .hc-chip.mob-extra { display: inline-flex; }
+    /* ---- keep-reading show more/less ---- */
+    .hc-chips.is-collapsed .hc-chip:nth-child(n+4) { display: none; }
+    .hc-chips.is-expanded .hc-chip:nth-child(n+4) { animation: hcMoreIn .35s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes hcMoreIn { from { opacity: 0; transform: translateY(8px); } }
+    .hc-more { display: inline-flex; align-items: center; gap: 8px; margin: 12px 0 0; font: inherit;
+      font-size: .88rem; font-weight: 700; color: var(--green-strong); background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px; padding: 9px 18px; cursor: pointer; }
+    /* docked to the right end of the chips row, beside the last chip */
+    .hc-chips.has-more { align-items: center; }
+    .hc-chips > .hc-more { margin: 0 0 0 auto; align-self: center; flex: none; }
+    .hc-more:hover { border-color: var(--green); }
+    .hc-more[hidden] { display: none; }
+
+    /* ---- reader settings (settings menu: Wide / Article navigation / Font) ---- */
+    .gp-reading[hidden] { display: none !important; }
+    @media (max-width: 1020px) {
+      #settingsMenu [data-blog-wide], #settingsMenu [data-blog-rail] { display: none !important; }
     }
-</style>
-<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261001b1">
+    .gp-row.gp-fonts { cursor: default; }
+    .hc-fonts { display: inline-flex; align-items: baseline; gap: 2px; margin-left: auto; }
+    .hc-fonts button { font: inherit; background: none; border: 0; cursor: pointer; color: var(--text-dim);
+      padding: 3px 8px; border-radius: 8px; font-weight: 800; line-height: 1; }
+    .hc-fonts button:hover { color: var(--green-strong); }
+    .hc-fonts button.on { color: #fff; background: var(--green-strong); }
+    .hc-fonts button:nth-child(1) { font-size: .78rem; }
+    .hc-fonts button:nth-child(2) { font-size: .95rem; }
+    .hc-fonts button:nth-child(3) { font-size: 1.12rem; }
+    html[data-blogfont="s"] .blog-doc .hc-body { font-size: .88rem; }
+    html[data-blogfont="l"] .blog-doc .hc-body { font-size: 1.12rem; }
+    html.blog-wide .blog-cols { grid-template-columns: minmax(0, 1fr); }
+    html.blog-wide .blog-toc { display: none; }
+    html.blog-wide .blog-doc { max-width: 960px; margin: 0 auto; width: 100%; }
+    html.rail-off .blog-cols { grid-template-columns: minmax(0, 1fr); }
+    html.rail-off .blog-toc { display: none; }
+    /* ---- liquid-glass section reel: floating prev/current/next ---- */
+    .blog-reel { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 90;
+      transform: translateX(-50%) translateY(24px); width: min(340px, calc(100vw - 32px));
+      border-radius: 18px; padding: 10px 16px 12px; opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s cubic-bezier(.22,.61,.36,1);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 62%, transparent), color-mix(in srgb, var(--surface-2) 45%, transparent));
+      -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid color-mix(in srgb, #fff 22%, var(--border));
+      box-shadow: 0 12px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18); overflow: hidden; }
+    .blog-reel.show { opacity: 1; pointer-events: auto; transform: translateX(-50%); }
+    .blog-reel::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.14) 45%, transparent 60%);
+      transform: translateX(-110%); animation: reelSheen 7s ease-in-out infinite; }
+    @keyframes reelSheen { 0%, 72% { transform: translateX(-110%); } 88%, 100% { transform: translateX(110%); } }
+    .blog-reel button { display: block; width: 100%; background: none; border: 0; padding: 0; font: inherit;
+      color: var(--text-dim); cursor: pointer; text-align: center; }
+    .blog-reel button span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .blog-reel [data-reel-prev] span, .blog-reel [data-reel-next] span { font-size: .74rem; font-weight: 600; opacity: .75; }
+    .blog-reel [data-reel-cur] { margin: 2px 0; }
+    .blog-reel [data-reel-cur] span { font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--text); }
+    .blog-reel [data-reel-cur]::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); margin: 0 auto 4px; box-shadow: 0 0 8px var(--green); }
+    .blog-reel.swap [data-reel-cur] span { animation: reelSwap .32s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes reelSwap { 0% { opacity: 0; transform: translateY(10px) scale(.94); } 60% { opacity: 1; transform: translateY(-1px) scale(1.02); } 100% { opacity: 1; transform: none; } }
+    html[data-motion="off"] .blog-reel::after, html[data-motion="off"] .blog-reel.swap [data-reel-cur] span { animation: none; }
+
+  </style>
 </head>
 <body class="blog">
-<header class="site">
-  <div class="wrap nav">
-    <a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a>
-    <a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Blog</a>
-    <a class="nav-link" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Help Center</a>
-    <a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span></a>
-    <span class="settings-wrap">
-      <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
-        <div class="gp-head">Settings</div>
+<header class="site"><div class="wrap nav nav-unified"><div class="nav-group nav-left"><a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a><span class="settings-wrap"><button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings"><div class="gp-head">Settings</div>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="false" id="rowDark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark mode</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowAnim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Animations</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowFx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span></button>
         <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+        <div class="gp-row gp-fonts" data-fonts><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
+        <div class="gp-sep gp-reading" data-blog-reading></div>
+          <div class="gp-head gp-reading" data-blog-reading>Reading</div>
+          <button type="button" class="gp-row gp-reading" data-blog-reading role="menuitemcheckbox" aria-checked="false" data-blog-wide><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span>Wide format</span><span class="io-switch" aria-hidden="true"></span></button>
+          <button type="button" class="gp-row gp-reading" data-blog-reading role="menuitemcheckbox" aria-checked="true" data-blog-rail><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Article navigation</span><span class="io-switch" aria-hidden="true"></span></button>
+          <div class="gp-row gp-fonts" data-fonts><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
         <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
         <div class="gp-sep" role="separator"></div>
-        <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-          <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
-            <form class="help-search" id="helpSearchForm" role="search">
-              <svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
-            </form>
-            <div class="help-recent">
-              <div class="help-recent-title" id="helpRecentTitle">Popular articles</div>
-              <div class="help-recent-list" id="helpRecentList"></div>
-            </div>
-            <a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-          </div>
-        </span>
-        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span></a>
-      </div>
-    </span>
-  </div>
-</header>
+        <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Support chat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="brand" href="../../index.html" aria-label="Fast Scheduler — home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="brand-full">Fast Scheduler</span></a></div><div class="nav-group nav-right"><a class="nav-link" href="../../blog/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span>Blog</span></a><span class="site-menu-wrap"><a class="nav-link site-menu-row" role="menuitem" href="../../help.html" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help Center</span></a><div class="glass-pop site-menu-pop help-menu nav-menu-pop" id="siteMenu" role="menu" aria-label="Help center quick search"><form class="help-search" id="helpSearchForm" role="search"><svg class="sic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center"></form><div class="help-recent"><div class="help-recent-title" id="helpRecentTitle">Popular articles</div><div class="help-recent-list" id="helpRecentList"></div></div><a class="gp-row help-menu-open" role="menuitem" href="../../help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a></div></span><a class="btn btn-primary nav-cta" href="https://t.me/FastSchedulerBot?start=start__blog" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Open Bot</span><kbd class="tab-kbd" aria-hidden="true">B</kbd></a></div></div></header>
 <main class="legal">
 <div class="blog-cols">
   <div>
@@ -411,18 +438,20 @@
 </div>
     <article class="blog-doc">
       <h1>Source Curation: How Digest Channels Find Signal Before Everyone Else</h1>
-      <p class="blog-byline">Content · September 26, 2026 · 4 min read · Fast Scheduler team</p>
-      <figure class="blog-doc-cover"><img src="../img/telegram-source-curation.jpg" alt="" width="1200" height="675" loading="eager" onerror="this.parentNode.style.display='none'"></figure>
+      <p class="blog-byline">Articles · Content · September 26, 2026 · 4 min read · Fast Scheduler team</p>
+      <figure class="blog-doc-cover"><img src="../img/telegram-source-curation.webp" alt="" width="1200" height="675" loading="eager" onerror="this.parentNode.style.display='none'"></figure>
       <div class="hc-body"><p>Digest channels (“the 5 things that mattered today”) are one of the most sustainable formats on Telegram: high perceived value, low production cost, and a natural daily rhythm. But a digest is only as good as its sourcing pipeline. Here’s how curators actually build one.</p><h3 id="s-build-the-intake-not-the-willpower">Build the intake, not the willpower</h3><ul><li><b>Follow lists, not channels.</b> Keep a folder in Telegram of 20–40 source channels in your niche. Read the folder at a fixed time daily; mute notifications.</li><li><b>RSS bridges</b> — FeedBridge-style bots and RSS-to-Telegram services pipe blogs, journals and news sites into a private feed. RSS catches what channels miss.</li><li><b>X/Reddit/HN searches</b> for your niche keywords, skimmed once a day, supply what the first two layers missed.</li></ul><h3 id="s-the-filter-is-the-product">The filter is the product</h3><p>Readers don’t subscribe to access information — they have too much already. They subscribe to your <i>filter</i>: five items out of two hundred, with one line each on why it matters. Cap the digest at 5–7 items, ever. The moment a digest becomes long, it becomes homework, and homework gets muted.</p><h3 id="s-attribution-and-takes">Attribution and takes</h3><p>Always link the original source — Telegram indexes outbound links, source channels notice the traffic and often return the favor, and readers trust curators who cite. Add one line of your own take per item: that line is the difference between a curator and a reposter. And batch the whole digest into one scheduled post at a fixed hour; a digest that arrives “roughly in the evening” trains a habit, while one that arrives whenever doesn’t.</p><h3 id="s-attribution-the-currency-curators-forget">Attribution: the currency curators forget</h3><p>Curated digests live on other people's material, and how you credit it is a strategic choice, not a courtesy. The practice that compounds:</p><ul><li><b>Link the original source, always.</b> Yes, it's an outbound link — and source channels notice referral traffic. Mid-size sources check their analytics and will mention or swap with curators who send readers.</li><li><b>Name the finder when you didn't find it.</b> "(spotted in @channel)" costs eight characters and earns a peer who'll feed you stories later. Curation is a network disguised as a channel.</li><li><b>Add the take, carry the risk.</b> Your one-line read on each item is the only part that's yours — and the only part that can be wrong in public. That's fine: curators with a visible stance build audiences; neutral reposters build nothing.</li></ul><h3 id="s-the-intake-stack-concretely">The intake stack, concretely</h3><p>A working curator's intake has four parts. <b>1)</b> An RSS reader (Feedly, Inoreader) holding 60–120 feeds — including your competitor digests, because you want to read what they read plus what they miss. <b>2)</b> A dedicated Telegram folder with 30–50 source channels you never forward from without checking the original. <b>3)</b> A capture chat: forward anything promising to a private "inbox" chat in one tap. <b>4)</b> A weekly sweep of Hacker News and the relevant subreddits for the long tail. The inbox chat is your product backlog. If capture takes more than one tap, you'll stop by week three — curation dies of friction, not of laziness.</p><h3 id="s-the-5-3-1-daily-cut">The 5-3-1 daily cut</h3><p>From a full day of intake, publish the cut: <b>5</b> links that survive the question "would my reader act on this today?", <b>3</b> one-line takes on things you're not linking formally, <b>1</b> deep item — a teardown, a comparison, a larger curation. The volume discipline is the product: digests that fire off fifteen links a day train readers to skim; five links with context train readers to open. Readers feel the filter before they can articulate it, and your unsubscribe rate tracks every time you break the cut. When a slow news day tempts you to pad — don't. A digest that sometimes publishes less is trusted; a digest that always publishes something is ignored.</p><h3 id="s-speed-vs-correctness-pick-a-lane-label-it">Speed vs correctness — pick a lane, label it</h3><p>Every curator faces the dilemma: be twenty minutes early with a rumor or three hours late with a verified story. The solution is formats, not agonizing. Run a "fast lane" post type explicitly labeled <i>unconfirmed</i>, and a "verified" format that only carries checked material — readers forgive labeled speed, never unlabeled wrongness. And make corrections a feature, not an embarrassment: when you get something wrong, post the correction in a fixed format the same day. Curators who visibly correct are trusted; curators who never correct are assumed to never check. That assumption is the only thing in curation you can't rebuild after losing it.</p></div>
       
       <div class="blog-moreq"><a href="../index.html#cat=content">More on this topic<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips"><a class="hc-chip" href="telegram-post-formatting-guide.html"><span>How to Format Telegram Posts Like a Professional Editor</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-content-calendar.html"><span>The Telegram Content Calendar: How to Plan a Month of Posts in One Evening</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-polls-guide.html"><span>How to Use Polls in a Telegram Channel (They’re Underrated)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="schedule-posts-with-photos-and-video.html"><span>Scheduling Media Posts in Telegram: Photos, Albums, Video and the Limits</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="telegram-fonts-and-rich-text.html"><span>Telegram Formatting Secrets: Bold, Monospace, Spoilers and Custom Emoji</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip mob-extra" href="telegram-video-content-guide.html"><span>Video in Telegram Channels: Formats, Sizes, Views and What Actually Gets Watched</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="hc-related"><h2>Keep reading</h2><div class="hc-chips" data-chips-more><a class="hc-chip" href="telegram-post-formatting-guide.html"><span>How to Format Telegram Posts Like a Professional Editor</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-content-calendar.html"><span>The Telegram Content Calendar: How to Plan a Month of Posts in One Evening</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-polls-guide.html"><span>How to Use Polls in a Telegram Channel (They’re Underrated)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="schedule-posts-with-photos-and-video.html"><span>Scheduling Media Posts in Telegram: Photos, Albums, Video and the Limits</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-fonts-and-rich-text.html"><span>Telegram Formatting Secrets: Bold, Monospace, Spoilers and Custom Emoji</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="hc-chip" href="telegram-video-content-guide.html"><span>Video in Telegram Channels: Formats, Sizes, Views and What Actually Gets Watched</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div><button type="button" class="hc-more" data-more hidden><span data-more-t>Show more</span><span data-less-t hidden>Show less</span></button></div>
     </article>
+    <nav class="hc-pager" aria-label="More articles"><a class="hc-card next" href="../index.html"><span><small>All articles</small><b>Back to the Blog</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></nav>
     <div class="hc-cta"><div><b>Posting on a schedule?</b><p>Fast Scheduler batch-schedules weeks of Telegram posts in one chat — free to start, posts from your own bot.</p></div>
     <a class="btn" href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Try Fast Scheduler</a></div>
   </div>
   <nav class="blog-toc" aria-label="On this page"><div class="blog-toc-t">On this page</div><a href="#s-build-the-intake-not-the-willpower">Build the intake, not the willpower</a><a href="#s-the-filter-is-the-product">The filter is the product</a><a href="#s-attribution-and-takes">Attribution and takes</a><a href="#s-attribution-the-currency-curators-forget">Attribution: the currency curators forget</a><a href="#s-the-intake-stack-concretely">The intake stack, concretely</a><a href="#s-the-5-3-1-daily-cut">The 5-3-1 daily cut</a><a href="#s-speed-vs-correctness-pick-a-lane-label-it">Speed vs correctness — pick a lane, label it</a><div class="blog-toc-back"><a href="../index.html">← All articles</a></div></nav>
 </div>
+<div class="blog-reel" data-blog-reel hidden aria-hidden="true"><button type="button" data-reel-prev tabindex="-1"><span></span></button><button type="button" data-reel-cur tabindex="-1"><span></span></button><button type="button" data-reel-next tabindex="-1"><span></span></button></div>
 </main>
 <footer class="site">
   <div class="wrap foot">
@@ -437,42 +466,17 @@
     </nav>
   </div>
 </footer>
-<script>/* href -> one-line description, consumed by the mobile Contents sheet prev/next cards */
-window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A current, honest walkthrough of creating a Telegram channel in 2026 — settings most guides skip, the first five posts that matter, and how…", "reach-1000-subscribers-telegram.html": "A practical playbook for the hardest part of Telegram growth: the first 1,000 subscribers. Seeding loops, swap etiquette, comment tactics, a…", "best-time-to-post-telegram.html": "Real posting windows by audience type, why local time beats global advice, how to run a one-week A/B test with scheduled posts, and the one…", "telegram-channel-ideas.html": "Not just ideas — the niches with proven retention on Telegram, how to pick a lane you can sustain, and the positioning formula that separate…", "grow-telegram-channel-from-zero.html": "A week-by-week 90-day plan to grow a Telegram channel from zero: content phases, first swaps, metrics to track weekly, and the retention tra…", "telegram-seo-and-discovery.html": "Where Telegram search actually looks, why Google indexes public channels, the directory and catalog landscape (TGStat, Telemetr, Telegramic)…", "cross-promotion-telegram-swaps.html": "How channel swaps really work: finding partners via TGStat/Telemetr, writing posts that convert, pricing paid promos on Telega.in, the etiqu…", "telegram-channel-mistakes.html": "The mistakes that don’t announce themselves: stacking posts, dead-hour publishing, caption walls, fake-subscriber temptations, ignoring the…", "telegram-niche-research.html": "A data-first niche validation routine: TGStat/Telemetr catalogs, engagement-rate math, gap analysis, and the 10-question checklist that pred…", "telegram-for-local-business.html": "Why local channels outperform local social pages: geo search, neighborhood mechanics, what to post between promos, and the booking/notificat…", "telegram-channel-migration.html": "Changing a channel’s identity the safe way: renames that keep subscribers, the merge problem (Telegram has no merge), redirect channels, con…", "telegram-advertising-guide.html": "Where to buy posts (Telega.in, direct deals, Telegram Ads), what promo posts convert, how to price them, and how to tell a real channel from…", "telegram-subscriber-retention.html": "The real reasons people mute or leave Telegram channels — posting walls, bait-and-switch, dead months — and the retention habits that keep a…", "telegram-referral-programs.html": "Bot-based referral rewards, shareable invite mechanics, and the honest math on what referral growth costs — plus the failure modes that turn…", "telegram-channel-name-ideas.html": "60+ Telegram channel name ideas by niche, the 5 rules behind names that get found in search, and the naming mistakes that quietly cost subsc…", "telegram-channel-description-examples.html": "25 Telegram channel description examples you can adapt, the 120-character formula that converts visitors, and what the description field act…", "telegram-channel-for-youtubers.html": "How YouTubers use Telegram channels to own their audience: what to post between uploads, launch workflows, and why Telegram beats link-in-bi…", "telegram-analytics-mistakes.html": "The reading errors behind most bad channel decisions — judging posts at the wrong hour, trusting subscriber counts, comparing channels that…", "telegram-channel-teardown.html": "A structural teardown of a mid-size channel that outperforms its size class — publishing rhythm, ERR discipline, monetization spacing and th…", "fast-scheduler-referral-program-beta.html": "How the <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a> referral program works: why unlocking needs a connected channel plus one scheduled message, how both sides earn 3 Pre…", "telegram-post-formatting-guide.html": "Telegram formatting that lifts view rates: bold discipline, emoji as section markers, captions that don’t truncate, link previews, and the l…", "telegram-content-calendar.html": "A repeatable batching workflow for Telegram channels: theme slots, the capture pipeline, writing in batches, and queueing a month ahead with…", "telegram-polls-guide.html": "Polls are Telegram’s cheapest engagement engine: anonymous vs public votes, quiz mode, un/quizzes in channels vs groups, 12 question-type tr…", "schedule-posts-with-photos-and-video.html": "Media-grouping rules, the 10MB/50MB/2GB video ceilings, albums vs single photos, media storage for reused assets, and how scheduling bots ha…", "telegram-fonts-and-rich-text.html": "Every text entity Telegram supports — including the ones the mobile composer hides — plus markdown shortcuts, custom emoji packs for channel…", "telegram-video-content-guide.html": "Video mechanics for channels: autoplay and compression, size ceilings for bots, circles vs regular video, length sweet spots by niche, and s…", "telegram-content-pillars.html": "How to structure a channel around 3–5 recurring post types — value, proof, community, offer — so you never stare at an empty composer again.", "telegram-series-and-serialized-posts.html": "Why multi-part posts and numbered series keep subscribers checking the channel daily — formats, pacing, and how to schedule a series without…", "telegram-source-curation.html": "A working pipeline for curating news and links for a Telegram digest — sources, filters, attribution etiquette, and how to add a take withou…", "telegram-for-newsletters.html": "Should your newsletter move to Telegram? Open rates compared, the migration playbook, what you lose without email, and the hybrid setup that…", "telegram-channel-art-and-branding.html": "Telegram channel branding that survives a 40px avatar: logo design rules, cover images, color systems, custom emoji and consistent post styl…", "telegram-emoji-reactions-guide.html": "How Telegram reactions work for channels — custom packs, default sets, what the counts mean — and how to use them to lift engagement honestl…", "telegram-channel-content-ideas-by-niche.html": "90 proven Telegram post formats organized by niche — jobs, dev, local business, deals, education, news — with the weekly rhythm each one sup…", "telegram-bots-for-channel-owners.html": "The actual bot stack behind successful Telegram channels — named: BotFather, ManyBot, ControllerBot, Combot, Rose, Shieldy, FeedBridge-style…", "automate-telegram-channel-workflow.html": "The automation stack for serious channels — named: schedulers (ManyBot, ControllerBot, <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a>), RSS bridges, moderation bots, analyt…", "how-to-create-a-telegram-bot.html": "BotFather from zero: /newbot, tokens, descriptions and avatars, commands, privacy mode, inline mode — and what you can realistically build w…", "telegram-analytics-tools-compared.html": "What each analytics layer actually measures — TGStat’s ERR and citation index, Telemetr’s ad analytics, Combot for groups, and built-in sche…", "telegram-bot-commands-cheatsheet.html": "The commands that actually matter across the tools you already use: BotFather essentials, scheduling basics, TGStat lookups, moderation stap…", "telegram-rss-bots.html": "How RSS bridge bots turn any feed into channel posts — setup, filtering, rate limits, and the two rules that keep automated feeds from killi…", "telegram-moderation-bots.html": "The moderation stack for linked discussion groups — anti-spam, captcha, caps and link filters, warning systems — and how to configure them w…", "telegram-scheduler-comparison.html": "A practical comparison of ways to schedule Telegram posts in 2026 — the native composer, ManyBot, ControllerBot, <a href="https://t.me/FastSchedulerBot?start=start__blog_post" target="_blank" rel="noopener">Fast Scheduler</a> and self-hos…", "telegram-channel-stats-explained.html": "What Telegram channel stats actually measure — views vs reach, reactions, forwards, notification modes — and the numbers that matter for gro…", "telegram-botfather-commands-full-list.html": "Every BotFather command explained — /newbot to /setuserpic — plus the settings that matter for channel bots and the ones you can safely igno…", "telegram-auto-forward-and-crosspost.html": "Auto-forward posts between Telegram channels, cross-post to Twitter/X, Discord and RSS — every working method with limits and gotchas.", "telegram-bot-development-no-code.html": "What you can genuinely build with no-code Telegram bot platforms in 2026 — constructors, flows, Mini Apps — where the ceiling is, and when c…", "telegram-automation-guide-2026.html": "Every automation layer a Telegram channel can have — scheduling, feeds, moderation, cross-posting, analytics — with the architecture that st…", "telegram-verification-and-scams.html": "How Telegram verification works in 2026, how scammers fake channels and admins, and the checks that protect your audience — and your channel…", "telegram-premium-for-channels.html": "What Telegram Premium actually does for channels — stickers, boosts, custom emoji, transcriptions — and which premium features are worth car…", "telegram-mini-apps.html": "What Mini Apps are, why they matter for channels, and the no-code and low-code ways to add shop fronts, quizzes and tools to a channel in 20…", "how-to-get-telegram-premium-free.html": "Every legitimate way to get Telegram Premium free — giveaways, fragment discounts, trial offers — and how fake “free premium” scams actually…", "telegram-dark-mode-and-ui-tips.html": "Telegram dark mode done properly: theme editor, accent colors, chat folders, custom wallpapers and the UI tweaks that make Telegram yours.", "telegram-channel-vs-group.html": "The real differences that matter in 2026 — who can post, subscriber limits, comments, discoverability — and why the winning setup for most c…", "telegram-bot-safety.html": "How bot permissions really work — admin rights, bot tokens from BotFather, privacy mode — a channel owner’s checklist for connecting tools l…", "telegram-algorithm-explained.html": "The honest answer about Telegram’s recommendation system: what it ranks, why views drop after posting, where “Similar channels” come from, a…", "telegram-privacy-for-channel-owners.html": "What subscribers can see about you: phone number, last seen, profile photos, forwards and your personal account — the settings that separate…", "telegram-comments-and-discussion-groups.html": "Linked groups explained: posting as the channel, moderation stacks with Combot/Rose/Shieldy, slow mode, comment etiquette, and the formats t…", "telegram-groups-vs-whatsapp-vs-discord.html": "Telegram vs WhatsApp vs Discord compared for community builders: member limits, discoverability, bots, moderation tools and the honest verdi…", "how-to-delete-or-pause-telegram-channel.html": "How to delete a Telegram channel safely, what “pausing” really looks like, how to hand channels to a new owner, and what subscribers see in…", "telegram-community-management.html": "Running a Telegram community that survives growth: culture-setting in the first 90 days, moderation ladders, conflict triage, rituals that r…", "monetize-telegram-channel.html": "Ads via Telega.in, swaps-for-money, Stars, paid subscriptions, affiliate and your own product — real revenue expectations, when each model b…", "telegram-crypto-payments.html": "The payment rails available inside Telegram in 2026 — CryptoBot invoices, Stars, external processors — with the fee, tax and scam notes owne…", "telegram-paid-subscriptions.html": "How to gate content behind a subscription in 2026 — Telegram Stars channel subscriptions, invite-link bots, and the pricing and churn realit…", "telegram-affiliate-marketing.html": "How affiliate income actually works in Telegram channels — disclosure, link strategy, conversion realities, and why the trust tax punishes s…", "telegram-stars-for-channel-owners.html": "Stars from the owner side: paid posts, channel subscriptions, gifts, withdrawal realities, pricing psychology, and how Stars compare to Cryp…", "sell-products-in-telegram.html": "The no-website sales stack: CryptoBot invoices, Stars paid content, order-taking bots, catalog bots, payment flow patterns that work in chan…", "telegram-sponsorships.html": "How channels land sponsors directly — media kits, rate cards, placement formats, and the delivery report that keeps advertisers renewing.", "telegram-channel-for-crypto-signals.html": "Running a crypto signals channel honestly: what regulators expect, how to prove track records, pricing models and the scams ruining the nich…", "telegram-monetization-mistakes.html": "The money decisions that destroy channels in hindsight — launching too early, pricing from subscriber count, the discount spiral, mixed paym…"};</script>
 <script src="../../scripts/theme.js?v=20260930a1"></script>
-<script defer src="../../scripts/nav-hide.js?v=20260930a2"></script>
-<script defer src="../../scripts/article-nav.js?v=20260930a2"></script>
-<script defer src="../../scripts/settings.js?v=20260930a1"></script>
-  <script defer src="../../scripts/ru-chrome.js?v=20261002b1"><script defer src="../../scripts/lang.js?v=20261002b1"></script>
-<script defer src="../../scripts/help-search.js?v=20260930a1"></script>
-<script defer src="../../scripts/hotkeys-modal.js?v=20260930a1"></script>
-<script defer src="../../scripts/hotkeys.js?v=20260930a1"></script>
-<script defer src="../../scripts/scroll-jump.js?v=20260930a1"></script>
+<script src="../../scripts/settings.js?v=20261002c3"></script>
+  </script><script src="../../scripts/ru-chrome.js?v=20261002c2"></script><script src="../../scripts/lang.js?v=20261002c2"></script>
+<script src="../../scripts/help-search.js?v=20260930a1"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20260930a2"></script>
+<script src="../../scripts/hotkeys.js?v=20260930a2"></script>
+<script src="../../scripts/scroll-jump.js?v=20260930a1"></script>
 <script>
 /* Mobile Contents sheet: pill opens/closes, scrim + Esc + link tap close. */
 (function () {
   'use strict';
-  /* Decorate prev/next cards with the article's first sentence (the same
-     description the hub cards show). Data comes from the hub page through
-     the cards' data-search attribute (title + description baked in). */
-  function decorateNavCards(scope) {
-    var cards = scope.querySelectorAll('.blog-toc-navc.prev, .blog-toc-navc.next');
-    cards.forEach(function (card) {
-      if (card.dataset.decorated) return;
-      card.dataset.decorated = '1';
-      var href = card.getAttribute('href');
-      var desc = (window.BLOG_DESCRIPTIONS && window.BLOG_DESCRIPTIONS[href]) || '';
-      if (!desc) {
-        var chip = document.querySelector('.hc-chip[href="' + href + '"] span');
-        if (chip) desc = chip.textContent;
-      }
-      if (!desc) desc = 'Open this article';
-      var d = document.createElement('span');
-      d.className = 'blog-toc-navd';
-      d.textContent = desc;
-      card.appendChild(d);
-    });
-  }
   function parts() {
     return {
       sheet: document.querySelector('[data-blog-toc-sheet]'),
@@ -481,7 +485,6 @@ window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A curre
   }
   function open(scrim, sheet) {
     if (!sheet) return;
-    decorateNavCards(sheet);
     sheet.hidden = false; scrim.hidden = false;
     void sheet.offsetWidth;
     sheet.classList.add('open'); scrim.classList.add('open');
@@ -498,23 +501,44 @@ window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A curre
     if (e.target.classList && e.target.classList.contains('blog-toc-scrim')) { close(p.scrim, p.sheet); return; }
     if (p.sheet && !p.sheet.hidden && e.target.closest && e.target.closest('.blog-toc-list a')) close(p.scrim, p.sheet);
   });
+  /* keep-reading show more / less */
+  (function () {
+    function setup() {
+      document.querySelectorAll('[data-chips-more]').forEach(function (box) {
+        var btn = box.querySelector(':scope > [data-more]') || box.nextElementSibling;
+        var need = box.querySelectorAll('.hc-chip').length > 3;
+        box.classList.toggle('is-collapsed', need);
+        if (btn && btn.hasAttribute('data-more')) {
+          if (need) { box.classList.add('has-more'); if (btn.parentElement !== box) box.appendChild(btn); }
+          btn.hidden = !need;
+        }
+      });
+    }
+    document.addEventListener('click', function (e) {
+      var mb = e.target.closest && e.target.closest('[data-more]');
+      if (!mb) return;
+      var box = (mb.closest && mb.closest('[data-chips-more]')) || mb.previousElementSibling;
+      var collapsed = box && box.classList.contains('is-collapsed');
+      if (box) { box.classList.toggle('is-collapsed', !collapsed); box.classList.toggle('is-expanded', !!collapsed); }
+      var mt = mb.querySelector('[data-more-t]'), lt = mb.querySelector('[data-less-t]');
+      if (mt) mt.hidden = !!collapsed;
+      if (lt) lt.hidden = !collapsed;
+    });
+    setup();
+  })();
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { var pe = parts(); close(pe.scrim, pe.sheet); return; }
-    /* S opens/closes the contents sidebar (not while typing, respects the
-       site's Hotkeys switch; S is unused on article pages) */
-    if (e.key !== 's' && e.key !== 'S') return;
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    var el = document.activeElement, tag = (el && el.tagName) || '';
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || (el && el.isContentEditable)) return;
-    if (document.documentElement.getAttribute('data-keys') === 'off') return;
+    if (e.key !== 'Escape') return;
     var p = parts();
-    if (p.sheet && !p.sheet.hidden) close(p.scrim, p.sheet);
-    else open(p.scrim, p.sheet);
+    close(p.scrim, p.sheet);
   });
-  /* the Contents pill is visible from the start: it is the phone's only
-     entry to prev/next navigation and the section list */
+  /* show the pill once the reader scrolls into the article */
   var fab = document.querySelector('[data-blog-toc-fab]');
-  if (fab) fab.hidden = false;
+  if (fab) {
+    var shown = false;
+    window.addEventListener('scroll', function () {
+      if (!shown && window.scrollY > 420) { shown = true; fab.hidden = false; }
+    }, { passive: true });
+  }
 })();
 /* Blog TOC: scroll-spy for the desktop rail + smooth anchor scrolling. */
 (function () {
@@ -561,6 +585,109 @@ window.BLOG_DESCRIPTIONS = {"how-to-create-telegram-channel-2026.html": "A curre
       if (m && m.open) m.open = false;
     });
   });
+})();
+/* Reader settings: Wide / Article navigation / Font size (article pages). */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function paintBlogReader() {
+    var wide = load('fs-blog-wide') === 'on';
+    var railOff = load('fs-rail') === 'off';
+    var font = load('fs-font') || load('fs-blog-font');
+    root.classList.toggle('blog-wide', wide);
+    root.classList.toggle('rail-off', railOff);
+    if (font) { root.setAttribute('data-font', font); root.setAttribute('data-blogfont', font); } else { root.removeAttribute('data-font'); root.removeAttribute('data-blogfont'); }
+    var q = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
+    q('[data-blog-wide]', function (b) { b.setAttribute('aria-checked', wide ? 'true' : 'false'); });
+    q('[data-blog-rail]', function (b) { b.setAttribute('aria-checked', railOff ? 'false' : 'true'); });
+    if (window.__blogReelPaint) { try { window.__blogReelPaint(); } catch (e) {} }
+    q('[data-fonts]', function (box) {
+      Array.prototype.forEach.call(box.querySelectorAll('button'), function (b) {
+        b.classList.toggle('on', (font || 'm') === b.getAttribute('data-font'));
+      });
+    });
+  }
+  document.addEventListener('click', function (ev) {
+    if (!ev.target.closest) return;
+    var w = ev.target.closest('[data-blog-wide]');
+    if (w) { store('fs-blog-wide', w.getAttribute('aria-checked') !== 'true' ? 'on' : 'off'); paintBlogReader(); return; }
+    var r = ev.target.closest('[data-blog-rail]');
+    if (r) { store('fs-rail', r.getAttribute('aria-checked') === 'true' ? 'off' : 'on'); paintBlogReader(); return; }
+    var f = ev.target.closest('[data-fonts] button');
+    if (f) { var fv = f.getAttribute('data-font'); store('fs-font', fv); store('fs-blog-font', fv); try { window.dispatchEvent(new CustomEvent('fs-font-change', { detail: { font: fv } })); } catch (e2) {} paintBlogReader(); return; }
+  });
+  window.addEventListener('fs-font-change', function () { paintBlogReader(); });
+  window.__blogPaintReader = paintBlogReader;
+  paintBlogReader();
+})();
+/* Floating liquid-glass section reel: prev / current / next section. */
+(function () {
+  'use strict';
+  var reel = document.querySelector('[data-blog-reel]');
+  if (!reel) return;
+  var bPrev = reel.querySelector('[data-reel-prev]');
+  var bCur = reel.querySelector('[data-reel-cur]');
+  var bNext = reel.querySelector('[data-reel-next]');
+  var curKey = null, ticking = false;
+  function tocLinks() {
+    var nav = document.querySelector('.blog-cols .blog-toc');
+    return nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
+  }
+  function railGone() {
+    if (document.documentElement.classList.contains('blog-wide')) return true;
+    try { return window.matchMedia('(max-width: 1140px)').matches; } catch (e) { return true; }
+  }
+  function setLabel(btn, link) {
+    btn.querySelector('span').textContent = link ? link.textContent.trim() : '';
+    btn._to = link ? link.getAttribute('href') : null;
+  }
+  function jump(btn) {
+    if (!btn._to) return;
+    var el = document.getElementById(btn._to.slice(1));
+    if (!el) return;
+    var off = el.getBoundingClientRect().top + window.pageYOffset - 76;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                 document.documentElement.getAttribute('data-motion') === 'off';
+    window.scrollTo({ top: off, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function paint() {
+    var links = tocLinks();
+    var idx = -1;
+    links.forEach(function (a, i) { if (a.classList.contains('on')) idx = i; });
+    var sc = window.scrollY || document.documentElement.scrollTop || 0;
+    var show = links.length >= 2 && sc > 480 && railGone();
+    reel.hidden = !show;
+    reel.setAttribute('aria-hidden', show ? 'false' : 'true');
+    if (reel.classList.contains('show') !== show) reel.classList.toggle('show', show);
+    if (!show) { curKey = null; return; }
+    if (idx === -1) idx = 0;
+    var key = links[idx].getAttribute('href');
+    if (key === curKey) return;
+    curKey = key;
+    setLabel(bPrev, links[idx - 1]);
+    setLabel(bCur, links[idx]);
+    setLabel(bNext, links[idx + 1]);
+    bPrev.style.visibility = links[idx - 1] ? 'visible' : 'hidden';
+    bNext.style.visibility = links[idx + 1] ? 'visible' : 'hidden';
+    reel.classList.remove('swap');
+    void reel.offsetWidth;
+    reel.classList.add('swap');
+  }
+  bPrev.addEventListener('click', function () { jump(bPrev); });
+  bCur.addEventListener('click', function () { jump(bCur); });
+  bNext.addEventListener('click', function () { jump(bNext); });
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    var raf = window.requestAnimationFrame || function (cb) { setTimeout(cb, 100); };
+    raf(function () { ticking = false; paint(); });
+  }, { passive: true });
+  window.__blogReelPaint = function () { curKey = null; paint(); };
+  window.addEventListener('fs-lang-change', function () { curKey = null; paint(); });
+  window.addEventListener('fs-lang-applied', function () { curKey = null; paint(); });
+  paint();
 })();
 </script>
 </body>

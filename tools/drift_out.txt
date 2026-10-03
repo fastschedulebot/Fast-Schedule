@@ -1,0 +1,12 @@
+============================== terms.html
+--- replace fresh[29:30] built[29:30]
+  FRESH: <p><strong>Support conversations</strong>: Contact support, get help, and submit feedback or ratings through the Support Service.</p> </li> <li>
+  BUILT: <p><strong>Support conversations</strong>: Contact support, get help, and submit feedback or ratings through the Support Service.</p>
+--- replace fresh[56:57] built[56:57]
+  FRESH: <p><strong>Resale prohibition</strong>: You may not resell, sublicense, lease, rent, or commercially exploit the Services or any component thereof without our prior written permission.</p> </li> <li>
+  BUILT: <p><strong>Resale prohibition</strong>: You may not resell, sublicense, lease, rent, or commercially exploit the Services or any component thereof without our prior written permission.</p>
+drift blocks: 2 | fresh: 127 built: 127
+============================== privacy.html
+drift blocks: 0 | fresh: 131 built: 131
+============================== refundpolicy.html
+drift blocks: 0 | fresh: 24 built: 24

@@ -1,0 +1,6 @@
+==================== terms.html h2s: 21
+cross-page toc refs checked visually only
+==================== privacy.html h2s: 17
+cross-page toc refs checked visually only
+==================== refundpolicy.html h2s: 9
+cross-page toc refs checked visually only

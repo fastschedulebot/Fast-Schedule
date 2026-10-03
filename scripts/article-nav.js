@@ -1,8 +1,9 @@
 /* Article navigation hotkeys (blog + help articles, desktop).
    J / ArrowRight → next article, K / ArrowLeft → previous article.
    Targets the prev/next cards that already exist on the page:
-   blog articles use .blog-toc-navc.prev/.next, help articles use
-   .hc-pager a.prev/.next (or the sheet equivalents). Respects the site's
+   blog articles use a.blog-toc-navc.prev/.next, help articles (static
+   pages and the help.html SPA "More articles" nav) use
+   a.hc-card.prev/.next (or the sheet equivalents). Respects the site's
    Hotkeys switch and stands down while typing. */
 (function () {
   'use strict';
@@ -18,17 +19,24 @@
   function nextLink() {
     return findLink([
       'a.hc-pager.next[href]:not([href="../index.html"])',
+      /* static help pages + help SPA "More articles": anchors carry .hc-card */
+      '.hc-pager a.hc-card.next[href]',
+      'a.hc-card.next[href]',
       'a.blog-toc-navc.next[href]',
       '.blog-toc-sheet a.blog-toc-navc.next[href]',
-      '.hc-toc-sheet a.hc-toc-navc.next[href]'
+      '.hc-toc-sheet a.hc-toc-navc.next[href]',
+      '.hc-toc-sheet a.hc-card.next[href]'
     ]);
   }
   function prevLink() {
     return findLink([
       'a.hc-pager.prev[href]',
+      '.hc-pager a.hc-card.prev[href]',
+      'a.hc-card.prev[href]',
       'a.blog-toc-navc.prev[href]',
       '.blog-toc-sheet a.blog-toc-navc.prev[href]',
-      '.hc-toc-sheet a.hc-toc-navc.prev[href]'
+      '.hc-toc-sheet a.hc-toc-navc.prev[href]',
+      '.hc-toc-sheet a.hc-card.prev[href]'
     ]);
   }
 
@@ -51,6 +59,8 @@
         if (sc) return;
       }
       e.preventDefault();
+      /* stop sibling handlers (scroll-jump's J/page-down) — navigation wins */
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
       window.location.href = go.getAttribute('href');
     }
   });

@@ -85,6 +85,27 @@
     'Previous': 'Назад',
     'Next': 'Далее',
     'Table of contents': 'Содержание',
+    'Best result': 'Лучший результат',
+    'More results': 'Другие результаты',
+    'All results': 'Все результаты',
+    'Up next': 'Далее',
+    'Now reading': 'Читаете сейчас',
+    'No previous article': 'Нет предыдущей статьи',
+    'No next article': 'Нет следующей статьи',
+    'Other categories:': 'Другие категории:',
+    'Related topics': 'Похожие темы',
+    'This article has no sections.': 'В этой статье нет разделов.',
+    '0 results': 'Ничего не найдено',
+    'No exact match for': 'Точного совпадения нет:',
+    '— a human answers every ticket.': '— на каждый вопрос отвечает человек.',
+    'No results found for “': 'Ничего не найдено: «',
+    'Try other words — for example': 'Попробуйте другие слова — например',
+    'Back to Help Center': 'Назад в центр помощи',
+    'That topic doesn’t exist (or moved). Try the search on the home page.': 'Такой темы нет. Воспользуйтесь поиском на главной.',
+    'Maybe you meant:': 'Возможно, вы имели в виду:',
+    'Still stuck?': 'Не нашли ответ?',
+    'Ask in the bot': 'Спросите в боте',
+    'You mean:': 'Вы имеете в виду:',
     'On this page': 'На этой странице',
     // NOTE: 'Privacy Policy' / 'Refund Policy' intentionally absent here —
     // those titles need per-context Russian cases, handled by scoped FIXUPs
@@ -268,7 +289,9 @@
     var d = STR[lang] || STR.en;
     document.documentElement.setAttribute('lang', lang);
     // settings head
-    document.querySelectorAll('#settingsMenu .gp-head').forEach(function (el) {
+    /* the main "Settings" head only — "Reading" heads keep their own label
+       and translate through the exact-text map (no EN flash, no overwrite) */
+    document.querySelectorAll('#settingsMenu .gp-head:not([data-reading]):not([data-blog-reading])').forEach(function (el) {
       if (!el.dataset.fsEn) el.dataset.fsEn = el.textContent.trim();
       el.textContent = ru ? d.settings : el.dataset.fsEn;
     });

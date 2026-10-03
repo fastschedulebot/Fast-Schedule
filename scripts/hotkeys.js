@@ -52,12 +52,12 @@
 
     /* in-page sections, numbered in the order they appear in the navbar.
        The keycap is revealed once the link has poured into the rail. */
-    { key: '1', sel: 'a[href="#time"]',     name: 'Time saved',   hint: 'rail' },
-    { key: '2', sel: 'a[href="#features"]', name: 'Features',     hint: 'rail' },
-    { key: '3', sel: 'a[href="#how"]',      name: 'How it works', hint: 'rail' },
-    { key: '4', sel: 'a[href="#reviews"]',  name: 'Reviews',      hint: 'rail' },
-    { key: '5', sel: 'a[href="#pricing"]',  name: 'Pricing',      hint: 'rail' },
-    { key: '6', sel: 'a[href="#faq"]',      name: 'FAQ',          hint: 'rail' },
+    { key: '1', always: true, sel: 'a[href="#time"]',     name: 'Time saved',   hint: 'rail' },
+    { key: '2', always: true, sel: 'a[href="#features"]', name: 'Features',     hint: 'rail' },
+    { key: '3', always: true, sel: 'a[href="#how"]',      name: 'How it works', hint: 'rail' },
+    { key: '4', always: true, sel: 'a[href="#reviews"]',  name: 'Reviews',      hint: 'rail' },
+    { key: '5', always: true, sel: 'a[href="#pricing"]',  name: 'Pricing',      hint: 'rail' },
+    { key: '6', always: true, sel: 'a[href="#faq"]',      name: 'FAQ',          hint: 'rail' },
 
     /* settings menu rows. 'always': the row lives inside the settings menu,
        which is usually CLOSED when the key is pressed — a visibility-gated
@@ -68,7 +68,7 @@
     { key: 'x', sel: '#rowFx',   name: 'Effects',    hint: 'inline', always: true },
     { key: 'k', sel: '#rowKeys', name: 'Hotkeys',    hint: 'inline', always: true },
 
-    { key: 'g', sel: 'a.nav-link[href*="blog"], .help-row a[href*="blog"], a[href$="blog/index.html"], a[href$="/blog/"]',
+    { key: 'g', sel: 'a.nav-link[href*="blog"], .help-row a[href*="blog"], a[href$="blog/index.html"], a[href$="/blog/"], #navMobile a[href*="blog"], footer a[href$="blog/index.html"]',
       name: 'Blog', hint: 'rail' },
     /* S = search on blog pages: focuses the sticky search bar. Pressing S
        while already typing stands down (allow() normally guards this, but
@@ -80,7 +80,7 @@
         f.focus();
         try { f.setSelectionRange(f.value.length, f.value.length); } catch (err) {}
       } },
-    { key: 'h', sel: 'a.nav-link[href*="help"], .site-menu-row, a.gp-row[href*="help"], .help-row a[href*="help"]',
+    { key: 'h', sel: 'a.nav-link[href*="help"], .site-menu-row, a.gp-row[href*="help"], .help-row a[href*="help"], #navMobile a[href*="help"], footer a[href$="help.html"]',
       name: 'Help', hint: 'rail' },
 
     /* pricing: billing period, then act on whichever plan is centred */

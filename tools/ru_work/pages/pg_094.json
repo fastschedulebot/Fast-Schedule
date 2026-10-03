@@ -1,0 +1,148 @@
+{
+ "files": {
+  "website\\help\\a\\onboarding_step2.html": [
+   "Step 2: Schedule — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Every post is delivered by your channel's",
+   "— the bot you paired with the channel in step 2. The main bot coordinates the schedule; your sender bot publishes under your brand.",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\payment_currencies.html": [
+   "Currencies — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Supported payment currency:",
+   "Telegram Stars: in-app currency, used directly in Telegram",
+   "The final price is always shown to you before you confirm the payment.",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\timezone.html": [
+   "Time Zone — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Related topics",
+   "What Do I Get With Fast Scheduler for Free? (Exact Limits)",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\backup.html": [
+   "Backup — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "13 guides in this topic.",
+   "What Is the Difference Between .fsback and .fspback?",
+   "How to Back Up All Scheduled Posts in Telegram (and Restore Them Anywhere)",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\bots.html": [
+   "Sender Bots — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "13 guides in this topic.",
+   "Do You Need a Sender Bot to Schedule Posts? (Yes — Here Is Why)",
+   "How to Manage Your Sender Bots: Rotate, Rename, and Keep Them Healthy",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\channels.html": [
+   "Channels — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "13 guides in this topic.",
+   "How to Connect a Telegram Channel to Fast Scheduler (Full Walkthrough)",
+   "How Do I Connect a Private Telegram Channel to Fast Scheduler?",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\config.html": [
+   "Settings & Configuration — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Configure Fast Scheduler to work exactly how you want. Language • Use /language or tap Language on the main menu • Choose from available languages • Changes sync with @SetDate_bot (you'll be asked to confirm) • See Langu",
+   "3 guides in this topic.",
+   "How to Add an Automatic Signature to Every Telegram Post",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\contact.html": [
+   "Contact & Support — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Need help? Here are the ways to reach us: • Telegram support — fastest way to get help • Support — overview of all contact options • Report a Bug — report a problem you found • Request a Feature — suggest an improvement",
+   "7 guides in this topic.",
+   "Email",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\limits.html": [
+   "Limits — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Fast Scheduler's plans differ in five numbers: pending scheduled messages, sends per month, recurring messages, channels, and sender bots. The bot counts them live — /stats always shows your current usage. • Free : 100 p",
+   "16 guides in this topic.",
+   "What Do I Get With Fast Scheduler for Free? (Exact Limits)",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\privacy.html": [
+   "Privacy — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "What the bot stores and why: • Telegram identifiers — your user ID and channel IDs, so the bot knows what it manages and for whom. • Content you schedule — message texts and media references, kept only to deliver your po",
+   "10 guides in this topic.",
+   "How Do I Delete My Fast Scheduler Account and All My Data?",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\timezone.html": [
+   "Time Zone — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "5 guides in this topic.",
+   "Why Did My Post Go Out at the Wrong Time? Time Zones, Explained Simply",
+   "Why Was My Scheduled Telegram Post Published at the Wrong Time?",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\tools.html": [
+   "Tools — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Four tools manage everything you schedule: • Message List — the workhorse. Browse messages per channel, preview, edit, delete. • Calendar — the month at a glance; tap a day to see its posts. • Search — keyword search acr",
+   "9 guides in this topic.",
+   "How Can I See Views, Reactions and Comments on My Telegram Channel Posts?",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ]
+ }
+}
