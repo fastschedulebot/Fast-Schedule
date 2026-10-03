@@ -36,8 +36,8 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSiteMenu(); closeMenu(); } });
   }
 
-  /* ---------- "Main site" hover submenu (site sections) ---------- */
-  var siteWrap = document.querySelector('.settings-wrap .site-menu-wrap');
+  /* ---------- Help quick-search popover (hangs off the navbar Help pill) ---------- */
+  var siteWrap = document.querySelector('.site-menu-wrap');
   var sitePop = document.getElementById('siteMenu');
   function openSiteMenu() {
     if (sitePop && !sitePop.classList.contains('open')) {
@@ -57,10 +57,8 @@
     var sCloseT = null, sHoverT = null;
     var finePointer = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-    /* Hover opens this popover ONLY when the wrap is the Help row's (the row
-       links to the help center and the popover is the quick-search). On the
-       help center page the same markup is the "Main site" row — hovering it
-       must never open the help search; it is a plain navigation link there. */
+    /* Hovering the Help Center pill opens the quick-search popover (desktop
+       fine pointers only). The pill itself stays a plain navigation link. */
     var rowIsHelp = /help\.html|help\//.test(
       (siteWrap.querySelector('.site-menu-row') || {}).getAttribute &&
       siteWrap.querySelector('.site-menu-row').getAttribute('href') || '');
@@ -188,6 +186,56 @@
     });
   }
 
+  /* ---------- Font size (global, site-wide) ----------
+     One S/M/L control in every settings menu. State lives in `fs-font`
+     (migrated once from the old per-section fs-help-font / fs-blog-font
+     keys); the size applies through `html[data-font]` + root font-size
+     rules in main.css, so it works on every page. Per-section painters
+     (help/blog inlines) mirror the legacy attrs and listen for the
+     fs-font-change event to repaint their own toggles. */
+  function readFont() {
+    try {
+      var v = localStorage.getItem('fs-font');
+      if (v === 's' || v === 'm' || v === 'l') return v;
+      v = localStorage.getItem('fs-help-font') || localStorage.getItem('fs-blog-font');
+      if (v === 's' || v === 'm' || v === 'l') {
+        try { localStorage.setItem('fs-font', v); } catch (err2) {}
+        return v;
+      }
+    } catch (err) {}
+    return 'm';
+  }
+  function applyFont(v) {
+    if (v === 's' || v === 'l') {
+      root.setAttribute('data-font', v);
+      root.setAttribute('data-hcfont', v);
+      root.setAttribute('data-blogfont', v);
+    } else {
+      root.removeAttribute('data-font');
+      root.removeAttribute('data-hcfont');
+      root.removeAttribute('data-blogfont');
+    }
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-fonts] button, [data-blog-fonts] button, [data-global-fonts] button'),
+      function (b) { b.classList.toggle('on', (v || 'm') === b.getAttribute('data-font')); });
+  }
+  function setFont(v) {
+    if (v !== 's' && v !== 'l') v = 'm';
+    try {
+      localStorage.setItem('fs-font', v);
+      localStorage.setItem('fs-help-font', v);
+      localStorage.setItem('fs-blog-font', v);
+    } catch (err) {}
+    applyFont(v);
+    try { window.dispatchEvent(new CustomEvent('fs-font-change', { detail: { font: v } })); } catch (err) {}
+  }
+  window.FS_FONT = { get: readFont, set: setFont, apply: applyFont };
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+    var f = e.target.closest('[data-fonts] button, [data-blog-fonts] button, [data-global-fonts] button');
+    if (f) { e.stopPropagation(); setFont(f.getAttribute('data-font')); }
+  });
+
   /* ---------- Zen mode: double-tap (not on controls) hides/shows chrome ----------
      Hides the navbar and the bottom bars (jump FAB, Contents bar, cookie
      banner) while reading; a second double-tap brings them back. */
@@ -209,6 +257,7 @@
   })();
 
   syncDark(); syncAnim(); syncFx(); syncKeys();
+  applyFont(readFont());
 
   // Keep every setting in sync across open tabs/pages.
   window.addEventListener('storage', function (e) {
@@ -225,6 +274,10 @@
       if (e.newValue === 'off') root.setAttribute('data-keys', 'off'); else root.removeAttribute('data-keys');
       syncKeys();
       try { window.dispatchEvent(new CustomEvent('fs-hotkeys-change', { detail: { on: e.newValue !== 'off' } })); } catch (err) {}
+    }
+    if (e.key === 'fs-font' || e.key === 'fs-help-font' || e.key === 'fs-blog-font') {
+      applyFont(readFont());
+      try { window.dispatchEvent(new CustomEvent('fs-font-change', { detail: { font: readFont() } })); } catch (err) {}
     }
     if (e.key === 'fs-rail') {
       /* the rail lives in liquid-nav.js, which listens for this event */

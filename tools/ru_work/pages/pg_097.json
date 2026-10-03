@@ -1,0 +1,132 @@
+{
+ "files": {
+  "website\\help\\a\\troubleshoot_bot.html": [
+   "Bot Down — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Common questions",
+   "Scheduled Message Didn’t Post? The 6 Real Causes, In Order of Likelihood",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\admins.html": [
+   "Admins — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "The Admins section manages who can use a connected channel and what they can do. It lives inside Sender Bots Management → Admins and is available to every channel that has at least one admin.",
+   "4 guides in this topic.",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\commands.html": [
+   "Text Commands — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Fast Scheduler Bot can be controlled with text commands — handy on desktop or when you open the bot from a search. Pick a command below for details, or use the main-menu buttons for the same features. Commands work with",
+   "8 guides in this topic.",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\errors.html": [
+   "Troubleshooting — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "15 guides in this topic.",
+   "Scheduled Message Didn’t Post? The 6 Real Causes, In Order of Likelihood",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\export.html": [
+   "Export — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Export your data as a downloadable file. Choose what to export (scheduled, recurring, all) and a format: • .txt - plain text, human-readable. • .csv - spreadsheet, opens in Excel/Sheets. • .json - structured data for dev",
+   "9 guides in this topic.",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\feedback.html": [
+   "Feedback & Support — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Every ticket goes to a human. Open Feedback in the bot (or /feedback ), pick a category, and describe the issue — attach a file or screenshot if it helps. What happens next • You get a ticket number immediately. • Replie",
+   "11 guides in this topic.",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\import.html": [
+   "Import — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "7 guides in this topic.",
+   "Import From Storage",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\c\\start.html": [
+   "Getting Started — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "New here? This section takes you from an empty chat to a published post: connect your channel, connect a sender bot, schedule the first message — then explore the tools that keep a channel running on autopilot. The three",
+   "21 guides in this topic.",
+   "Can’t find an answer?",
+   "Ask in the bot — a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\backup_download.html": [
+   "Download — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "What Is the Difference Between .fsback and .fspback?",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\backup_include.html": [
+   "What Is Backed Up — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "• Media storage items and boxes",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\bot_add.html": [
+   "Add a Sender Bot — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "1234567890:ABCdef... XYZ",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ],
+  "website\\help\\a\\bot_fleet.html": [
+   "Bot Fleet — Fast Scheduler Help",
+   "Fast Scheduler",
+   "Popular articles",
+   "Do You Need a Sender Bot to Schedule Posts? (Yes — Here Is Why)",
+   "Still stuck?",
+   "The in-bot assistant answers the same questions — and a human reads every ticket.",
+   "Ask in Telegram",
+   "© 2026 Fast Scheduler — free Telegram scheduling bot"
+  ]
+ }
+}

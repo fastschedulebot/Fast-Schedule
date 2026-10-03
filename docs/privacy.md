@@ -62,7 +62,6 @@ We Process the following categories of Personal Data:
 - Identifiers of the Telegram channels and groups you connect (numeric IDs, titles, usernames).
 - Whether a channel is administered by you directly or by a Sender Bot on your behalf.
 - Channel connection timestamps and disconnection history.
-- Which channel is set as your default channel for scheduling.
 - Channel administrator records (Telegram user IDs of appointed channel admins, their roles/permissions, and ownership-transfer or permission requests).
 
 ### (c) Messaging content — scheduled and recurring posts
@@ -199,7 +198,7 @@ Where we rely on legitimate interests, we have balanced those interests against 
 
 We use Personal Data for the following specific purposes:
 
-1. **Account management**: Create and maintain your user profile, preferences (language, timezone, default channel), and subscription status.
+1. **Account management**: Create and maintain your user profile, preferences (language, timezone), and subscription status.
 2. **Message scheduling and delivery**: Store your scheduled and recurring message content, deliver messages to your connected channels/groups at the specified times via the Main Service or your Sender Bot.
 3. **Sender Bot operation**: Use your provided bot token exclusively to authenticate and operate the Sender Bot for posting on your behalf.
 4. **SetDate import**: Receive and process one-time schedule imports from the SetDate companion bot.
@@ -275,7 +274,7 @@ We retain Personal Data only for as long as necessary to fulfil the purposes des
 | **Scheduled and recurring message content** | Until you delete the individual message or schedule, or until you delete your account | You can delete individual messages at any time via the in-app interface. |
 | **Sender Bot tokens** | Until you disconnect the Sender Bot or delete your account | Tokens are permanently deleted upon disconnection; no soft-delete or backup copy is retained. |
 | **Channel connection data** | Until you disconnect the channel or delete your account | |
-| **User profile and preferences** | Until you delete your account | Language, timezone, default channel, subscription status. |
+| **User profile and preferences** | Until you delete your account | Language, timezone, subscription status. |
 | **Usage statistics (stats.db)** | Individual delivery records: 365 days (rolling); aggregates indefinite | Individual message delivery records (including recorded comment authors) are pruned after 365 days; aggregated statistics are retained for service improvement. |
 | **User action logs** | 30 days (rolling) | A log of recent in-bot actions (up to 60 per user) is retained for security and support. These are **encrypted at rest** (AES-GCM). A "privacy mode" toggle exists to disable collection of these logs entirely. |
 | **Issue/diagnostic logs** | 30 days (rolling) | Logs of reported issues and diagnostic data are **encrypted at rest** (AES-GCM) and automatically purged. |

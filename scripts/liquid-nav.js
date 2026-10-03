@@ -16,9 +16,9 @@ if (!document.documentElement.animate) return;
               (document.querySelector('header.site') && document.querySelector('header.site').querySelector('.nav')) ||
               document.querySelector('.legal-nav');
     if (!nav) return;
-    var brand = nav.querySelector(':scope > .brand');
+    var brand = nav.querySelector(':scope > .brand') || nav.querySelector('.brand');
     var linksBox = nav.querySelector(':scope > nav');
-    var settings = (linksBox && linksBox.querySelector(':scope > .settings-wrap')) || nav.querySelector(':scope > .settings-wrap');
+    var settings = (linksBox && linksBox.querySelector(':scope > .settings-wrap')) || nav.querySelector(':scope > .settings-wrap') || nav.querySelector('.settings-wrap');
     var burger = nav.querySelector('#navBurger');
     if (!brand || !settings || !linksBox) return;
     var settingsHome = settings.parentElement;   /* linksBox on index, .home-nav on legal/help */

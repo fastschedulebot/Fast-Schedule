@@ -80,11 +80,13 @@
       if (localStorage.getItem('fs-fx') === 'off') d.setAttribute('data-fx', 'off');
       if (localStorage.getItem('fs-hotkeys') === 'off') d.setAttribute('data-keys', 'off');
       if (localStorage.getItem('fs-rail') === 'off') d.classList.add('rail-off');
+      var _ffs = localStorage.getItem('fs-font') || localStorage.getItem('fs-help-font') || localStorage.getItem('fs-blog-font');
+      if (_ffs) d.setAttribute('data-font', _ffs);
     } catch (e) {}
   </script>
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="styles/main.css?v=20261002c4">
   <link rel="stylesheet" href="styles/lang.css?v=20261002b1">
 <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
   <style>
@@ -943,21 +945,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span>Effects</span><span class="io-switch" aria-hidden="true"></span>
           </button>
           <button type="button" class="gp-row" role="menuitemcheckbox" aria-checked="true" id="rowKeys"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6.5 10h.01M10.5 10h.01M14.5 10h.01M18 10h.01M8 13.5h8"/></svg><span>Hotkeys</span><span class="io-switch" aria-hidden="true"></span></button>
+          <div class="gp-row gp-fonts" data-fonts><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Font size</span><span class="hc-fonts"><button type="button" data-font="s" aria-label="Small">A</button><button type="button" data-font="m" aria-label="Default">A</button><button type="button" data-font="l" aria-label="Large">A</button></span></div>
           <button type="button" class="gp-row gp-row-sub" id="rowKeysHelp" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="none" aria-hidden="true" style="visibility:hidden;width:18px;height:18px"></svg><span class="gp-sub-label">See hotkeys</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
           <div class="gp-sep" role="separator"></div>
-          <span class="site-menu-wrap"><a class="gp-row site-menu-row" role="menuitem" href="help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Help</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-            <div class="glass-pop site-menu-pop help-menu" id="siteMenu" role="menu" aria-label="Help center quick search">
-              <form class="help-search" id="helpSearchForm" role="search">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-                <input type="search" id="helpSearchInput" placeholder="Search the help center…" autocomplete="off" aria-label="Search the help center">
-              </form>
-              <div class="help-recent">
-                <div class="help-recent-title" id="helpRecentTitle">Recent searches</div>
-                <div class="help-recent-list" id="helpRecentList"></div>
-              </div>
-              <a class="gp-row help-menu-open" role="menuitem" href="help.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Open Help Center</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-            </div>
-          </span>
+
           <a class="gp-row" role="menuitem" href="https://t.me/FastSchedulerSupport_bot" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Support chat</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
@@ -1549,10 +1540,9 @@
 </script>
 <script src="scripts/theme.js?v=20260930a1"></script>
 <script defer src="scripts/nav-hide.js?v=20260930a2"></script>
-<script defer src="scripts/settings.js?v=20260930a1"></script>
-  </script>
-  <script defer src="scripts/ru-chrome.js?v=20261002b1"><script defer src="scripts/lang.js?v=20261002b1"></script>
-<script defer src="scripts/hotkeys.js?v=20260930a1"></script>
+<script defer src="scripts/settings.js?v=20261002c3"></script>
+  </script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script defer src="scripts/ru-chrome.js?v=20261002c2"></script><script defer src="scripts/lang.js?v=20261002c2"></script>
+<script defer src="scripts/hotkeys.js?v=20260930a2"></script>
 <script defer src="scripts/scroll-jump.js?v=20260930a1"></script>
 <script>
   /* burger menu + navbar scroll elevation */
@@ -1591,9 +1581,9 @@
     }
   })();
 </script>
-<script defer src="scripts/liquid-nav.js?v=20260930a1"></script>
+<script defer src="scripts/liquid-nav.js?v=20260930a2"></script>
 <script defer src="scripts/help-search.js?v=20260930a1"></script>
-<script defer src="scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script defer src="scripts/hotkeys-modal.js?v=20260930a2"></script>
 <script>
   (function () {
     var root = document.documentElement;

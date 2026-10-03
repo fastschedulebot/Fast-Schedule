@@ -1,1 +1,69 @@
+# ── Secrets & credentials ─────────────────────────────────────────────
+# .env.example is ignored too: it currently ships with non-empty values for
+# MAIN_BOT_TOKEN / SETDATE_BOT_TOKEN / MANAGER_BOT_TOKEN that we cannot prove
+# are placeholders — never risk committing them.
+.env
+.env.*
+admin_password.txt
+decrypt_tokens.py.bak
+*.key
+*.pem
+
+# ── Runtime data (user data, DBs, snapshots) ──────────────────────────
+# Nested full copy of the project (has its own .git) — never commit it.
+1Fast Schedule & SetDate/
+data/
+database/
+bot_data/
+media/
+src/data/
+src/token_manager.json
+src/token_manager.json.migrated
+src/token_manager.json.*
+SetDate/bot_database.json
+SetDate/user_languages.json
+SetDate/saved_times.json
+SetDate/*.json.lock
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# ── Logs ──────────────────────────────────────────────────────────────
+*.log
+bot_stdout.txt
+bot_stderr.txt
+logs/
+
+# ── Python ────────────────────────────────────────────────────────────
 __pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+venv/
+.venv/
+
+# ── Website build artifacts ───────────────────────────────────────────
+website/storage_state.json
+website/_build/
+
+# ── IDE / editor / OS ─────────────────────────────────────────────────
+.idea/
+.vscode/
+.freebuff/
+.devin/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ── Generated analysis reports (regenerable) ──────────────────────────
+.scripts/import_report.json
+.scripts/import_patch_report.json
+.scripts/lazy_patch_report.json
