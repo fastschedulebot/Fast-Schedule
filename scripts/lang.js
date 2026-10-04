@@ -402,10 +402,10 @@
     if (window.FS_RU_CONTENT) { cb(); return; }
     if (contentLoading) { setTimeout(function () { ensureContent(cb); }, 300); return; }
     contentLoading = true;
-    var src = 'scripts/ru-content.js?v=20261002c1';
+    var src = 'scripts/ru-content.js?v=20261004b2';
     try {
       var self = document.querySelector('script[src*="lang.js"]');
-      if (self) src = self.getAttribute('src').replace(/lang\.js.*$/, 'ru-content.js?v=20261002c1');
+      if (self) src = self.getAttribute('src').replace(/lang\.js.*$/, 'ru-content.js?v=20261004b2');
     } catch (e) {}
     var el = document.createElement('script');
     el.src = src;
@@ -547,8 +547,20 @@
         var h1 = document.querySelector('.doc h1, .blog-doc h1');
         if (h1 && h1.textContent.trim().length > 3) {
           if (origTitle === null) origTitle = document.title;
-          document.title = h1.textContent.trim() +
-            (document.querySelector('.blog-doc') ? ' \u2014 \u0411\u043b\u043e\u0433 Fast Scheduler' : ' \u2014 \u041f\u043e\u043c\u043e\u0449\u044c');
+          // The suffix must match what the page actually is. Legal pages share
+          // the same .doc scope as help articles, so the old two-way branch
+          // stamped every legal document with "\u041f\u043e\u043c\u043e\u0449\u044c"
+          // (Help) and produced titles like "\u0423\u0441\u043b\u043e\u0432\u0438\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u2014 \u041f\u043e\u043c\u043e\u0449\u044c"
+          // for a page that is not help at all.
+          var suffix;
+          if (document.querySelector('.blog-doc')) {
+            suffix = ' \u2014 \u0411\u043b\u043e\u0433 Fast Scheduler';
+          } else if (document.body && document.body.classList.contains('legal')) {
+            suffix = ' \u2014 Fast Scheduler';
+          } else {
+            suffix = ' \u2014 \u041f\u043e\u043c\u043e\u0449\u044c Fast Scheduler';
+          }
+          document.title = h1.textContent.trim() + suffix;
         }
       } catch (e2) {}
       contentDone = true;
