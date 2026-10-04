@@ -4,6 +4,8 @@
 // pours everything home. Controlled by the site's Animations toggle.
 (function () {
 'use strict';
+/* NOTE: briefly disabled after a misread bug report; restored per site owner
+   request — the scroll "liquefy" into the side rail is an intended feature. */
 if (!window.matchMedia || matchMedia('(max-width: 860px)').matches) return;
 if (!document.documentElement.animate) return;
     /* Reduced motion no longer kills the feature: it switches to an instant,

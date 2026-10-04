@@ -21,15 +21,14 @@
       openMenu: 'Открыть меню', closeMenu: 'Закрыть меню'
     },
     META: {
-      title: 'Fast Scheduler — автопланирование постов Telegram-канала',
-      desc: 'Fast Scheduler — бесплатный Telegram-бот для автопланирования, публикации и аналитики постов канала. Планируйте недели контента в одном чате, публикуйте от своего бота и смотрите, что заходит. Настройте один раз — экономьте часы каждую неделю.'
+      title: 'Fast Scheduler — Планировщик постов для Telegram-каналов',
+      desc: 'Fast Scheduler — бесплатный Telegram-бот: планирование и публикация постов канала, аналитика. Планируйте неделю контента в одном чате и публикуйте от своего бота.'
     },
     MAP: {
       // nav (desktop + mobile sheet)
       'Time saved': 'Экономия времени',
       'Features': 'Возможности',
       'How it works': 'Как это работает',
-      'Reviews': 'Отзывы',
       'Pricing': 'Тарифы',
       'FAQ': 'Вопросы и ответы',
       'Blog': 'Блог',
@@ -108,16 +107,6 @@
       'Send one date with its message — or paste several date + message blocks at once. Review, pick a photo mode, confirm: done.': 'Отправьте одну дату с сообщением — или вставьте сразу несколько блоков «дата + сообщение». Проверьте, выберите режим фото, подтвердите — готово.',
       'Live your life': 'Живите своей жизнью',
       'Posts publish themselves — even while you sleep. Stats and reports find you, so you always know what performed.': 'Посты публикуются сами — даже пока вы спите. Статистика и отчёты сами находят вас, так что вы всегда знаете, что сработало.',
-      // reviews
-      'Channels that stopped posting by hand': 'Каналы, которые перестали публиковать вручную',
-      '"I batch-schedule the entire week every Sunday in about 10 minutes. Used to spend half an hour': '«Я планирую всю неделю каждое воскресенье примерно за 10 минут. Раньше тратил полчаса',
-      'every day': 'каждый день',
-      'remembering to post. Best trade I\'ve made."': 'на то, чтобы не забыть запостить. Лучший обмен в моей жизни».',
-      '19K subscriber news channel': 'новостной канал, 19K подписчиков',
-      '"Posting through my own bot was the deal-maker — it still looks 100% like my brand. The leaderboards showed me my 9PM posts get 3× the views."': '«Публикация через собственного бота решила всё — это по-прежнему на 100% выглядит как мой бренд. Рейтинги показали: посты в 21:00 собирают в 3 раза больше просмотров».',
-      'shop drops channel': 'канал с дропами магазина',
-      '"The weekly report just shows up in my chat. I don\'t chase analytics anymore — I read one message with coffee and adjust the plan."': '«Недельный отчёт просто появляется в чате. Я больше не гоняюсь за аналитикой — читаю одно сообщение за кофе и корректирую план».',
-      'podcast & community': 'подкасты и сообщество',
       // pricing
       'Start free. Upgrade when it pays for itself.': 'Начните бесплатно. Переходите на Premium, когда окупится.',
       'Free is a real plan, not a trial. Premium is for channels that want the full studio.': 'Free — настоящий тариф, а не пробник. Premium — для каналов, которым нужна полная студия.',
@@ -463,7 +452,6 @@
       ['#how .step p i', null, 'your', 'ваши'],
       ['#carPrev', 'aria-label', 'Previous plan', 'Предыдущий тариф'],
       ['#carNext', 'aria-label', 'Next plan', 'Следующий тариф'],
-      ['.stars', 'aria-label', 'Rated 5 out of 5', 'Оценка 5 из 5']
     ]
   };
 })();

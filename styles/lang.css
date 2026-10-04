@@ -63,6 +63,5 @@ html[lang="ru"] .foot-open-t { text-align: left; }
 html[lang="ru"] .faq-glass summary,
 html[lang="ru"] .plan-g li,
 html[lang="ru"] .feat p,
-html[lang="ru"] .step p,
-html[lang="ru"] .quote p { hyphens: none; overflow-wrap: break-word; }
+html[lang="ru"] .step p { hyphens: none; overflow-wrap: break-word; }
 html[lang="ru"] .grad { -webkit-box-decoration-break: clone; box-decoration-break: clone; }

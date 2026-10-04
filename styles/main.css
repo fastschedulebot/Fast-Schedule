@@ -209,7 +209,8 @@ header.site {
    page extras (help search, legal doc tabs). */
 .nav-unified { justify-content: space-between; }
 .nav-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.nav-unified .brand { margin-right: 0; }
+.nav-unified .nav-cta, .nav-unified .settings-wrap { flex: none; }
+.nav-unified .brand { margin-right: 0; flex: none; white-space: nowrap; }
 .nav-unified .brand-full { color: var(--green-strong); }
 .nav-unified .nav-center { flex: 1 1 auto; display: flex; justify-content: center; min-width: 0; margin: 0 8px; }
 .nav-unified .nav-center .hc-hsearch { width: min(400px, 100%); margin-left: 0; }
@@ -222,12 +223,21 @@ header.site {
   opacity: 0; visibility: hidden; transform: translateY(-6px);
   transition: opacity .2s var(--ease-apple), transform .25s var(--ease-apple), visibility 0s .25s; }
 .nav-menu-pop.open { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: 0s; }
-@media (max-width: 640px) { .nav-unified .nav-left .nav-cta { display: none; } }
+/* Phones: keep the Open Bot CTA + gear on the left, sized compactly.
+   The CTA text stays visible; only the kbd hint is dropped. */
+@media (max-width: 640px) {
+  .nav-unified { flex-wrap: nowrap; }
+  .nav-unified .nav-center { display: none; }
+  .nav-unified .nav-left .nav-cta { display: inline-flex; padding: 8px 12px; font-size: .82rem; }
+  .nav-unified .nav-left .nav-cta kbd { display: none; }
+  .nav-unified .nav-left .nav-cta span { display: inline; }
+  .nav-unified .nav-group { gap: 6px; }
+}
 @media (max-width: 760px) {
   .nav-unified .nav-right .nav-cta { display: inline-flex; padding: 8px 12px; font-size: .82rem; }
   .nav-unified .nav-right .nav-cta kbd { display: none; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .nav-unified .nav-link span { display: none; }
   .nav-unified .nav-link { padding: 0 11px; height: 40px; }
   .nav-unified .nav-group { gap: 8px; }
@@ -250,6 +260,10 @@ header.site {
   height: 42px; padding: 0 14px; border-radius: 8px;
   border: 1px solid var(--border); background: var(--surface); color: var(--text);
   font-weight: 600; font-size: .9rem; cursor: pointer; text-decoration: none;
+  /* A fixed-height pill whose label is allowed to wrap spills the label out
+     of the pill. Shrinking is the flex item's job, not the label's: the
+     label stays on one line and the item gives up width instead. */
+  white-space: nowrap; flex: 0 0 auto;
   transition: transform .2s, border-color .2s, background .2s;
 }
 .nav-link:hover { border-color: var(--green); text-decoration: none; }
@@ -1008,7 +1022,7 @@ header.site.scrolled { box-shadow: 0 6px 16px rgba(17, 24, 39, .06); }
 
 /* ---------- Effects/Animations OFF: complete kill-list (patch) ---------- */
 /* card / hover transforms everywhere, including inline-styled tilt JS targets */
-[data-fx="off"] .feat, [data-fx="off"] .step, [data-fx="off"] .quote,
+[data-fx="off"] .feat, [data-fx="off"] .step,
 [data-fx="off"], [data-fx="off"] .hc-card, [data-fx="off"] .icon-btn,
 [data-fx="off"] .btn, [data-fx="off"] .cta-big, [data-fx="off"] .hc-fab,
 [data-fx="off"] .toc-burger, [data-fx="off"] .doc-tab {
@@ -1016,7 +1030,7 @@ header.site.scrolled { box-shadow: 0 6px 16px rgba(17, 24, 39, .06); }
   transition: none !important;
   animation: none !important;
 }
-[data-fx="off"] .feat:hover, [data-fx="off"] .step:hover, [data-fx="off"] .quote:hover,
+[data-fx="off"] .feat:hover, [data-fx="off"] .step:hover,
 [data-fx="off"]:hover, [data-fx="off"] .hc-card:hover, [data-fx="off"] .icon-btn:hover,
 [data-fx="off"] .btn:hover, [data-fx="off"] .cta-big:hover, [data-fx="off"] .hc-fab:hover {
   transform: none !important;
@@ -1030,13 +1044,13 @@ header.site.scrolled { box-shadow: 0 6px 16px rgba(17, 24, 39, .06); }
 [data-fx="off"] .liquid-drop { animation: none !important; }
 
 /* Animations OFF: same hover-jump kill (motion != effects) */
-[data-motion="off"] .feat, [data-motion="off"] .step, [data-motion="off"] .quote,
+[data-motion="off"] .feat, [data-motion="off"] .step,
 [data-motion="off"], [data-motion="off"] .hc-card, [data-motion="off"] .icon-btn,
 [data-motion="off"] .btn, [data-motion="off"] .cta-big, [data-motion="off"] .hc-fab {
   transform: none !important;
   transition: none !important;
 }
-[data-motion="off"] .feat:hover, [data-motion="off"] .step:hover, [data-motion="off"] .quote:hover,
+[data-motion="off"] .feat:hover, [data-motion="off"] .step:hover,
 [data-motion="off"]:hover, [data-motion="off"] .hc-card:hover, [data-motion="off"] .icon-btn:hover,
 [data-motion="off"] .btn:hover, [data-motion="off"] .cta-big:hover, [data-motion="off"] .hc-fab:hover {
   transform: none !important;
@@ -1174,12 +1188,12 @@ img, video { height: auto; }
 
 /* 4 · Grid/flex children default to min-width:auto — the single most common
        cause of a horizontal scrollbar once the viewport gets narrow. */
-.hero-copy, .feat, .step, .quote, .plan-g, .page-card, .save-grid > *,
-.features-glass > *, .steps > *, .quotes > * { min-width: 0; }
+.hero-copy, .feat, .step, .plan-g, .page-card, .save-grid > *,
+.features-glass > *, .steps > * { min-width: 0; }
 
 /* 5 · Unbreakable strings (URLs, @handles, long plan names) wrap at every
        width instead of widening their container. */
-.hero .sub, .sec-head p, .sec-head h2, .plan-g li, .quote p, .feat p,
+.hero .sub, .sec-head p, .sec-head h2, .plan-g li, .feat p,
 .step p, .gp-row span, .toc-lists a, .legal .doc p, .legal .doc li,
 .legal .doc td, .legal .doc h2 { overflow-wrap: anywhere; }
 .hero h1 { overflow-wrap: break-word; hyphens: none; }
@@ -1280,7 +1294,7 @@ section[id], .block[id], h2[id], h3[id] { scroll-margin-top: 86px; }
   .gp-row, .icon-btn, .nav-link, .doc-tab, .theme-toggle, .tt-knob { min-height: 44px; }
   .icon-btn { min-width: 44px; }
   .gp-row { padding-top: 13px; padding-bottom: 13px; }
-  .feat:hover, .step:hover, .quote:hover, .page-card:hover,
+  .feat:hover, .step:hover, .page-card:hover,
   .launch-card:hover, .plan-g:hover { transform: none; }
   .gp-row:hover:not(:active) { background: none; }
   /* Anything below 16px triggers an automatic page zoom when iOS focuses it. */

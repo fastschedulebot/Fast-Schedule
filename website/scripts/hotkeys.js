@@ -55,9 +55,8 @@
     { key: '1', always: true, sel: 'a[href="#time"]',     name: 'Time saved',   hint: 'rail' },
     { key: '2', always: true, sel: 'a[href="#features"]', name: 'Features',     hint: 'rail' },
     { key: '3', always: true, sel: 'a[href="#how"]',      name: 'How it works', hint: 'rail' },
-    { key: '4', always: true, sel: 'a[href="#reviews"]',  name: 'Reviews',      hint: 'rail' },
-    { key: '5', always: true, sel: 'a[href="#pricing"]',  name: 'Pricing',      hint: 'rail' },
-    { key: '6', always: true, sel: 'a[href="#faq"]',      name: 'FAQ',          hint: 'rail' },
+    { key: '4', always: true, sel: 'a[href="#pricing"]',  name: 'Pricing',      hint: 'rail' },
+    { key: '5', always: true, sel: 'a[href="#faq"]',      name: 'FAQ',          hint: 'rail' },
 
     /* settings menu rows. 'always': the row lives inside the settings menu,
        which is usually CLOSED when the key is pressed — a visibility-gated
@@ -145,6 +144,22 @@
            !(el && el.isContentEditable === true);
   }
   function norm(k) { return k && k.length === 1 ? k.toLowerCase() : k; }
+  /* Non-Latin layouts (e.g. RU) produce Cyrillic chars in e.key, so letter
+     shortcuts silently die. Fall back to the PHYSICAL key (e.code), which
+     is layout-independent: KeyG fires 'g' even when it types 'п'. */
+  function codeKey(code) {
+    if (!code) return null;
+    var m = /^Key([A-Z])$/.exec(code);
+    if (m) return m[1].toLowerCase();
+    var d = /^Digit([0-9])$/.exec(code);
+    if (d) return d[1];
+    if (code === 'Comma') return ',';
+    if (code === 'Period') return '.';
+    if (code === 'Slash') return '/';
+    if (code === 'Semicolon') return ';';
+    if (code === "Quote") return String.fromCharCode(39);
+    return null;
+  }
   function hotkeysOn() {
     var K = window.FS_KEYS;
     return K ? K.enabled() : root.getAttribute('data-keys') !== 'off';
@@ -213,27 +228,31 @@
   }
 
   /* ---------- the dispatcher ---------- */
+  function fire(mapKey) {
+    for (var i = 0; i < MAP.length; i++) {
+      var reg = MAP[i];
+      if (norm(reg.key) !== mapKey) continue;
+      if (reg.run) {
+        reg.run();
+        return true;
+      }
+      var el = reg.always ? document.querySelector(reg.sel) : resolve(reg.sel);
+      if (el) {
+        el.click();
+        return true;
+      }
+    }
+    return false;
+  }
   document.addEventListener('keydown', function (e) {
     if (e.defaultPrevented || e.repeat) return;
     if (!allow(e)) return;
     var k = norm(e.key);
     refreshStolen();
     if (stolenKeys[String(k).toLowerCase()] && !(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey)) return;
-    for (var i = 0; i < MAP.length; i++) {
-      var reg = MAP[i];
-      if (norm(reg.key) !== k) continue;
-      if (reg.run) {
-        e.preventDefault();
-        reg.run();
-        return;
-      }
-      var el = reg.always ? document.querySelector(reg.sel) : resolve(reg.sel);
-      if (el) {
-        e.preventDefault();
-        el.click();
-        return;
-      }
-    }
+    if (fire(k)) { e.preventDefault(); return; }
+    var ck = codeKey(e.code);
+    if (ck && ck !== k && fire(ck)) { e.preventDefault(); }
   });
 
   /* Settings > Hotkeys flips data-keys; keep the tooltips in step. */

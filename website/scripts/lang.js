@@ -1,7 +1,7 @@
 // Website language: EN/RU switcher, persisted in localStorage (fs-lang).
 // Liquid-glass EN/RU segmented control in #settingsMenu.
 // Full-site RU: chrome (settings/nav/footer/search) + index sections
-// (hero/features/how/reviews/pricing/FAQ/CTA) + legal/blog/help chrome
+// (hero/features/how/pricing/FAQ/CTA) + legal/blog/help chrome
 // via exact-text map with safe revert (dataset.fsEn). Bodies of help/blog
 // articles stay EN (phase 2) — chrome and landing are fully RU.
 (function () {
@@ -30,7 +30,6 @@
     'Time saved': 'Экономия времени',
     'Features': 'Возможности',
     'How it works': 'Как это работает',
-    'Reviews': 'Отзывы',
     'Pricing': 'Тарифы',
     'FAQ': 'Вопросы и ответы',
     'Blog': 'Блог',
@@ -43,7 +42,6 @@
     'How much time you get back': 'Сколько времени вы вернёте',
     'Everything a channel needs, in one chat': 'Всё для канала — в одном чате',
     'Three steps. Sixty seconds.': 'Три шага. Шестьдесят секунд.',
-    'Channels that stopped posting by hand': 'Каналы, которые перестали публиковать вручную',
     'Start free. Upgrade when it pays for itself.': 'Начните бесплатно. Переходите на Premium, когда окупится.',
     'Questions, answered': 'Вопросы и ответы',
     'Your next post is already scheduled.': 'Ваш следующий пост уже запланирован.',
@@ -146,18 +144,26 @@
 
   var META = {
     title: {
-      en: 'Fast Scheduler — Schedule Telegram Channel Posts on Autopilot',
-      ru: 'Fast Scheduler — автопланирование постов Telegram-канала'
+      en: 'Fast Scheduler — Telegram Channel Post Scheduler',
+      ru: 'Fast Scheduler — Планировщик постов для Telegram-каналов'
     },
     desc: {
-      en: 'Fast Scheduler is a free Telegram bot that schedules, publishes and tracks your channel posts on autopilot. Batch-schedule weeks of content in one chat, post from your own bot, and see what performs. Set it once — save hours every week.',
-      ru: 'Fast Scheduler — бесплатный Telegram-бот для автопланирования, публикации и аналитики постов канала. Планируйте недели контента в одном чате, публикуйте от своего бота и смотрите, что заходит. Настройте один раз — экономьте часы каждую неделю.'
+      en: 'Fast Scheduler is a free Telegram bot that schedules, publishes and tracks your channel posts. Batch-schedule a week in one chat, post from your own bot.',
+      ru: 'Fast Scheduler — бесплатный Telegram-бот: планирование и публикация постов канала, аналитика. Планируйте неделю контента в одном чате и публикуйте от своего бота.'
     }
   };
 
   function get() {
-    try { return localStorage.getItem('fs-lang') === 'ru' ? 'ru' : 'en'; }
-    catch (e) { return 'en'; }
+    try {
+      var saved = localStorage.getItem('fs-lang');
+      if (saved === 'ru' || saved === 'en') return saved;
+    } catch (e) {}
+    // No stored preference: follow the language the server actually served.
+    // /ru/ pages are built with <html lang="ru">; without this a first-time
+    // visitor to /ru/... would be flipped back to English by this script.
+    try {
+      return document.documentElement.getAttribute('lang') === 'ru' ? 'ru' : 'en';
+    } catch (e) { return 'en'; }
   }
   function set(lang) {
     lang = lang === 'ru' ? 'ru' : 'en';
@@ -176,7 +182,17 @@
   try {
     if (window.FS_RU_CHROME) {
       if (window.FS_RU_CHROME.STR) STR.ru = window.FS_RU_CHROME.STR;
-      if (window.FS_RU_CHROME.META) META = window.FS_RU_CHROME.META;
+      // ru-chrome.js ships META as a flat {title, desc} pair of RU strings,
+      // while lang.js keeps the nested {en, ru} shape and reads META.title.en
+      // on the home page. Assigning the flat object straight over META left
+      // META.title.en undefined, so every load stamped document.title and
+      // the meta description with the literal text "undefined" - which is
+      // also what a crawler rendering the page saw.
+      if (window.FS_RU_CHROME.META) {
+        var rm = window.FS_RU_CHROME.META;
+        if (rm.title) META.title.ru = typeof rm.title === 'string' ? rm.title : rm.title.ru;
+        if (rm.desc) META.desc.ru = typeof rm.desc === 'string' ? rm.desc : rm.desc.ru;
+      }
       if (window.FS_RU_CHROME.MAP) {
         for (var _ck in window.FS_RU_CHROME.MAP) RU_MAP[_ck] = window.FS_RU_CHROME.MAP[_ck];
       }
@@ -439,7 +455,7 @@
     keys.forEach(function (kk) {
       lookup[kk] = dict[kk];
       var m = kk.toLowerCase().match(/[a-z\u00c0-\u024f\u0400-\u04ff]{4,}/);
-      if (m) { (anchor[m[0]] = anchor[m[0]] || []).push(kk); }
+      if (m) { var ak = m[0]; if (!Object.prototype.hasOwnProperty.call(anchor, ak)) anchor[ak] = []; anchor[ak].push(kk); }
     });
     var scopes = document.querySelectorAll('.doc, .blog-doc, .bento, .blog-chips');
     if (!scopes.length) return;
@@ -497,7 +513,7 @@
         words.forEach(function (wd) {
           if (seen[wd]) return;
           seen[wd] = true;
-          var cands = anchor[wd];
+          var cands = Object.prototype.hasOwnProperty.call(anchor, wd) ? anchor[wd] : null;
           if (!cands) return;
           cands.forEach(function (kk) {
             if (kk.length < 12 || kk.length > n.nodeValue.length + 20) return;
