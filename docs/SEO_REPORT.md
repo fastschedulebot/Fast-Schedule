@@ -144,7 +144,9 @@ Key: `5817133906fc4ab78b0f19ca52bf8f58`, hosted as a plain text file at the root
 - `website/5817133906fc4ab78b0f19ca52bf8f58.txt` (source)
 - `5817133906fc4ab78b0f19ca52bf8f58.txt` (repo root — this is the one served)
 
-Both are required, and both are in the `PUB` allowlist in `sync_root.py` / `sync_audit.py`. **The site lives in a repository subdirectory** (`/Fast-Schedule/`), so the key must sit at the root of *that* deploy tree, not the repository root — IndexNow fetches `<site-root>/<key>.txt` and answers `403 UserForbiddedToAccessSite` otherwise.
+Both are required, and both are in the `PUB` allowlist in `sync_root.py` / `sync_audit.py`. **The site lives in a repository subdirectory** (`/Fast-Schedule/`), so the key must sit at the root of *that* deploy tree, not the repository root.
+
+**Status: still not delivering — blocked on host verification, not on deployment.** With the key file confirmed served at `https://fastschedulebot.github.io/Fast-Schedule/5817133906fc4ab78b0f19ca52bf8f58.txt` (HTTP 200), submissions still come back `403 {"errorCode":"UserForbiddedToAccessSite"}`. Serving the file is necessary but not sufficient: IndexNow also requires the key to be *registered and verified* for the host, and that step lives in a person's IndexNow / Bing Webmaster Tools account. Note that the key is **not** reachable at the domain apex (`https://fastschedulebot.github.io/<key>.txt` is 404, because the apex belongs to a different repository) — if verification asks for the apex, it cannot succeed from this repo. `tools/indexnow.py` now reports this case separately from the "key not pushed yet" case, since the two need opposite advice.
 
 ```bash
 python tools/indexnow.py --check   # is the key actually reachable?

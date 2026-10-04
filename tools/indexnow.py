@@ -344,7 +344,18 @@ def main():
         if delivered:
             out('accepted by IndexNow: %d URL(s)' % sent)
             return 0
-        out('NOT delivered. Re-run after the key file is live at %s' % KEY_URL)
+        # Two distinct failures land here, and they need opposite advice. When
+        # the key file is unreachable the fix is to push; when it is reachable
+        # and still refused, the file is served but the key is not verified for
+        # this host, and pushing again changes nothing.
+        if not key_verified:
+            out('NOT delivered. Re-run after the key file is live at %s' % KEY_URL)
+        else:
+            out('NOT delivered, and the key file IS live at %s.' % KEY_URL)
+            out('The remaining cause is ownership, not deployment: IndexNow has')
+            out('no verified key for this host. Register the key with your IndexNow')
+            out('/ Bing Webmaster Tools account for %s and complete host' % HOST)
+            out('verification, then re-run this. Pushing again will not help.')
         return 1
     return 0
 
