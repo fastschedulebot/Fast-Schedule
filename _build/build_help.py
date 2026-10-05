@@ -2460,7 +2460,7 @@ def build_page(nodes, help_sec):
   <meta name="twitter:title" content="Help Center — Fast Scheduler for Telegram">
   <meta name="twitter:description" content="{len(article_order)} searchable help topics for the Fast Scheduler Telegram bot.">
   <meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">
-  <link rel="icon" href="{FAVICON}">
+  {FAVICON}
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
