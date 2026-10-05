@@ -9,7 +9,7 @@ import shutil
 
 PUB = ['index.html', 'help.html', '404.html', 'robots.txt', 'sitemap.xml',
        'llms.txt', 'llms-full.txt', 'blog', 'help', 'legal', 'ru', 'scripts',
-       'styles', 'fonts', 'apple-touch-icon.png', 'og-cover.png',
+       'styles', 'fonts', 'apple-touch-icon.png', 'og-cover-v2.png',
        'storage_state.json', '_headers', 'google7ebfb86d3a3c2fa9.html',
        # IndexNow ownership key. Must be served from the site root or every
        # submission is rejected with 422 key_not_found. See tools/indexnow.py.

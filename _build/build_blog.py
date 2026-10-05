@@ -396,11 +396,11 @@ def page_head(title, desc, canonical, extra_ld='', og_type='article'):
 <meta property="og:title" content="{bh.esc(title)}">
 <meta property="og:description" content="{bh.esc(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/og-cover.png">
+<meta property="og:image" content="{SITE}/og-cover-v2.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{bh.esc(title)}">
 <meta name="twitter:description" content="{bh.esc(desc)}">
-<meta name="twitter:image" content="{SITE}/og-cover.png">
+<meta name="twitter:image" content="{SITE}/og-cover-v2.png">
 <link rel="icon" href="{FAVICON}">
 {extra_ld}'''
 
@@ -1056,7 +1056,7 @@ def build_articles():
             'articleSection': cat['title'],
             'author': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': SITE},
             'publisher': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': SITE,
-                          'logo': {'@type': 'ImageObject', 'url': SITE + '/og-cover.png'}},
+                          'logo': {'@type': 'ImageObject', 'url': SITE + '/og-cover-v2.png'}},
             'image': f'{SITE}/blog/img/{art["id"]}.jpg',
             'mainEntityOfPage': canon,
             'datePublished': art['date'], 'dateModified': art['date'],

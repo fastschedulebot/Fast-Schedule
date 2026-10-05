@@ -201,7 +201,7 @@ def build_article(aid, tr, cat_titles, title_override=None):
         'inLanguage': 'ru',
         'author': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': BASE},
         'publisher': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': BASE,
-                      'logo': {'@type': 'ImageObject', 'url': BASE + '/og-cover.png'}},
+                      'logo': {'@type': 'ImageObject', 'url': BASE + '/og-cover-v2.png'}},
         'mainEntityOfPage': canonical,
         'datePublished': pub, 'dateModified': pub,
         'isPartOf': {'@type': 'WebSite', 'name': 'Fast Scheduler',

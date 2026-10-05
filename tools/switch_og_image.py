@@ -12,8 +12,15 @@ images by URL and largely ignore cache-busting headers, so repainting
 og-cover.png in place would leave every existing share showing the clipped
 card indefinitely. A new URL is the only reliable bust.
 
-Touches the generated pages and the build sources that emit them, so a rebuild
-does not reintroduce the old filename.
+Touches the generated pages, the build sources that emit them, and the
+publish/sync tooling, so a rebuild does not reintroduce the old filename.
+Both _build trees are covered: _build/ at the repo root is the tracked one,
+website/_build/ is the working copy, and they must not drift apart.
+
+tools/sync_root.py and tools/sync_audit.py matter as much as the HTML. They
+carry an explicit publish list of the files GitHub Pages serves, and leaving
+og-cover.png there meant the new card was never copied to the deploy tree
+while the stale clipped one kept being served.
 
     python tools/switch_og_image.py           # apply
     python tools/switch_og_image.py --check   # report only, exit 1 if work remains
@@ -28,20 +35,29 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 WEBSITE = ROOT / "website"
-BUILD = WEBSITE / "_build"
 
 OLD = "og-cover.png"
 NEW = "og-cover-v2.png"
+
+# This file names OLD on purpose, and make_og_image.mjs explains the old
+# generator in prose. Rewriting either would break the tool or falsify a
+# comment.
+SELF = Path(__file__).resolve()
+SKIP = {SELF, ROOT / "tools" / "make_og_image.mjs"}
 
 
 def targets() -> list[Path]:
     out: list[Path] = []
     for pattern in ("*.html", "*/*.html", "*/*/*.html", "*/*/*/*.html"):
         out.extend(WEBSITE.glob(pattern))
-    if BUILD.is_dir():
-        out.extend(sorted(BUILD.glob("*.py")))
-        out.extend(sorted(BUILD.glob("*.txt")))
-    return sorted({p for p in out if p.is_file()})
+    for build in (ROOT / "_build", WEBSITE / "_build"):
+        if build.is_dir():
+            out.extend(sorted(build.glob("*.py")))
+            out.extend(sorted(build.glob("*.txt")))
+    # Tools that write the filename into pages: the RU build, the idempotent
+    # patch scripts that seed the build sources, and the publish/audit lists.
+    out.extend(sorted((ROOT / "tools").glob("*.py")))
+    return sorted({p for p in out if p.is_file() and p.resolve() not in SKIP})
 
 
 def main() -> int:

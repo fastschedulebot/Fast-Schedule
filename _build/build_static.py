@@ -5,7 +5,7 @@
 #   sitemap.xml        - every URL
 #   llms.txt           - curated map for AI answer engines (llmstxt.org v2 format)
 #   llms-full.txt      - complete article corpus as plain markdown (AI/RAG retrieval)
-#   og-cover.png       - 1200x630 social preview (PIL)
+#   og-cover-v2.png       - 1200x630 social preview (PIL)
 #   404.html           - branded soft-404
 #   .nojekyll          - skip Jekyll on GitHub Pages
 # Also injects security + canonical metas into index/help/legal pages.
@@ -89,7 +89,7 @@ def breadcrumb_ld(items):
 
 
 def page_head(title, desc, canonical, extra_ld='', og_type='article', noindex=False):
-    og_img = SITE + '/og-cover.png'
+    og_img = SITE + '/og-cover-v2.png'
     robots = '<meta name="robots" content="noindex">' if noindex else robots_meta()
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -313,7 +313,7 @@ def main():
             'articleSection': cat_title,
             'author': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': SITE},
             'publisher': {'@type': 'Organization', 'name': 'Fast Scheduler', 'url': SITE,
-                          'logo': {'@type': 'ImageObject', 'url': SITE + '/og-cover.png'}},
+                          'logo': {'@type': 'ImageObject', 'url': SITE + '/og-cover-v2.png'}},
             'mainEntityOfPage': canonical,
             'datePublished': BUILD_DATE,
             'dateModified': BUILD_DATE,
@@ -518,44 +518,19 @@ def main():
 </body>
 </html>''')
 
-    # -------------------------------------------------------- og-cover.png --
-    make_og_cover(os.path.join(OUT, 'og-cover.png'))
+    # The social card is NOT generated here. The old PIL make_og_cover() drew
+    # the subtitle at a hardcoded x=320 and the footer at x=100 without ever
+    # measuring the text, so both ran off the right edge of the 1200px canvas
+    # and every link preview clipped them mid-word. The card now comes from
+    # tools/make_og_image.mjs, which renders it in headless Chrome with the
+    # site's own webfonts and fails the build if anything lands in a croppable
+    # margin. Re-run it after changing the copy.
 
     # --------------------------------------------- inject metas (index/help/legal) --
     inject_existing()
 
     print(f'[ok] static SEO layer: {len(article_order)} article pages, {len(cat_urls)} category hubs, '
           f'{len(urls)} sitemap URLs, llms-full.txt {os.path.getsize(os.path.join(OUT, "llms-full.txt")) // 1024} KB')
-
-
-def make_og_cover(path):
-    W, H = 1200, 630
-    img = Image.new('RGB', (W, H), '#0c1310')
-    d = ImageDraw.Draw(img)
-    # soft green gradient blobs (drawn as translucent ellipses on overlay)
-    ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    od = ImageDraw.Draw(ov)
-    od.ellipse((-260, -220, 460, 420), fill=(31, 170, 89, 90))
-    od.ellipse((820, 260, 1440, 820), fill=(111, 224, 160, 60))
-    od.ellipse((420, 460, 900, 860), fill=(31, 170, 89, 55))
-    img = Image.alpha_composite(img.convert('RGBA'), ov).convert('RGB')
-    d = ImageDraw.Draw(img)
-    try:
-        f_big = ImageFont.truetype('C:/Windows/Fonts/arialbd.ttf', 92)
-        f_mid = ImageFont.truetype('C:/Windows/Fonts/arialbd.ttf', 44)
-        f_sm = ImageFont.truetype('C:/Windows/Fonts/arial.ttf', 30)
-    except OSError:
-        f_big = f_mid = f_sm = ImageFont.load_default()
-    # calendar glyph
-    d.rounded_rectangle((96, 200, 272, 360), radius=28, outline='#ffffff', width=10)
-    d.line((96, 268, 272, 268), fill='#ffffff', width=10)
-    for x in (140, 226):
-        d.line((x, 168, x, 216), fill='#ffffff', width=10)
-    d.text((320, 210), 'Fast Scheduler', font=f_big, fill='#ffffff')
-    d.text((322, 330), 'Schedule Telegram channel posts on autopilot', font=f_mid, fill='#a9e8c4')
-    d.text((100, 520), 'Batch-schedule weeks of content in one chat  ·  Free to start  ·  t.me/FastSchedulerBot',
-           font=f_sm, fill='#d9efe2')
-    img.save(path, 'PNG', optimize=True)
 
 
 def inject_existing():
@@ -583,7 +558,7 @@ def inject_existing():
             org = jsonld({
                 '@context': 'https://schema.org', '@type': 'Organization',
                 'name': 'Fast Scheduler', 'url': SITE + '/',
-                'logo': SITE + '/og-cover.png',
+                'logo': SITE + '/og-cover-v2.png',
                 'description': 'Telegram bot that schedules and auto-publishes channel posts: '
                                'batch scheduling, recurring messages, sender bots, statistics and backups.',
                 'sameAs': ['https://t.me/FastSchedulerBot'],
@@ -606,8 +581,8 @@ def inject_existing():
             if m:
                 og = (f'\n<link rel="canonical" href="{canon}">\n'
                       f'<meta property="og:url" content="{canon}">\n'
-                      f'<meta property="og:image" content="{SITE}/og-cover.png">\n'
-                      f'<meta name="twitter:image" content="{SITE}/og-cover.png">')
+                      f'<meta property="og:image" content="{SITE}/og-cover-v2.png">\n'
+                      f'<meta name="twitter:image" content="{SITE}/og-cover-v2.png">')
                 s = s[:m.end()] + og + s[m.end():]
         io.open(p, 'w', encoding='utf-8', newline='\n').write(s)
 

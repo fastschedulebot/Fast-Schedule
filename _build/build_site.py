@@ -450,7 +450,7 @@ def legal_page(title, body_html, updated, cta_url, toc_box, toc_side, sheet_html
 <meta property="og:site_name" content="Fast Scheduler">
 <meta property="og:title" content="{title} — Fast Scheduler">
 <meta property="og:url" content="{canon}">
-<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">
+<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">
 <script>
   try {{
     var t = localStorage.getItem('theme');

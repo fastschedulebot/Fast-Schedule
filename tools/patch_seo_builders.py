@@ -255,8 +255,8 @@ def patch_blog():
 
 
 def page_head(title, desc, canonical, extra_ld='', og_type='article', extra_meta=''):""")
-    n += sub("build_blog.py", """<meta name="twitter:image" content="{SITE}/og-cover.png">
-<link rel="icon" href="{FAVICON}">""", """<meta name="twitter:image" content="{SITE}/og-cover.png">{extra_meta}
+    n += sub("build_blog.py", """<meta name="twitter:image" content="{SITE}/og-cover-v2.png">
+<link rel="icon" href="{FAVICON}">""", """<meta name="twitter:image" content="{SITE}/og-cover-v2.png">{extra_meta}
 <link rel="icon" href="{FAVICON}">""")
     n += sub("build_blog.py", """        head = page_head(art['title'] + ' — Fast Scheduler Blog', art['description'], canon,
                          extra_ld=ld_post + '\\n' + ld_bread + (faq_ld(art) or ''))""",

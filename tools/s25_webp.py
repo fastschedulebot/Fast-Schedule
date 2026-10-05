@@ -1,7 +1,7 @@
 """Convert blog cover JPGs to WebP (q82) + point builders at .webp.
 
 Kept as-is (with reasons): SVG covers (vector, already optimal),
-og-cover.png (social scrapers don't accept webp), apple-touch-icon.png
+og-cover-v2.png (social scrapers don't accept webp), apple-touch-icon.png
 (Apple requires PNG), videos/* (production sources, not served).
 """
 import glob

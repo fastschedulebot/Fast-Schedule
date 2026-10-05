@@ -172,8 +172,8 @@ edit('build_help.py',
 
 # ----------------------------------------------------- build_static.py -----
 edit('build_static.py',
-     "    og_img = SITE + '/og-cover.png'\n",
-     """    og_img = SITE + '/og-cover.png'
+     "    og_img = SITE + '/og-cover-v2.png'\n",
+     """    og_img = SITE + '/og-cover-v2.png'
     # One SERP-shaped title/description for every page type on the site.
     title = bh.fit_title(title)
     desc = bh.smart_desc(desc)
@@ -235,7 +235,7 @@ edit('build_site.py',
      '<meta property="og:site_name" content="Fast Scheduler">\n'
      '<meta property="og:title" content="{title} — Fast Scheduler">\n'
      '<meta property="og:url" content="{canon}">\n'
-     '<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">\n',
+     '<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">\n',
      '<meta name="description" content="{ldesc}">\n'
      '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n'
      '<link rel="canonical" href="{canon}">\n'
@@ -244,11 +244,11 @@ edit('build_site.py',
      '<meta property="og:title" content="{title} — Fast Scheduler">\n'
      '<meta property="og:description" content="{ldesc}">\n'
      '<meta property="og:url" content="{canon}">\n'
-     '<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">\n'
+     '<meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">\n'
      '<meta name="twitter:card" content="summary_large_image">\n'
      '<meta name="twitter:title" content="{title} — Fast Scheduler">\n'
      '<meta name="twitter:description" content="{ldesc}">\n'
-     '<meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover.png">\n'
+     '<meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">\n'
      '<script type="application/ld+json">{ldjson}</script>\n',
      'legal head: robots/og/twitter/JSON-LD')
 

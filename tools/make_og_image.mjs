@@ -65,11 +65,12 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
   .mark svg{width:60px;height:60px}
   h1{font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;
     font-size:78px;line-height:1.02;letter-spacing:-.032em}
-  /* 600px cap keeps the subtitle inside the band a square crop leaves
-     (x 285..915). It wraps to two lines rather than running out of frame. */
-  .sub{margin-top:14px;font-size:30px;line-height:1.3;font-weight:550;color:#7fe3a8;
-    letter-spacing:-.008em;max-width:600px}
-  .pills{margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
+  /* 28px on one line measures ~570px, so the subtitle still clears the band a
+     square crop leaves (x 285..915) without orphaning "autopilot" on its own
+     row. It wraps rather than running out of frame if the font ever differs. */
+  .sub{margin-top:14px;font-size:28px;line-height:1.3;font-weight:550;color:#7fe3a8;
+    letter-spacing:-.008em;max-width:640px}
+  .pills{margin-top:26px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;
     background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
     font-size:19px;font-weight:600;color:#e8fff1;white-space:nowrap}
