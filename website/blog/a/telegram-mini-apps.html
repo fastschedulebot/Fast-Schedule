@@ -234,12 +234,14 @@
       color: inherit; border-radius: 3px; padding: 0 1px; }
     .blog-nores { padding: 40px 0; text-align: center; color: var(--text-dim); }
     @media (max-width: 1100px) { #blog-res-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 700px) { #blog-res-grid { grid-template-columns: 1fr; } }
+    /* Phones keep two cards per row for search results, like the hub. */
+    @media (max-width: 700px) { #blog-res-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
 
     @media (max-width: 1100px) { .bento { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 940px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+    /* Phones keep two cards per row; featured spans go single like the rest. */
     @media (max-width: 700px) {
-      .bento { grid-template-columns: 1fr; gap: 12px; }
+      .bento { grid-template-columns: 1fr 1fr; gap: 10px; }
       .s-lg, .s-md, .bsearch { grid-column: auto; }
       .bcard-desc { display: none !important; }
     }

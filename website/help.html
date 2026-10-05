@@ -372,7 +372,12 @@
 
     .hc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 16px 0 8px; }
     @media (max-width: 1020px) { .hc-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px)  { .hc-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px)  { .hc-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      /* Phones keep two cards per row: halves the scroll through 20+ topics. Cards tighten up and the article preview hides (one tap away). */
+      .hc-grid > .hc-cat { padding: 13px; }
+      .hc-grid .hc-cat-head { gap: 9px; }
+      .hc-grid .hc-cat-go { display: none; }
+      .hc-grid .hc-cat-prev { display: none; } }
     .hc-grid > .hc-cat, .hc-list > .hc-row { min-width: 0; }
     .hc-cat { display: block; padding: 18px; color: var(--text); transition: transform .2s, border-color .2s, box-shadow .2s; }
     .hc-cat:hover { text-decoration: none; border-color: color-mix(in srgb, var(--green) 45%, var(--border)); transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -873,7 +878,12 @@
     .hc-section-h span { color: var(--text-dim); font-size: .86rem; }
     .hc-grid { grid-template-columns: repeat(3, 1fr); }
     @media (max-width: 1020px) { .hc-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .hc-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .hc-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      /* Phones keep two cards per row: halves the scroll through 20+ topics. Cards tighten up and the article preview hides (one tap away). */
+      .hc-grid > .hc-cat { padding: 14px; }
+      .hc-grid .hc-cat-head { gap: 9px; }
+      .hc-grid .hc-cat-go { display: none; }
+      .hc-grid .hc-cat-prev { display: none; } }
     .hc-cat { display: flex; flex-direction: column; gap: 10px; padding: 20px; text-decoration: none; }
     .hc-cat:hover { text-decoration: none; border-color: color-mix(in srgb, var(--green) 45%, var(--border)); transform: translateY(-2px); box-shadow: var(--shadow); }
     .hc-cat-head { display: flex; align-items: center; gap: 12px; }
@@ -1017,7 +1027,8 @@
     .hc-band-grid b { display: block; font-size: .94rem; }
     .hc-band-grid span { display: block; margin-top: 3px; font-size: .8rem; color: rgba(18,49,47,.68); }
     @media (max-width: 1020px) { .hc-feat { grid-template-columns: 1fr 1fr; } .hc-band-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .hc-feat { grid-template-columns: 1fr; } .hc-band-grid { grid-template-columns: 1fr; } .hc-tools .hc-tool.opt { display: none; } }
+    /* Phones keep two cards per row for the featured topics and the platform band. */
+    @media (max-width: 640px) { .hc-feat { grid-template-columns: 1fr 1fr; gap: 10px; } .hc-feat a { padding: 14px; } .hc-band-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .hc-band-grid a { padding: 14px; } .hc-tools .hc-tool.opt { display: none; } }
 
     .gp-reading[hidden] { display: none !important; }
     /* mobile: no room for layout toggles — font size only */
