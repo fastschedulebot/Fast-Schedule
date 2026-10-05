@@ -109,6 +109,8 @@ html[data-motion="off"] .nav-rail .rail-inner, html[data-motion="off"] .nav-rail
 .nav-rail a.active { color: var(--green-strong); }
 /* settings popover opens leftward from the rail */
 .nav-rail .glass-pop { left: auto; right: calc(100% + 12px); top: 0; }
+/* flipped variant (settings.js): same leftward sheet, hung above the gear */
+.nav-rail .glass-pop.menu-up { top: auto; bottom: calc(100% + 12px); transform-origin: bottom right; }
 
 /* center dock for the logo: a green tab attached to the top edge with
    inward-curved (scooped) top corners, like a hanging glass tab */

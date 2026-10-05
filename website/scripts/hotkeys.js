@@ -244,10 +244,30 @@
     }
     return false;
   }
+  /* K is the escape hatch: it must work even while the set is switched off,
+     or one accidental press strands the visitor with no keyboard way back
+     on (every other key stands down, and the hints hide with the switch). */
+  function hatchKey(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return null;
+    var K = window.FS_KEYS;
+    if (K) { if (K.typing()) return null; }
+    else {
+      var el = document.activeElement;
+      var tag = ((el && el.tagName) || '').toUpperCase();
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' ||
+          (el && el.isContentEditable === true)) return null;
+    }
+    var k = norm(e.key);
+    if (k === 'k') return 'k';
+    var ck = codeKey(e.code);
+    if (ck === 'k') return 'k';
+    return null;
+  }
   document.addEventListener('keydown', function (e) {
     if (e.defaultPrevented || e.repeat) return;
-    if (!allow(e)) return;
-    var k = norm(e.key);
+    var hatch = !hotkeysOn() && hatchKey(e);
+    if (!hatch && !allow(e)) return;
+    var k = hatch || norm(e.key);
     refreshStolen();
     if (stolenKeys[String(k).toLowerCase()] && !(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey)) return;
     if (fire(k)) { e.preventDefault(); return; }

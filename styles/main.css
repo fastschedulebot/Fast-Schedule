@@ -957,6 +957,13 @@ html[data-fx="off"] .marquee:hover .marquee-track { animation-play-state: runnin
 }
 .glass-pop > * { position: relative; z-index: 1; }
 .glass-pop.open { opacity: 1; transform: none; pointer-events: auto; }
+/* flipped above the trigger when there is no room below (toggled by
+   settings.js): same glass, anchored to the gear's top edge instead */
+.glass-pop.menu-up { top: auto; bottom: calc(100% + 12px); transform-origin: bottom right; transform: translateY(10px) scale(.9); }
+.glass-pop.menu-up.open { transform: none; }
+.nav-left .settings-wrap .glass-pop.menu-up { transform-origin: bottom left; }
+/* last resort: a viewport shorter than the menu still reaches every row */
+.glass-pop { max-height: calc(100vh - 24px); overflow-y: auto; overscroll-behavior: contain; }
 
 .gp-head {
   /* Sentence case with no tracking. Wide-tracked caps are the clearest

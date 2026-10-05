@@ -8,11 +8,31 @@
   var wrap = btn ? btn.parentElement : null;
   var closeT = null, hoverT = null;
 
+  /* The menu drops below the gear by default. From the side rail (or any
+     short viewport) there may be no room below, which used to park the
+     bottom rows off-screen with no way to reach them — flip it above the
+     gear instead and let it scroll internally as a last resort. */
+  function placeMenu() {
+    if (!menu || !wrap || !btn) return;
+    menu.classList.remove('menu-up');
+    menu.style.maxHeight = '';
+    var r = menu.getBoundingClientRect();
+    var gearTop = btn.getBoundingClientRect().top;
+    var below = window.innerHeight - 8 - r.top;   /* room under the gear */
+    var above = gearTop - 12 - 8;                 /* room over the gear  */
+    if (r.height > below && above > below) {
+      menu.classList.add('menu-up');
+      if (r.height > above) menu.style.maxHeight = Math.max(120, above) + 'px';
+    } else if (r.height > below) {
+      menu.style.maxHeight = Math.max(120, below) + 'px';
+    }
+  }
   function openMenu() {
     if (menu && !menu.classList.contains('open')) {
       clearTimeout(closeT);
       menu.classList.add('open');
       if (btn) btn.setAttribute('aria-expanded', 'true');
+      placeMenu();
     }
   }
   function closeMenu() {
@@ -151,7 +171,9 @@
      One switch for every keyboard shortcut on the site (the rail's "s", the
      jump button's "g"/Home/End, the pricing ring's arrow keys). Other scripts
      read FS_KEYS.enabled() and listen for the change event, so toggling it takes
-     effect immediately without a reload. */
+     effect immediately without a reload. K itself always stays live as the
+     escape hatch (see hotkeys.js): an accidental press can never strand the
+     visitor with no keyboard way back on. */
   var rowKeys = document.getElementById('rowKeys');
   var FS_KEYS = {
     enabled: function () { return root.getAttribute('data-keys') !== 'off'; },

@@ -86,6 +86,22 @@ if (!document.documentElement.animate) return;
 
     function killBackdrop(el) { el.style.webkitBackdropFilter = 'none'; el.style.backdropFilter = 'none'; }
     function restoreBackdrop(el) { el.style.webkitBackdropFilter = ''; el.style.backdropFilter = ''; }
+    /* A fly() animation holds its end state via fill:'both'. If one ever
+       stalls mid-flight (background tab, throttled compositor, toggle
+       mid-flight) the item parks off-position permanently — the gear ends
+       up floating above the rail with no way back. Every flight ends on an
+       identity transform, so forcing stalled flights to completion and then
+       dropping them is visually free and guarantees nothing can stick. */
+    function settleFlights() {
+      var els = [settings, brand, helpRow, supportIb, getCta()].concat(links);
+      els.forEach(function (el) {
+        if (!el || !el.getAnimations) return;
+        el.getAnimations().forEach(function (a) {
+          try { a.finish(); } catch (e) {}
+          try { a.cancel(); } catch (e) {}
+        });
+      });
+    }
 
     /* The glass bar pours from the navbar to the rail: short, soft morph
        with a whisper of overshoot. Blur is disabled mid-flight (animating
@@ -96,6 +112,9 @@ if (!document.documentElement.animate) return;
     function flowBlob(fromR) {
       var toR = rail.getBoundingClientRect();
       if (!toR.width || !toR.height) return;
+      /* a zero-size source box turns the scale math into Infinity, which
+         the compositor rejects (and logs) while leaving the blob parked */
+      if (!fromR.width || !fromR.height) return;
       var fc = center(fromR), tc = center(toR);
       var dx = tc.x - fc.x, dy = tc.y - fc.y;
       var sx = toR.width / fromR.width, sy = toR.height / fromR.height;
@@ -140,10 +159,10 @@ if (!document.documentElement.animate) return;
       railInner.appendChild(railLinks);
       links.forEach(function (a) { railLinks.appendChild(a); });
       if (helpRow) { railLinks.appendChild(helpRow); }
-      /* settings gear sits to the LEFT of the Open Bot CTA in the rail footer */
+      /* gear trails the Open Bot CTA in the rail footer, same as the top bar */
       if (supportIb && railFoot) railFoot.appendChild(supportIb);
-      if (settings && railFoot) railFoot.appendChild(settings);
       if (cta) railFoot.appendChild(cta);
+      if (settings && railFoot) railFoot.appendChild(settings);
       dock.appendChild(brand);
     }
 
@@ -223,6 +242,7 @@ if (!document.documentElement.animate) return;
         setTimeout(function () { brand.classList.add('landed'); }, 200);
         setTimeout(function () {
           document.body.classList.add('liquid-settled');
+          settleFlights();
           busy = false; moved = true;
           updatePill();
         }, 1100);
@@ -246,6 +266,9 @@ if (!document.documentElement.animate) return;
         if (document.documentElement.classList.contains('rail-off')) {
           /* !important: a live animation on the layer would outrank an inline
              declaration, and this has to win */
+          blobLayer.style.setProperty('opacity', '0', 'important');
+        } else if (!fromR.width || !fromR.height || !toR.width || !toR.height) {
+          /* collapsed panel: nothing on screen to pour out of either */
           blobLayer.style.setProperty('opacity', '0', 'important');
         } else {
           mainBlob.style.left = fromR.left + 'px';
@@ -284,6 +307,7 @@ if (!document.documentElement.animate) return;
         setTimeout(function () {
           document.body.classList.remove('liquid-drain');
           brand.classList.remove('landed');
+          settleFlights();
           cleanupBlobs();
           blobLayer.style.removeProperty('opacity');
           railPill.style.opacity = '0';

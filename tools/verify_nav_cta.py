@@ -3,10 +3,11 @@
 
 Two invariants, asserted over all generated HTML:
 
-1. The Open Bot CTA is the LAST child of .nav-right, and no page still has
-   it inside .nav-left. Spot-checking four pages is not enough: the header
-   is emitted by several code paths (help hub, help article, blog index,
-   blog article, legal, 404) and they can drift apart.
+1. The Open Bot CTA is the last ANCHOR of .nav-right, the settings gear
+   trails it as the final child, and neither still sits inside .nav-left.
+   Spot-checking four pages is not enough: the header is emitted by
+   several code paths (help hub, help article, blog index, blog article,
+   legal, 404) and they can drift apart.
 
 2. The nav label never wraps: .nav-link must carry white-space: nowrap, and
    no built page may embed a stylesheet version older than the current one -
@@ -59,27 +60,54 @@ for dirpath, dirs, files in os.walk(WEB):
             no_nav += 1          # homepage uses its own .home-nav; fine
             continue
         right = mr.group(1)
-        if ml and CTA_RE.search(ml.group(1)):
+        # .nav-left ends where .nav-center/.nav-right begins (or the header
+        # closes); the NAV_LEFT regex stops at the first </div>, which is
+        # the brand link's own close on some pages, so bound it explicitly.
+        left_end = len(txt)
+        for marker in ('<div class="nav-center">',
+                       '<div class="nav-group nav-right">',
+                       '</div></div></header>'):
+            i = txt.find(marker)
+            if i != -1:
+                left_end = min(left_end, i)
+        left = txt[txt.find('<div class="nav-group nav-left">'):left_end]
+        if CTA_RE.search(left):
             cta_left += 1
             bad.append('%s: CTA still in .nav-left' % rel)
-        # Assert by POSITION, not by regexing the tail. The real invariant is
-        # that the CTA is the final anchor in .nav-right: it opens after the
-        # Help popover, and the </a> that closes it is the last one in the
-        # group. Matching markup shape instead produced 672 false positives
-        # on a build that was correct; comparing rfind('</a>') to rfind('<a ')
-        # instead let a trailing sibling through, so the CTA's OWN closing
-        # tag is located and required to be the group's last.
+        if 'settings-wrap' in left:
+            cta_left += 1
+            bad.append('%s: settings gear still in .nav-left' % rel)
+        # Assert by POSITION. The CTA is the last ANCHOR in .nav-right (it
+        # opens after the Help popover) and the settings gear span trails
+        # it as the final child — the gear's own menu holds anchors, so a
+        # naive "CTA close is the last </a>" check no longer applies.
         i_cta = right.find('nav-cta')
         i_pop = right.find('site-menu-wrap')
+        i_gear = right.find('<span class="settings-wrap">')
         if i_cta == -1:
             cta_not_last += 1
             bad.append('%s: no CTA inside .nav-right' % rel)
         elif i_pop != -1 and i_cta < i_pop:
             cta_not_last += 1
             bad.append('%s: CTA opens before the Help popover' % rel)
-        elif right.find('</a>', i_cta) != right.rfind('</a>'):
-            cta_not_last += 1
-            bad.append('%s: something renders after the CTA' % rel)
+        else:
+            cta_close = right.find('</a>', i_cta)
+            if cta_close == -1 or i_gear == -1 or i_gear < cta_close:
+                cta_not_last += 1
+                bad.append('%s: settings gear is not trailing the CTA' % rel)
+            else:
+                # the gear span must run to the end of the group: balance
+                # its nested spans, then only whitespace may follow.
+                depth = 0
+                gear_end = -1
+                for m in re.finditer(r'<span[\s>]|</span>', right[i_gear:]):
+                    depth += -1 if m.group(0) == '</span>' else 1
+                    if depth == 0:
+                        gear_end = i_gear + m.end()
+                        break
+                if gear_end == -1 or right[gear_end:].strip():
+                    cta_not_last += 1
+                    bad.append('%s: something renders after the gear' % rel)
         vers = set(CSS_VER.findall(txt))
         if vers and WANT not in vers:
             stale_css += 1
