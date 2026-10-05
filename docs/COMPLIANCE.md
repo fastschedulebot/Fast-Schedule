@@ -98,9 +98,9 @@ The EAA has applied to e-commerce services since 28 June 2025. Verified:
 grep -rniE "fonts\.(googleapis|gstatic)\.com" website/ --include='*.html' --include='*.css'
 grep -rhoE '<(script|img)[^>]+src="https?://[^"]+"' website/ --include='*.html'
 grep -rhoE '@import|url\(\s*["'"'"']?https?://' website/styles/*.css
-node tools/scan_ru_overflow.mjs --base https://fastschedulebot.github.io/Fast-Schedule
+grep -rniE "gtag|googletagmanager|yandex|metrika|hotjar|clarity\.ms|facebook\.net|plausible\.io|matomo|segment\.com|mixpanel" website/ --include='*.html' --include='*.js'
 ```
 
-Anything matching in the first three is a compliance regression and should fail
-the review. A live network capture in the browser (Preview → Network) is the
-decisive check.
+All four must return nothing. The greps catch a source-level regression; the
+decisive check is a **live network capture** on the deployed site (Preview →
+Network), where every request should be to `fastschedulebot.github.io`.
