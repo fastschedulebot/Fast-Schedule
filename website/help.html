@@ -969,6 +969,13 @@
     .hc-row:hover { border-color: color-mix(in srgb, var(--green) 45%, var(--border)); text-decoration: none; }
     .hc-row-t { font-weight: 650; color: var(--text); }
     .hc-row-m { margin-left: auto; flex: none; font-size: .8rem; color: var(--text-dim); font-weight: 650; }
+    /* Search/suggestion cards: the nowrap category badge used to squeeze
+       the title down to one word per line in narrow grid columns. The title
+       now takes its own full-width line; badge + chevron share a row beneath it. */
+    .hc-list > .hc-row { flex-wrap: wrap; row-gap: 8px; }
+    .hc-list .hc-row-t { flex: 1 1 100%; }
+    .hc-list .hc-row-m { margin-left: 0; }
+    .hc-list > .hc-row > svg { margin-left: auto; }
     .hc-others { margin-top: 26px; font-size: .88rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 6px 12px; }
     .hc-others a { font-weight: 600; }
 
