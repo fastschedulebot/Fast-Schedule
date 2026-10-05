@@ -2448,6 +2448,14 @@ def build_page(nodes, help_sec):
   <meta property="og:type" content="website">
   <meta property="og:title" content="Help Center — Fast Scheduler for Telegram">
   <meta property="og:description" content="{len(article_order)} searchable help topics for the Fast Scheduler Telegram bot.">
+  <meta property="og:url" content="https://fastschedulebot.github.io/Fast-Schedule/help.html">
+  <meta property="og:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Help Center — Fast Scheduler for Telegram">
+  <meta name="twitter:description" content="{len(article_order)} searchable help topics for the Fast Scheduler Telegram bot.">
+  <meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">
   <link rel="icon" href="{FAVICON}">
   <script type="application/ld+json">
   {{
