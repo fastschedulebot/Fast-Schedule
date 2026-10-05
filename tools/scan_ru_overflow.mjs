@@ -43,6 +43,40 @@ const URL_FILE = arg('urls', '');
 const LIMIT = Number(arg('limit', '0')) || Infinity;
 const SHOT = !!arg('shot', '');
 
+// --cyr reports how much of each page's main content is actually rendered in
+// Russian, instead of measuring overflow. Switching language only rewrites the
+// strings present in window.FS_RU_CONTENT, so a page can come up with a Russian
+// <title> and Russian chrome while its article body is still English. This
+// counts the Cyrillic share of the main content so that gap is measurable
+// instead of a matter of opinion.
+const CYR = !!arg('cyr', '');
+// How long to let the language switch settle before measuring. The switch can
+// need to fetch ru-content.js first, so a short wait reads a half-translated
+// page and under-reports badly.
+const SETTLE = Number(arg('settle', '700'));
+const CYR_EXPR = `(() => {
+  const root = document.querySelector('main') || document.querySelector('article') || document.body;
+  // textContent, NOT innerText: the legal docs set content-visibility, which
+  // skips offscreen subtrees, so innerText reads a mostly-unrendered page and
+  // badly under-reports the Russian share.
+  const text = (root.textContent || '').replace(/\s+/g, ' ').trim();
+  // Count by code point rather than by regex. This string is itself a template
+  // literal, so a character-class escape needs a second round of escaping and
+  // silently degrades into matching plain ASCII.
+  let cyr = 0, lat = 0;
+  for (const ch of text) {
+    const c = ch.codePointAt(0);
+    if (c >= 0x400 && c <= 0x4ff) cyr++;
+    else if ((c >= 0x41 && c <= 0x5a) || (c >= 0x61 && c <= 0x7a)) lat++;
+  }
+  return { chars: text.length, cyr, lat, pct: lat + cyr ? Math.round(100 * cyr / (lat + cyr)) : 0,
+    h1: (document.querySelector('h1') || {}).innerText || '',
+    title: document.title, htmlLang: document.documentElement.lang,
+    ls: (function(){ try { return localStorage.getItem('fs-lang'); } catch(e){ return 'ERR'; } })(),
+    keys: window.FS_RU_CONTENT ? Object.keys(window.FS_RU_CONTENT).length : 0,
+    sample: text.slice(0, 120) };
+})()`;
+
 const urls = URL_FILE && existsSync(URL_FILE)
   ? readFileSync(URL_FILE, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'))
   : [
@@ -180,7 +214,13 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
       for (let i = 0; i < 60 && !loaded; i++) await sleep(100);
       await sleep(700);
       // Force Russian through the site's own switcher, then let it settle.
-      await cdp.eval(`(async()=>{try{if(window.FS_LANG&&window.FS_LANG.set){window.FS_LANG.set('ru');}else{document.documentElement.lang='ru';}}catch(e){};await new Promise(r=>setTimeout(r,700));return 1})()`);
+      await cdp.eval(`(async()=>{try{if(window.FS_LANG&&window.FS_LANG.set){window.FS_LANG.set('ru');}else{document.documentElement.lang='ru';}}catch(e){};await new Promise(r=>setTimeout(r,${SETTLE}));return 1})()`);
+      if (CYR) {
+        const c = await cdp.eval(CYR_EXPR);
+        report.push({ url, w, ...c });
+        process.stdout.write(`${String(c.pct).padStart(4)}% cyr  ${String(c.chars).padStart(6)} ch  ${u}\n`);
+        continue;
+      }
       const r = await cdp.eval(SCAN);
       report.push({ url, w, ...r });
       const bad = r.n;
@@ -188,6 +228,17 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     }
   }
   writeFileSync(OUT, JSON.stringify(report, null, 1));
+  if (CYR) {
+    const rows = report.slice(0, pages.length);
+    const avg = Math.round(rows.reduce((a, b) => a + b.pct, 0) / (rows.length || 1));
+    const low = rows.filter(r => r.pct < 50);
+    console.log(`\npages=${rows.length} avgCyr=${avg}%  below50%=${low.length}`);
+    for (const r of low.sort((a, b) => a.pct - b.pct).slice(0, 25)) {
+      console.log(`  ${String(r.pct).padStart(3)}%  ${r.url.replace(BASE, '')}  (${r.chars} chars)`);
+    }
+    console.log(`report -> ${OUT}`);
+    wsock.close(); proc.kill(); process.exit(0);
+  }
   const total = report.reduce((a, b) => a + b.n, 0);
   const badUrls = [...new Set(report.filter(r => r.n).map(r => r.url))];
   console.log(`\npages=${pages.length} widths=${WIDTHS.length} totalOverlaps=${total} urlsWithIssues=${badUrls.length}`);
