@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Move a Telegram Channel: Merging, Renaming and Migrating Audiences", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-channel-migration.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I merge two Telegram channels?", "acceptedAnswer": {"@type": "Answer", "text": "No native merge exists. The standard pattern is announce-and-archive: pin a redirect post on the smaller channel, cross-post for a month, expect 15–40% of subscribers to move."}}, {"@type": "Question", "name": "Will renaming my channel lose subscribers or history?", "acceptedAnswer": {"@type": "Answer", "text": "No — rename keeps subscribers, posts and stats. Only the @link change breaks old t.me URLs, so announce it ahead and update printed materials."}}, {"@type": "Question", "name": "How do I move my scheduled posts to a new channel?", "acceptedAnswer": {"@type": "Answer", "text": "They live in your scheduling bot, not the channel. Reconnect the bot to the new channel, or use its export/import to move the pipeline between accounts."}}, {"@type": "Question", "name": "Can a discussion group be linked to a different channel later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — unlink and re-link in channel settings. Comment history stays with the group, which preserves community continuity across the move."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

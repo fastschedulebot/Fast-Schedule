@@ -47,7 +47,7 @@
   </script>
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles/main.css?v=20261004a1">
+  <link rel="stylesheet" href="styles/main.css?v=20261005a1">
   <link rel="stylesheet" href="styles/lang.css?v=20261001a1"">
   <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
 <link rel="stylesheet" href="styles/hotkeys-modal.css?v=20260930a1">
@@ -605,7 +605,7 @@
     .hc-related { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); }
     .hc-related h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 0 0 12px; }
 
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     @media (max-width: 640px) {
       .hc-pager { gap: 9px; }
       .hc-pager a { padding: 12px 13px; gap: 9px; }
@@ -964,7 +964,7 @@
       .hc-doc { grid-template-columns: minmax(0, 1fr); }
       .hc-rail { display: none; }
       .hc-docs-head h1 { font-size: 1.9rem; }
-      .hc-pager { grid-template-columns: 1fr; }
+      .hc-pager { grid-template-columns: minmax(0, 1fr); }
       .hc-body pre { font-size: .8rem; }
     }
 

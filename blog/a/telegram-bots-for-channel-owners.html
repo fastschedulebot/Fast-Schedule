@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Top Telegram Bots Every Channel Owner Should Know in 2026", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-bots-for-channel-owners.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do bots need admin rights in my channel?", "acceptedAnswer": {"@type": "Answer", "text": "A publishing bot needs Post Messages (and ideally Edit Messages) rights. Nothing else. Never grant Delete Messages to a bot you don’t fully trust."}}, {"@type": "Question", "name": "Are Telegram bots free?", "acceptedAnswer": {"@type": "Answer", "text": "The good ones are freemium — ManyBot’s core is free, the bigger schedulers run a single channel on free plans, and Combot, TGStat and Rose charge for depth. A new channel can run entirely free."}}, {"@type": "Question", "name": "Can a bot post from my own bot’s name?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — create a bot via @BotFather, add it as a channel admin, and connect its token to a scheduler that supports “sender bots” (ControllerBot and Fast Scheduler both do). Your brand signs every post."}}, {"@type": "Question", "name": "Is it safe to give a scheduler my bot token?", "acceptedAnswer": {"@type": "Answer", "text": "The token gives full control of that bot, so treat it like a password. Reputable schedulers store it encrypted and let you revoke/rotate anytime via BotFather. Never paste tokens into unknown websites."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

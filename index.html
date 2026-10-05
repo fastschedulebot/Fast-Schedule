@@ -87,7 +87,7 @@
   </script>
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="styles/main.css?v=20261005a1">
   <link rel="stylesheet" href="styles/lang.css?v=20261002b1">
 <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
   <style>
@@ -167,6 +167,19 @@
     }
     @media (max-width: 1320px) {
       html[lang="ru"] .home-nav nav > a:not(.nav-cta-sm) { display: none; }
+    }
+    @media (max-width: 520px) {
+      /* "Открыть бота" is roughly 50px wider than "Open Bot", and a phone-width
+         row cannot hold brand + CTA + gear + burger: the burger was clipped off
+         the right edge. The burger sheet carries the identical CTA
+         (.nav-cta-m), so dropping it from the bar loses no action. */
+      html[lang="ru"] .home-nav .nav-cta-sm { display: none; }
+    }
+    /* Safety net: if the bar still runs out of room (a user can raise the font
+       size in Settings, which widens the Russian labels again), let the brand
+       ellipsize rather than push the burger off-screen. */
+    html[lang="ru"] .home-nav > .brand {
+      min-width: 0; flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis;
     }
     /* burger + mobile menu */
     .nav-burger {

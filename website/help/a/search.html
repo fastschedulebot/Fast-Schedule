@@ -38,7 +38,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Searching Messages", "description": "The search tool finds any scheduled or recurring message by its text - no scrolling through the calendar needed. How to search 1.", "articleBody": "The search tool finds any scheduled or recurring message by its text — no scrolling through the calendar needed. How to search 1. Tap Search on the main menu (second page) or send /search . 2. Type a keyword or phrase. 3. The bot lists every matching scheduled and recurring message with its job ID and send time. 4. Results show job ID and send time — open one and you get the same preview and edit/delete controls as the Message List. What is searched • The text content of all scheduled messages. • The text content of all recurring messages. • Job IDs such as s_123 or r_456 . Search is case-insensitive, matches partial words (\"hel\" finds \"hello\"), and covers all your messages across every channel at once. Narrowing results Use more specific words — the bot matches any of them. To browse by channel or date instead of keyword, the Message List and Calendar tools are the better fit. What if I want to browse all messages? Use Message List to browse messages by channel instead of searching.", "articleSection": "Tools", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/help/a/search.html", "datePublished": "2026-10-04", "dateModified": "2026-10-04", "isPartOf": {"@type": "WebSite", "name": "Fast Scheduler Help", "url": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Tools", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/tools.html"}, {"@type": "ListItem", "position": 4, "name": "Searching Messages", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/search.html"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What if I want to browse all messages?", "acceptedAnswer": {"@type": "Answer", "text": "Use Message List to browse messages by channel instead of searching."}}]}</script>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>.hc-card {
   background: var(--surface);
@@ -227,7 +227,7 @@
 
 .hc-related h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 0 0 12px; }
 
-.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 
 .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text); }
 
@@ -696,7 +696,7 @@ html.hc-fs .hc-tool[data-fs-btn] { color: var(--green-strong); border-color: var
 @media (max-width: 760px) {
   .hc-rail { display: none; }
 
-  .hc-pager { grid-template-columns: 1fr; }
+  .hc-pager { grid-template-columns: minmax(0, 1fr); }
 
   .hc-body pre { font-size: .8rem; }
 }

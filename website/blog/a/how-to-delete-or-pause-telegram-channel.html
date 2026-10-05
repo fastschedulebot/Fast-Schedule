@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Delete, Pause or Hand Over a Telegram Channel", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/how-to-delete-or-pause-telegram-channel.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I pause a Telegram channel without losing subscribers?", "acceptedAnswer": {"@type": "Answer", "text": "There is no pause state, but the pattern works: announce the pause with a reason and duration, taper posting before it, keep the discussion group alive, and queue a few scheduled posts so the channel never goes fully silent."}}, {"@type": "Question", "name": "What happens when I delete a Telegram channel?", "acceptedAnswer": {"@type": "Answer", "text": "Everything is removed permanently: posts, media, subscribers and the @username (which becomes claimable by others). Export your archive first via Telegram Desktop, and post a goodbye with links to wherever you are going."}}, {"@type": "Question", "name": "How do I transfer my channel to a new owner?", "acceptedAnswer": {"@type": "Answer", "text": "Add them as an admin with full rights, then use the transfer ownership option in admin settings (they must accept). Move the linked group, re-issue bot tokens and hand over branding assets too — then introduce them personally to the audience."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

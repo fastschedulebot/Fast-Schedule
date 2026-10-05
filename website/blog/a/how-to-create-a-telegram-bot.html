@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Create Your Own Telegram Bot with BotFather (Step by Step)", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/how-to-create-a-telegram-bot.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is creating a Telegram bot free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — BotFather is free and unlimited for personal use. Costs appear only if you host your own bot logic on a server or pay third-party services built on top."}}, {"@type": "Question", "name": "Can I rename a Telegram bot or change its username?", "acceptedAnswer": {"@type": "Answer", "text": "Display name and avatar anytime via BotFather. The @username is permanent — choose it carefully, it ends in “bot” and must be unique."}}, {"@type": "Question", "name": "What can I do with a bot token?", "acceptedAnswer": {"@type": "Answer", "text": "Control the bot via the Bot API: send messages it’s admin of, build menus and automations, or connect it to services as a “sender bot” so channel posts publish under your brand (ControllerBot and Fast Scheduler both support this)."}}, {"@type": "Question", "name": "Someone got my bot token — what now?", "acceptedAnswer": {"@type": "Answer", "text": "Revoke it immediately in BotFather (/mybots → API Token → Revoke), get a new one, and update it wherever the bot was connected. Old token dies instantly."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Storage Premium Is Live: 20 Boxes, Bulk Tools, Bigger Uploads", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/news-storage-premium-launch.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many boxes and items does Premium allow?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 20 boxes with 500 items total, videos included (up to 50MB per video), max media size 100 MB. Free keeps 1 box with 100 items total and no video in storage."}}, {"@type": "Question", "name": "Do bulk tools work on the Free plan?", "acceptedAnswer": {"@type": "Answer", "text": "No — Move All, Copy All and Download Box need Premium. On Free you can move, copy or download one file at a time instead."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

@@ -917,6 +917,7 @@ html[data-fx="off"] .marquee:hover .marquee-track { animation-play-state: runnin
 /* ---------- Liquid-glass popover (Settings-style animated menu) ---------- */
 .glass-pop {
   position: absolute; top: calc(100% + 12px); right: 0; z-index: 120; min-width: 250px;
+  max-width: calc(100vw - 24px);
   padding: 6px; border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--glass-border);
@@ -1002,6 +1003,12 @@ html[data-font="l"] { font-size: 112.5%; }
 
 /* ---------- Settings trigger (shared: home, help, legal) ---------- */
 .settings-wrap { position: relative; flex: none; }
+/* The gear lives in .nav-left on the Help / Blog / FAQ bar but at the right edge
+   on the homepage. A popover anchored `right: 0` to a left-hand button grows
+   leftwards and ran off the left edge of the viewport, so anchor it to the
+   button's left edge there instead. The homepage's .home-nav has no .nav-left
+   and keeps the right-aligned popover. */
+.nav-left .settings-wrap .glass-pop { right: auto; left: 0; transform-origin: top left; }
 .settings-wrap .icon-btn {
   border-color: transparent;
   background: var(--surface);

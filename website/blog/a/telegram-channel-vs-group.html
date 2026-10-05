@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Telegram Channels vs Groups vs Supergroups: Which One Actually Fits You", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-channel-vs-group.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a Telegram group have unlimited members?", "acceptedAnswer": {"@type": "Answer", "text": "No — groups cap at 200,000 members when converted to supergroups. Channels have no practical subscriber limit."}}, {"@type": "Question", "name": "Can subscribers reply in a Telegram channel?", "acceptedAnswer": {"@type": "Answer", "text": "Only through comments, which actually live in an attached discussion group. Without one, a channel is read-only."}}, {"@type": "Question", "name": "Can I convert a group into a channel or vice versa?", "acceptedAnswer": {"@type": "Answer", "text": "No. They are different objects in Telegram. You can link them, migrate members manually, or keep both — but no direct conversion exists."}}, {"@type": "Question", "name": "Should a new creator start with a channel or a group?", "acceptedAnswer": {"@type": "Answer", "text": "Start with a channel for reach and add the linked group once real discussion appears. A lonely group reads as dead; a channel with a comment section looks curated."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }

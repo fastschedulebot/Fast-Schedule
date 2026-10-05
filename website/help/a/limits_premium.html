@@ -37,7 +37,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Premium Plan Limits", "description": "Premium removes most caps: • 3 channels and 3 sender bots • Unlimited pending scheduled messages (100 on Free) and unlimited recurring messages •", "articleBody": "Premium removes most caps: • 3 channels and 3 sender bots • Unlimited pending scheduled messages (100 on Free) and unlimited recurring messages • Unlimited sent messages (100 per channel per month on Free) • Up to 20 media storage boxes, 500 items total • Larger media: up to 50MB videos, 100 MB max • Videos allowed in storage (up to 50MB) • Signatures, leaderboards, unlimited report schedules If you downgrade, your data is kept but only the free allowances stay active until the expiry process removes the excess.", "articleSection": "Limits", "author": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule"}, "publisher": {"@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule", "logo": {"@type": "ImageObject", "url": "https://fastschedulebot.github.io/Fast-Schedule/og-cover.png"}}, "mainEntityOfPage": "https://fastschedulebot.github.io/Fast-Schedule/help/a/limits_premium.html", "datePublished": "2026-10-04", "dateModified": "2026-10-04", "isPartOf": {"@type": "WebSite", "name": "Fast Scheduler Help", "url": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Help Center", "item": "https://fastschedulebot.github.io/Fast-Schedule/help.html"}, {"@type": "ListItem", "position": 3, "name": "Limits", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/c/limits.html"}, {"@type": "ListItem", "position": 4, "name": "Premium Plan Limits", "item": "https://fastschedulebot.github.io/Fast-Schedule/help/a/limits_premium.html"}]}</script>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>.hc-card {
   background: var(--surface);
@@ -226,7 +226,7 @@
 
 .hc-related h2 { font-size: .9rem; font-weight: 650; letter-spacing: 0; color: var(--text-dim); margin: 0 0 12px; }
 
-.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 
 .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text); }
 
@@ -695,7 +695,7 @@ html.hc-fs .hc-tool[data-fs-btn] { color: var(--green-strong); border-color: var
 @media (max-width: 760px) {
   .hc-rail { display: none; }
 
-  .hc-pager { grid-template-columns: 1fr; }
+  .hc-pager { grid-template-columns: minmax(0, 1fr); }
 
   .hc-body pre { font-size: .8rem; }
 }

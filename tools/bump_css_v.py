@@ -21,6 +21,43 @@ import re
 import sys
 import time
 
+
+def propagate(new):
+    """Push the new stamp into the already-generated pages.
+
+    Bumping only the build sources is the silent half of the trap this script
+    exists to avoid: the ~670 committed HTML files keep pointing at the old
+    `?v=`, so every returning visitor keeps the CSS already in their disk cache
+    and the fix appears not to work. A full rebuild would do this too, but it
+    rewrites a thousand unrelated files; the stamp is a pure token swap, so
+    rewriting it in place is both safe and reviewable.
+    """
+    site = os.path.join(ROOT, 'website')
+    stamps = {}
+    touched = 0
+    for dirpath, _dirs, files in os.walk(site):
+        if os.sep + '_build' in dirpath:
+            continue
+        for name in files:
+            if not name.endswith('.html'):
+                continue
+            full = os.path.join(dirpath, name)
+            rel = os.path.relpath(full, ROOT)
+            before = read(rel)
+            if 'styles/main.css?v=' not in before:
+                continue
+            after = PAT.sub(lambda m: m.group(1) + new, before)
+            if after == before:
+                continue
+            old = sorted(set(v for _, v in PAT.findall(before)))
+            for v in old:
+                stamps[v] = stamps.get(v, 0) + 1
+            write(rel, after)
+            touched += 1
+    print('propagated %s into %d generated page(s)' % (new, touched))
+    for v, n in sorted(stamps.items()):
+        print('   was %s in %d page(s)' % (v, n))
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TARGETS = [
@@ -85,8 +122,11 @@ def main():
     if not changed:
         print('nothing changed (already at %s)' % new)
     else:
-        print('updated %d file(s); rebuild to push the new stamp to the pages'
-              % len(changed))
+        print('updated %d file(s)' % len(changed))
+    if '--propagate' in sys.argv[1:]:
+        propagate(new)
+    else:
+        print('NOTE: run again with --propagate to update the already-generated pages')
     return 0
 
 

@@ -41,7 +41,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Telegram Bot Safety: What You Should (and Shouldn’t) Give a Bot", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/telegram-bot-safety.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a Telegram bot hack my account?", "acceptedAnswer": {"@type": "Answer", "text": "A bot can only act within the rights you grant it — it can never log into your account. Anyone (bot or human) asking for your login code or 2FA password is running an account-theft scheme."}}, {"@type": "Question", "name": "What admin rights does a scheduling bot actually need?", "acceptedAnswer": {"@type": "Answer", "text": "Post Messages at minimum, Edit Messages to fix published posts. Anything more (Delete, Invite, Anonymous) is not needed for scheduling and should stay off."}}, {"@type": "Question", "name": "Is it safe to give a bot my bot token?", "acceptedAnswer": {"@type": "Answer", "text": "For reputable services, yes — the token only controls that bot. Use a dedicated sender bot created via @BotFather, paste tokens only in official chats, and rotate via /revoke if in doubt."}}, {"@type": "Question", "name": "How do I remove a bot from my channel safely?", "acceptedAnswer": {"@type": "Answer", "text": "Remove it from the admin list in channel settings. Posts it already published remain; scheduled content stored on its side simply won’t publish. Rotate any tokens you had shared with it."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261004a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261005a1">
 <link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
@@ -262,7 +262,7 @@
     .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .hc-related { margin-top: 26px; }
     .hc-related h2 { font-size: .9rem; font-weight: 650; color: var(--text-dim); margin: 14px 0 10px; }
-    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hc-pager { max-width: 860px; margin: 16px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
     .hc-pager a { display: flex; align-items: center; gap: 12px; padding: 14px 17px; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       box-shadow: var(--shadow-sm); transition: border-color .2s; }
