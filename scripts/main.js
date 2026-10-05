@@ -4,6 +4,22 @@
     : { botUsername: 'FastestScheduleBot', prices: {} };
   var bot = 'https://t.me/' + cfg.botUsername;
 
+  /* Site root, derived from this script's own src.
+     The site lives in a subdirectory (/Fast-Schedule/), so a relative path
+     only works at one depth. '../storage_state.json' resolved to /legal/
+     storage_state.json on the legal pages and escaped the site entirely on the
+     homepage, so the 60s feature-flag poll 404'd on every page that loads
+     this file. Same trick lang.js uses to locate ru-content.js. */
+  var SITE_ROOT = '';
+  try {
+    var self = document.querySelector('script[src*="main.js"]');
+    if (self) {
+      var src = self.getAttribute('src') || '';
+      var i = src.indexOf('/scripts/main.js');
+      if (i > -1) SITE_ROOT = src.slice(0, i);
+    }
+  } catch (e) {}
+
   /* ---------- Editable placeholders (legal docs) ---------- */
   function applyPlaceholders() {
     var ph = cfg.placeholders || {};
@@ -117,7 +133,7 @@
 
   /* ---------- Live storage state from the bot (written on every toggle) ---------- */
   function fetchStorageState() {
-    fetch('../storage_state.json', { cache: 'no-store' })
+    fetch(SITE_ROOT + '/storage_state.json', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (s) {
         if (s && typeof s.mediaStorageEnabled === 'boolean' && s.mediaStorageEnabled !== effectiveEnabled) {
