@@ -236,6 +236,22 @@ header.site {
 @media (max-width: 760px) {
   .nav-unified .nav-right .nav-cta { display: inline-flex; padding: 8px 12px; font-size: .82rem; }
   .nav-unified .nav-right .nav-cta kbd { display: none; }
+  /* Phone bar: the long "Open Bot" / "Открыть бота" label is what pushed the
+     burger off a 390px row, so print the short data-cta-short form ("Open" /
+     "Открыть") instead. The full label stays in the DOM: translations and
+     the accessible name are untouched. lang.js rewrites data-cta-short per
+     language alongside the label. */
+  .nav-unified .nav-left .nav-cta,
+  .nav-unified .nav-right .nav-cta { font-size: 0; gap: 6px; }
+  /* The inner-page label lives in a <span>: zero it explicitly so a template
+     font-size can never restore the long text on a 390px row. The ::after
+     short label below re-declares its own size, so it is unaffected. */
+  .nav-unified .nav-cta span { font-size: 0; }
+  .nav-unified .nav-cta svg { width: 17px; height: 17px; }
+  .nav-unified .nav-cta::after {
+    content: attr(data-cta-short);
+    font-size: .82rem; font-weight: 800; white-space: nowrap;
+  }
 }
 @media (max-width: 1080px) {
   .nav-unified .nav-link span { display: none; }
@@ -495,6 +511,11 @@ footer.site { border-top: 1px solid var(--border); padding: 14px 0 14px; margin-
   box-shadow: none; }
 .nav-cta-sm:hover { text-decoration: none; background: var(--green-strong); }
 .nav-cta-sm svg { width: 16px; height: 16px; flex: none; }
+/* The new mark is a self-contained green badge, so the old dark-green chip
+   behind it would only muddy the edge. */
+.brand-mark { background: none !important; }
+.brand-mark img { width: 30px; height: 30px; object-fit: contain; display: block; }
+@media (max-width: 560px) { .brand-mark img { width: 26px; height: 26px; } }
 
 /* The primary call-to-action breathes: a slow glow that swells and settles.
    Purely motion — the colour still comes from the palette, and the Animations
@@ -1084,10 +1105,9 @@ header.site.scrolled { box-shadow: 0 6px 16px rgba(17, 24, 39, .06); }
 [data-theme="dark"] .jump-fab { box-shadow: 0 10px 26px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08); }
 /* every state keeps the -50% that centres it on the bottom edge */
 .jump-fab.show { opacity: 1; visibility: visible; transform: translateX(-50%); transition-delay: 0s; }
-/* idle backstop: ~3s with no interaction fades the FAB away; any scroll,
-   tap or keypress removes html.jump-idle and the button pops back in */
-html.jump-idle .jump-fab { opacity: 0; visibility: hidden; transform: translateX(-50%) scale(.85); transition-delay: 0s, 0s, .3s; }
-html.jump-idle .jump-fab.open { opacity: 1; visibility: visible; transform: translateX(-50%); }
+/* No idle fade. The FAB used to hide after ~3s of no interaction
+   (html.jump-idle) and return on the next scroll/tap; scroll-jump.js no
+   longer adds that class, so once you are past the fold the control stays. */
 .jump-fab:hover { color: var(--green-strong); border-color: var(--green); }
 .jump-fab svg { width: 20px; height: 20px; transition: transform .45s var(--ease-apple); }
 .jump-fab.open svg { transform: rotate(-260deg); }

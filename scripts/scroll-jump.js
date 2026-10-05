@@ -173,21 +173,16 @@
     if (k === 'u') { e.preventDefault(); go(Math.max(0, y() - window.innerHeight * 0.9)); setOpen(false); return; }
   });
 
-  /* auto-hide: after ~3s with no scrolling/clicking/typing the FAB fades
-     out (desktop + mobile) and comes back on the next interaction. When its
-     menu is open it stays visible regardless. */
-  var idleT = null;
+  /* Always visible once the reader is actually in the page. It used to fade
+     out after ~3s of no scrolling/clicking/typing and fade back on the next
+     event, which read as a broken control: you looked down for it and it was
+     gone. The jump menu is the only route to "go up" / "go to the end" without
+     scrolling, so it stays put on both phones and desktop. */
   function awake() {
     document.documentElement.classList.remove('jump-idle');
-    clearTimeout(idleT);
-    idleT = setTimeout(function () {
-      if (!open) {
-        document.documentElement.classList.add('jump-idle');
-        tick();   /* no event fires at this moment — repaint the fade-out now */
-      }
-    }, 3000);
+    tick();
   }
-  function tick() { btn.classList.toggle('show', (forced || y() > 480) && !document.documentElement.classList.contains('jump-idle')); }
+  function tick() { btn.classList.toggle('show', forced || y() > 480); }
   ['scroll', 'touchstart', 'pointerdown', 'keydown', 'wheel'].forEach(function (ev) {
     window.addEventListener(ev, function () { awake(); tick(); }, { passive: true });
   });

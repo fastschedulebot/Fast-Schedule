@@ -145,7 +145,7 @@ def page_shell(title_html, body, rel='../..'):
     <a class="brand" href="{rel}/index.html" aria-label="Fast Scheduler — home"><span class="brand-mark">{bh.svg('calendar')}</span><span class="brand-full">Fast Scheduler</span></a>
     <a class="nav-link" href="{rel}/blog/index.html">{bh.svg('megaphone')} Blog</a>
     <a class="nav-link" href="{rel}/help.html">{bh.svg('book')} Help Center</a>
-    <a class="btn btn-primary nav-cta" href="{bh.BOT_URL}" target="_blank" rel="noopener noreferrer">{bh.svg('send')}<span>Open Bot</span></a>
+    <a class="btn btn-primary nav-cta" data-cta-short="Open" href="{bh.BOT_URL}" target="_blank" rel="noopener noreferrer">{bh.svg('send')}<span>Open Bot</span></a>
     <span class="settings-wrap">
       <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys">{bh.svg('gear')}</button>
       <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">
@@ -483,7 +483,7 @@ def main():
     nav404 = (f"""<header class="site">
   <div class="wrap nav">
     <a class="brand brand-text" href="/index.html" aria-label="Fast Scheduler — home"><span class="brand-mark">{bh.svg('calendar')}</span><span class="brand-full">Fast Scheduler</span><span class="brand-short">FS</span></a>
-    <a class="btn btn-primary nav-cta" href="{bh.BOT_URL}?start=start__website_404" target="_blank" rel="noopener noreferrer">{bh.svg('send')}<span>Open Bot</span></a>
+    <a class="btn btn-primary nav-cta" data-cta-short="Open" href="{bh.BOT_URL}?start=start__website_404" target="_blank" rel="noopener noreferrer">{bh.svg('send')}<span>Open Bot</span></a>
     <span class="settings-wrap">
       <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys">{bh.svg('gear')}</button>
       <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">

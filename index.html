@@ -36,7 +36,10 @@
   <meta name="twitter:title" content="Fast Scheduler — Telegram Channel Post Scheduler">
   <meta name="twitter:description" content="Set it once. Fast Scheduler posts for you every day — batch-schedule weeks of content in minutes, free to start.">
   <meta name="twitter:image" content="https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="icon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="brand-logo.png" type="image/png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,7 +90,7 @@
   </script>
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles/main.css?v=20261005a1">
+<link rel="stylesheet" href="styles/main.css?v=20261005c1">
   <link rel="stylesheet" href="styles/lang.css?v=20261002b1">
 <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
   <style>
@@ -169,11 +172,34 @@
       html[lang="ru"] .home-nav nav > a:not(.nav-cta-sm) { display: none; }
     }
     @media (max-width: 520px) {
-      /* "Открыть бота" is roughly 50px wider than "Open Bot", and a phone-width
-         row cannot hold brand + CTA + gear + burger: the burger was clipped off
-         the right edge. The burger sheet carries the identical CTA
-         (.nav-cta-m), so dropping it from the bar loses no action. */
-      html[lang="ru"] .home-nav .nav-cta-sm { display: none; }
+      /* The CTA no longer hides itself on phones. It used to, because
+         "Открыть бота" is roughly 50px wider than "Open Bot" and a 390px row
+         could not hold brand + CTA + gear + burger without clipping the burger
+         off the right edge. The label is now the short data-cta-short form
+         ("Open" / "Открыть"), which fits, so the action stays in the bar. */
+      .home-nav .nav-cta-sm { padding: 9px 12px; }
+      /* Brand keeps room: it ellipsizes rather than pushing the burger out. */
+      html[lang="ru"] .home-nav .nav-cta-sm { display: inline-flex; }
+    }
+    /* ============ Mobile navbar: brand, Open, gear, burger ============
+       The long CTA label is what used to force the burger off the edge of a
+       390px bar. Collapse the text node to zero and paint the short form from
+       data-cta-short instead: the full label stays in the DOM, so translations
+       and the accessible name are unchanged. */
+    @media (max-width: 860px) {
+      .home-nav .nav-cta-sm { font-size: 0; gap: 6px; padding: 9px 13px; }
+      .home-nav .nav-cta-sm svg { width: 17px; height: 17px; }
+      .home-nav .nav-cta-sm::after {
+        content: attr(data-cta-short);
+        font-size: .92rem; font-weight: 800; white-space: nowrap;
+      }
+    }
+    /* Brand mark: the new artwork is a self-contained green badge, so the old
+       dark-green chip behind it would only muddy the edge. */
+    .home-nav .brand .logo-dot { background: none; overflow: visible; }
+    .home-nav .brand .logo-dot img { width: 30px; height: 30px; object-fit: contain; display: block; }
+    @media (max-width: 560px) {
+      .home-nav .brand .logo-dot img { width: 26px; height: 26px; }
     }
     /* Safety net: if the bar still runs out of room (a user can raise the font
        size in Settings, which widens the Russian labels again), let the brand
@@ -195,11 +221,14 @@
       .settings-wrap { margin-left: 0; }
       .home-nav nav { margin-left: 0; }
     }
+    /* The burger sheet hangs off the right edge and slides in from it, under
+       the burger that opened it — never a full-width drop. */
     .nav-mobile {
-      position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 70;
+      position: absolute; top: calc(100% + 10px); right: 0; left: auto; z-index: 70;
+      width: min(300px, calc(100vw - 28px));
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       box-shadow: var(--shadow); padding: 10px; display: none;
-      opacity: 0; transform: translateY(-8px) scale(.98);
+      opacity: 0; transform: translateX(22px) scale(.98); transform-origin: top right;
       transition: opacity .28s var(--ease-apple), transform .28s var(--ease-apple);
     }
     .nav-mobile.open { opacity: 1; transform: none; }
@@ -924,14 +953,14 @@
   </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Fast Scheduler", "url": "https://fastschedulebot.github.io/Fast-Schedule/", "logo": "https://fastschedulebot.github.io/Fast-Schedule/og-cover-v2.png", "description": "Telegram bot that schedules and auto-publishes channel posts: batch scheduling, recurring messages, sender bots, statistics and backups.", "sameAs": ["https://t.me/FastSchedulerBot"], "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "fastschedulebot@gmail.com"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Fast Scheduler", "alternateName": "Fast Scheduler Telegram bot", "url": "https://fastschedulebot.github.io/Fast-Schedule/", "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://fastschedulebot.github.io/Fast-Schedule/help.html?q={search_term_string}"}, "query-input": "required name=search_term_string"}}</script>
-<link rel="stylesheet" href="styles/hero-cinema.css?v=20260930a1">
+<link rel="stylesheet" href="styles/hero-cinema.css?v=20261005a1">
 <link rel="stylesheet" href="styles/hotkeys-modal.css?v=20260930a1">
 <link rel="stylesheet" href="styles/mobile-fix.css?v=20261001b1">
 </head>
 <body class="home">
   <nav class="home-nav" aria-label="Main">
     <span class="brand">
-      <span class="logo-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+      <span class="logo-dot" aria-hidden="true"><img src="brand-logo.png" alt="" width="30" height="30" decoding="async"></span>
       Fast Scheduler
     </span>
     <nav aria-label="Sections">
@@ -944,7 +973,7 @@
         <a href="blog/index.html">Blog</a>
         <a href="help.html">Help</a>
       </span>
-      <a class="nav-cta-sm" href="https://t.me/FastSchedulerBot?start=start__website" target="_blank" rel="noopener noreferrer">
+      <a class="nav-cta-sm" data-cta-short="Open" href="https://t.me/FastSchedulerBot?start=start__website" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
         Open Bot
       </a>
@@ -983,7 +1012,7 @@
       <a href="#pricing" data-hk="sec4" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.2"/></svg>Pricing</a>
       <a href="blog/index.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>Blog</a>
       <a href="help.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Help Center</a>
-      <a class="nav-cta-m" href="https://t.me/FastSchedulerBot?start=start__website_mobile" target="_blank" rel="noopener noreferrer" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Open Bot</a>
+      <a class="nav-cta-m" data-cta-short="Open" href="https://t.me/FastSchedulerBot?start=start__website_mobile" target="_blank" rel="noopener noreferrer" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Open Bot</a>
     </div>
   </nav>
 
@@ -1480,19 +1509,11 @@
     <div class="glass final-cta reveal">
       <h2>Your next post is <span style="color:var(--green)">already scheduled</span>.</h2>
       <p>Or you're still posting it by hand every day. Sixty seconds now — weeks of autopilot after.</p>
-      <a class="cta-big" href="https://t.me/FastSchedulerBot?start=start__website_footer" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
-        Open Fast Scheduler in Telegram
-      </a>
     </div>
   </section>
 
   <footer class="home-foot">
     <div class="wrap">
-      <a class="foot-open" href="https://t.me/FastSchedulerBot?start=start__website_footer" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
-        <span class="foot-open-t">Open Fast Scheduler<small>In Telegram</small></span>
-      </a>
       <nav class="links" aria-label="Legal">
         <a href="legal/privacy.html">Privacy</a>
         <a href="legal/terms.html">Terms</a>
@@ -1530,9 +1551,9 @@
 <script src="scripts/theme.js?v=20260930a1"></script>
 <script defer src="scripts/nav-hide.js?v=20260930a2"></script>
 <script defer src="scripts/settings.js?v=20261002c3"></script>
-  <script defer src="scripts/ru-chrome.js?v=20261004b5"></script><script defer src="scripts/lang.js?v=20261004b5"></script>
+  <script defer src="scripts/ru-chrome.js?v=20261004b5"></script><script defer src="scripts/lang.js?v=20261005b1"></script>
 <script defer src="scripts/hotkeys.js?v=20261003d1"></script>
-<script defer src="scripts/scroll-jump.js?v=20260930a1"></script>
+<script defer src="scripts/scroll-jump.js?v=20261005a1"></script>
 <script>
   /* burger menu + navbar scroll elevation */
   (function () {

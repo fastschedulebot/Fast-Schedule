@@ -768,9 +768,11 @@ CSS = r'''
     .hc-menu-btn { display: none; }
     @media (max-width: 1020px) {
       .hc-content { padding-left: var(--hc-gut); }
+      /* The drawer hangs off the right edge and slides in from it, under the
+         burger that opened it. */
       .hc-side {
-        position: fixed; z-index: 90; top: 0; left: 0; height: 100dvh; width: min(320px, 86vw);
-        background: var(--surface); transform: translateX(-104%);
+        position: fixed; z-index: 90; top: 0; right: 0; left: auto; height: 100dvh; width: min(320px, 86vw);
+        background: var(--surface); transform: translateX(104%);
         transition: transform .3s cubic-bezier(.22,.61,.36,1); box-shadow: var(--shadow); padding-top: 14px;
       }
       body.hc-side-open .hc-side { transform: none; }
@@ -2375,10 +2377,12 @@ def render_article(n, group, by_id, order_index):
       </section>'''
 
 
-FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E"
-           "%3Crect x='4' y='4' width='40' height='40' rx='11' fill='%231faa59'/%3E"
-           "%3Crect x='12' y='13' width='24' height='21' rx='4' fill='none' stroke='white' stroke-width='2.4'/%3E"
-           "%3Cpath d='M17 9v7M31 9v7M12 20h24' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")
+FAVICON = (
+    '<link rel="icon" href="{rel}/favicon-32.png" sizes="32x32" type="image/png">\n'
+    '  <link rel="icon" href="{rel}/icon-48.png" sizes="48x48" type="image/png">\n'
+    '  <link rel="icon" href="{rel}/favicon-16.png" sizes="16x16" type="image/png">\n'
+    '  <link rel="icon" href="{rel}/brand-logo.png" type="image/png">'
+)
 
 
 def build_page(nodes, help_sec):
@@ -2499,7 +2503,7 @@ def build_page(nodes, help_sec):
         <kbd>S</kbd>
         <div class="hc-results" id="hcResultsH" role="listbox" aria-label="Search results" hidden></div>
       </div>
-      <a class="btn btn-primary nav-cta" href="{BOT_URL}" target="_blank" rel="noopener noreferrer">{svg('send')}<span>Open Bot</span></a>
+      <a class="btn btn-primary nav-cta" data-cta-short="Open" href="{BOT_URL}" target="_blank" rel="noopener noreferrer">{svg('send')}<span>Open Bot</span></a>
       <span class="settings-wrap">
         <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys">{svg('gear')}</button>
         <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">

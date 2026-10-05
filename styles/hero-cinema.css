@@ -593,7 +593,18 @@ html[data-motion="off"] .cta-big.finale-cta::after, html[data-fx="off"] .cta-big
   .phone.cinema, .phone.finale { transform: none !important; translate: 0 0; scale: 1; }
   .tg-explorer { right: 6px; top: 12%; width: 210px; }
   .rl-img { height: 130px; }
-  .hero-finale-head { position: static; translate: 0 0; margin: 8px auto 0; }
+  /* Above 860px this block is position:absolute and never reserves space. On a
+     phone it has to sit in flow, and while it is still transparent (opacity:0,
+     waiting for the demo to finish) it used to hold ~260px of empty box —
+     that was the blank gap between the trust row and the marquee. Collapse it
+     until the hero-back class actually reveals it. */
+  .hero-finale-head {
+    position: static; translate: 0 0; margin: 8px auto 0;
+    height: 0; overflow: hidden; visibility: hidden;
+  }
+  .hero.cinema.hero-back .hero-finale-head {
+    height: auto; overflow: visible; visibility: visible;
+  }
 }
 @media (max-width: 560px) {
   /* the lens scales with the screen, so the ring never leaves the digits */

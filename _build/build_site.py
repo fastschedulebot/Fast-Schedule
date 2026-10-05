@@ -387,7 +387,7 @@ def _nav(current):
       {tab('terms.html', 'Terms', 'terms')}
       {tab('refundpolicy.html', 'Refunds', 'refund')}
     </nav>
-    <a class="btn btn-primary nav-cta has-tip" data-tip="Opens the bot in Telegram. The page you came from is recorded for first-time users." href="{BOT_DEEP_LINK}?start=start__legal" target="_blank" rel="noopener noreferrer">{svg('send')}<span>Open Bot</span></a>
+    <a class="btn btn-primary nav-cta has-tip" data-cta-short="Open" data-tip="Opens the bot in Telegram. The page you came from is recorded for first-time users." href="{BOT_DEEP_LINK}?start=start__legal" target="_blank" rel="noopener noreferrer">{svg('send')}<span>Open Bot</span></a>
     <span class="settings-wrap">
       <button type="button" class="icon-btn" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Settings" data-hk="settings dark anim fx keys">{svg('gear')}</button>
       <div class="glass-pop" id="settingsMenu" role="menu" aria-label="Settings">

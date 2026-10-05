@@ -10,14 +10,14 @@
     en: {
       settings: 'Settings', dark: 'Dark mode', anim: 'Animations', fx: 'Effects',
       keys: 'Hotkeys', seeKeys: 'See hotkeys', help: 'Help', support: 'Support chat',
-      openBot: 'Open Bot', langLabel: 'Language', openHelp: 'Open Help Center',
+      openBot: 'Open Bot', openShort: 'Open', langLabel: 'Language', openHelp: 'Open Help Center',
       recent: 'Recent searches', searchPh: 'Search the help center…',
       openMenu: 'Open menu', closeMenu: 'Close menu'
     },
     ru: {
       settings: 'Настройки', dark: 'Тёмная тема', anim: 'Анимации', fx: 'Эффекты',
       keys: 'Горячие клавиши', seeKeys: 'Показать клавиши', help: 'Помощь', support: 'Чат поддержки',
-      openBot: 'Открыть бота', langLabel: 'Язык', openHelp: 'Открыть центр помощи',
+      openBot: 'Открыть бота', openShort: 'Открыть', langLabel: 'Язык', openHelp: 'Открыть центр помощи',
       recent: 'Недавние запросы', searchPh: 'Поиск по центру помощи…',
       openMenu: 'Открыть меню', closeMenu: 'Закрыть меню'
     }
@@ -316,12 +316,18 @@
       var row = document.getElementById(pair[0]);
       if (row) { var s = row.querySelector('span'); if (s) s.textContent = pair[1]; }
     });
-    // nav CTA (svg + text)
-    document.querySelectorAll('.nav-cta-sm, .nav-cta-m').forEach(function (a) {
+    // nav CTA (svg + text). Inner pages wrap the label in a <span> inside
+    // .nav-cta; the homepage uses bare text in .nav-cta-sm / .nav-cta-m.
+    document.querySelectorAll('.nav-cta-sm, .nav-cta-m, .nav-cta').forEach(function (a) {
       var txt = d.openBot;
-      a.childNodes.forEach(function (n) {
+      var label = a.querySelector('span');
+      if (label) label.textContent = txt;
+      else a.childNodes.forEach(function (n) {
         if (n.nodeType === 3 && n.textContent.trim().length > 2) n.textContent = ' ' + txt + ' ';
       });
+      /* The phone bar paints the short label from data-cta-short (CSS zeroes the
+         long text so brand + CTA + gear + burger fit a 390px row). */
+      a.setAttribute('data-cta-short', d.openShort);
     });
     // help menu chrome
     document.querySelectorAll('#siteMenu .help-menu-open span').forEach(function (s) { s.textContent = d.openHelp; });
