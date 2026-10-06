@@ -95,6 +95,10 @@
   PHOTOS[1].img = art('#8a6a4a', '#5d442e', '#d9b06a');
   PHOTOS[2].img = art('#4e6b46', '#2e4028', '#93b564');
   PHOTOS[3].img = art('#d99a4e', '#8a5a26', '#f2c94c');
+  /* Layered photo background: the gradient sits UNDER the artwork, so a
+     cell/thumb/media block never renders as an empty box even if its
+     data-URI fails to paint in some webview. */
+  function bg(p) { return p.img + ', ' + p.css; }
 
   /* ---------- real user time / date ----------
      Everything on the phone uses the visitor's actual clock and calendar,
@@ -402,7 +406,7 @@
     PHOTOS.forEach(function (p, i) {
       fxList.appendChild(el(
         '<div class="fx-item" data-i="' + i + '">' +
-          '<span class="fx-ic" style="background-image:' + p.img + '"></span>' +
+          '<span class="fx-ic" style="background-image:' + bg(p) + '"></span>' +
           '<span class="fx-info"><span class="fx-nm">' + esc(p.name) + '</span>' +
           '<span class="fx-sz">' + p.size + '</span></span>' +
         '</div>'));
@@ -623,9 +627,9 @@
       return pressAndDrag().then(function () {
       return new Promise(function (dragDone) {
       dropGlow.classList.add('on');
-      var drag = el('<span class="fx-drag" style="background-image:' + PHOTOS[0].img + '"></span>');
-      var g1 = el('<span class="fx-ghost" style="background-image:' + PHOTOS[1].img + '"></span>');
-      var g2 = el('<span class="fx-ghost" style="background-image:' + PHOTOS[2].img + '"></span>');
+      var drag = el('<span class="fx-drag" style="background-image:' + bg(PHOTOS[0]) + '"></span>');
+      var g1 = el('<span class="fx-ghost" style="background-image:' + bg(PHOTOS[1]) + '"></span>');
+      var g2 = el('<span class="fx-ghost" style="background-image:' + bg(PHOTOS[2]) + '"></span>');
       screenEl.appendChild(g2); screenEl.appendChild(g1); screenEl.appendChild(drag);
 
       var sr = null; /* all coordinates are now true local space */
@@ -672,7 +676,7 @@
     function uploadingScene() {
       return new Promise(function (upDone) {
       var bar = el('<span class="upl-bar">' + PHOTOS.map(function (p) {
-        return '<span class="upl-cell" style="background-image:' + p.img + '">' +
+        return '<span class="upl-cell" style="background-image:' + bg(p) + '">' +
           '<span class="upl-fill"></span><span class="upl-ring"><i></i></span><span class="upl-pct">0%</span></span>';
       }).join('') + '</span>');
       var m = userMsg('');
@@ -697,7 +701,7 @@
                screen. (The old build swapped in thumbs at opacity 0, so the
                album visibly disappeared and popped back in.) */
             var album = el('<span class="upl-strip">' + PHOTOS.map(function (p) {
-              return '<span class="upl-thumb" style="background-image:' + p.img + '"></span>';
+              return '<span class="upl-thumb" style="background-image:' + bg(p) + '"></span>';
             }).join('') + '</span>');
             bar.replaceWith(album);
             scrollEnd();
@@ -753,7 +757,7 @@
         var holder = el('<div class="rl-holder"></div>');
         rlStage.appendChild(holder);
         var tiles = PHOTOS.map(function (p, i) {
-          var t = el('<span class="rl-tile" style="background-image:' + p.img + ';left:' + (34 + i * 64) + 'px"></span>');
+          var t = el('<span class="rl-tile" style="background-image:' + bg(p) + ';left:' + (34 + i * 64) + 'px"></span>');
           holder.appendChild(t); return t;
         });
         var q = el('<div class="rl-question">🎲 media mode: random — the bot picks one photo for this post</div>');
@@ -784,14 +788,14 @@
             /* the winning tile lifts off, arcs over and glides into the
                message card, landing with a soft bounce + glow burst */
             var from = localPoint(tiles[w]);
-            var big = el('<span class="rl-fly" style="background-image:' + PHOTOS[w].img + '"></span>');
+            var big = el('<span class="rl-fly" style="background-image:' + bg(PHOTOS[w]) + '"></span>');
             big.style.left = from.x + 'px';
             big.style.top = from.y + 'px';
             rlStage.appendChild(big);
             /* insert the target image but reveal it only at the MOMENT of
                touchdown: visible from the start, it duplicated the flyer and
                re-flowed the card mid-flight, so the landing looked "strange" */
-            var img = el('<span class="rl-img" style="background-image:' + PHOTOS[w].img + ';visibility:hidden"></span>');
+            var img = el('<span class="rl-img" style="background-image:' + bg(PHOTOS[w]) + ';visibility:hidden"></span>');
             card.insertBefore(img, card.firstChild);
             /* measure from the flyer's TOP-LEFT (what left/top actually
                position), not its centre — scaling about the centre while
@@ -1009,6 +1013,9 @@
     function channelScene(w) {
       iosLayer.classList.remove('on', 'launch');
       chanLayer.classList.add('on');
+      /* Telegram date badge: the real current date, like the client pins it */
+      var dateBadgeEl = document.getElementById('chanDate');
+      if (dateBadgeEl) dateBadgeEl.textContent = MONTHS[NOW.getMonth()] + ' ' + NOW.getDate();
       var msg = document.getElementById('chanMsg');
       var img = document.getElementById('chanImg');
       var m2 = document.querySelector('.chan-msg2');
@@ -1048,18 +1055,18 @@
       if (f2) f2.textContent = SCHEDULED_POSTS[1].time;
       if (f3) f3.textContent = SCHEDULED_POSTS[2].time;
 
-      img.style.backgroundImage = PHOTOS[w].img;
+      img.style.backgroundImage = bg(PHOTOS[w]);
       /* each queued post carries one of the uploaded photos, in order */
       [m2, m3].forEach(function (m, i) {
         var med = m.querySelector('.chan-media');
-        if (med) med.style.backgroundImage = PHOTOS[(w + i + 1) % PHOTOS.length].img;
+        if (med) med.style.backgroundImage = bg(PHOTOS[(w + i + 1) % PHOTOS.length]);
       });
       /* The channel has a history, dated backwards from the visitor's own
          clock: a feed that opens empty reads as a mock-up, and it also gives
          the new posts something real to push up the screen. */
       document.querySelectorAll('.chan-hist').forEach(function (h, i) {
         var med = h.querySelector('.chan-media');
-        if (med) med.style.backgroundImage = PHOTOS[(w + i + 2) % PHOTOS.length].img;
+        if (med) med.style.backgroundImage = bg(PHOTOS[(w + i + 2) % PHOTOS.length]);
         var t = h.querySelector('.cp-time2');
         if (t) t.textContent = hhmm(plusMin(NOW, i ? -41 : -96));
         var v = h.querySelector('.cp-views b');
@@ -1130,7 +1137,7 @@
       }, 7400);
       later(function () {
         countUp(m3.querySelector('.cp-views b'), 96);
-        document.querySelector('.sl-sub').textContent = '1 284 subscribers';
+        chanLayer.querySelector('.sl-sub').textContent = '@fastschedule_test3';
       }, 8200);
       gatherReacts(m3, [
         { at: 8500, n: 12 },

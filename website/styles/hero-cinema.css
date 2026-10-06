@@ -665,6 +665,34 @@ html[data-motion="off"] .cta-big.finale-cta::after, html[data-fx="off"] .cta-big
 .phone-screen.tg .demo .msg.user.shown { transition: opacity .38s var(--ease-apple), transform .44s var(--ease-apple); }
 .phone-screen.tg .demo .msg.bot.shown  { transition: opacity .44s var(--ease-apple), transform .48s var(--ease-apple); }
 
+/* ---------- Telegram channel fidelity ----------
+   Date badge, sender row (purple name + gray "channel" tag), comment row
+   and the bottom action bar (search · Mute pill · comment · gift), exactly
+   like the iOS client. Static artwork lives in the markup (never an empty
+   box); the player overwrites it with the scheduled photos at runtime. */
+.cp-date { align-self: center; margin: 2px 0 10px; padding: 4px 12px; flex: none;
+  background: rgba(23, 33, 43, .85); color: #e8edf2;
+  font-size: .72rem; font-weight: 600; border-radius: 999px; }
+.cp-sender { display: flex; align-items: center; gap: 6px; padding: 9px 12px 0;
+  font-size: .78rem; line-height: 1.2; }
+.cp-sender b { color: #9d8cff; font-weight: 700; }
+.cp-sender i { font-style: normal; font-size: .66rem; color: #7d8e9e; }
+.cp-comments { display: flex; align-items: center; gap: 7px; margin: 8px 0 0;
+  padding: 9px 12px; border-top: 1px solid rgba(255, 255, 255, .06);
+  color: #6ab2f2; font-size: .78rem; }
+.cp-comments svg { width: 15px; height: 15px; flex: none; }
+.cp-comments b { flex: 1 1 auto; font-weight: 600; }
+.cp-comments .chev { color: #6ab2f2; }
+.chan-titles { align-items: center; text-align: center; }
+.chan-actions { background: transparent; margin: auto 10px 12px; padding: 0; gap: 10px; }
+.ca-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(23, 33, 43, .92); color: #e8edf2; flex: none; }
+.ca-btn svg { width: 18px; height: 18px; }
+.ca-mute { flex: 1 1 auto; text-align: center; padding: 11px 0; border-radius: 999px;
+  background: rgba(46, 166, 255, .88); color: #fff; font-weight: 700; font-size: .86rem; }
+/* media blocks always have paint: gradient base under the artwork */
+.chan-media { background-color: #24384d; }
+
 /* ---------- composer ---------- */
 .phone-screen.tg .tg-input.composing .tg-input-ph { box-shadow: 0 0 0 1.5px rgba(106, 178, 242, .6); }
 
