@@ -181,7 +181,14 @@
   var FIXUPS = [];
   try {
     if (window.FS_RU_CHROME) {
-      if (window.FS_RU_CHROME.STR) STR.ru = window.FS_RU_CHROME.STR;
+      /* Merge, never replace: the chrome file once shipped without
+         openShort and the wholesale assignment wiped the inline core's
+         key, so data-cta-short was stamped with the literal text
+         "undefined" and every zoomed/narrow RU bar read ✈ undefined. */
+      if (window.FS_RU_CHROME.STR) {
+        var chromeSTR = window.FS_RU_CHROME.STR;
+        Object.keys(chromeSTR).forEach(function (k) { STR.ru[k] = chromeSTR[k]; });
+      }
       // ru-chrome.js ships META as a flat {title, desc} pair of RU strings,
       // while lang.js keeps the nested {en, ru} shape and reads META.title.en
       // on the home page. Assigning the flat object straight over META left

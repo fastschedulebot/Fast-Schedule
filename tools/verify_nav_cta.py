@@ -105,7 +105,16 @@ for dirpath, dirs, files in os.walk(WEB):
                     if depth == 0:
                         gear_end = i_gear + m.end()
                         break
-                if gear_end == -1 or right[gear_end:].strip():
+                tail = right[gear_end:].strip() if gear_end != -1 else None
+                # help hub burger renders dead last (rightest on phones);
+                # strip the single button, then nothing else may follow.
+                if tail is not None and tail.startswith('<button'):
+                    i_btn = tail.find('</button>')
+                    if i_btn == -1 or 'hc-menu-btn' not in tail[:i_btn]:
+                        tail = None
+                    else:
+                        tail = tail[i_btn + len('</button>'):].strip()
+                if tail is None or tail:
                     cta_not_last += 1
                     bad.append('%s: something renders after the gear' % rel)
         vers = set(CSS_VER.findall(txt))

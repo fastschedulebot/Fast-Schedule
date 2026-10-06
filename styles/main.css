@@ -209,7 +209,7 @@ header.site {
    page extras (help search, legal doc tabs). */
 .nav-unified { justify-content: space-between; }
 .nav-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.nav-unified .nav-cta, .nav-unified .settings-wrap { flex: none; }
+.nav-unified .nav-cta, .nav-unified .settings-wrap, .nav-unified .hc-menu-btn { flex: none; }
 .nav-unified .brand { margin-right: 0; flex: none; white-space: nowrap; }
 .nav-unified .brand-full { color: var(--green-strong); }
 .nav-unified .nav-center { flex: 1 1 auto; display: flex; justify-content: center; min-width: 0; margin: 0 8px; }
@@ -233,14 +233,16 @@ header.site {
   .nav-unified .nav-left .nav-cta span { display: inline; }
   .nav-unified .nav-group { gap: 6px; }
 }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .nav-unified .nav-right .nav-cta { display: inline-flex; padding: 8px 12px; font-size: .82rem; }
   .nav-unified .nav-right .nav-cta kbd { display: none; }
-  /* Phone bar: the long "Open Bot" / "Открыть бота" label is what pushed the
-     burger off a 390px row, so print the short data-cta-short form ("Open" /
-     "Открыть") instead. The full label stays in the DOM: translations and
-     the accessible name are untouched. lang.js rewrites data-cta-short per
-     language alongside the label. */
+  /* Phone/tablet bar: the long "Open Bot" / "Открыть бота" label is what
+     pushed the burger off a 390px row, so print the short data-cta-short
+     form ("Open" / "Открыть") instead. Aligned to 900px (not 760) so the
+     tablet band that hides the long label (help hub, 641-900px) never
+     degrades to a bare icon, e.g. on a zoomed desktop. The full label stays
+     in the DOM: translations and the accessible name are untouched. lang.js
+     rewrites data-cta-short per language alongside the label. */
   .nav-unified .nav-left .nav-cta,
   .nav-unified .nav-right .nav-cta { font-size: 0; gap: 6px; }
   /* The inner-page label lives in a <span>: zero it explicitly so a template
@@ -1400,11 +1402,12 @@ html.nav-hidden .home-nav { transform: translateY(-100%); }
    space — animated, same timing as the slide. Fixed bars are unaffected. */
 html.nav-hidden header.site,
 html.nav-hidden .home-nav { margin-bottom: calc(-1 * var(--nav-h, 64px)); }
-@media (max-width: 860px) {
-  /* homepage bar is position:fixed on phones: release its padding so the
-     content slides up to fill the space the bar vacated */
-  html.nav-hidden body.home { padding-top: 0 !important; }
-}
+/* Phones: the homepage bar is position:fixed and body.home reserves its
+   space with padding-top. That reserve MUST stay while hidden: the padding
+   sits at the document top (off-screen once scrolled), so dropping it frees
+   no visible space — it only reflows the document 58px instantly (padding
+   has no transition) while the bar slides away over .32s, which reads as a
+   broken jump on every hide/show cycle. The transform hides the bar alone. */
 /* Legal app-shell (≤760px): the header is a flex child; collapsing its slot
    lets the article slide up under where the bar was. Content slides with a
    transition instead of snapping. */
