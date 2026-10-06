@@ -1,0 +1,12 @@
+TITLE: Scheduled Message Didn’t Post? The 6
+DESC: A ranked troubleshooting checklist for missed Telegram posts: sender bot admin rights, revoked tokens, permissions, channel changes, rate limits and the
+BODY-HMTL-LEN: 1858
+BODY:
+<p>When a post misses its slot, the cause is almost always in the delivery chain — the schedule itself is the least likely suspect. Work this list top to bottom; each item fixes the majority of cases.</p><h3>1. The sender bot lost its admin seat</h3><p>Someone cleaned up admins and removed your sender bot. Check <b>Manage Channel → Administrators</b>: your sender bot must be there with <b>Post Messages</b>. Re-add it, and the queue resumes.</p><h3>2. The token was revoked or replaced</h3><p>A <code>/revoke</code> in @BotFather kills the old token everywhere instantly. If the bot shows the sender as disconnected, open <b>Bots</b> → <b>🔁 Replace Token</b> under the bot and paste the fresh token.</p><h3>3. Permissions were narrowed</h3><p>Admin exists but without <b>Post Messages</b> — a silent killer after permission tightening. Open the admin entry and re-enable posting.</p><h3>4. The channel changed identity</h3><p>Username changed or the channel was converted — the old link no longer resolves. Reconnect the channel; schedules are kept.</p><h3>5. Telegram rate limits on bursts</h3><p>Telegram throttles aggressive posting bursts channel-wide. If several posts fire close together and one fails, it is usually this. Space posts by minutes, not seconds — the scheduler already does, but third-party bots added to the channel can collide with it.</p><h3>6. The monthly send cap (Free)</h3><p>On Free, sends pause at 100 per channel per month until the 1st. The bot warns you before the cap; <code>/stats</code> shows the counter. Premium lifts the cap entirely.</p><h3>Fastest diagnosis</h3><p>Send <code>/stats</code> (status of everything) and check the sender-bot status screen. Still mysterious? <code>/feedback</code> with the channel and the missed time — support can see delivery attempts and will tell you exactly which step failed.</p>
+FAQ-COUNT: 2
+Q: Will missed posts send later automatically?
+A: A post that failed delivery is marked failed, not silently retried forever. Fix the underlying cause, then delete it and schedule it again. Troubleshooting
+LINKS: 
+Q: How do I know if it was the monthly cap?
+A: The bot notifies you at the cap, and /stats shows monthly usage per channel. If neither shows the cap, it was delivery-side — start the checklist from the top. Monthly Send Limit
+LINKS: 

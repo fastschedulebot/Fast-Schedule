@@ -1,0 +1,12 @@
+TITLE: How to Add an Automatic Signature to
+DESC: Set up a Premium auto-signature - credit line, promo, or hashtags - appended to every post of a channel, with formatting, per-channel control, and clean
+BODY-HMTL-LEN: 1531
+BODY:
+<p>A signature is the footer that appears under every post in a channel: credit, CTA, hashtags, promo. Set it once in Fast Scheduler and every scheduled message carries it — you stop copy-pasting “@yourchannel” to the end of everything.</p><h3>Setting it up</h3><ul><li>1. Open <b>Signature</b> via <code>/signature</code> (or tap <b>📝 Signature</b> on the review screen). Premium feature.</li><li>2. Pick the channel — signatures are <b>per channel</b>, so your main channel can carry a promo while the announcements channel stays clean.</li><li>3. Send the text. Formatting works: <b>bold</b>, <i>italic</i>, links, even emoji-free minimalism if that is your style.</li></ul><p>From the next send onward, the signature is appended to every post in that channel. Existing scheduled posts pick it up automatically at send time — no need to reschedule anything.</p><h3>What belongs in a good signature</h3><ul><li><b>The channel handle</b> — the classic “@yourchannel” line, since forwarded copies keep the credit.</li><li><b>One action</b> — “Reply to buy”, “Details: link”. A signature with three CTAs has zero.</li><li><b>Hashtags for navigation</b> — if the channel uses tag-indexing, the signature is the perfect place for the constant ones.</li></ul><h3>Changing and removing</h3><p>The same menu edits or clears the signature; clearing stops appending immediately (again, applied at send time, so posts already published keep their footer — that is a feature, not a bug). Per-channel control means experimenting is cheap.</p>
+FAQ-COUNT: 2
+Q: Can I use different signatures for different channels?
+A: Yes — signatures are configured per channel. Each connected channel gets its own text (or none). Signatures (Premium)
+LINKS: 
+Q: Does the signature count toward the message length?
+A: It is part of the final message text, so extremely long signatures can hit Telegram’s 4096-character limit on top of long posts. Short signatures are better anyway. Signatures (Premium)
+LINKS: 

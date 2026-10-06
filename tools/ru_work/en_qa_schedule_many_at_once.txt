@@ -1,0 +1,12 @@
+TITLE: How to Schedule Many Telegram Posts at
+DESC: Three proven ways to schedule in bulk: SetDate import for prepared batches, recurring rules for repeatable slots, and the queue workflow for content weeks.
+BODY-HMTL-LEN: 1535
+BODY:
+<p>Scheduling one post at a time is fine for a meme; for a content calendar you want <b>batch</b> workflows. Fast Scheduler gives you three, and a full week can be set up in minutes.</p><h3>Way 1 — import a batch with SetDate</h3><p>The <b>SetDate bot</b> is the bulk tool: prepare messages as a set (text, times), then import them into Fast Scheduler in one click. It shines when you write copy in advance or migrate from another scheduler. Prepare → import → review in the Message List → done.</p><h3>Way 2 — let recurring rules do the repeating</h3><p>Anything that repeats should be a <b>rule</b>, not N one-off posts: “every day at 9:00”, “Mondays 18:30”, “every 6 hours”. Premium users get unlimited rules and no expiry; Free has one rule. Combined with a signature, a daily digest literally runs itself.</p><h3>Way 3 — stock the queue ahead</h3><p>The queue lets you stack up to 100 pending posts on Free (unlimited on Premium). The classic pattern: one writing session → schedule the whole week → check the <b>Calendar</b> view for holes and collisions → go live your life. Edits are free and instant, so the queue is your draft folder as much as your pipeline.</p><h3>Checking your work</h3><p>Three tools keep bulk work honest:</p><ul><li><b>Calendar</b> — month at a glance; tap a day to see that day's posts.</li><li><b>Message List</b> — per-channel queue with previews; catch same-time twins here.</li><li><b>Search</b> — keyword search across everything scheduled, with per-result preview and edit for cleanup.</li></ul>
+FAQ-COUNT: 2
+Q: Is there a true “upload a CSV of posts” feature?
+A: Close: SetDate handles prepared batches, and /import accepts .json/.csv/.txt/.rtf/.odt files of messages. For calendar-scale bulk entry, SetDate is the intended tool. SetDate Integration Supported Import Formats
+LINKS: 
+Q: How far ahead can I schedule?
+A: As far as your queue limit allows — up to 100 pending posts on Free, unlimited on Premium. Times years out are fine. Scheduled Limit
+LINKS: 

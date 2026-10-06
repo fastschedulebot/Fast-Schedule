@@ -1,0 +1,15 @@
+TITLE: How Do I Schedule Many Telegram Posts
+DESC: Queue dozens of channel posts in minutes: prepare them in the SetDate companion bot, pick dates and times, and import everything into Fast Scheduler in
+BODY-HMTL-LEN: 1959
+BODY:
+<p>Scheduling one post is quick. Scheduling <i>thirty</i> — a week of content for a news channel, a course drip, a product launch sequence — needs a different tool: <b>SetDate</b>, the companion bot built for exactly this.</p><h3>The five-minute bulk workflow</h3><ul><li><b>1. Open SetDate.</b> Open <b>@SetDate_bot</b> directly — or tap <b>📅 Use SetDate Bot</b> whenever Fast Scheduler suggests it.</li><li><b>2. Feed it content.</b> Send your text messages one after another — typed, pasted, or uploaded as a .txt file. Photos and videos are attached later, when you pick media options during import.</li><li><b>3. Choose a start date</b> and how many posts should go out per day.</li><li><b>4. Define posting times</b> — for example 09:00, 14:00 and 18:00 — and SetDate distributes your messages across that grid.</li><li><b>5. Send the batch back.</b> One tap and every message appears in Fast Scheduler as a normal scheduled post, fully editable afterwards.</li></ul><h3>Why this beats scheduling by hand</h3><ul><li><b>One sitting instead of thirty.</b> You write all content while you are in the writing mood, then let the grid place it.</li><li><b>Perfect for recurring formats.</b> A daily tip at 10:00 for the next two weeks is two fields in SetDate, not fourteen conversations.</li><li><b>Everything stays editable.</b> After import, each post is a regular scheduled message — search it, edit it, delete it, or move it in the calendar.</li></ul><h3>Bulk for repeated content: recurring messages</h3><p>If the <i>same</i> message should repeat — a weekly digest, a daily reminder — you do not need bulk import at all: create a <b>recurring message</b> once and it reschedules itself. Free plans run 1 recurring message; Premium removes the cap (Unlimited) and its rules never expire.</p><p>Tip: before importing a large batch, glance at your channel&rsquo;s time zone (see the time-zone guide) so the grid lands on the hours you actually meant.</p>
+FAQ-COUNT: 3
+Q: What is the SetDate bot?
+A: SetDate is Fast Scheduler’s companion bot for bulk scheduling: you prepare many messages there, choose a start date and daily posting times, and import them all into Fast Scheduler in one click. SetDate Integration
+LINKS: 
+Q: Can I edit posts after bulk import?
+A: Yes. Imported messages become ordinary scheduled messages — open the Message List or calendar and edit, move or delete any of them individually. Can I Edit a Scheduled Post After Scheduling It?
+LINKS: 
+Q: How many posts can I import at once?
+A: SetDate handles up to 500 posts (200,000 characters, 20 MB .txt) per batch. Imported messages also count against your scheduled-message limit (100 pending on Free, unlimited on Premium), so a batch that fits both caps can be imported in one go. Free Plan Limits
+LINKS: 

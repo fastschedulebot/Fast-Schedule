@@ -1,0 +1,12 @@
+TITLE: Telegram Channels vs Groups vs Bots
+DESC: A plain-English explainer of Telegram channel, group and bot roles - written for people who schedule content, with practical notes on admin rights and
+BODY-HMTL-LEN: 1694
+BODY:
+<p>Telegram has three kinds of “places”, and content creators mix them up constantly. Here is the mental model that sticks.</p><h3>A channel is a megaphone</h3><p>One-way broadcasting: admins post, subscribers read. No reply threads by default (though a discussion group can be attached), unlimited subscribers, and posts carry the <b>channel's</b> name — or the name of the posting bot if “Sign messages with a bot” is on. Channels are where scheduled content lives.</p><h3>A group is a campfire</h3><p>Everyone talks. Groups are for community; up to 200k members in supergroups, full message history, topics if enabled. You do not “schedule to a group” the way you do to a channel — that is what channels are for.</p><h3>A bot is a worker</h3><p>Bots are accounts run by software. In your channel's context, a bot is the <b>hands</b> that type the message: a bot must be an admin with <b>Post Messages</b> for anything to be published. That is exactly why Fast Scheduler pairs a sender bot with your channel — your bot posts, under your brand.</p><h3>Why this matters for scheduling</h3><ul><li>Want posts to appear at fixed times? <b>Channel + scheduler + sender bot.</b></li><li>Want subscribers to discuss the posts? Attach a <b>linked discussion group</b> to the channel — comments live there automatically.</li><li>Want automation, menus, and commands? That is the <b>bot</b> layer — the part Fast Scheduler turns into a full publishing workflow.</li></ul><p>One nuance worth knowing: Telegram shows <i>signed</i> posts as “via bot” only when the admin chooses to sign with the bot; otherwise the post simply appears under the channel name. Either way, the sender bot did the typing.</p>
+FAQ-COUNT: 2
+Q: Can a scheduled post go to a group?
+A: Fast Scheduler targets channels (including chat-announcement channels). Groups are conversational — schedule announcements to a channel instead. Channels
+LINKS: 
+Q: Do subscribers see which bot posted?
+A: By default a channel post shows just the channel name. If the channel enables signing posts with the admin bot, the sender bot is credited. Do You Need a Sender Bot to Schedule Posts? (Yes — Here Is Why)
+LINKS: 

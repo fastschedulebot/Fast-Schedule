@@ -1,0 +1,15 @@
+TITLE: What Do I Get With Fast Scheduler for
+DESC: The complete Free plan breakdown: 1 channel, 1 sender bot, 100 pending scheduled messages, 100 sends per channel monthly, 1 recurring rule, storage and
+BODY-HMTL-LEN: 1669
+BODY:
+<p>Free is a real plan, not a trial — it never expires and has no daily caps. Here is exactly what you get, with numbers you can plan around.</p><h3>The numbers</h3><ul><li><b>1 channel</b> with <b>1 sender bot</b>.</li><li><b>Up to 100 scheduled messages pending at once</b> — your working queue. As posts go out, space frees up; this is not a monthly allowance.</li><li><b>100 sent messages per channel per calendar month</b> — the actual sending quota. Resets on the 1st.</li><li><b>1 recurring message</b> — one repeating rule (daily, weekly, every N hours…). Recurring rules on Free expire after 365 days and need re-confirming.</li><li><b>Media Storage: 1 box with 100 items</b>, no video in storage.</li><li><b>Uploads up to 10 MB</b>, videos up to 25MB.</li></ul><h3>What “100/month per channel” means in practice</h3><p>If you post 3 times a day, that is ~90 posts a month — Free covers a light daily cadence on one channel. Posting 5+ times a day, or running several channels, is where Premium starts to make sense. The counter counts <i>sends by the sender bot</i>; edits, previews and deleted schedules are free.</p><h3>There is no daily cap</h3><p>Older versions of the bot had daily limits; they are gone. On Free you can schedule and send every single day — the only quotas are the pending-queue size and the monthly send count. Check both any time with <code>/stats</code>.</p><h3>Hitting a limit gracefully</h3><p>The queue limit blocks <i>new</i> schedules, never deletes old ones; the monthly cap pauses sends until the 1st (the bot tells you). Both warn you in advance with clear messages and a one-tap upgrade path. Nothing is silently dropped.</p>
+FAQ-COUNT: 3
+Q: Do unused sends carry over to next month?
+A: No. The monthly counter resets to zero on the 1st; unused sends do not roll over. The pending-queue space is also not a quota to “use up” — it just caps how far ahead you can stockpile. Monthly Send Limit
+LINKS: 
+Q: Is the free plan time-limited or feature-crippled?
+A: It never expires. Scheduling, recurring, statistics, search and the calendar all work on Free. Premium removes quantity limits and adds the Export/Backup toolkit, signatures and bigger media. Premium
+LINKS: 
+Q: How do I check my current usage?
+A: Send /stats. It shows your queue size, monthly sends, recurring rules and storage at a glance. Statistics Dashboard
+LINKS: 

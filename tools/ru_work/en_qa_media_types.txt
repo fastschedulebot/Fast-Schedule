@@ -1,0 +1,15 @@
+TITLE: What Types of Content Can You Schedule
+DESC: Photos, videos, GIFs, voice messages, stickers, polls, documents, locations - every media type Fast Scheduler can schedule to a Telegram channel.
+BODY-HMTL-LEN: 2169
+BODY:
+<p>A scheduling bot is only as good as the content it can carry. Fast Scheduler handles the full Telegram media palette, so your editorial plans never have to shrink to fit the tool.</p><h3>Everything you can attach to a scheduled post</h3><ul><li><b>Photos</b> — compressed automatically for fast delivery without visible quality loss.</li><li><b>Videos</b> — including size limits that scale with your plan (up to 25MB on Free, up to 50MB on Premium).</li><li><b>Video notes</b> (round videos) and <b>voice messages</b>.</li><li><b>Audio files</b> — full tracks with cover art preserved.</li><li><b>Documents</b> — PDFs, archives, anything Telegram accepts.</li><li><b>Animations</b> — GIFs and MP4 loops.</li><li><b>Stickers</b> — from any of your packs.</li><li><b>Polls and quizzes</b> — scheduled like any other post.</li><li><b>Locations and venues</b> — supported for per-post content.</li></ul><h3>Albums and media groups</h3><p>Multiple photos or videos sent together are scheduled as one album and publish as a single media group — exactly how your followers expect it. You can also build a <b>randomized pool</b>: attach a mix of photos, videos, documents or any files and let the scheduler pick one per send, which is perfect for daily wallpaper or quote channels where variety matters.</p><h3>Text always travels with media</h3><p>Captions keep their formatting (bold, italic, links, spoilers) and your configured <b>signature</b> is appended to media posts as well. Inline URL buttons attach to media posts too, so a &ldquo;Read more&rdquo; button under a photo works out of the box.</p><h3>Limits that matter</h3><ul><li>Max media size: up to <b>10 MB</b> on Free, <b>100 MB</b> on Premium.</li><li>Videos: <b>up to 25MB</b> on Free, <b>up to 50MB</b> on Premium.</li><li>Media Storage boxes: 1 box with 100 items total on Free — Premium raises this to 20 boxes with 500 items total across the account, so reusable assets live in the bot instead of your camera roll.</li></ul><p>Anything Telegram itself refuses (for example, a corrupted file) is rejected at scheduling time with a clear message — never discovered silently on the day of publishing.</p>
+FAQ-COUNT: 3
+Q: Can I schedule Telegram polls with Fast Scheduler?
+A: Yes. Polls and quizzes are scheduled like any other message and publish through your sender bot at the set time. Scheduling FAQ
+LINKS: 
+Q: Can I schedule an album of photos?
+A: Yes. Photos and videos sent together are scheduled as one media group. You can also attach a pool of mixed files and let the scheduler pick one randomly per send. Media Storage
+LINKS: 
+Q: What is the maximum video size for scheduled messages?
+A: Videos up to 25MB on the Free plan and up to 50MB with Premium, in line with Telegram bots own upload limits. Media Limit
+LINKS: 

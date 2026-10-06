@@ -1,0 +1,15 @@
+TITLE: How Do I Format Telegram Posts? (Bold
+DESC: Everything about formatting scheduled Telegram posts: entities preserved from your drafts, spoiler markup, custom emoji, and inline URL buttons with
+BODY-HMTL-LEN: 2138
+BODY:
+<p>Formatting is what separates a channel that looks professional from one that looks like a group chat. Fast Scheduler keeps every bit of it intact between scheduling and publishing.</p><h3>Rich text survives the whole pipeline</h3><p>Write a message anywhere — bold headlines, italic asides, <u>underlined</u> warnings, <s>struck-through</s> corrections, monospace code — and schedule it. Formatting is stored as Telegram <b>entities</b>, not flat text, so what publishes is pixel-identical to what you wrote: no mangled asterisks, no lost links, no broken emoji.</p><h3>Spoilers</h3><p>Wrap part of the text in spoiler markup and it publishes as a real Telegram spoiler — blurred until a reader taps it. Perfect for giveaways, answers, and sensitive details. The bot validates spoiler markup while you type, so unclosed pairs are caught at scheduling time, not in front of your audience.</p><h3>Inline URL buttons</h3><p>Add tappable buttons to any post with one syntax: <code>[Button Text](https://example.com)</code>. Use them for call-to-action links — &ldquo;Read the guide&rdquo;, &ldquo;Buy now&rdquo;, &ldquo;Join the chat&rdquo;. Buttons attach to text posts and to media posts alike. Keep button labels short (two or three words read best) and test one post before scheduling a whole campaign.</p><h3>Custom emoji</h3><p>Premium Telegram emoji in your drafts are preserved on publish, so your brand&rsquo;s custom smileys do not degrade into defaults.</p><h3>Signatures: formatting that stamps itself</h3><p>Configure a <b>signature</b> once — a footer with your links, hashtags or contact — and every scheduled post carries it automatically, on text and media alike. Signatures keep their own formatting, and you can override the signature per post when a particular message should go out clean.</p><h3>A checklist for polished posts</h3><ul><li>One bold hook line first — most readers see only it in notifications.</li><li>Links as buttons where possible; they out-click inline links.</li><li>Spoilers for anything the reader should opt into.</li><li>A signature so every post quietly advertises your next channel.</li></ul>
+FAQ-COUNT: 3
+Q: Does Telegram formatting survive scheduling in Fast Scheduler?
+A: Yes. Bold, italic, underline, strikethrough, code, links, spoilers and custom emoji are stored as Telegram entities and publish exactly as written. Scheduling FAQ
+LINKS: 
+Q: How do I add buttons to a scheduled Telegram post?
+A: Use the syntax [Button Text](https://your-link.com) in the message. The bot converts it into a tappable inline URL button on the published post. Inline Buttons
+LINKS: 
+Q: Can every scheduled post have an automatic signature?
+A: Yes. Create a signature once and it is appended to every scheduled and recurring post automatically, keeping its own formatting. Individual posts can override it. Signatures (Premium)
+LINKS: 

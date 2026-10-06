@@ -1,0 +1,15 @@
+TITLE: Bulk Move, Copy & Box Download
+DESC: Reorganizing a box item by item is slow. Premium adds three bulk tools inside any open box: Move All • Moves every item (or only one type: images, videos
+BODY-HMTL-LEN: 694
+BODY:
+<p>Reorganizing a box item by item is slow. Premium adds three bulk tools inside any open box:</p><p><b>Move All</b><br>• Moves every item (or only one type: images, videos, files) into a box you pick.<br>• Use it to split a mixed box by type or to retire a finished campaign in one tap.</p><p><b>Copy All</b><br>• Same flow, but the source box keeps its items — handy for seeding a new campaign box from an archive without touching the original.</p><p><b>Download Box</b><br>• Saves the whole box as a single archive, so you can keep an offline copy or hand assets to a teammate.</p><p>On Free, open any item and use <b>Move</b>, <b>Copy</b>, or <b>Download</b> for one file at a time.</p>
+FAQ-COUNT: 3
+Q: Is bulk move/copy a Premium feature?
+A: Yes — Move All , Copy All , and Download Box need Premium. On Free you can move, copy, or download one file at a time instead.
+LINKS: 
+Q: Can I move only videos or only photos?
+A: Yes. Move All and Copy All offer an optional type filter (images, videos, files), so one tap can split a mixed box by type.
+LINKS: 
+Q: What do I get when I download a box?
+A: One archive with the box files, for offline backup or sharing with a teammate. On Free, open items one by one and tap Download instead.
+LINKS: 

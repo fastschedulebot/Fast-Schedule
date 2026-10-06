@@ -1,0 +1,15 @@
+TITLE: Can I Edit a Scheduled Post After
+DESC: Yes - text, media, and send time all stay editable until the moment the post goes out. Here is what can be changed, what cannot, and how retries work.
+BODY-HMTL-LEN: 1605
+BODY:
+<p>Nothing about a scheduled post is carved in stone. Until the moment Telegram accepts the send, every part of it can change — that is the whole point of keeping a queue instead of posting immediately.</p><h3>What you can change</h3><ul><li><b>Text and formatting</b> — fix a typo, rewrite the hook, add links. Bold, italic, underline, strikethrough, spoilers and code all survive edits.</li><li><b>Media</b> — swap the image, replace the video, add or remove an album item.</li><li><b>Send time</b> — move the post earlier or later, or to another day entirely.</li><li><b>Target channel</b> — re-point a post to a different connected channel.</li></ul><p>Open the <b>Message List</b> (or <code>/list</code>), tap the post, choose <b>🔄 Replace</b>. The familiar schedule flow reopens with the post's current content pre-filled — change what you need and confirm.</p><h3>What editing cannot do</h3><ul><li><b>Change a post that already published.</b> Once the sender bot delivers the message to Telegram, it is a normal Telegram message — edit it with Telegram's own tools, not here.</li><li><b>Edit recurring posts “in place”.</b> A recurring rule is a single template that fires on its pattern — there are no separate per-day copies. Edit the <i>rule</i> so all future sends change.</li></ul><h3>A workflow that actually works</h3><p>Channel operators who stay sane usually: schedule the week on Sunday, review the Calendar Monday, and treat edit as the normal verb — improving copy as the news moves. Edits are free, instant, and never notify subscribers. The only deadline is the send time itself.</p>
+FAQ-COUNT: 3
+Q: How late can I edit a post?
+A: Any time before the send moment. If the bot is mid-delivery, the edit may not apply — that is the only race. For a post due within seconds, delete and reschedule instead. Edit Messages
+LINKS: 
+Q: Can I edit a post that already went out?
+A: Not from the bot — it is a regular Telegram message now. Telegram itself lets admins edit posted messages in channels; use Telegram for that. Delete Messages
+LINKS: 
+Q: Does editing reset the monthly send counter?
+A: No. The counter counts actual sends, not edits. Editing costs nothing. Monthly Send Limit
+LINKS: 

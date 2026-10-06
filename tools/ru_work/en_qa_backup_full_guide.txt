@@ -1,0 +1,18 @@
+TITLE: How to Back Up All Scheduled Posts in
+DESC: A complete, human-friendly guide to backing up scheduled Telegram posts with Fast Scheduler: what gets saved, password protection, cloud storage of files
+BODY-HMTL-LEN: 2375
+BODY:
+<p>Rebuilding a month of scheduled posts by hand is nobody's idea of fun. Fast Scheduler's backup system exists so you never have to: one file captures everything, and restoring it on any account takes about a minute.</p><h3>What a backup contains</h3><p>A <code>.fsback</code> / <code>.fspback</code> file packages the parts of your account you select — typically:</p><ul><li><b>Scheduled messages</b> — every queued post with its exact send time.</li><li><b>Recurring messages</b> — repeat rules (daily, weekly, custom intervals) and their expiry settings.</li><li><b>Settings</b> — language, time zone, signatures, channel preferences.</li><li><b>Media Storage references</b> — saved photos, videos and documents with their boxes.</li></ul><p>What is <b>not</b> included: user backups exclude sender-bot tokens, and payment history never leaves Telegram's systems. The export screen lets you review what goes into the file before you confirm.</p><h3>Creating a backup — step by step</h3><p>Backups are a <b>Premium</b> feature. With Premium active:</p><ul><li>1. Open the menu → <b>Data</b> → <b>Export</b> (or send <code>/backup</code>).</li><li>2. Pick what to include (scheduled, recurring, all).</li><li>3. Choose <b>password protection</b>: none for <code>.fsback</code>, or set a password + hint for <code>.fspback</code>.</li><li>4. The bot packs the archive and sends the file. Save it somewhere real — cloud drive, local disk, anywhere that survives losing your phone.</li></ul><h3>Restoring — the safe way</h3><p>Send <code>/import</code>, attach the file, enter the password if prompted. The bot then asks how to apply it:</p><ul><li><b>Overwrite</b> — replaces your current data with the backup's content. Anything not in the backup disappears.</li><li><b>Add</b> — merges the backup into your current data, keeping what you already have.</li></ul><p><b>Golden rule:</b> export a fresh backup <i>before</i> restoring an older one. It is your undo button if the result surprises you.</p><h3>Good backup habits</h3><ul><li>Take a fresh backup before deleting a channel, rotating a bot, or bulk-editing posts.</li><li>Keep at least one <code>.fspback</code> with a strong password — shared drives get opened by more people than you think.</li><li>After switching phones or accounts, restore + verify the Message List before the real posting week starts.</li></ul>
+FAQ-COUNT: 4
+Q: Is backup free or Premium?
+A: Creating .fsback/.fspback backups is part of the Export & Backup toolkit, which requires Premium. Importing files (/import) works on Free, so anyone can restore a backup received from someone else. Buy Premium
+LINKS: 
+Q: Where should I store the backup file?
+A: Anywhere outside Telegram: a cloud drive, your computer, or an encrypted notes app. Telegram keeps the file in your chat too, but Saved Messages is not a backup strategy. Download
+LINKS: 
+Q: How big is a backup file?
+A: Small — usually kilobytes to a few megabytes, because media is referenced rather than embedded. Text and schedules compress extremely well. Backup Size
+LINKS: 
+Q: Can I move my schedules to another Telegram account?
+A: Yes. Create a backup on the old account, log into the new one, connect the channel and a sender bot, then restore the backup with Add mode. This is the standard migration path. Migration FAQ
+LINKS: 

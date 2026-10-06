@@ -1,0 +1,12 @@
+TITLE: How to Manage Your Sender Bots: Rotate
+DESC: Day-to-day sender bot management: checking status, rotating a compromised token, renaming the public face of your bot, one-bot-per-channel hygiene, and
+BODY-HMTL-LEN: 1556
+BODY:
+<p>Your sender bot is the public face of every post, so a little hygiene goes a long way. Everything below lives in <b>Sender Bots</b> (or <code>/bots</code>) in Fast Scheduler.</p><h3>Check status before you check anything else</h3><p>The bots screen shows each bot's connection state and which channels it serves. If a send ever fails, this is the first screen: a bot showing disconnected means a revoked token or a BotFather change — fix it there, not in the schedule.</p><h3>Rotating a token (the right way)</h3><ul><li>1. @BotFather → <code>/mybots</code> → your bot → <b>Revoke current token</b>.</li><li>2. Copy the new token.</li><li>3. Fast Scheduler → <b>Bots</b> → <b>🔁 Replace Token</b> under the bot → paste.</li></ul><p>The swap is instant and schedules keep running. Do it the other way around (revoke and forget) and every send fails until you paste the new token.</p><h3>Rename = rebrand</h3><p>A bot's public name and avatar come from @BotFather (<code>/setname</code>, <code>/setuserpic</code>) — change them there and every future post instantly carries the new look. No re-pairing needed; Fast Scheduler stores the token, not the cosmetics.</p><h3>Fleet hygiene</h3><ul><li><b>One bot per channel</b> keeps branding separate and failures isolated (Premium: up to 3 bots).</li><li><b>Remove</b> bots you no longer use — removal deletes the token from storage; the bot account itself lives on in BotFather.</li><li>After any BotFather change, glance at the status screen once — 10 seconds that prevent a silent failed-post day.</li></ul>
+FAQ-COUNT: 2
+Q: Can I use the same bot for multiple channels?
+A: Yes — a sender bot can serve several of your channels. Separate bots per channel remain the cleaner default for branding and debugging. Bot Fleet
+LINKS: 
+Q: I deleted a bot in BotFather. What happens in Fast Scheduler?
+A: Its sends fail with an invalid-token error and the status screen shows it disconnected. Remove the bot from Sender Bots and pair a replacement. Remove a Sender Bot
+LINKS: 

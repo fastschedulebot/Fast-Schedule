@@ -1,0 +1,12 @@
+TITLE: What Is Media Storage and How Do You
+DESC: Media Storage explained: boxes, saved photos/videos/documents, reusing assets across scheduled posts, storage limits on Free vs Premium, and cleanup
+BODY-HMTL-LEN: 1675
+BODY:
+<p>Media Storage is your in-bot asset library: save a photo, video, or document once, then reuse it in any scheduled post without re-uploading. If you repost evergreen content or reuse brand imagery, this is the feature that saves the most time per week.</p><h3>Boxes: folders with a purpose</h3><p>Assets live in <b>boxes</b> — named containers like “Brand”, “Memes”, “Product shots”. Free gets <b>1 box with 100 items</b> (no video in storage); Premium gets <b>20 boxes with 500 items total</b> with video support. Boxes keep the picker fast and your library mentally organized — one box per campaign is a good default.</p><h3>Saving and reusing</h3><ul><li><b>Save:</b> forward or upload media to the storage, or save straight from a scheduled message you are composing.</li><li><b>Reuse:</b> while scheduling, open the storage instead of attaching a file — pick the asset, done. Telegram file references are reused, so nothing is re-uploaded and quality is not recompressed per post.</li><li><b>Organize:</b> move items between boxes, rename, delete.</li></ul><h3>The limits that actually matter</h3><ul><li><b>Item count</b> — the 100-item Free box fills fast with albums; delete stale assets or upgrade.</li><li><b>Video on Free</b> — storage refuses video on Free; schedule videos directly instead, or move to Premium for video-in-storage.</li><li><b>Size</b> — same upload caps as messages: 10 MB on Free, 100 MB on Premium.</li></ul><h3>A cleanup cadence that works</h3><p>Once a month: open each box, delete anything unused in 60 days, archive campaign boxes by renaming with a date prefix. Two minutes, and the picker stays a joy instead of an archaeology dig.</p>
+FAQ-COUNT: 2
+Q: Does deleting a media item break scheduled posts using it?
+A: Posts keep working — a scheduled message holds its own reference to the media. Deleting from storage only removes it from the library for future posts. Manage Storage
+LINKS: 
+Q: Can I share a box with another admin?
+A: Storage is per account. To share assets, export them as part of a backup or send the files directly — the other account saves them into their own storage. What Is the Difference Between .fsback and .fspback?
+LINKS: 

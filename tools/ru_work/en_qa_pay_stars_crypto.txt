@@ -1,0 +1,12 @@
+TITLE: How to Pay for Fast Scheduler Premium
+DESC: Paying for Premium step by step: Telegram Stars at the official rate, plan terms, activation timing, and what to do if payment succeeded but nothing
+BODY-HMTL-LEN: 1555
+BODY:
+<p>Premium attaches to your Telegram account and covers every channel you connect while it is active. Payment lives in the bot's <b>Premium</b> menu and uses <b>Telegram Stars</b> only.</p><h3>Telegram Stars</h3><p>Stars are Telegram's in-app currency. The bot converts the USD price at the official rate and shows the exact Star amount before you confirm — buy Stars in Telegram if your balance is short, approve, and Premium activates the moment the invoice clears. Refunds of Stars purchases follow Telegram's own flow, which is also why the bot asks you to double-check the term before paying.</p><h3>Plan terms</h3><p>The monthly Stars plan <b>renews automatically</b> until cancelled. Prepaid 3-month, 6-month, and yearly plans are <b>one-time purchases</b> (with up-front 3/6-month discounts) and never auto-renew.</p><h3>Right after payment</h3><ul><li>Premium flags appear instantly in the menus; <code>/premium</code> shows status and expiry date.</li><li>If you paid but see no change: <b>restart the bot with <code>/start</code></b> — status is refreshed on launch. Still stuck? <code>/feedback</code> with the payment date and method gets a human on it the same day.</li></ul><h3>Terms, renewals, refunds</h3><p>Multi-month terms cost proportionally less (built-in 3/6-month discounts), and expiry is shown everywhere Premium matters. When a prepaid term ends, limits quietly return to Free — nothing is deleted. The refund policy is linked in the site footer; genuine failures (double payment, activation glitch) are refunded by support.</p>
+FAQ-COUNT: 2
+Q: Can I pay for a friend’s account?
+A: Premium binds to the Telegram account that activates it. To gift Premium, have them open the Premium menu and pay there, or transfer Stars — the bot cannot attach Premium to a different account after payment. Buy Premium
+LINKS: 
+Q: Will Premium renew automatically?
+A: The monthly Stars plan renews automatically until cancelled. Prepaid 3-month, 6-month, and yearly plans never auto-renew — when one ends, limits revert to Free and you can extend any time from the Premium menu. Premium Expiry
+LINKS: 

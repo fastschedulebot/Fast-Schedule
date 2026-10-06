@@ -1,0 +1,15 @@
+TITLE: How Do I Get a Refund on My Fast
+DESC: Paid with Telegram Stars and changed your mind? Here is exactly how to request a refund: the email, what to include, the 30-day window and processing
+BODY-HMTL-LEN: 2157
+BODY:
+<p>Refunds are handled personally, not by a faceless form. If a purchase went wrong — a double charge, an accidental renewal, Premium that never activated — you write one email and a human sorts it out. Here is the whole procedure, step by step.</p><h3>What to send</h3><p>Email <b>fastschedulebot@gmail.com</b> with three things:</p><ul><li>Your <b>transaction ID</b> — Telegram shows it in the Stars payment confirmation and in Settings → Payments.</li><li>Your <b>Telegram username</b> (or user ID) so the purchase can be matched to your account.</li><li>The <b>reason</b> — one honest sentence is enough, plus the purchase date and the account or email used, where applicable.</li></ul><h3>The 30-day window and what happens next</h3><p>Refund requests are accepted within <b>30 days</b> of the charge. Requests are acknowledged within <b>7 business days</b>, and approved refunds are returned through the original payment method — for Telegram Stars that means back to your Stars balance. Refunds are discretionary rather than guaranteed for every situation, which is exactly why a short, honest reason helps: accidental purchases and technical failures the team could not fix are the classic approved cases.</p><h3>Cancelling so you are not charged again</h3><p>Monthly Stars plans renew automatically until cancelled. You cancel inside the bot: open <b>/premium</b> → <b>❌ Cancel Premium</b>. Cancelling stops future billing; the period you already paid for stays active until its end date, and Premium switches off at that boundary rather than mid-plan. The 3-month, 6-month and yearly packs are one-time purchases — they simply expire and never auto-charge.</p><h3>What not to do: chargebacks</h3><p>Opening a card or Apple/Google chargeback instead of emailing is treated as abuse: the account loses Premium immediately and the subscription fee is forfeited. Emailing first is always faster — most refund conversations end within a couple of messages.</p><p>One more nuance: deleting your data or stopping use of the bot does not automatically refund anything, so if you want both, request the refund <i>before</i> asking for account deletion.</p>
+FAQ-COUNT: 3
+Q: How long does a Fast Scheduler refund take?
+A: Requests are acknowledged within 7 business days. Once approved, Stars refunds return to your Telegram Stars balance; the total time depends on Telegram, typically a few days. Buy Premium
+LINKS: 
+Q: Can I cancel Premium and keep it until the period ends?
+A: Yes. Cancelling via /premium stops auto-renewal, and Premium stays active until the end of the paid period. Downgrade happens at that boundary, not immediately. Premium
+LINKS: 
+Q: I was charged twice. What do I do?
+A: Email fastschedulebot@gmail.com with both transaction IDs and your Telegram username. Duplicate charges are the clearest refund case and are resolved quickly. Buy Premium
+LINKS: 

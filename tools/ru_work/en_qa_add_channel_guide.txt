@@ -1,0 +1,15 @@
+TITLE: How to Connect a Telegram Channel to
+DESC: Every step to connect a channel: admin rights the bot needs, public vs private channels, invite links, sender bot pairing, and fixing the classic errors.
+BODY-HMTL-LEN: 1961
+BODY:
+<p>Connecting a channel is a two-part handshake: the bot needs <b>admin rights in the channel</b>, and the channel needs to be <b>registered in the bot</b>. Here is the whole dance, including the steps people miss.</p><h3>Part 1 — make the bot an admin of your channel</h3><ul><li>1. Open your channel in Telegram → <b>Manage Channel</b> → <b>Administrators</b> → <b>Add Admin</b>.</li><li>2. Search for <b>@FastSchedulerBot</b> and add it.</li><li>3. Give it at least <b>Post Messages</b>. If you plan to schedule on behalf of other admins or use anonymous admin, keep the defaults sane.</li></ul><h3>Part 2 — register the channel in the bot</h3><ul><li>1. In the bot, tap <b>Connect Channel</b>.</li><li>2. Give the bot what it asks for — any of these works:<ul><li>the channel's <b>@username</b> for public channels,</li><li>a <b>forwarded message</b> from the channel,</li><li>an <b>invite link</b> (<code>t.me/+…</code> or <code>t.me/joinchat/…</code>) for private channels.</li></ul></li><li>3. Confirm. The bot verifies that it really is an admin there.</li></ul><h3>Part 3 — pair the sender bot (mandatory)</h3><p>Every channel needs a <b>sender bot</b> — your own bot created via @BotFather — before anything can be scheduled. This is not optional: the sender bot is the account that actually <i>publishes</i> your posts, under its name. Fast Scheduler's main bot coordinates the schedule; the sender bot delivers. The in-bot wizard creates and pairs one in a minute; see the sender-bots guide for the detailed flow.</p><h3>The classic errors, decoded</h3><ul><li><b>“Channel not found”</b> — typo in the username, or the bot was not added as admin <i>before</i> you tried to connect. Add first, then connect.</li><li><b>“Not an admin”</b> — the admin rights were granted to a different bot than the one you connected.</li><li><b>“Invalid token”</b> — the sender-bot token got truncated on copy. Copy the whole thing: digits, colon, the rest.</li></ul>
+FAQ-COUNT: 3
+Q: Can I connect a private channel?
+A: Yes — via invite link or by forwarding any message from the channel during connection. Public username is not required. Add a Channel
+LINKS: 
+Q: Why do I need my own bot just to post?
+A: Telegram architecture: messages in a channel are sent by a bot account, not by your user account. Pairing your own sender bot also means posts appear under your brand, not a generic one. Posting as Your Bot
+LINKS: 
+Q: The channel connects but posts fail. First checks?
+A: Sender bot still admin? Post Messages permission on? Bot not revoked in @BotFather? Those three cover nearly all post failures. Troubleshooting
+LINKS: 

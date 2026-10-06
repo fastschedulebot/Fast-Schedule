@@ -1,0 +1,15 @@
+TITLE: Is Fast Scheduler Premium Worth It? An
+DESC: What Premium actually unlocks - 3 channels, unlimited queue and sends, unlimited recurring, 50MB video, signatures, export/backup - and who genuinely
+BODY-HMTL-LEN: 2081
+BODY:
+<p>Premium costs $6.83 a month (or $68.03 a year) and removes the ceiling on almost everything Free limits. Here is an honest map of who needs which part.</p><h3>What Premium changes, concretely</h3><ul><li><b>3 channels, 3 sender bots</b> — run a network (main channel, announcements, chat-announcements mirror) from one account.</li><li><b>Unlimited scheduled queue and unlimited sends</b> — no 100-post queue, no monthly cap on any channel.</li><li><b>Unlimited recurring rules</b> — and they never expire; Free's single rule stops after 365 days.</li><li><b>Bigger media</b>: uploads to 100 MB, video to up to 50MB, 20 storage boxes with 500 items total <i>and video allowed</i>, plus 4K-photo handling and higher bitrate media that Free compresses harder.</li><li><b>Signatures</b> — a footer (credit, promo, hashtags) auto-appended to every post of a channel.</li><li><b>Export &amp; Backup toolkit</b> — <code>.fsback</code>/<code>.fspback</code> backups, JSON/CSV/TXT/RTF/ODT exports: own your content.</li></ul><h3>Who does not need it</h3><p>One channel, a couple of posts a day, no video-heavy content — Free covers that indefinitely. Premium's first meaningful gate for such a setup would be the monthly send cap, and even that takes ~3+ posts/day to hit.</p><h3>Who feels the difference on day one</h3><ul><li><b>Multi-channel admins</b> — the 3×3 pairing is the headline feature.</li><li><b>Video channels</b> — 25MB → 50MB video and video-in-storage change the workflow.</li><li><b>Anyone whose content is their business</b> — backups and full exports are the difference between “my queue” and “my archive”.</li><li><b>Automation lovers</b> — unlimited recurring rules turn the bot into a true publishing engine.</li></ul><h3>Terms worth knowing</h3><p>Premium attaches to your Telegram account, covers all your channels at once, and can be paid with Telegram Stars. Multi-month terms cost less per month (3/6-month discounts), and if something goes wrong the refund policy is linked in the footer — premium status is visible any time with <code>/premium</code>.</p>
+FAQ-COUNT: 3
+Q: Does Premium apply to all my channels or per channel?
+A: Per account. One subscription unlocks the higher limits for every channel you connect while it is active. Buy Premium
+LINKS: 
+Q: What happens to my schedules when Premium expires?
+A: Nothing is deleted. Limits revert to Free: extra channels/bots beyond 1×1 stop scheduling until you disconnect them or renew, the queue cap applies again, and recurring rules beyond the first pause. Premium Expiry
+LINKS: 
+Q: Can I pay with Telegram Stars?
+A: Yes — Stars are billed at the official rate and are currently the only payment method. The Premium menu always shows current prices. Telegram Stars
+LINKS: 

@@ -1,0 +1,15 @@
+TITLE: How Do I Delete My Fast Scheduler
+DESC: Want everything removed? Here is how account deletion works, what exactly gets erased, why you should export a backup first, and what happens on Telegram
+BODY-HMTL-LEN: 1786
+BODY:
+<p>You can leave Fast Scheduler completely — no subscriptions to cancel by email, no dark patterns, no &ldquo;are you sure&rdquo; maze. One message, and everything tied to your Telegram account is erased.</p><h3>How to request deletion</h3><p>Contact <b>@MaximalXP</b> in Telegram and ask to delete your account. Deletion is permanent and covers <b>all</b> data associated with your user ID: scheduled and recurring messages, media storage, sender-bot tokens, channel connections, settings, statistics and referral records.</p><h3>Export first — deletion has no undo</h3><p>Before deleting, create a backup with <code>/backup</code> (a Premium toolkit) or export individual lists, so your content plan survives the account. Once deletion runs, there is no recovery path — the data no longer exists to restore.</p><h3>What happens on Telegram&rsquo;s side</h3><ul><li>Your <b>sender bots</b> keep existing in @BotFather — they are your bots, created with your account. If you want them gone too, revoke or delete them there after deletion. Revoke first if you plan to keep using them elsewhere.</li><li>The bot loses admin rights relevance immediately, but you can also remove <b>@FastSchedulerBot</b> and your sender bot from your channels&rsquo; admin lists yourself — a good hygiene step that takes ten seconds per channel.</li><li>Already-published posts stay in your channel, of course — deletion cannot rewrite history.</li></ul><h3>How long data is kept normally</h3><p>While you are an active user, every category of data is kept only while it is useful: schedules until they are deleted or sent, bot tokens until you disconnect the bot, and account records until you delete the account. The Privacy Policy&rsquo;s retention table lists each category with its exact lifetime.</p>
+FAQ-COUNT: 3
+Q: Who do I contact to delete my Fast Scheduler account?
+A: Message @MaximalXP on Telegram and request account deletion. The deletion is permanent and removes all data linked to your Telegram ID. Delete Account Your Data
+LINKS: 
+Q: Can I delete everything but keep the bot?
+A: Yes — you can delete individual schedules, media and sender bots from inside the bot without deleting your account. Full deletion is only for leaving the service entirely. Your Data
+LINKS: 
+Q: Should I export a backup before deleting?
+A: Definitely. After deletion there is no way to restore anything, so create a backup with /backup first if there is any chance you will return. Create Backup How to Back Up All Scheduled Posts in Telegram (and Restore Them Anywhere)
+LINKS: 

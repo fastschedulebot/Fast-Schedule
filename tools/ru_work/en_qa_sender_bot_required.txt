@@ -1,0 +1,15 @@
+TITLE: Do You Need a Sender Bot to Schedule
+DESC: Fast Scheduler requires a sender bot for every channel: what it does, why the main bot cannot post alone, how to create one in 60 seconds, and security
+BODY-HMTL-LEN: 2013
+BODY:
+<p>Short answer: <b>yes</b> — a sender bot is required for scheduling and sending. The scheduling menu stays locked until every connected channel has one paired. Here is the why and the 60-second setup.</p><h3>Why the main bot cannot just post itself</h3><p>Two reasons, one technical and one yours:</p><ul><li><b>Architecture:</b> channel posts are delivered by a bot account with admin rights. If @FastSchedulerBot delivered them, every message on every customer channel would carry the same name — and one bot hitting rate limits would slow thousands of channels.</li><li><b>Your brand:</b> with your own sender bot, posts appear from <i>your</i> bot's name and avatar. Subscribers see your brand, and your bot's admin rights are yours to revoke.</li></ul><h3>Creating one in 60 seconds</h3><ul><li>1. Open <b>@BotFather</b> → <code>/newbot</code> → pick a name and username.</li><li>2. Copy the token (digits, colon, letters — the whole string).</li><li>3. In Fast Scheduler: <b>Bots</b> → <b>➕ Add Another Bot</b>, pick the channel when asked, paste the token. Pairing is automatic.</li><li>4. Make the new bot an <b>admin</b> of the channel with <b>Post Messages</b> permission — or let Fast Scheduler promote it automatically when it can. Scheduling unlocks instantly.</li></ul><p>The in-bot wizard walks these exact steps and checks each one, so you cannot get the order wrong.</p><h3>Security, briefly</h3><p>Your token is stored encrypted and used only to deliver your posts. You can rotate it any time via @BotFather (<code>/revoke</code>) and update it in the bot — or remove the bot entirely, which deletes the token from Fast Scheduler's storage. If a token leaks, revoke it in BotFather first; a revoked token is dead everywhere.</p><h3>One bot per channel (Premium: 3×3)</h3><p>Free pairs 1 sender bot with 1 channel; Premium allows 3 bots across 3 channels. Multiple channels can share one sender bot, but the clean setup — one bot per channel — keeps branding separate and failures isolated.</p>
+FAQ-COUNT: 3
+Q: Can one sender bot serve two channels?
+A: Yes, a sender bot can be paired with multiple channels you own. One bot per channel is still recommended for cleaner branding and simpler troubleshooting. Bot Fleet
+LINKS: 
+Q: What happens if I remove the sender bot from the channel?
+A: Scheduling locks (no sender paired for that channel) and queued sends fail until you re-add the bot as admin. The schedules themselves stay saved. Remove a Sender Bot
+LINKS: 
+Q: Is my bot token safe with Fast Scheduler?
+A: Tokens are stored encrypted and never displayed in full after saving. Rotating the token in @BotFather instantly invalidates the old one everywhere. Rotate Token
+LINKS: 

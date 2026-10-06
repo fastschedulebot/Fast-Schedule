@@ -3307,6 +3307,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/ms_bulk.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/ms_copy.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -3625,6 +3631,168 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_add_channel_guide.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_backup_full_guide.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_bot_management.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_delete_data.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_duplicate_posts.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_edit_scheduled_post.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_formatting.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_free_limits.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_fsback_vs_fspback.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_media_storage_guide.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_media_types.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_move_channel_account.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_pay_stars_crypto.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_post_not_sent.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_premium_worth.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_private_channel_connect.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_recurring_guide.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_refund_how.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_schedule_many_at_once.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_sender_bot_required.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_setdate_bulk.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_signature_guide.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_stats_views.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_timezone_wrong_time.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_timezones.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_what_is_fast_scheduler.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/qa_which_plan.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/recurring.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -3650,6 +3818,18 @@
   </url>
   <url>
     <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/referral_activate.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/referral_beta.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/referral_credit.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -3704,6 +3884,12 @@
   </url>
   <url>
     <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/referral_stats_detail.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/referral_verify.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -3842,6 +4028,24 @@
   </url>
   <url>
     <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/storage_use_case.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/tg_best_posting_times.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/tg_channel_vs_group.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fastschedulebot.github.io/Fast-Schedule/ru/help/a/tg_channels_explained.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

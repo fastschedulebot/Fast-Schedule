@@ -1,0 +1,12 @@
+TITLE: Why Is My Telegram Channel Posting
+DESC: Duplicated scheduled posts almost always mean two schedulers own the channel, or a sender bot got re-added.
+BODY-HMTL-LEN: 1710
+BODY:
+<p>Double posts are annoying for subscribers and make a channel look automated in the worst way. The good news: the cause is nearly always one of four things.</p><h3>1. Another account still schedules the channel</h3><p>The most common cause after a migration or team handover: the old account's schedules were never removed. Both accounts happily queue posts for the same time. Fix: in the <i>other</i> account, open <b>Message List</b> and delete its schedules (or disconnect the channel). If you cannot access the old account, remove the bot from the channel's admin list — that stops the posting immediately.</p><h3>2. Two sender bots are admin in the channel</h3><p>Every channel must pair with exactly one sender bot, and that bot should be the only bot with posting rights. If you created a second bot and added it as admin, posts may arrive from both. Keep one sender bot per channel as admin; remove extra bots from the channel.</p><h3>3. The message got scheduled twice</h3><p>Easy to do when re-sending the same text after an edit, or when importing while old schedules exist. Open the Message List for the day and scan for same-time twins before the posting window. The <b>Calendar</b> view makes clusters obvious.</p><h3>4. The recurrence rule was duplicated, not edited</h3><p>Creating a new daily rule instead of editing the existing one produces two identical posts every day. Check the recurring list — if two rules share the same text and time, delete one.</p><h3>Still posting twice?</h3><p>Send <code>/stats</code> to see what is queued, then use <code>/feedback</code> with the channel name and two timestamps of a duplicate pair. Support can trace which connection produced each post.</p>
+FAQ-COUNT: 2
+Q: Does Fast Scheduler retry a post that failed, causing doubles?
+A: A retry only happens when the send did not confirm. If Telegram accepted the post but the confirmation was lost (rare network hiccup), you can get one duplicate. It does not re-send confirmed posts. Troubleshooting
+LINKS: 
+Q: Can I merge two accounts scheduling the same channel?
+A: Yes — export from the old account, import with Add on the new one, then clear the old account. Never leave both active. How to Move Fast Scheduler to a New Phone or Another Telegram Account
+LINKS: 
