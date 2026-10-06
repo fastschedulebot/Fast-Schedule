@@ -427,6 +427,11 @@ def main():
 
     ru_urls = [BASE + '/ru/help/a/%s.html' % x for x in written] + \
               [BASE + '/ru/legal/%s.html' % x for x in legal_written]
+    for hub in ('ru/index.html', 'ru/help.html'):
+        if os.path.isfile(os.path.join(SITE, hub)):
+            u = BASE + '/' + hub.replace('index.html', '')
+            if u not in ru_urls:
+                ru_urls.append(u)
 
     # sitemap: drop any previous /ru/ entries, then re-add
     sm_path = os.path.join(SITE, 'sitemap.xml')
