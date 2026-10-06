@@ -241,7 +241,7 @@ def build_article(aid, tr, cat_titles, title_override=None):
                '  </article>\n  %s\n</div>'
                % (crumbs, langbar, bh.esc(title_ru), body, faq_html, cta))
 
-    return bs.page_shell(head, content, rel='../../..')
+    return bs.page_shell(head, content, rel='../../..', lang='ru')
 
 
 def _strip_h1(html):
@@ -311,7 +311,7 @@ def build_legal(name):
             '<article class="doc"><h1>%s</h1>'
             '<div class="hc-body">%s</div></article></div>'
             % (url_en, bh.esc(title_ru), _strip_h1(html)))
-    return bs.page_shell(head, body, rel='../..')
+    return bs.page_shell(head, body, rel='../..', lang='ru')
 
 
 # ----------------------------------------------------------------- main ----
