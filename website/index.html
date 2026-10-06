@@ -524,6 +524,8 @@
       display: flex; flex-direction: column;
       background: #0e1621; /* TG dark chat wallpaper base */
       color: #e8edf2;
+      /* the phone speaks iOS, like the real client */
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
     .tg-status {
       display: flex; align-items: center; justify-content: space-between;
@@ -533,19 +535,26 @@
     .tg-status-ic { display: inline-flex; gap: 4px; }
     .tg-status-ic svg { width: 13px; height: 13px; }
     .tg-header {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 4px;
       padding: 8px 12px 10px; background: #17212b;
       border-bottom: 1px solid rgba(0,0,0,.35); flex: none;
     }
-    .tg-back { width: 20px; height: 20px; color: #fff; flex: none; }
-    .tg-titles { display: flex; flex-direction: column; min-width: 0; }
-    .tg-name { font-weight: 800; font-size: .92rem; color: #fff; line-height: 1.15; }
+    /* iOS client: blue chevron + blue "Chats", exactly like the app */
+    .tg-back { width: 20px; height: 20px; color: #6ab3f2; flex: none; margin-right: -3px; }
+    .tg-back-t { color: #6ab3f2; font-size: .92rem; font-weight: 400; flex: none; margin-right: 6px; }
+    .tg-titles { display: flex; flex-direction: column; min-width: 0; align-items: center; text-align: center;
+      /* iOS centers the peer title on the whole bar, not the leftover slot */
+      position: absolute; left: 50%; transform: translateX(-50%); max-width: 52%; }
+    .tg-header { position: relative; }
+    .tg-titles .tg-name, .tg-titles .tg-user { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+    .tg-name { font-weight: 700; font-size: .95rem; color: #fff; line-height: 1.2; }
     .tg-user { font-size: .72rem; color: #7d8e9e; }
     .tg-avatar {
-      margin-left: auto; width: 34px; height: 34px; border-radius: 50%;
+      margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
       display: grid; place-items: center; flex: none;
-      background: #2a9ef1;   /* Telegram peer-colour blue, flat like the real app */
-      color: #fff; font-weight: 800; font-size: .8rem;
+      /* Telegram default peer avatar: blue gradient, white initials */
+      background: linear-gradient(135deg, #6ab3f2, #2f7fd0);
+      color: #fff; font-weight: 700; font-size: .82rem;
     }
     .tg-input {
       display: flex; align-items: center; gap: 10px;
@@ -555,6 +564,7 @@
     }
     .tg-input svg { width: 19px; height: 19px; flex: none; }
     .tg-input .tg-mic { margin-left: 0; }
+    .tg-input .tg-smile { display: none; }
     .tg-input .tg-send { display: none; margin-left: 0; }
     /* while the user is typing, the send plane replaces the mic */
     .tg-input.composing .tg-mic { display: none; }
@@ -565,55 +575,89 @@
        mic/send to its right, exactly like the real compose bar */
     .tg-input-ph {
       flex: 1 1 auto; min-width: 0; min-height: 34px;
-      display: flex; align-items: center; padding: 0 12px;
+      display: flex; align-items: center; padding: 0 34px 0 12px;
       background: #242f3d; border-radius: 10px; color: #7d8e9e;
+      /* sticker glyph pinned inside the field, like the iOS composer — a
+         background so typing never wipes it out */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237d8e9e' stroke-width='1.8' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Ccircle cx='9.2' cy='10' r='1.1' fill='%237d8e9e' stroke='none'/%3E%3Ccircle cx='14.8' cy='10' r='1.1' fill='%237d8e9e' stroke='none'/%3E%3Cpath d='M8.5 14.2q3.5 3 7 0'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 8px center; background-size: 20px 20px;
     }
     .tg-input.composing .tg-input-ph { color: #fff; white-space: pre-line; line-height: 1.35; text-align: left; }
     /* chat area scrolls between header and input */
     .phone-screen.tg .tg-chat {
       flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
       overflow-anchor: none;   /* the demo scrolls by script, not the browser */
+      /* Telegram Night wallpaper: doodle line-art tile over the dark base */
       background:
-        radial-gradient(rgba(255, 255, 255, .032) 1px, transparent 0) 0 0 / 18px 18px repeat,
-        radial-gradient(1200px 500px at 85% -5%, rgba(46, 166, 255, .06), transparent 60%),
-        radial-gradient(900px 420px at 10% 108%, rgba(46, 166, 255, .05), transparent 55%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.05' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='28' cy='38' r='9'/%3E%3Cpath d='M70 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z'/%3E%3Cpath d='M118 58q8-12 16 0t16 0'/%3E%3Ccircle cx='202' cy='48' r='4'/%3E%3Cpath d='M36 118l10-18 10 18z'/%3E%3Cpath d='M168 112h22M179 101v22'/%3E%3Cpath d='M28 198l14-14 10 10 12-12'/%3E%3Ccircle cx='202' cy='198' r='10'/%3E%3Ccircle cx='202' cy='198' r='2.5'/%3E%3Cpath d='M96 128c-6-8-18-4-14 6 3 8 14 12 14 12s11-4 14-12c4-10-8-14-14-6'/%3E%3Cpath d='M60 168q10-8 20 0t20 0'/%3E%3Cpath d='M140 170l12 12 16-18'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 240px 240px repeat,
         #0e1621;
       padding: 14px 12px 10px;
       scrollbar-width: none;
     }
     .phone-screen.tg .tg-chat::-webkit-scrollbar { display: none; }
-    .phone-screen.tg .demo { gap: 6px; }
-    /* TG bubble shapes + palette */
-    .phone-screen.tg .demo .msg.bot {
-      background: #182533; color: #e8edf2;
-      border-radius: 12px 12px 12px 4px;
+    .phone-screen.tg .demo { gap: 3px; }
+    /* date badge the client pins above the day's messages */
+    .phone-screen.tg .demo .tg-date {
+      align-self: center; margin: 2px 0 8px; padding: 4px 11px;
+      background: rgba(23, 33, 43, .85); color: #e8edf2;
+      font-size: .72rem; font-weight: 600; border-radius: 999px;
     }
+    /* TG bubbles: incoming #182533, outgoing Telegram-Night blue #2b5278 —
+       flat fills, never gradients. Tails sit on the last bubble of a sender
+       group (the sibling rules below hide them mid-group); a bubble that
+       carries an inline keyboard never grows one, like the app. */
+    .phone-screen.tg .demo .msg { max-width: 82%; position: relative; }
+    .phone-screen.tg .demo .msg.bot { background: none; padding: 0; }
+    .phone-screen.tg .demo .msg.bot .bubble {
+      background: #182533; color: #e8edf2;
+      border-radius: 14px 14px 14px 5px;
+      padding: 8px 11px 9px; position: relative;
+    }
+    .phone-screen.tg .demo .msg.bot .bubble::after {
+      content: ''; position: absolute; left: -5px; bottom: 0;
+      width: 10px; height: 12px; background: #182533;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+    .phone-screen.tg .demo .msg.bot:has(> .ikb) .bubble::after,
+    .phone-screen.tg .demo .msg.bot:has(+ .msg.bot) .bubble::after { display: none; }
     .phone-screen.tg .demo .msg.user {
       background: #2b5278;   /* Telegram Night outgoing — flat, never a gradient */
-      color: #fff; border-radius: 12px 12px 4px 12px;
+      color: #fff; border-radius: 14px 14px 5px 14px;
+      padding: 8px 11px 19px;
     }
+    .phone-screen.tg .demo .msg.user::after {
+      content: ''; position: absolute; right: -5px; bottom: 0;
+      width: 10px; height: 12px; background: #2b5278;
+      clip-path: polygon(0 0, 0 100%, 100% 100%);
+    }
+    .phone-screen.tg .demo .msg.user:has(+ .msg.user)::after { display: none; }
     .phone-screen.tg .demo .msg .mono { color: #c7d4e0; }
-    .phone-screen.tg .demo .meta { color: #7d8e9e; opacity: 1; }
-    /* the bot's buttons are an INLINE keyboard: cells inside the bubble */
-    .phone-screen.tg .demo .ikb { display: flex; flex-wrap: wrap; gap: 1px; margin: 9px -14px 0; }
-    .phone-screen.tg .demo .ikb + .ikb { margin-top: 1px; }
-    .phone-screen.tg .demo .ikb:last-child { margin-bottom: -11px; }
+    /* bot timestamps sit right-aligned under the text, above the keyboard */
+    .phone-screen.tg .demo .msg.bot .meta {
+      color: #7d8e9e; opacity: 1; text-align: right; margin: 3px 0 1px;
+    }
+    /* outgoing time tucks left of the ticks, like the client */
+    .phone-screen.tg .demo .msg.user .meta {
+      position: absolute; right: 29px; bottom: 5px; margin: 0;
+      color: rgba(255, 255, 255, .75); opacity: 1; font-size: .66rem;
+    }
+    /* the bot's buttons are an INLINE keyboard: separate rounded rows under
+       the bubble with real gaps, exactly like the iOS client. Every button
+       shares one translucent fill and white label — Telegram never paints
+       them green or red; kb-green / kb-red survive only as JS hooks. */
+    .phone-screen.tg .demo .ikb { display: flex; gap: 5px; margin: 5px 0 0; }
     .phone-screen.tg .demo .ikb-btn {
-      /* flex-wrap + min-content sizing: a label that would be squeezed instead
-         takes the whole next row — text always fits fully, never clips */
+      /* a label that would be squeezed instead takes the whole next row —
+         text always fits fully, never clips */
       flex: 1 1 auto; min-width: min-content; text-align: center;
-      padding: 8px 5px; background: #1e2c3a;
-      color: #6ab2f2; font-size: .71rem; font-weight: 600; line-height: 1.3;
-      letter-spacing: -.008em; hyphens: none;
+      padding: 9px 6px; background: rgba(36, 47, 61, .92);
+      color: #fff; font-size: .76rem; font-weight: 500; line-height: 1.3;
+      letter-spacing: -.008em; hyphens: none; border-radius: 9px;
       overflow-wrap: break-word; transition: background .15s ease, transform .12s ease;
     }
-    .phone-screen.tg .demo .ikb-btn.kb-green { color: #6fcf8f; }
-    .phone-screen.tg .demo .ikb-btn.kb-red { color: #f2777a; }
-    /* Telegram draws every inline button in the same cell colour — the primary
-       action is signalled by its label colour (kb-green / kb-red), not a fill */
-    .phone-screen.tg .demo .ikb-btn.pressed { background: #2f3d4e; transform: scale(.96); }
-    .phone-screen.tg .demo .ikb:last-child .ikb-btn:first-child { border-bottom-left-radius: 4px; }
-    .phone-screen.tg .demo .ikb:last-child .ikb-btn:last-child { border-bottom-right-radius: 12px; }
+    .phone-screen.tg .demo .ikb-btn.kb-green,
+    .phone-screen.tg .demo .ikb-btn.kb-red { color: #fff; }
+    .phone-screen.tg .demo .ikb-btn.pressed { background: rgba(64, 78, 96, .95); transform: scale(.96); }
 
     /* ============ Scripted hero demo (motion-graphic bot flow) ============ */
     .phone-screen.tg .demo { position: static; }
@@ -1063,7 +1107,8 @@
             <div class="tg-status" aria-hidden="true"><span class="tg-time">11:42</span><span class="tg-status-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 20h3v-6H2v6zm5 0h3V10H7v10zm5 0h3V6h-3v14zm5 0h3V2h-3v18z" opacity=".9"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21l-8-9h6V3h4v9h6l-8 9z" transform="rotate(180 12 12)" opacity=".9"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.7 7.4A5 5 0 019 7.4L7.6 8.8a7 7 0 0010.8 0l-1.4-1.4zM12 4a9 9 0 00-6.4 2.6l1.4 1.4a7 7 0 0110 0l1.4-1.4A9 9 0 0012 4z" opacity=".9"/></svg></span></div>
             <div class="tg-header">
               <svg class="tg-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              <div class="tg-titles"><span class="tg-name">Fast Schedule</span><span class="tg-user">@fastschedulebot</span></div>
+              <span class="tg-back-t">Chats</span>
+              <div class="tg-titles"><span class="tg-name">Fast Schedule</span><span class="tg-user">bot</span></div>
               <span class="tg-avatar" aria-hidden="true">FS</span>
             </div>
             <div class="tg-chat" id="tgChat">
@@ -1661,6 +1706,6 @@
 
 <script defer src="scripts/site-config.js?v=20260930a1"></script>
 <script defer src="scripts/main.js?v=20261005a2"></script>
-<script defer src="scripts/hero-demo.js?v=20260930a1"></script>
+<script defer src="scripts/hero-demo.js?v=20261006a1"></script>
 </body>
 </html>

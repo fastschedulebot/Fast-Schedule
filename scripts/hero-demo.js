@@ -225,14 +225,34 @@
 
   function botMsg(html) {
     var m = el('<div class="msg bot">' + html + '</div>');
+    /* Telegram draws the text bubble and the inline keyboard as separate
+       blocks: the text lives in .bubble (which owns the tail), the .ikb
+       rows stay direct children so they render as detached buttons below. */
+    var b = document.createElement('div');
+    b.className = 'bubble';
+    var n = m.firstChild;
+    while (n) {
+      var nx = n.nextSibling;
+      if (n.nodeType === 1 && n.classList.contains('ikb')) break;
+      b.appendChild(n);
+      n = nx;
+    }
+    m.insertBefore(b, m.firstChild);
     stream.appendChild(m);
     return m;
   }
   function userMsg(html) {
     var m = el('<div class="msg user">' + html + '</div>');
+    /* outgoing bubbles carry their send time left of the ticks, like the app */
+    m.insertAdjacentHTML('beforeend', meta(fmt12(new Date())));
     stream.appendChild(m);
     addTicks(m);                       /* every outgoing message carries a status */
     return m;
+  }
+  /* the client pins a date badge above the day's messages */
+  function dateBadge() {
+    stream.insertAdjacentHTML('beforeend',
+      '<div class="tg-date">' + MONTHS[NOW.getMonth()] + ' ' + NOW.getDate() + '</div>');
   }
   function show(m) { m.classList.add('shown'); scrollEnd(); }
   /* Jump straight to the newest message. rAF is throttled to a stop in some
@@ -422,6 +442,10 @@
     var photoMsg = null, doneMsg = null, reviewMsg = null;
 
     buildExplorer();
+    /* the phone's chrome runs on the visitor's real clock and date */
+    dateBadge();
+    var tgTime = document.querySelector('.tg-time');
+    if (tgTime) tgTime.textContent = hhmm(new Date());
 
     /* every scene below is a closure over this run — hand them to the QA hook
        so one of them can be opened on demand instead of waiting it out */
