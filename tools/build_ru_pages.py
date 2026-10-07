@@ -147,7 +147,18 @@ class RUTransformer(HTMLParser):
                     break
         self.out.append('</' + tag + '>')
 
+    def _in_raw(self):
+        # script/style bodies are code, not copy: emit byte-identical so
+        # inline JS/CSS survive (escaping &&/</> here kills every script).
+        for tag, _attrs in self.stack:
+            if tag in ('script', 'style'):
+                return True
+        return False
+
     def handle_data(self, data):
+        if self._in_raw():
+            self.out.append(data)
+            return
         if not data.strip() or self._skip():
             self.out.append(H.escape(data, quote=False))
             return

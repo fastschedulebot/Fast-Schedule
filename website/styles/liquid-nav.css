@@ -81,12 +81,14 @@ html[data-motion="off"] .nav-rail .rail-inner, html[data-motion="off"] .nav-rail
 /* settings gear lives in the rail footer, left of the Open Bot CTA */
 .nav-rail .settings-wrap { display: inline-flex; align-items: center; justify-content: center; margin: 0; flex: none; }
 /* its popover must not stretch the footer row */
-.nav-rail .settings-wrap .glass-pop { width: max-content; }
+.nav-rail .settings-wrap .glass-pop { width: max-content; max-width: min(320px, calc(100vw - 24px)); }
 /* footer row: gear + CTA share one line; CTA takes remaining width */
 .nav-rail .rail-foot { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
-.nav-rail .rail-foot .nav-cta-sm, .nav-rail .rail-foot .nav-cta { margin-top: 0; padding: 11px 10px; flex: 1 1 auto; width: auto;
-  /* "Open Bot" must never break across two lines in a 220px panel */
-  white-space: nowrap; }
+.nav-rail .rail-foot .nav-cta-sm, .nav-rail .rail-foot .nav-cta { margin-top: 0; padding: 11px 10px; flex: 1 1 auto; width: auto; min-width: 0;
+  /* "Open Bot" must never break across two lines in a 220px panel, and the
+     long RU label must never squeeze the gear out of the row either */
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; justify-content: center; }
+.nav-rail .rail-foot .nav-cta-sm span, .nav-rail .rail-foot .nav-cta span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 /* one keycap per row is enough: the gear keeps its S, the CTA drops its B
    rather than squeezing the label against the panel edge */
 .nav-rail .rail-foot .nav-cta .tab-kbd, .nav-rail .rail-foot .nav-cta-sm .tab-kbd { display: none; }

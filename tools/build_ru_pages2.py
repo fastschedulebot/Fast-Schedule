@@ -221,6 +221,9 @@ def build_404(MAP):
     src = os.path.join(SITE, '404.html')
     html = io.open(src, encoding='utf-8').read()
     html, unmapped = transform(html, merged_map(MAP))
+    # /ru/404.html sits one level deeper: ./assets must climb to ../assets
+    # (./index.html from /ru/ correctly resolves to the RU home).
+    html = re.sub(r'((?:src|href)=")\./', lambda m: m.group(1) + '../', html)
     html = set_head(html, NF_TITLE_RU, NF_DESC_RU, BASE + '/ru/404.html',
                     BASE + '/404.html')
     out = os.path.join(SITE, 'ru', '404.html')

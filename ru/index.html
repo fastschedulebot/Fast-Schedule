@@ -77,7 +77,7 @@
   <script>
     try {
       var t = localStorage.getItem('theme');
-      if (!t &amp;&amp; window.matchMedia) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (!t && window.matchMedia) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       if (t) document.documentElement.setAttribute('data-theme', t);
       var d = document.documentElement;
       if (localStorage.getItem('fs-motion') === 'off') d.setAttribute('data-motion', 'off');
@@ -113,7 +113,7 @@
     .lg-defs { display: none; }
     .glass { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       box-shadow: var(--shadow); }
-    .glass &gt; * { position: relative; z-index: 1; }
+    .glass > * { position: relative; z-index: 1; }
 
     /* A body child, so sticky holds for the whole page and the bar is exactly
        viewport-wide: percentages line its contents up with .wrap (max 1100px,
@@ -156,7 +156,7 @@
       background: var(--green); color: #fff !important; font-weight: 800; }
     .nav-cta-sm:hover { text-decoration: none; background: var(--green-strong); }
     .nav-cta-sm svg { width: 16px; height: 16px; }
-    @media (max-width: 860px) { .home-nav nav &gt; a:not(.nav-cta-sm) { display: none; } .home-nav .help-row, .home-nav .support-ib { display: none; } }
+    @media (max-width: 860px) { .home-nav nav > a:not(.nav-cta-sm) { display: none; } .home-nav .help-row, .home-nav .support-ib { display: none; } }
 
     /* Russian labels are about a third wider than the English ones, so the
        bar that fits in English overflowed in Russian and pushed the settings
@@ -169,7 +169,7 @@
       html[lang="ru"] .home-nav nav a:not(.nav-cta-sm) { padding: 9px 9px; }
     }
     @media (max-width: 1320px) {
-      html[lang="ru"] .home-nav nav &gt; a:not(.nav-cta-sm) { display: none; }
+      html[lang="ru"] .home-nav nav > a:not(.nav-cta-sm) { display: none; }
     }
     @media (max-width: 520px) {
       /* The CTA no longer hides itself on phones. It used to, because
@@ -204,7 +204,7 @@
     /* Safety net: if the bar still runs out of room (a user can raise the font
        size in Settings, which widens the Russian labels again), let the brand
        ellipsize rather than push the burger off-screen. */
-    html[lang="ru"] .home-nav &gt; .brand {
+    html[lang="ru"] .home-nav > .brand {
       min-width: 0; flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis;
     }
     /* burger + mobile menu */
@@ -618,7 +618,7 @@
       width: 10px; height: 12px; background: #182533;
       clip-path: polygon(100% 0, 100% 100%, 0 100%);
     }
-    .phone-screen.tg .demo .msg.bot:has(&gt; .ikb) .bubble::after,
+    .phone-screen.tg .demo .msg.bot:has(> .ikb) .bubble::after,
     .phone-screen.tg .demo .msg.bot:has(+ .msg.bot) .bubble::after { display: none; }
     .phone-screen.tg .demo .msg.user {
       background: #2b5278;   /* Telegram Night outgoing — flat, never a gradient */
@@ -826,15 +826,15 @@
       content: ''; position: absolute; right: 10px; top: 8px; width: 12px; height: 12px;
       border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a3a4a, #05070a 65%);
     }
-    .phone-screen &gt; .hero-demo {
+    .phone-screen > .hero-demo {
       padding: 54px 16px 16px;   /* clear the dynamic island */
       height: clamp(520px, 66vh, 640px);
       overflow-y: auto; overscroll-behavior: contain;
       background: none; border: none; border-radius: 0; box-shadow: none;
       scrollbar-width: none;
     }
-    .phone-screen &gt; .hero-demo::-webkit-scrollbar { display: none; }
-    .phone-screen &gt; .hero-demo::after { display: none; }  /* no refract layer inside */
+    .phone-screen > .hero-demo::-webkit-scrollbar { display: none; }
+    .phone-screen > .hero-demo::after { display: none; }  /* no refract layer inside */
 
     /* screen glare sheen */
     .phone-glare {
@@ -887,7 +887,7 @@
     /* ---- Help search popover + support icon button ---- */
     .help-row { display: inline-flex; align-items: center; gap: 4px; flex: none; }
     .help-wrap { position: relative; flex: none; }
-    .help-wrap &gt; a { display: block; }
+    .help-wrap > a { display: block; }
     .support-ib { display: inline-flex; align-items: center; justify-content: center; flex: none;
       width: 40px; height: 40px; border-radius: 12px; color: var(--text-dim);
       background: color-mix(in srgb, var(--surface) 55%, transparent);
@@ -897,7 +897,7 @@
     .support-ib svg { width: 18px; height: 18px; }
     .support-ib:hover { color: var(--green-strong); border-color: var(--green);
       background: color-mix(in srgb, var(--green) 8%, transparent); text-decoration: none; }
-    /* help quick-search form lives inside the Settings &gt; Help submenu pop */
+    /* help quick-search form lives inside the Settings > Help submenu pop */
     /* clamped so the popover never overflows a 320px phone */
     .help-menu { min-width: min(300px, calc(100vw - 32px)); max-width: min(340px, calc(100vw - 24px)); }
     .help-menu .help-search { margin: 8px 6px 2px; }
@@ -953,11 +953,11 @@
     }
     .glass-pop-solid::after { opacity: .35; }
 
-    .hero-copy &gt; * { animation: heroIn .85s var(--ease-apple) both; }
-    .hero-copy &gt; *:nth-child(2) { animation-delay: .08s; }
-    .hero-copy &gt; *:nth-child(3) { animation-delay: .16s; }
-    .hero-copy &gt; *:nth-child(4) { animation-delay: .24s; }
-    .hero-copy &gt; *:nth-child(5) { animation-delay: .32s; }
+    .hero-copy > * { animation: heroIn .85s var(--ease-apple) both; }
+    .hero-copy > *:nth-child(2) { animation-delay: .08s; }
+    .hero-copy > *:nth-child(3) { animation-delay: .16s; }
+    .hero-copy > *:nth-child(4) { animation-delay: .24s; }
+    .hero-copy > *:nth-child(5) { animation-delay: .32s; }
     @keyframes heroIn { from { opacity: 0; transform: translateY(18px); } }
 
     /* Shadow and border only: these cards are informational, so they should not
@@ -990,7 +990,7 @@
     @keyframes numIn { from { opacity: 0; transform: translateY(12px); } }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-copy &gt; * { animation: none; }
+      .hero-copy > * { animation: none; }
       .reveal.in .save-num { animation: none; }
       .feat, .step { transition: none; }
     }
@@ -1451,15 +1451,15 @@
         if (!tracking) return;
         var dx = Math.abs(e.touches[0].clientX - x0);
         var dy = Math.abs(e.touches[0].clientY - y0);
-        if (dx &gt; 12 &amp;&amp; dx &gt; dy * 1.3) e.preventDefault(); // horizontal intent
+        if (dx > 12 && dx > dy * 1.3) e.preventDefault(); // horizontal intent
       }, { passive: false });
       stage.addEventListener('touchend', function (e) {
         if (!tracking) return;
         tracking = false;
         var t = e.changedTouches[0];
         var dx = t.clientX - x0, dy = t.clientY - y0;
-        if (Math.abs(dx) &gt; 42 &amp;&amp; Math.abs(dx) &gt; Math.abs(dy) * 1.4) {
-          step(dx &lt; 0 ? 1 : -1);
+        if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          step(dx < 0 ? 1 : -1);
         }
         x0 = y0 = null;
       }, { passive: true });
@@ -1472,8 +1472,8 @@
         var el = cards[id];
         if (!el) return;
         var off = i - active;
-        if (off &gt; n / 2) off -= n;
-        if (off &lt; -n / 2) off += n;
+        if (off > n / 2) off -= n;
+        if (off < -n / 2) off += n;
         el.setAttribute('data-pos', String(off));
         el.classList.toggle('active-plan', off === 0);
         /* Grid layout: every card is visible and reachable, so none of them
@@ -1484,7 +1484,7 @@
 
     function setCenter(id) {
       var i = PLANS.indexOf(id);
-      if (i &gt;= 0) { active = i; layout(); }
+      if (i >= 0) { active = i; layout(); }
     }
 
     function step(dir) {
@@ -1492,7 +1492,7 @@
       layout();
     }
 
-    if (prevBtn &amp;&amp; nextBtn) {
+    if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', function () { step(-1); });
       nextBtn.addEventListener('click', function () { step(1); });
     }
@@ -1501,13 +1501,13 @@
     document.addEventListener('keydown', function (e) {
       var sec = document.getElementById('pricing');
       if (!sec) return;
-      if (window.FS_KEYS &amp;&amp; !window.FS_KEYS.allow(e)) return;   /* Hotkeys switch + not while typing */
+      if (window.FS_KEYS && !window.FS_KEYS.allow(e)) return;   /* Hotkeys switch + not while typing */
       var r = sec.getBoundingClientRect();
-      if (r.top &gt; window.innerHeight * 0.6 || r.bottom &lt; window.innerHeight * 0.4) return;
+      if (r.top > window.innerHeight * 0.6 || r.bottom < window.innerHeight * 0.4) return;
       if (e.key === 'ArrowLeft') { step(-1); }
       else if (e.key === 'ArrowRight') { step(1); }
     });
-    if (billY &amp;&amp; billM) {
+    if (billY && billM) {
       billY.addEventListener('click', function () {
         billY.classList.add('active'); billY.setAttribute('aria-selected', 'true');
         billM.classList.remove('active'); billM.setAttribute('aria-selected', 'false');
@@ -1534,7 +1534,7 @@
     if (stage) layout();
     /* Self-heal: if the Animations toggle flips mid-session, re-apply the ring
        immediately so the coverflow is never left in a stale arrangement. */
-    if (stage &amp;&amp; 'MutationObserver' in window) {
+    if (stage && 'MutationObserver' in window) {
       new MutationObserver(function () { layout(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
     }
     window.addEventListener('load', function () { if (stage) layout(); });
@@ -1583,7 +1583,7 @@
     try {
       var stored = localStorage.getItem('theme') || localStorage.getItem('fs-theme') || '';
       if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
-      else if (window.matchMedia &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
     } catch (e) {}
 
     // Reveal on scroll
@@ -1602,7 +1602,7 @@
 <script src="../scripts/theme.js?v=20260930a1"></script>
 <script defer src="../scripts/nav-hide.js?v=20260930a2"></script>
 <script defer src="../scripts/settings.js?v=20261005d1"></script>
-  <script defer src="../scripts/ru-chrome.js?v=20261005e1"></script><script defer src="../scripts/lang.js?v=20261005e1"></script>
+  <script defer src="../scripts/ru-chrome.js?v=20261007a1"></script><script defer src="../scripts/lang.js?v=20261007a1"></script>
 <script defer src="../scripts/hotkeys.js?v=20261006a1"></script>
 <script defer src="../scripts/scroll-jump.js?v=20261006a1"></script>
 <script>
@@ -1610,7 +1610,7 @@
   (function () {
     var burger = document.getElementById('navBurger');
     var sheet = document.getElementById('navMobile');
-    if (burger &amp;&amp; sheet) {
+    if (burger && sheet) {
       var close = function () {
         sheet.classList.remove('open');
         burger.setAttribute('aria-expanded', 'false');
@@ -1629,14 +1629,14 @@
         e.stopPropagation();
       });
       document.addEventListener('click', function (e) {
-        if (sheet.classList.contains('open') &amp;&amp; !e.target.closest('#navMobile') &amp;&amp; !e.target.closest('#navBurger')) close();
+        if (sheet.classList.contains('open') && !e.target.closest('#navMobile') && !e.target.closest('#navBurger')) close();
       });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-      window.addEventListener('resize', function () { if (window.innerWidth &gt; 860) close(); });
+      window.addEventListener('resize', function () { if (window.innerWidth > 860) close(); });
     }
     var nav = document.querySelector('.home-nav');
     if (nav) {
-      var upd = function () { nav.classList.toggle('scrolled', window.scrollY &gt; 10); };
+      var upd = function () { nav.classList.toggle('scrolled', window.scrollY > 10); };
       upd();
       window.addEventListener('scroll', upd, { passive: true });
     }
@@ -1654,10 +1654,10 @@
         var parent = el.parentElement;
         if (!parent) return;
         var sibs = Array.prototype.filter.call(parent.children, function (c) {
-          return c.classList &amp;&amp; c.classList.contains('reveal');
+          return c.classList && c.classList.contains('reveal');
         });
         var idx = sibs.indexOf(el);
-        if (idx &gt; 0) el.style.transitionDelay = Math.min(idx * 90, 420) + 'ms';
+        if (idx > 0) el.style.transitionDelay = Math.min(idx * 90, 420) + 'ms';
       });
     }
 
@@ -1666,7 +1666,7 @@
       var phone = document.getElementById('phone3d');
       if (!phone) return;
       var root = document.documentElement;
-      var fine = window.matchMedia &amp;&amp; matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
       var motionOff = root.getAttribute('data-motion') === 'off';
       if (!fine || motionOff) return;
 
@@ -1682,7 +1682,7 @@
         phone.style.setProperty('--prx', cx.toFixed(2) + 'deg');
         phone.style.setProperty('--pry', cy.toFixed(2) + 'deg');
         phone.style.setProperty('--prz', cz.toFixed(2) + 'deg');
-        if (Math.abs(tx - cx) &gt; .01 || Math.abs(ty - cy) &gt; .01 || Math.abs(tz - cz) &gt; .01) raf = requestAnimationFrame(tick);
+        if (Math.abs(tx - cx) > .01 || Math.abs(ty - cy) > .01 || Math.abs(tz - cz) > .01) raf = requestAnimationFrame(tick);
         else raf = null;
       }
       stage.addEventListener('pointermove', function (e) {
@@ -1698,7 +1698,7 @@
       stage.addEventListener('pointerleave', function () {
         tx = 12; ty = -32; tz = 7; // spring back to the standing keynote pose
         if (!raf) raf = requestAnimationFrame(tick);
-        setTimeout(function () { if (tx === 12 &amp;&amp; ty === -32 &amp;&amp; !raf) phone.classList.add('idle'); }, 1200);
+        setTimeout(function () { if (tx === 12 && ty === -32 && !raf) phone.classList.add('idle'); }, 1200);
       });
     })();
 

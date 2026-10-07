@@ -516,6 +516,8 @@ footer.site { border-top: 1px solid var(--border); padding: 14px 0 14px; margin-
   background: var(--green); color: #fff !important; font-weight: 800;
   box-shadow: none; }
 .nav-cta-sm:hover { text-decoration: none; background: var(--green-strong); }
+[data-theme="dark"] .btn-primary:hover, [data-theme="dark"] .nav-cta-sm:hover,
+[data-theme="dark"] .nav-cta:hover { background: var(--green-deep); border-color: var(--green-deep); }
 .nav-cta-sm svg { width: 16px; height: 16px; flex: none; }
 /* The new mark is a self-contained green badge, so the old dark-green chip
    behind it would only muddy the edge. */
@@ -944,7 +946,7 @@ html[data-fx="off"] .marquee:hover .marquee-track { animation-play-state: runnin
 /* ---------- Liquid-glass popover (Settings-style animated menu) ---------- */
 .glass-pop {
   position: absolute; top: calc(100% + 12px); right: 0; z-index: 120; min-width: 250px;
-  max-width: calc(100vw - 24px);
+  width: max-content; max-width: min(320px, calc(100vw - 24px));
   padding: 6px; border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--glass-border);

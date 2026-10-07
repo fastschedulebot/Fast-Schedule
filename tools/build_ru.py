@@ -221,8 +221,8 @@ def build_article(aid, tr, cat_titles, title_override=None):
     head = head + '\n' + alt_links(url_ru, url_en)
 
     crumbs = ('<nav class="hc-crumbs" aria-label="Хлебные крошки">'
-              '<a href="../../help.html">Fast Scheduler</a>' + bh.svg('chev') +
-              '<a href="../../../help.html">Центр помощи</a>' + bh.svg('chev') +
+              '<a href="../../../index.html">Fast Scheduler</a>' + bh.svg('chev') +
+              '<a href="../../help.html">Центр помощи</a>' + bh.svg('chev') +
               '<span aria-current="page">%s</span></nav>' % bh.esc(title_ru))
 
     langbar = ('<p style="margin:0 0 18px;font-size:.92rem">'

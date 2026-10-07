@@ -9,6 +9,7 @@
       chips = [].slice.call(document.querySelectorAll('.blog-chip')),
       secs = [].slice.call(document.querySelectorAll('.blog-sec')),
       view = document.getElementById('blog-results'),
+      feat = document.getElementById('blog-featured'),
       grid = document.getElementById('blog-res-grid'),
       meta = document.getElementById('blog-res-meta'),
       title = document.getElementById('blog-res-title'),
@@ -23,6 +24,34 @@
   try { DOCS = window.__BLOG_DOCS || []; } catch (e) {}
   DOCS.forEach(function (d) { d.intent = d.c; });
   var state = { q: '', cat: 'all' };
+  function isRU() {
+    try {
+      if (document.documentElement.lang === 'ru') return true;
+      return localStorage.getItem('fs-lang') === 'ru';
+    } catch (e) { return document.documentElement.lang === 'ru'; }
+  }
+  var T = {
+    results: function () { return isRU() ? 'Результаты поиска' : 'Search results'; },
+    resMeta: function (n, raw) {
+      if (isRU()) return n ? n + ' ' + pluralRU(n) + ' по запросу «' + raw + '»' : 'Ничего не найдено по запросу «' + raw + '»';
+      return n ? n + ' result' + (n > 1 ? 's' : '') + ' for “' + raw + '”' : '0 results for “' + raw + '”';
+    },
+    noAll: function (raw) {
+      return isRU() ? 'Статей по запросу «' + raw + '» нет. Попробуйте другой запрос — или выберите тему выше.'
+        : 'No articles found for “' + raw + '”. Try a different search — or pick a topic above.';
+    },
+    noCat: function (cat, raw) {
+      return isRU() ? 'В теме «' + cat + '» по запросу «' + raw + '» ничего нет — попробуйте другую тему.'
+        : 'No ' + cat.toLowerCase() + ' articles match “' + raw + '” — try another topic.';
+    },
+    allTopics: function () { return isRU() ? 'Все темы' : 'All topics'; }
+  };
+  function pluralRU(n) {
+    var m = n % 10, h = n % 100;
+    if (m === 1 && h !== 11) return 'результат';
+    if (m >= 2 && m <= 4 && (h < 12 || h > 14)) return 'результата';
+    return 'результатов';
+  }
 
   function esc(x) {
     return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) {
@@ -73,20 +102,19 @@
 
   function renderResults(hits, raw) {
     secs.forEach(function (s) { s.style.display = 'none'; });
+    if (feat) feat.style.display = 'none';
     chips.forEach(function (c) { c.classList.remove('on'); });
     chips.forEach(function (c) { c.style.display = 'none'; });
     view.hidden = false;
     window.scrollTo(0, 0);
-    title.textContent = 'Search results';
-    meta.textContent = hits.length
-      ? hits.length + ' result' + (hits.length > 1 ? 's' : '') + ' for “' + raw + '”'
-      : '0 results for “' + raw + '”';
+    title.textContent = T.results();
+    meta.textContent = T.resMeta(hits.length, raw);
     var counts = { all: hits.length };
     hits.forEach(function (h) { counts[h.c] = (counts[h.c] || 0) + 1; });
     var fhtml = '';
     CAT_ORDER.forEach(function (cid) {
       var n = counts[cid] || 0;
-      var label = (cid === 'all' ? 'All topics' : (CATS[cid] || cid));
+      var label = (cid === 'all' ? T.allTopics() : (CATS[cid] || cid));
       fhtml += '<button type="button" class="blog-fchip' + (cid === state.cat ? ' on' : '') +
         (n === 0 ? ' zero' : '') + '" data-fcat="' + cid + '">' + esc(label) +
         ' <span class="blog-fcount">' + n + '</span></button>';
@@ -109,13 +137,11 @@
   function paintGrid(hits, raw) {
     var shown = hits.filter(function (h) { return state.cat === 'all' || h.c === state.cat; });
     if (!hits.length) {
-      grid.innerHTML = '<p class="blog-nores">No articles found for “' + esc(raw) +
-        '”. Try a different search — or pick a topic above.</p>';
+      grid.innerHTML = '<p class="blog-nores">' + esc(T.noAll(raw)) + '</p>';
       return;
     }
     if (!shown.length) {
-      grid.innerHTML = '<p class="blog-nores">No ' + esc((CATS[state.cat] || '').toLowerCase()) +
-        ' articles match “' + esc(raw) + '” — try another topic.</p>';
+      grid.innerHTML = '<p class="blog-nores">' + esc(T.noCat(CATS[state.cat] || '', raw)) + '</p>';
       return;
     }
     grid.innerHTML = shown.map(function (d) {
@@ -127,6 +153,8 @@
   }
 
   function paintHub() {
+    var filtered = hubState.kind !== 'all' || hubState.cat !== 'all';
+    if (feat) feat.style.display = filtered ? 'none' : '';
     secs.forEach(function (s) {
       var okK = hubState.kind === 'all' || s.getAttribute('data-kind') === hubState.kind;
       var okC = hubState.cat === 'all' || s.getAttribute('data-cat') === hubState.cat;
@@ -140,6 +168,7 @@
 
   function showHub() {
     view.hidden = true;
+    if (feat) feat.style.display = '';
     bar.style.display = '';
     chips.forEach(function (c) { c.style.display = ''; });
     secs.forEach(function (s) { s.style.display = ''; });

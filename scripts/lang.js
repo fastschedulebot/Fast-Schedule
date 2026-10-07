@@ -168,12 +168,10 @@
     } catch (e) { return 'en'; }
   }
   function staticLanguageCounterpart(lang) {
-    /* Help, legal, and landing pages have server-rendered Russian copies.
+    /* Help, legal, blog, and landing pages have server-rendered Russian copies.
        Moving to that paired document prevents a half-translated page when a
        visitor changes language: article bodies, legal text, metadata, and
-       navigation all change together. Blog pages intentionally stay on the
-       same route and use the client-side article dictionary below because no
-       separate /ru/blog tree exists yet. */
+       navigation all change together. */
     try {
       var p = location.pathname;
       var base = '/Fast-Schedule/';
@@ -182,9 +180,11 @@
       var isStatic = !isArchive && !isRuArchive && (p === base || p === base + 'index.html' ||
         p === base + 'help.html' || p.indexOf(base + 'help/') === 0 ||
         p.indexOf(base + 'legal/') === 0 || p === base + '404.html' ||
+        p.indexOf(base + 'blog/') === 0 ||
         p === base + 'ru/' || p === base + 'ru/index.html' ||
         p === base + 'ru/help.html' || p.indexOf(base + 'ru/help/') === 0 ||
-        p.indexOf(base + 'ru/legal/') === 0 || p === base + 'ru/404.html');
+        p.indexOf(base + 'ru/legal/') === 0 || p === base + 'ru/404.html' ||
+        p.indexOf(base + 'ru/blog/') === 0);
       if (!isStatic) return '';
       var ru = p.indexOf(base + 'ru/') === 0;
       if (lang === 'ru' && !ru) return base + 'ru/' + p.slice(base.length);
