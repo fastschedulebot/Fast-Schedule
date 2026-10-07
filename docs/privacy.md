@@ -4,7 +4,7 @@ This Privacy Policy explains how Maxim Mkrtchyan, an individual operator based i
 
 - **Fast Scheduler** — a Telegram bot for scheduling and automating messages to Telegram channels and groups, with companion payment, reporting, and data-management features (the "**Main Service**"); and
 - **SetDate** — a companion Telegram bot that helps you build posting schedules and import them into the Main Service (the "**SetDate Service**").
-- **FastScheduler Support** — a companion Telegram bot for support conversations, help, feedback intake, and ratings (the "**Support Service**"); and
+- **Fast Support** — a companion Telegram bot for support conversations, help, feedback intake, and ratings (the "**Support Service**"); and
 - **Our website** at https://fastschedulebot.github.io/Fast-Schedule/ — landing pages, help center, blog, and legal pages in English and Russian (the "**Website**", and together with the Main Service, the SetDate Service, and the Support Service, the "**Services**").
 
 This policy applies to all personal data processed through the Services, including data collected via:
@@ -29,8 +29,10 @@ If you do not agree with this policy, please do not use the Services.
 - **Sender Bot** means a Telegram bot account whose token you provide to the Main Service so that the Service can post on your behalf to a channel you administer.
 - **Premium** means a paid subscription tier (monthly or annual) provided by the Services.
 - **SetDate** means a separate Telegram bot operated by us that helps you design posting schedules for import into the Main Service.
-- **Support Service** means a separate Telegram bot operated by us for support conversations, help, feedback intake, and ratings.
+- **Support Service** means **Fast Support**, a separate Telegram bot operated by us for support conversations, help, feedback intake, and ratings.
 - **Website** means our public informational website at https://fastschedulebot.github.io/Fast-Schedule/ (landing, help center, blog, legal pages), hosted as static files on GitHub Pages. The Website has no user accounts and no server-side processing of visitor data.
+
+**Brand-name clarification:** **Fast Support** and **Fast Community** are names in the Fast Scheduler brand family. In these names, **“Fast” is a brand element**, not a promise or description that support responses, moderation, or community activity are instantaneous or faster than another service.
 
 ---
 

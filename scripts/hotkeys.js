@@ -12,8 +12,12 @@
    would do nothing (the CSS half of that lives in main.css).
 
    Conventions
-     - single letters and digits need no modifier; nothing fires while the
-       visitor is typing in a field
+     - single letters and digits need no modifier AND no Shift; nothing
+       fires while the visitor is typing in a field. Shift-held presses never
+       trigger the unshifted action (Shift+1 is '!', not '1'; Shift+letter
+       combos belong to the hotkeys editor) and are left for the editor's
+       override dispatcher (capture phase) and scroll-jump's Shift+Space /
+       Shift+Enter
      - the first *visible* match of a selector wins, so one key can back both
        a desktop and a mobile control (only one is ever on screen)
      - hints are hidden below 860px, where there is no hardware keyboard
@@ -248,7 +252,7 @@
      or one accidental press strands the visitor with no keyboard way back
      on (every other key stands down, and the hints hide with the switch). */
   function hatchKey(e) {
-    if (e.metaKey || e.ctrlKey || e.altKey) return null;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return null;
     var K = window.FS_KEYS;
     if (K) { if (K.typing()) return null; }
     else {
@@ -265,8 +269,16 @@
   }
   document.addEventListener('keydown', function (e) {
     if (e.defaultPrevented || e.repeat) return;
+    /* While the hotkeys editor is open (or recording a binding) every key
+       belongs to it — never fire page actions behind the dialog. */
+    if (window.FS_HK_RECORDING) return;
+    if (document.querySelector('.hk-overlay.open')) return;
     var hatch = !hotkeysOn() && hatchKey(e);
     if (!hatch && !allow(e)) return;
+    /* Plain shortcuts take no Shift (see Conventions): without this gate
+       Shift+B opened the Bot, Shift+, opened Settings, and Shift+digit hit
+       the section keys through the layout fallback's physical code. */
+    if (e.shiftKey) return;
     var k = hatch || norm(e.key);
     refreshStolen();
     if (stolenKeys[String(k).toLowerCase()] && !(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey)) return;

@@ -80,6 +80,9 @@
     rows = rows.slice().sort(function (a, b) {
       return (b.freeIncluded ? 1 : 0) - (a.freeIncluded ? 1 : 0);
     });
+    /* Static trusted icons only — config values never touch innerHTML. */
+    var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
+    var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
     document.querySelectorAll('[data-features]').forEach(function (ul) {
       var kind = ul.getAttribute('data-features'); // 'free' | 'premium'
       ul.innerHTML = '';
@@ -90,10 +93,19 @@
         var value = kind === 'premium' ? r.premium : r.free;
         var li = document.createElement('li');
         if (!included) li.className = 'no';
-        li.innerHTML = (included
-          ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>'
-          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>')
-          + '<span>' + r.label + (included && value !== 'Yes' ? ' — <b>' + value + '</b>' : '') + '</span>';
+        var icon = document.createElement('span');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = included ? ICON_OK : ICON_NO;
+        li.appendChild(icon);
+        var label = document.createElement('span');
+        label.textContent = String(r.label);
+        if (included && value !== 'Yes') {
+          label.appendChild(document.createTextNode(' \u2014 '));
+          var b = document.createElement('b');
+          b.textContent = String(value);
+          label.appendChild(b);
+        }
+        li.appendChild(label);
         ul.appendChild(li);
       });
     });
@@ -174,7 +186,7 @@
   function closeBanner(choice) {
     try {
       localStorage.setItem('cookie_consent', choice);
-      document.cookie = 'consent=' + choice + ';path=/;max-age=31536000;samesite=lax';
+      document.cookie = 'consent=' + choice + ';path=/;max-age=31536000;samesite=lax;secure';
     } catch (e) {}
     if (banner) banner.classList.remove('show');
   }

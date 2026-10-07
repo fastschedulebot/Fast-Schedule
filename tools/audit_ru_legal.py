@@ -22,7 +22,7 @@ SKIP_CLS = {'phone-stage', 'demo', 'ios-app', 'chan-msg', 'sl-head', 'sl-foot',
             'fs-lang-seg'}
 
 # Tokens allowed to stay English (product names, commands, URLs, standards).
-ALLOW = re.compile(r'^(Fast Scheduler|SetDate|FastScheduler Support|Telegram|Premium|Stars|'
+ALLOW = re.compile(r'^(Fast Scheduler|SetDate|Fast Support|Fast Community|FastScheduler Support|Telegram|Premium|Stars|'
                    r'GitHub|GitHub Pages|CRON|AES(-\d+)?-GCM|HMAC(-SHA256)?|SHA-256|JSON|PBKDF2|'
                    r'SCCs?|GDPR|EEA|UK|USA|SMS|[A-Za-z_]*@[A-Za-z_.]+|https?://\S+|/\S+|'
                    r'[\w.+-]+\.(json|db|log|md|txt|html|fsp?back|png)|'

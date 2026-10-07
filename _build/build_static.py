@@ -134,8 +134,8 @@ def page_shell(title_html, body, rel='../..'):
 <head>
 {NOFLASH}
 {title_html}
-<link rel="stylesheet" href="{rel}/styles/main.css?v=20260930a2">
-<link rel="stylesheet" href="{rel}/styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="{rel}/styles/main.css?v=20261006a1">
+<link rel="stylesheet" href="{rel}/styles/hotkeys-modal.css?v=20261006a1">
 <style>{HC_COMPONENT_CSS}
   </style>
 </head>
@@ -193,7 +193,7 @@ def page_shell(title_html, body, rel='../..'):
 <script src="{rel}/scripts/settings.js"></script>
   <script src="{rel}/scripts/lang.js?v=20261001a1"></script>
 <script src="{rel}/scripts/help-search.js?v=20260930a1"></script>
-<script src="{rel}/scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="{rel}/scripts/hotkeys-modal.js?v=20261006a1"></script>
 <script src="{rel}/scripts/help-ai.js?v=20260930a1"></script>
 <script src="{rel}/scripts/hotkeys.js?v=20260930a1"></script>
 <script src="{rel}/scripts/scroll-jump.js?v=20260930a1"></script>
@@ -476,8 +476,8 @@ def main():
     head404 = ('<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
                + sec_metas() + '<title>Page not found — Fast Scheduler</title>'
                + '<meta name="robots" content="noindex">'
-               + f'<link rel="stylesheet" href="/styles/main.css?v=20260930a2">'
-               + f'<link rel="stylesheet" href="/styles/hotkeys-modal.css?v=20260930a1">')
+               + f'<link rel="stylesheet" href="/styles/main.css?v=20261006a1">'
+               + f'<link rel="stylesheet" href="/styles/hotkeys-modal.css?v=20261006a1">')
     # full site header: settings menu + "See hotkeys" row so the hotkeys
     # viewer exists on every page, not just home/help/legal
     nav404 = (f"""<header class="site">
@@ -514,7 +514,7 @@ def main():
 <script src="/scripts/settings.js"></script>
   <script src="{rel}/scripts/lang.js?v=20261001a1"></script>
 <script src="/scripts/hotkeys.js?v=20260930a1"></script>
-<script src="/scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="/scripts/hotkeys-modal.js?v=20261006a1"></script>
 </body>
 </html>''')
 

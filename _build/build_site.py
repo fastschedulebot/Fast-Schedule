@@ -464,10 +464,10 @@ def legal_page(title, body_html, updated, cta_url, toc_box, toc_side, sheet_html
     if (localStorage.getItem('fs-rail') === 'off') document.documentElement.classList.add('rail-off');
   }} catch (e) {{}}
 </script>
-<link rel="stylesheet" href="../styles/main.css?v=20260930a2">
+<link rel="stylesheet" href="../styles/main.css?v=20261006a1">
   <link rel="stylesheet" href="../styles/lang.css?v=20261001a1"">
 <link rel="stylesheet" href="../styles/liquid-nav.css?v=20260930a1">
-<link rel="stylesheet" href="../styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="../styles/hotkeys-modal.css?v=20261006a1">
 </head>
 <body class="legal">
 {GLASS_DEFS}
@@ -496,7 +496,7 @@ def legal_page(title, body_html, updated, cta_url, toc_box, toc_side, sheet_html
 <script src="../scripts/settings.js?v=20260930a1"></script>
   <script src="../scripts/lang.js?v=20261001a1"></script>
 <script src="../scripts/help-search.js?v=20260930a1"></script>
-<script src="../scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="../scripts/hotkeys-modal.js?v=20261006a1"></script>
 <script src="../scripts/hotkeys.js?v=20260930a1"></script>
 <script src="../scripts/scroll-jump.js?v=20260930a1"></script>
 <script src="../scripts/main.js?v=20260930a1"></script>

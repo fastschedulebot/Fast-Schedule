@@ -21,6 +21,18 @@ PAGES = {
     'refundpolicy': ('Refund Policy', 'September 26, 2026'),
 }
 
+CHANGE_SUMMARIES = {
+    'privacy': (
+        'Your data inventory, website processing disclosures, encryption language, and deletion/retention explanations were expanded and clarified.',
+        'The current version explains the Website, Fast Support, Fast Community brand names, and the limits of the Russian AI translation.'),
+    'terms': (
+        'Plan limits, Premium expiry and grace handling, referrals, account deletion, and service-change notices were clarified.',
+        'The current version also identifies Fast Support and Fast Community as brand names; “Fast” is not a speed guarantee.'),
+    'refundpolicy': (
+        'Telegram Stars finality, discretionary refund cases, cancellation, and the non-renewing prepaid plans were stated more directly.',
+        'The current version also identifies Fast Support and Fast Community as brand names; “Fast” is not a speed guarantee.'),
+}
+
 VERSIONS = [
     ('2026-09-26', 'September 26, 2026', 'archived'),
     ('2026-10-01', 'October 1, 2026', 'current, effective October 8, 2026'),
@@ -113,6 +125,9 @@ def stamp_current(name, title):
     block = (anchor +
              '\n    <p class="effective">Effective October 8, 2026. '
              'Continued use of the Services after that date constitutes acceptance.</p>' +
+             '\n    <div class="ver-changes" role="note"><b>What changed in this version.</b> '
+             '<q>%s</q><ul><li>%s</li></ul></div>' %
+             (CHANGE_SUMMARIES[name][0], CHANGE_SUMMARIES[name][1]) +
              '\n    ' + switcher_html(name, '2026-10-01', False))
     html = html.replace(anchor, block, 1)
     open(path, 'w', encoding='utf-8').write(html)

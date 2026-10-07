@@ -1,8 +1,9 @@
 /* =====================================================================
    Scroll-jump FAB: a round button appears after scrolling down; tapping it
    opens a small menu (Go up / Jump a screen / Go to the end). The keyboard
-   shortcuts (G, Shift+Space, U, J, Shift+Enter) live here too and are
-   switchable in Settings > Hotkeys.
+   shortcuts (F, Shift+Space, U, J, Shift+Enter) live here too and are
+   switchable in Settings > Hotkeys. (F, not G: G belongs to the Blog —
+   see jumpMenuKey below.)
 
    The hotkeys editor drives the actions through window.FS_JUMP, so a
    remapped key fires the same code the menu rows do.
@@ -68,11 +69,17 @@
   var jumpRows = menu.querySelectorAll('.gp-row');
   var DEFAULTS = { top: 'Shift+Space', pageup: 'U', pagedown: 'J', bottom: 'Shift+Enter' };
   var IDS = { top: 'top', pageup: 'pageup', pagedown: 'pagedown', bottom: 'end' };
+  /* Custom bindings repaint here; show the whole binding (combos and
+     sequences included) exactly like the editor's own keycaps do, so the
+     menu never advertises a first-key-only label that fires nothing. */
+  function prettyPart(p) { return p === 'Space' ? '␣' : p; }
   function currentLabel(kind) {
     var id = IDS[kind];
     try {
       var c = JSON.parse(localStorage.getItem('fs-hotkey-custom') || '{}');
-      if (c[id]) return String(c[id]).split('>')[0].replace('Space', '␣');
+      if (c[id]) return String(c[id]).split('>').map(function (s) {
+        return String(s).split('+').map(prettyPart).join('+');
+      }).join(' + ');
     } catch (e) {}
     return DEFAULTS[kind];
   }
@@ -142,9 +149,27 @@
   document.addEventListener('click', function (e) {
     if (open && !btn.contains(e.target) && !menu.contains(e.target)) setOpen(false);
   });
+  /* The menu's toggle key comes from the hotkeys editor (default F). G used
+     to own the jump menu unconditionally, but hotkeys.js now binds G to the
+     Blog on every page it loads, so G stands down wherever the Blog owns it.
+     Remapped combos/sequences are dispatched by hotkeys-modal.js on the
+     capture phase; only a plain single-char binding still belongs here. */
+  function jumpMenuKey() {
+    try {
+      var O = window.FS_HOTKEYS_OVERRIDE;
+      if (O && O.get) {
+        var k = O.get('jumpFab');
+        if (k && k.length === 1) return String(k).toLowerCase();
+      }
+    } catch (err) {}
+    return 'f';
+  }
   document.addEventListener('keydown', function (e) {
+    /* While the hotkeys editor is open (or recording) keys belong to it. */
+    if (window.FS_HK_RECORDING) return;
+    if (document.querySelector && document.querySelector('.hk-overlay.open')) return;
     if (e.key === 'Escape' && open) { setOpen(false); return; }
-    /* Hotkeys (switchable in Settings): G toggles the menu, Shift+Space top,
+    /* Hotkeys (switchable in Settings): F toggles the menu, Shift+Space top,
        U page-up, J page-down, Shift+Enter end. FS_KEYS also keeps shortcuts
        out of the way while typing. NOTE: remapped single keys are dispatched
        by hotkeys-modal.js on the capture phase; if the event reaches us the
@@ -154,21 +179,25 @@
       if (document.documentElement.getAttribute('data-keys') === 'off') return false;
       if (e.metaKey || e.ctrlKey || e.altKey) return false;
       var el = document.activeElement, tag = (el && el.tagName) || '';
-      return tag !== 'INPUT' && tag !== 'TEXTAREA' && !(el && el.isContentEditable);
+      return tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT' && !(el && el.isContentEditable);
     })();
     if (!allowed) return;
-    /* G used to own the jump menu unconditionally; hotkeys.js now binds G to
-       the Blog on every page it loads, so stand down there (remap "Jump
-       button" in the hotkeys editor to get a key back). */
-    if (e.key === 'g' || e.key === 'G') {
+    if (e.shiftKey && e.code === 'Space') { e.preventDefault(); go(0); setOpen(false); return; }
+    if (e.shiftKey && e.key === 'Enter') { e.preventDefault(); go(maxY()); setOpen(false); return; }
+    /* Every key below this line is unshifted: Shift+U / Shift+J / Shift+G
+       must not page or toggle (Shift combos belong to the editor). The
+       'G' spelling also covers Caps Lock; a real Shift is already returned
+       above, so Caps-Lock users keep their hotkeys. */
+    if (e.shiftKey) return;
+    var k = (e.key || '').toLowerCase();
+    if (k === jumpMenuKey()) { e.preventDefault(); setOpen(!open, true); return; }
+    /* legacy: pages without hotkeys.js never rebound G to the Blog */
+    if (k === 'g') {
       var owned = window.FS_HOTKEYS && window.FS_HOTKEYS.map &&
                   window.FS_HOTKEYS.map.some(function (r) { return r.key === 'g'; });
       if (!owned) { e.preventDefault(); setOpen(!open, true); }
       return;
     }
-    if (e.shiftKey && e.code === 'Space') { e.preventDefault(); go(0); setOpen(false); return; }
-    if (e.shiftKey && e.key === 'Enter') { e.preventDefault(); go(maxY()); setOpen(false); return; }
-    var k = (e.key || '').toLowerCase();
     if (k === 'j') { e.preventDefault(); go(Math.min(maxY(), y() + window.innerHeight * 0.9)); setOpen(false); return; }
     if (k === 'u') { e.preventDefault(); go(Math.max(0, y() - window.innerHeight * 0.9)); setOpen(false); return; }
   });

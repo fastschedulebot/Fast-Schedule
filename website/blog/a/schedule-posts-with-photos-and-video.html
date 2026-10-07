@@ -44,8 +44,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Fast Scheduler", "item": "https://fastschedulebot.github.io/Fast-Schedule/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/"}, {"@type": "ListItem", "position": 3, "name": "Scheduling Media Posts in Telegram: Photos, Albums, Video and the Limits", "item": "https://fastschedulebot.github.io/Fast-Schedule/blog/a/schedule-posts-with-photos-and-video.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can scheduling bots post albums?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — ControllerBot and Fast Scheduler both send photo groups as albums, preserving the caption. Always test-send once before queueing a batch, since grouping depends on send timing."}}, {"@type": "Question", "name": "What is the video size limit for scheduled Telegram posts?", "acceptedAnswer": {"@type": "Answer", "text": "Telegram itself allows up to 2GB, but publishing bots store media server-side and cap uploads lower — commonly 10–50MB depending on plan. Check the bot’s limits page before planning video content."}}, {"@type": "Question", "name": "How do I keep image quality in Telegram?", "acceptedAnswer": {"@type": "Answer", "text": "Send the image as a file/document to skip compression — it previews as a card. For feed photos, accept Telegram’s compression; it loads fast and looks fine at feed sizes."}}, {"@type": "Question", "name": "Can I reuse the same image in multiple scheduled posts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via media storage features — ControllerBot keeps recent media for reuse, and Fast Scheduler organizes reusable assets into named boxes. Without storage you re-upload files for every post."}}]}</script>
 <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles/main.css?v=20261005e3">
-<link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="../../styles/main.css?v=20261006a1">
+<link rel="stylesheet" href="../../styles/hotkeys-modal.css?v=20261006a1">
 <style>
     /* ===== Blog layout (uses main.css tokens + header/footer as-is) ===== */
     body.blog { --maxw: 1280px; }
@@ -503,7 +503,7 @@
 <script src="../../scripts/settings.js?v=20261005d1"></script>
   <script src="../../scripts/ru-content.js?v=20261004b2"></script><script src="../../scripts/ru-chrome.js?v=20261005e1"></script><script src="../../scripts/lang.js?v=20261005e1"></script>
 <script src="../../scripts/help-search.js?v=20260930a1"></script>
-<script src="../../scripts/hotkeys-modal.js?v=20260930a2"></script>
+<script src="../../scripts/hotkeys-modal.js?v=20261006a1"></script>
 <script src="../../scripts/hotkeys.js?v=20261005d1"></script>
 <script src="../../scripts/scroll-jump.js?v=20261005a1"></script>
 <script>

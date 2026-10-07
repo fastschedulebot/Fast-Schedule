@@ -62,7 +62,10 @@
   /* ---------- the registry ---------- */
   var REGISTRY = [
     { id: 'bot',      key: 'B',            page: 'all',  name: 'Open Bot',                  sel: '.nav-cta-sm, .nav-cta-m, .nav-cta, .cta-big' },
-    { id: 'menu',     key: 'M',            page: 'home', name: 'Open menu',                 sel: '#navBurger' },
+    /* M opens the burger, which only exists on narrow screens (the burger is
+       display:none on desktop, so the key is hidden there too — the modal
+       never advertises a key that would do nothing). */
+    { id: 'menu',     key: 'M',            page: 'home', name: 'Open menu',                 sel: '#navBurger', mobileOnly: true },
     { id: 'settings', key: ',',            page: 'all',  name: 'Settings',                  sel: '#settingsBtn' },
     { id: 'blog',     key: 'G',            page: 'all',  name: 'Blog',                      sel: 'a.nav-link[href*="blog"], .help-row a[href*="blog"], a[href$="blog/index.html"], a[href$="/blog/"], #navMobile a[href*="blog"], footer a[href$="blog/index.html"]' },
     { id: 'help',     key: 'H',            page: 'all',  name: 'Help',                      sel: 'a.nav-link[href*="help"], .site-menu-row, a.gp-row[href*="help"], .help-row a[href*="help"], #navMobile a[href*="help"], footer a[href$="help.html"]' },
@@ -79,7 +82,10 @@
     { id: 'monthly', key: 'N', page: 'home', name: 'Monthly billing', sel: '#billMonthly' },
     { id: 'choose',  key: 'P', page: 'home', name: 'Choose the centred plan',
       act: function () { return clickSel('.pricing-stage .plan-g[data-pos="0"] .btn'); } },
-    { id: 'jumpFab', key: 'G', page: 'all', name: 'Jump button (round arrow)', act: function () { return jump('menu'); } },
+    /* F toggles the jump menu. G used to do it, but G belongs to the Blog on
+       every page hotkeys.js loads — one default key cannot drive two
+       actions, and the Blog won. Remap either entry to get G back. */
+    { id: 'jumpFab', key: 'F', page: 'all', name: 'Jump button (round arrow)', act: function () { return jump('menu'); } },
     { id: 'top',     key: 'Shift+Space', page: 'all', name: 'Go to the top',     act: function () { return jump('top'); } },
     { id: 'pageup',  key: 'U',           page: 'all', name: 'Jump up a screen',  act: function () { return jump('pageUp'); }, desktopOnly: true },
     { id: 'pagedown', key: 'J',          page: 'all', name: 'Jump down a screen', act: function () { return jump('pageDown'); }, desktopOnly: true },
@@ -230,9 +236,11 @@
         '<button type="button" class="hk-close" aria-label="Close">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
         '<div class="hk-hint">Hover a shortcut and press the pencil to remap it. Press one key, or two or three keys one after another (like <b>O</b> then <b>B</b>), or hold Ctrl/Alt/Shift. Esc cancels.</div>' +
+        '<div class="hk-note" role="note">' + extNoteHTML('modal') + '</div>' +
         '<div class="hk-body"></div>' +
       '</div>';
     document.body.appendChild(modal);
+    extLocalize();          /* modal text is built here — localize it now */
     sheet = modal.querySelector('.hk-sheet');
     listEl = modal.querySelector('.hk-body');
     modal.querySelector('.hk-close').addEventListener('click', close);
@@ -268,11 +276,13 @@
     var here = REGISTRY.filter(function (e) {
       if (!onThisPage(e)) return false;
       if (e.desktopOnly && !desktop()) return false;
+      if (e.mobileOnly && desktop()) return false;
       return true;
     });
     var others = REGISTRY.filter(function (e) {
       if (onThisPage(e)) return false;
       if (e.desktopOnly && !desktop()) return false;
+      if (e.mobileOnly && desktop()) return false;
       return true;
     });
     /* The page's OWN hotkeys first (this page's explicit group wins, then
@@ -373,8 +383,11 @@
       var custom = c[entry.id];
       if (!custom) return;
       var oldK = entry.key;
-      var newK = custom.split('>').pop();
-      if (oldK.toLowerCase() !== newK.toLowerCase()) stolen.push(oldK);
+      /* Steal the default whenever the binding stops being exactly it — a
+         combo (Shift+B) or a sequence (O>B) frees the plain key too, or the
+         old action would still fire on the bare press. Comparing the last
+         step only ('B' of 'O>B') missed this and left the default live. */
+      if (String(custom).toLowerCase() !== String(oldK).toLowerCase()) stolen.push(oldK);
     });
     window.FS_HOTKEYS_STOLEN = stolen;
   }
@@ -439,6 +452,42 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 
+  /* ---------- extension warning (Vimium) ----------
+     Vimium & co. bind single letters in the CAPTURE phase, before any of this
+     page's listeners run, so the press is swallowed upstream and the hotkey
+     looks broken. Both surfaces carry the warning in one place: the modal
+     above, and a line under the Hotkeys rows of the settings menu — whose
+     markup is inlined in ~2,200 HTML files, so it is injected from here.
+     lang.js translates it back through its EN->RU map (whole text nodes). */
+  var EXT_NOTE = {
+    lead: 'Keys doing nothing?',
+    /* the settings menu is a narrow popup — same warning, trimmed */
+    settings: ' An extension like Vimium can capture these keys — right-click its toolbar icon and choose “Pause on this site”.',
+    modal: ' An extension like Vimium captures single keys before this page sees them, so the press never reaches the site. Right-click the Vimium icon in the toolbar and choose “Pause on this site” — the hotkeys will work again.'
+  };
+  /* One text node per part — lang.js translates whole trimmed nodes only, and
+     only from EN: injecting RU here would leave the note stranded in Russian
+     on a later switch back to EN (chromeRestore has no EN original to put
+     back). So the DOM always gets EN, then lang.js is asked to swap it in. */
+  function extNoteHTML(surface) {
+    return '<b>' + EXT_NOTE.lead + '</b>' + EXT_NOTE[surface];
+  }
+  function extLocalize() {
+    try {
+      if (window.FS_LANG && window.FS_LANG.apply && window.FS_LANG.get) window.FS_LANG.apply(window.FS_LANG.get());
+    } catch (e) {}
+  }
+  function injectNote() {
+    var btn = document.getElementById('rowKeysHelp');
+    if (!btn || document.getElementById('rowKeysNote')) return;
+    var note = document.createElement('div');
+    note.id = 'rowKeysNote';
+    note.className = 'gp-note';
+    note.innerHTML = extNoteHTML('settings');
+    btn.parentNode.insertBefore(note, btn.nextSibling);
+    extLocalize();
+  }
+
   /* wire the "See hotkeys" row on every page that has it */
   function wire() {
     var btn = document.getElementById('rowKeysHelp');
@@ -447,6 +496,7 @@
       document.body.click();          /* close the settings menu */
       setTimeout(open, 60);
     });
+    injectNote();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
   else wire();

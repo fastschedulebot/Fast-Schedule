@@ -34,6 +34,43 @@ RU_EXT2 = {
     'Topics': 'Темы',
     'Chat with us': 'Написать нам',
     'The in-bot assistant answers the same questions — and a human reads every ticket.': 'Встроенный помощник отвечает на те же вопросы — а каждый тикет читает человек.',
+    # --- help-center greeting hero (TRY_ASKING + render_home chrome) ---
+    'Try asking': 'Попробуйте спросить',
+    "What's the difference between .fsback and .fspback?": 'Чем отличаются файлы .fsback и .fspback?',
+    'Why are my scheduled posts not publishing?': 'Почему отложенные посты не публикуются?',
+    'How do I connect my own sender bot?': 'Как подключить своего бота-отправителя?',
+    'How do I repeat a post every week?': 'Как повторять пост каждую неделю?',
+    'What are the free plan limits?': 'Какие лимиты на бесплатном тарифе?',
+    'How do I get a refund?': 'Как получить возврат?',
+    'Ask in Telegram — a human answers every ticket.': 'Спросите в Telegram — на каждый запрос отвечает человек.',
+    'Help Center — Fast Scheduler for Telegram': 'Центр помощи — Fast Scheduler для Telegram',
+    # --- category card descriptions (CAT_DESC) + featured fallback ---
+    'Guides and answers': 'Гайды и ответы',
+    'Connect a channel and send your first post': 'Подключите канал и отправьте первый пост',
+    'One-time and recurring posts': 'Разовые и регулярные посты',
+    'Connect and manage channels': 'Подключение и управление каналами',
+    'Use your own sender bot': 'Используйте своего бота-отправителя',
+    'Team access and shared limits': 'Доступ команды и общие лимиты',
+    'Plans, Stars and payments': 'Тарифы, Stars и оплата',
+    'Invite owners, earn Premium days': 'Приглашайте владельцев, получайте дни Premium',
+    'Free and Premium quotas': 'Лимиты бесплатного и Premium тарифов',
+    'Post at the right hour': 'Публикуйте в нужный час',
+    'Interface languages': 'Языки интерфейса',
+    'Take your data with you': 'Заберите свои данные',
+    'Bring chats and files in': 'Перенос чатов и файлов',
+    'Backups, restore and safety': 'Копии, восстановление и безопасность',
+    'Store photos, video and files': 'Хранение фото, видео и файлов',
+    'Search, stats and calendar': 'Поиск, статистика и календарь',
+    'Pro workflows that save hours': 'Про-приёмы, экономящие часы',
+    'Report bugs, request features': 'Баги и предложения',
+    'Short answers, fast': 'Короткие ответы',
+    'Bot commands cheat sheet': 'Шпаргалка по командам бота',
+    'Fix what went wrong': 'Что пошло не так',
+    'Your data and safety': 'Ваши данные и безопасность',
+    'About this help center': 'Об этом центре помощи',
+    'Signatures and fine-tuning': 'Подписи и тонкая настройка',
+    'Talk to a human': 'Свяжитесь с человеком',
+    'Everything else': 'Всё остальное',
 }
 
 MAYBE_RU = {
@@ -218,8 +255,8 @@ def surgery_category(sec, cid, patch):
 
 def _swap_home_chrome(html, patch):
     html = html.replace(
-        '<h1>Guides &amp; <span class="grad">answers</span></h1>',
-        '<h1>Гайды и <span class="grad">ответы</span></h1>')
+        '<h1>Hi, how can we <span class="grad">help</span>?</h1>',
+        '<h1>Привет! Чем мы можем <span class="grad">помочь</span>?</h1>')
     html = html.replace(
         'Everything about Fast Scheduler &mdash; scheduling, recurring posts, '
         'sender bots, channels, statistics and payments. '

@@ -381,6 +381,12 @@ if (!document.documentElement.animate) return;
        fall back to an inline guard if the settings script has not loaded. */
     document.addEventListener('keydown', function (e) {
       if (e.key !== 's' && e.key !== 'S') return;
+      /* Unshifted S only: Shift+S is a combo for the hotkeys editor, never
+         the panel toggle. While the editor is open (or recording) keys
+         belong to it. */
+      if (e.shiftKey) return;
+      if (window.FS_HK_RECORDING) return;
+      if (document.querySelector('.hk-overlay.open')) return;
       if (window.innerWidth <= 860) return;
       if (!railTab) return;
       var K = window.FS_KEYS;
@@ -390,7 +396,7 @@ if (!document.documentElement.animate) return;
         if (e.ctrlKey || e.metaKey || e.altKey) return;
         var el = document.activeElement;
         var tag = (el && el.tagName) || '';
-        if (tag === 'INPUT' || tag === 'TEXTAREA' || (el && el.isContentEditable)) return;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (el && el.isContentEditable)) return;
       }
       e.preventDefault();
       railTab.click();

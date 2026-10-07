@@ -2485,10 +2485,10 @@ def build_page(nodes, help_sec):
   </script>
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles/main.css?v=20260930a2">
+  <link rel="stylesheet" href="styles/main.css?v=20261006a1">
   <link rel="stylesheet" href="styles/lang.css?v=20261001a1"">
   <link rel="stylesheet" href="styles/liquid-nav.css?v=20260930a1">
-<link rel="stylesheet" href="styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="styles/hotkeys-modal.css?v=20261006a1">
   <style>{CSS}
   </style>
 </head>
@@ -2612,7 +2612,7 @@ def build_page(nodes, help_sec):
 <script src="scripts/settings.js?v=20260930a1"></script>
   <script src="scripts/lang.js?v=20261001a1"></script>
 <script src="scripts/help-search.js?v=20260930a1"></script>
-<script src="scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="scripts/hotkeys-modal.js?v=20261006a1"></script>
 <script src="scripts/hotkeys.js?v=20260930a1"></script>
 <script src="scripts/scroll-jump.js?v=20260930a1"></script>
 <script src="scripts/liquid-nav.js?v=20260930a1"></script>

@@ -284,6 +284,21 @@ LEGAL_DESC_RU = {
     'refundpolicy': 'Как работают возвраты Premium, продление и chargeback.',
 }
 
+LEGAL_CHANGE_RU = {
+    'privacy': ('В этой редакции уточнены перечень данных, обработка на сайте, '
+                'шифрование и сроки хранения/удаления.',
+                'Добавлено пояснение, что Fast Support и Fast Community — элементы бренда, '
+                'а русская версия переведена с помощью ИИ.'),
+    'terms': ('Уточнены лимиты тарифов, окончание Premium и льготный период, '
+              'реферальные дни, удаление аккаунта и уведомления об изменениях сервиса.',
+              'Добавлено пояснение о названиях Fast Support и Fast Community и о том, '
+              'что «Fast» является частью бренда, а не обещанием скорости.'),
+    'refundpolicy': ('Уточнены правила Telegram Stars, случаи возможного возврата, '
+                     'отмена и отсутствие автопродления у предоплаченных тарифов.',
+                     'Добавлено пояснение о названиях Fast Support и Fast Community и уведомление '
+                     'о возможных неточностях AI-перевода.'),
+}
+
 
 def build_legal(name):
     src = os.path.join(DOCS_RU, name + '.md')
@@ -305,12 +320,25 @@ def build_legal(name):
         'name': t, 'description': d, 'url': url_ru, 'inLanguage': 'ru',
         'dateModified': pub, 'isPartOf': {'@type': 'WebSite', 'name': 'Fast Scheduler',
                                           'url': BASE + '/'}}), og_type='article')
-    head = head + '\n' + alt_links(url_ru, url_en)
+    head = head + '\n<link rel="stylesheet" href="../../styles/mobile-fix.css?v=20261006a1">\n' + alt_links(url_ru, url_en)
+    summary, detail = LEGAL_CHANGE_RU.get(name, ('В редакцию внесены уточнения.', ''))
+    versions = ('<div class="ver-changes" role="note"><b>Что изменилось в этой редакции.</b> '
+                '<q>%s</q><ul><li>%s</li></ul></div>' % (summary, detail))
+    switcher = ('<div class="ver-dd"><button type="button" class="ver-pill" '
+                'aria-haspopup="menu"><span class="ver-pill-dot" aria-hidden="true"></span>'
+                '2026-10-01 · текущая версия</button><div class="glass-pop ver-menu" '
+                'role="menu" aria-label="Версии документа"><div class="gp-head">Версии документа</div>'
+                '<span class="gp-row ver-opt on" role="menuitem" aria-current="true">'
+                '<span class="ver-v">2026-10-01</span><span class="ver-s">текущая · действует с 8 октября 2026</span></span>'
+                '<a class="gp-row ver-opt" role="menuitem" href="../../legal/history/%s-2026-09-26.html">'
+                '<span class="ver-v">2026-09-26</span><span class="ver-s">архивная версия (английский)</span></a>'
+                '</div></div>' % name)
     body = ('<div class="wrap legal" style="max-width:860px;margin:0 auto">'
             '<p><a href="%s" hreflang="en" lang="en">Читать на английском</a></p>'
-            '<article class="doc"><h1>%s</h1>'
+            '<article class="doc"><h1>%s</h1><p class="updated">Последнее обновление: 1 октября 2026</p>'
+            '<p class="effective">Действует с 8 октября 2026 года. Продолжение использования Сервисов после этой даты означает принятие обновлённой редакции.</p>%s%s'
             '<div class="hc-body">%s</div></article></div>'
-            % (url_en, bh.esc(title_ru), _strip_h1(html)))
+            % (url_en, bh.esc(title_ru), versions, switcher, _strip_h1(html)))
     return bs.page_shell(head, body, rel='../..', lang='ru')
 
 

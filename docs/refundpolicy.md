@@ -4,6 +4,8 @@ This Refund Policy explains how refunds work for **Premium** subscriptions to **
 
 Because Telegram Stars purchases are governed by Telegram's own policies, refunds are limited. Please read this policy before purchasing.
 
+**Brand-name clarification:** **Fast Support** and **Fast Community** are names in the Fast Scheduler brand family. In these names, **“Fast” is a brand element**, not a promise or description that support responses, moderation, or community activity are instantaneous or faster than another service.
+
 ---
 
 ## 2. How Stars Billing Works

@@ -1,8 +1,10 @@
 ## 1. Acceptance of Terms
 
-By accessing or using **Fast Scheduler** ("Main Service"), **SetDate** ("SetDate Service"), **FastScheduler Support** ("Support Service"), and our public website at https://fastschedulebot.github.io/Fast-Schedule/ ("Website" — landing, help center, blog, and legal pages, and together the "**Services**") operated by Maxim Mkrtchyan, an individual operator based in Armenia ("**we**", "**us**", "**our**"), you agree to be bound by these Terms of Service ("**Terms**"). If you do not agree, do not use the Services.
+By accessing or using **Fast Scheduler** ("Main Service"), **SetDate** ("SetDate Service"), **Fast Support** ("Support Service"), and our public website at https://fastschedulebot.github.io/Fast-Schedule/ ("Website" — landing, help center, blog, and legal pages, and together the "**Services**") operated by Maxim Mkrtchyan, an individual operator based in Armenia ("**we**", "**us**", "**our**"), you agree to be bound by these Terms of Service ("**Terms**"). If you do not agree, do not use the Services.
 
 These Terms incorporate our **Privacy Policy** and, where you purchase a subscription, the refund terms in our **Refund Policy**.
+
+**Brand-name clarification:** **Fast Support** and **Fast Community** are names in the Fast Scheduler brand family. In these names, **“Fast” is a brand element**, not a promise or description that support responses, moderation, or community activity are instantaneous or faster than another service.
 
 When you first interact with the Services, you will be presented with these Terms and asked to accept them. You will not be able to use the Services until you have accepted. The commands `/legal`, `/help`, `/language`, `/cancel`, and `/start` remain accessible even before acceptance so you can review these documents.
 
@@ -16,7 +18,7 @@ When you first interact with the Services, you will be presented with these Term
 - **Premium** — a paid subscription tier (monthly or annual) unlocking higher usage limits and priority features.
 - **Free Tier** — the no-cost usage level with standard limits.
 - **SetDate** — a companion Telegram bot operated by us that helps you design posting schedules for import into the Main Service.
-- **Support Service** — a companion Telegram bot operated by us for support conversations, help, feedback intake, and ratings.
+- **Support Service** — **Fast Support**, a companion Telegram bot operated by us for support conversations, help, feedback intake, and ratings.
 - **Website** — our public informational website (landing, help center, blog, legal pages, in English and Russian), hosted as static files with no user accounts. Browsing the Website requires no acceptance step, but the Acceptable Use (Section 8), Intellectual Property (Section 9), Disclaimers (15), and Liability (16) provisions apply to it.
 - **Scheduled Message** — a one-time message (text, media, poll, quiz, or rich content) configured to be delivered at a specific date and time.
 - **Recurring Message** — a message configured to repeat on a schedule (using CRON expressions, e.g., daily, weekly, on specific days).

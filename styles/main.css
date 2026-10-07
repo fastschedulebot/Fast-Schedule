@@ -463,9 +463,13 @@ footer.site { border-top: 1px solid var(--border); padding: 14px 0 14px; margin-
 .gp-row-sub { padding-top: 2px; padding-bottom: 8px; margin-top: -6px; }
 .gp-row-sub .gp-sub-label { font-size: .8rem; font-weight: 600; color: var(--green-strong); }
 .gp-row-sub .chev { width: 13px; height: 13px; }
+/* Extension (Vimium) warning under the Hotkeys rows — injected by
+   hotkeys-modal.js, which is the one place that knows about both. */
+.gp-note { padding: 0 12px 10px; font-size: .74rem; line-height: 1.5; color: var(--text-dim); }
+.gp-note b { color: var(--text); font-weight: 700; }
 /* phones: no hardware keyboard — hide the whole hotkeys row + its link */
 @media (max-width: 860px), (hover: none) and (pointer: coarse) {
-  #rowKeys, #rowKeysHelp { display: none !important; }
+  #rowKeys, #rowKeysHelp, #rowKeysNote { display: none !important; }
 }
 
 .foot .copy { color: var(--text-dim); font-size: .85rem; }

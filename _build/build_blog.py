@@ -471,8 +471,8 @@ def page_shell(title_html, body, rel='..', extra_js='', body_cls='blog'):
 {title_html}
 <link rel="preload" href="{rel}/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{rel}/styles/main.css?v=20260930a2">
-<link rel="stylesheet" href="{rel}/styles/hotkeys-modal.css?v=20260930a1">
+<link rel="stylesheet" href="{rel}/styles/main.css?v=20261006a1">
+<link rel="stylesheet" href="{rel}/styles/hotkeys-modal.css?v=20261006a1">
 <style>{BLOG_CSS}
   </style>
 </head>
@@ -486,7 +486,7 @@ def page_shell(title_html, body, rel='..', extra_js='', body_cls='blog'):
 <script src="{rel}/scripts/settings.js"></script>
   <script src="{rel}/scripts/lang.js?v=20261001a1"></script>
 <script src="{rel}/scripts/help-search.js?v=20260930a1"></script>
-<script src="{rel}/scripts/hotkeys-modal.js?v=20260930a1"></script>
+<script src="{rel}/scripts/hotkeys-modal.js?v=20261006a1"></script>
 <script src="{rel}/scripts/hotkeys.js?v=20260930a1"></script>
 <script src="{rel}/scripts/scroll-jump.js?v=20260930a1"></script>
 {extra_js}
