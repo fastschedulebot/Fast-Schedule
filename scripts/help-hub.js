@@ -100,8 +100,8 @@
       el.classList.add('anim');
     }
     var t = currentTitle(r);
-    document.title = r.view === 'search' ? (t + ' — Fast Scheduler Help') :
-      (t ? (t + ' — Fast Scheduler Help') : 'Help Center — Fast Scheduler for Telegram');
+    document.title = r.view === 'search' ? (t + hcTitleSuffix()) :
+      (t ? (t + hcTitleSuffix()) : hcT('Help Center — Fast Scheduler for Telegram'));
     try {
       var d = (r.view === 'article' && byId[r.id] && byId[r.id].d) || '';
       var md = document.querySelector('meta[name="description"]');
@@ -277,6 +277,29 @@
       }
     } catch (e) {}
     return null;
+  }
+  /* "See all N results" footer under the dropdown (Wise-style). Numbers
+     can't travel through the RU dictionary, so branch like hcRuCount. */
+  function hcSeeAll(n) {
+    try {
+      if (window.FS_LANG && FS_LANG.get() === 'ru') {
+        var w = 'результат', m10 = n % 10, h10 = n % 100;
+        if (m10 >= 2 && m10 <= 4 && (h10 < 12 || h10 > 14)) w = 'результата';
+        else if (m10 !== 1 || h10 === 11) w = 'результатов';
+        return 'Показать все ' + n + ' ' + w;
+      }
+    } catch (e) {}
+    return 'See all ' + n + ' result' + (n === 1 ? '' : 's');
+  }
+  /* document.title on the RU hub: brand suffix + search prefix branch
+     on FS_LANG like hcSeeAll (composite strings can't use the dict). */
+  function hcTitleSuffix() {
+    try { if (window.FS_LANG && FS_LANG.get() === 'ru') return ' — Справка Fast Scheduler'; } catch (e) {}
+    return ' — Fast Scheduler Help';
+  }
+  function hcSearchPrefix() {
+    try { if (window.FS_LANG && FS_LANG.get() === 'ru') return 'Поиск: '; } catch (e) {}
+    return 'Search: ';
   }
   window.__hcDyn = window.__hcDyn || [];
   function hcTrack(n, en) {
@@ -587,7 +610,7 @@
       resButtons.forEach(function (b, i) { b.classList.toggle('cur', i === curIdx); });
       resButtons[curIdx].scrollIntoView({ block: 'nearest' });
     }
-    function render(q, ex, scored) {
+    function render(q, ex, scored, total) {
       var html = '';
       /* "You mean" is an empty-state aid only — when there are results, the
          Best result card speaks for itself. */
@@ -606,7 +629,8 @@
             var s = x.sec;
             html += '<button type="button" class="hc-res" role="option" data-art="' + s.id + '">' +
               '<span class="hc-res-top"><span class="hc-res-t">' + markText(s.t, q) + '</span>' +
-              '<span class="hc-res-cat">' + escapeHtml(CATS[s.c] || '') + '</span></span></button>';
+              '<span class="hc-res-cat">' + escapeHtml(CATS[s.c] || '') + '</span></span>' +
+              '<p class="hc-res-s">' + markText(snippet(s.b, q), q) + '</p></button>';
           });
         }
       } else {
@@ -618,6 +642,8 @@
             '<p class="hc-res-s">' + markText(snippet(s.b, q), q) + '</p></button>';
         });
       }
+      html += '<a class="hc-res-all" href="#/s/' + encodeURIComponent(q) + '">' +
+        hcSeeAll(total) + ' ' + CHEV_SVG + '</a>';
       results.innerHTML = html;
       hcTranslateNow(results);
       results.hidden = false;
@@ -635,7 +661,10 @@
           return w.length > 2 && (t.indexOf(w) !== -1 || t.split(/\s+/).some(function (x) { return x.indexOf(w) === 0; }));
         });
       }).slice(0, 4);
-      var html = '<div class="hc-empty">' + hcT('No exact match for') + ' \u201c' + escapeHtml(q) + '\u201d.</div>';
+      var html = '<div class="hc-empty-ill">' + ILL_SVG + '</div>' +
+        '<div class="hc-empty-q">&ldquo;' + escapeHtml(q) + '&rdquo;</div>' +
+        '<div class="hc-empty-t">' + hcT('No results found.') + '</div>' +
+        '<div class="hc-empty-s">' + hcT('Try different or more general keywords.') + '</div>';
       if (aiHtml) html += aiHtml;
       if (sug.length) {
         html += '<div class="hc-sug-h">' + hcT('Maybe you meant:') + '</div>';
@@ -672,8 +701,8 @@
           .filter(function (x) { return x.s > 0; })
           .sort(function (a, b) { return b.s - a.s; });
       }
-      var scored = ranked.slice(0, 8);
-      if (!scored.length) renderEmpty(q, ex); else render(q, ex, scored);
+      var scored = ranked.slice(0, 6);
+      if (!scored.length) renderEmpty(q, ex); else render(q, ex, scored, ranked.length);
     }
 
     var timer = null;
@@ -724,6 +753,7 @@
   var searchMeta = document.getElementById('hcSearchMeta');
   var searchSug = document.getElementById('hcSearchSug');
   var CHEV_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+  var ILL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/><circle cx="10.5" cy="14" r="2.6"/><line x1="12.4" y1="15.9" x2="14.5" y2="18"/></svg>';
 
   function docHref(sec) { return sec.href ? sec.href : ('#/a/' + sec.id); }
   function resultRow(sec, q) {
@@ -779,7 +809,7 @@
     if (window.__blogSearchQ !== q) { window.__blogSearchQ = q; searchCat = 'all'; }
     if (searchQEl) searchQEl.textContent = q;
     if (headInput) headInput.value = q;
-    document.title = 'Search: ' + q + ' — Fast Scheduler Help';
+    document.title = hcSearchPrefix() + q + hcTitleSuffix();
     var ex = expand(norm(q));
     var hits;
     if (window.HelpAI) {

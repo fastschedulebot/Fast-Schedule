@@ -2,8 +2,9 @@
 // Liquid-glass EN/RU segmented control in #settingsMenu.
 // Full-site RU: chrome (settings/nav/footer/search) + index sections
 // (hero/features/how/pricing/FAQ/CTA) + legal/blog/help chrome
-// via exact-text map with safe revert (dataset.fsEn). Bodies of help/blog
-// articles stay EN (phase 2) — chrome and landing are fully RU.
+// via exact-text map with safe revert (dataset.fsEn). Static help/legal pages
+// use their complete server-rendered Russian counterparts; blog pages use the
+// client-side article dictionary where a Russian counterpart is not available.
 (function () {
   'use strict';
   var STR = {
@@ -83,6 +84,7 @@
     'Previous': 'Назад',
     'Next': 'Далее',
     'Table of contents': 'Содержание',
+    'Help Center — Fast Scheduler for Telegram': 'Центр помощи — Fast Scheduler для Telegram',
     'Best result': 'Лучший результат',
     'More results': 'Другие результаты',
     'All results': 'Все результаты',
@@ -165,9 +167,41 @@
       return document.documentElement.getAttribute('lang') === 'ru' ? 'ru' : 'en';
     } catch (e) { return 'en'; }
   }
+  function staticLanguageCounterpart(lang) {
+    /* Help, legal, and landing pages have server-rendered Russian copies.
+       Moving to that paired document prevents a half-translated page when a
+       visitor changes language: article bodies, legal text, metadata, and
+       navigation all change together. Blog pages intentionally stay on the
+       same route and use the client-side article dictionary below because no
+       separate /ru/blog tree exists yet. */
+    try {
+      var p = location.pathname;
+      var base = '/Fast-Schedule/';
+      var isArchive = p.indexOf(base + 'legal/history/') === 0;
+      var isRuArchive = p.indexOf(base + 'ru/legal/history/') === 0;
+      var isStatic = !isArchive && !isRuArchive && (p === base || p === base + 'index.html' ||
+        p === base + 'help.html' || p.indexOf(base + 'help/') === 0 ||
+        p.indexOf(base + 'legal/') === 0 || p === base + '404.html' ||
+        p === base + 'ru/' || p === base + 'ru/index.html' ||
+        p === base + 'ru/help.html' || p.indexOf(base + 'ru/help/') === 0 ||
+        p.indexOf(base + 'ru/legal/') === 0 || p === base + 'ru/404.html');
+      if (!isStatic) return '';
+      var ru = p.indexOf(base + 'ru/') === 0;
+      if (lang === 'ru' && !ru) return base + 'ru/' + p.slice(base.length);
+      if (lang !== 'ru' && ru) return base + p.slice((base + 'ru/').length);
+    } catch (e) {}
+    return '';
+  }
+
   function set(lang) {
     lang = lang === 'ru' ? 'ru' : 'en';
     try { localStorage.setItem('fs-lang', lang); } catch (e) {}
+    var paired = staticLanguageCounterpart(lang);
+    if (paired && paired !== location.pathname) {
+      /* Preserve search/hash anchors while loading the complete paired page. */
+      location.replace(paired + (location.search || '') + (location.hash || ''));
+      return;
+    }
     document.documentElement.setAttribute('lang', lang);
     apply(lang);
     try { window.dispatchEvent(new CustomEvent('fs-lang-change', { detail: { lang: lang } })); } catch (e) {}
